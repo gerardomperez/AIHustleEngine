@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 12: Your First 30 Days | AI Hustle Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--dark); }
+        .app { display: flex; min-height: 100vh; }
+        .sidebar { width: 260px; background: white; border-right: 1px solid #e2e8f0; display: flex; flex-direction: column; position: fixed; height: 100vh; z-index: 100; }
+        .sidebar-header { padding: 24px; border-bottom: 1px solid #e2e8f0; }
+        .logo { font-weight: 800; font-size: 1.25rem; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav { flex: 1; padding: 16px 12px; overflow-y: auto; }
+        .nav-title { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray); padding: 0 12px; margin-bottom: 8px; }
+        .nav-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 8px; cursor: pointer; transition: all 0.2s; color: var(--dark); text-decoration: none; font-size: 0.9rem; }
+        .nav-item:hover, .nav-item.active { background: var(--light); color: var(--primary); }
+        .main-content { flex: 1; margin-left: 260px; min-height: 100vh; }
+        .module-header { background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%); color: white; padding: 48px 32px; }
+        .module-number { display: inline-block; background: var(--primary); color: white; padding: 6px 16px; border-radius: 50px; font-size: 0.875rem; font-weight: 600; margin-bottom: 16px; }
+        .module-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 12px; }
+        .module-description { font-size: 1.1rem; color: #94a3b8; max-width: 600px; }
+        .progress-bar { background: rgba(255,255,255,0.1); height: 6px; border-radius: 3px; margin-top: 24px; max-width: 400px; }
+        .progress-fill { background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%); height: 100%; border-radius: 3px; width: 0%; }
+        .content-area { padding: 32px; max-width: 900px; }
+        .lesson-card { background: white; border-radius: 16px; border: 1px solid #e2e8f0; margin-bottom: 24px; overflow: hidden; }
+        .lesson-header { padding: 24px; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; gap: 16px; }
+        .lesson-number { width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.25rem; flex-shrink: 0; }
+        .lesson-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 4px; }
+        .lesson-duration { font-size: 0.875rem; color: var(--gray); display: flex; align-items: center; gap: 4px; }
+        .icon-small { width: 14px; height: 14px; }
+        .lesson-description { padding: 16px 24px; color: var(--gray); font-size: 0.95rem; border-bottom: 1px solid #e2e8f0; }
+        .lesson-content { padding: 24px; }
+        .lesson-content h3 { font-size: 1rem; font-weight: 600; margin: 24px 0 12px; color: var(--dark); }
+        .lesson-content h3:first-child { margin-top: 0; }
+        .lesson-content p { color: #475569; line-height: 1.7; margin-bottom: 16px; }
+        .takeaways-list, .action-list { list-style: none; }
+        .takeaways-list li, .action-list li { padding: 10px 0; padding-left: 28px; position: relative; color: #475569; line-height: 1.6; }
+        .takeaways-list li::before { content: '✓'; position: absolute; left: 0; color: var(--success); font-weight: bold; }
+        .action-list li::before { content: '□'; position: absolute; left: 0; color: var(--gray); }
+        .resources { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+        .resource-link { padding: 8px 16px; background: var(--light); border-radius: 8px; color: var(--primary); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: all 0.2s; }
+        .resource-link:hover { background: var(--primary); color: white; }
+        .btn-start { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 24px; transition: all 0.2s; }
+        .btn-start:hover { transform: translateY(-1px); box-shadow: 0 8px 25px rgba(99,102,241,0.3); }
+        .module-nav { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0; }
+        .nav-link { display: flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-weight: 500; padding: 12px 20px; border-radius: 8px; transition: all 0.2s; }
+        .nav-link:hover { background: var(--light); }
+        .upgrade-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15, 23, 42, 0.9); z-index: 1000; justify-content: center; align-items: center; }
+        .upgrade-card { background: white; padding: 48px; border-radius: 20px; text-align: center; max-width: 500px; }
+        .upgrade-card h2 { font-size: 1.75rem; margin-bottom: 16px; }
+        .upgrade-card p { color: var(--gray); margin-bottom: 24px; }
+        .btn-upgrade { padding: 14px 28px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+        .completion-badge { background: linear-gradient(135deg, var(--success) 0%, #059669 100%); color: white; padding: 24px; border-radius: 16px; text-align: center; margin-top: 32px; }
+        .completion-badge h3 { font-size: 1.5rem; margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">AI Hustle Engine</div>
+            </div>
+            <nav class="nav">
+                <div class="nav-title">Menu</div>
+                <a href="/member/dashboard.html" class="nav-item"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+                <a href="/member/module-1.html" class="nav-item active"><i data-lucide="book-open"></i> My Courses</a>
+                <a href="/member/prompt-vault.html" class="nav-item"><i data-lucide="sparkles"></i> Prompt Vault</a>
+                <a href="/member/templates.html" class="nav-item"><i data-lucide="file-text"></i> Templates</a>
+                <div class="nav-title">Account</div>
+                <a href="/member/account.html" class="nav-item"><i data-lucide="user"></i> Settings</a>
+                <a href="/login.html" class="nav-item"><i data-lucide="log-out"></i> Logout</a>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="module-header">
+                <span class="module-number">Module 12</span>
+                <h1 class="module-title">Your First 30 Days</h1>
+                <p class="module-description">Action plan to start immediately</p>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+            </div>
+            
+            <div class="content-area">
+
+        <div class="lesson-card">
+            <div class="lesson-header">
+                <div class="lesson-number">1</div>
+                <div class="lesson-title-section">
+                    <h2 class="lesson-title">Week 1: Foundation</h2>
+                    <span class="lesson-duration"><i data-lucide="clock" class="icon-small"></i> 30 min</span>
+                </div>
+            </div>
+            <p class="lesson-description">Setup and first experiments</p>
+            <div class="lesson-content">
+                <h3>Overview</h3>
+                <p>Everything in this course comes down to execution. This final module is your launch plan — a specific, daily action schedule for your first 30 days that builds momentum, creates early wins, and sets the foundation for sustainable income.<br><br><br><br>Week 1 is about foundations: setting up your tools, defining your offer, and building your outreach list. Week 2 is about first contact: sending outreach, running your first discovery call, and landing your first paid client. Weeks 3-4 are about momentum: delivering excellent work, collecting your first testimonial, and starting your content presence.<br><br><br><br>You don't need a perfect plan. You need a good plan you'll actually execute. This is it.</p>
+                <h3>Key Takeaways</h3>
+                <ul class="takeaways-list">
+                    <li>The 30-day launch framework: Daily priorities organized for maximum momentum</li>
+                    <li>Week 1 non-negotiables: The foundation work that everything else builds on</li>
+                    <li>Your first client target: How to land a paying client in the first 14 days</li>
+                    <li>Early win design: How to structure first projects for success and testimonials</li>
+                    <li>Momentum maintenance: How to avoid the Day 15 slump that kills most new businesses</li>
+                </ul>
+                <h3>Action Items</h3>
+                <ul class="action-list">
+                    <li>Download and print your 30-Day Launch Calendar</li>
+                    <li>Complete all Week 1 setup items: Tools, offer, outreach list (20 names)</li>
+                    <li>Send your first 5 outreach messages by end of Day 3</li>
+                    <li>Book your first discovery call within 7 days</li>
+                </ul>
+                <h3>Resources</h3>
+                <div class="resources">
+                <a href="/resources/30-day-launch" target="_blank" class="resource-link">30-Day Launch Calendar</a>
+                <a href="/prompts/ca-001" target="_blank" class="resource-link">Cold Email Sequence Prompt</a>
+                <a href="/prompts/bs-008" target="_blank" class="resource-link">Offer Validation Framework Prompt</a>
+                </div>
+                <button class="btn-start" onclick="startLesson(1)">Start Lesson</button>
+            </div>
+        </div>
+
+        <div class="lesson-card">
+            <div class="lesson-header">
+                <div class="lesson-number">2</div>
+                <div class="lesson-title-section">
+                    <h2 class="lesson-title">Week 2: First Offer</h2>
+                    <span class="lesson-duration"><i data-lucide="clock" class="icon-small"></i> 35 min</span>
+                </div>
+            </div>
+            <p class="lesson-description">Create and validate</p>
+            <div class="lesson-content">
+                <h3>Overview</h3>
+                <p>Your first 90 days are the most important 90 days of your AI income journey. This lesson shows you how to build on your first client, turn early results into a case study, use that case study to get the next client, and begin the compound growth cycle that takes most successful AI entrepreneurs to $5,000-$10,000/month within their first year.<br><br><br><br>We cover the key activities at each 30-day milestone: the metrics to track, the decisions to make, and the pitfalls to avoid at each stage. This is the roadmap from your first client to a sustainable business.<br><br><br><br>You'll leave with a clear picture of what success looks like at Day 30, Day 60, and Day 90.</p>
+                <h3>Key Takeaways</h3>
+                <ul class="takeaways-list">
+                    <li>Day 30 milestone: What a successful first month looks like</li>
+                    <li>Day 60 milestone: How to compound early results into consistent income</li>
+                    <li>Day 90 milestone: The activities that predict long-term success</li>
+                    <li>The 5 pitfalls that derail most new AI entrepreneurs in the first 90 days</li>
+                    <li>How to use your first client to get your next 5 clients through referrals and case studies</li>
+                </ul>
+                <h3>Action Items</h3>
+                <ul class="action-list">
+                    <li>Write out your personal Day 30, Day 60, and Day 90 success criteria</li>
+                    <li>Build your case study template using the Case Study Creator prompt</li>
+                    <li>Plan your first 'content piece' based on your first client result</li>
+                    <li>Identify 3 metrics you'll track weekly starting now</li>
+                </ul>
+                <h3>Resources</h3>
+                <div class="resources">
+                <a href="/prompts/ca-008" target="_blank" class="resource-link">Case Study Creator Prompt</a>
+                <a href="/prompts/ca-009" target="_blank" class="resource-link">Testimonial Request Prompt</a>
+                <a href="/prompts/oa-004" target="_blank" class="resource-link">Weekly Business Review Template</a>
+                </div>
+                <button class="btn-start" onclick="startLesson(2)">Start Lesson</button>
+            </div>
+        </div>
+
+        <div class="lesson-card">
+            <div class="lesson-header">
+                <div class="lesson-number">3</div>
+                <div class="lesson-title-section">
+                    <h2 class="lesson-title">Weeks 3-4: First Clients</h2>
+                    <span class="lesson-duration"><i data-lucide="clock" class="icon-small"></i> 40 min</span>
+                </div>
+            </div>
+            <p class="lesson-description">Outreach and closing</p>
+            <div class="lesson-content">
+                <h3>Overview</h3>
+                <p>This is your graduation lesson — the moment where everything comes together. We'll review the complete AI Hustle Engine framework, identify where you are in your journey, and map the specific next steps that will take you from here to your income goal.<br><br><br><br>We cover the psychology of building an AI business through the hard parts: the week where you want to quit, the client who pushes back, the month where revenue dips. These moments are predictable, and they're the filter — most people stop here. This lesson prepares you to push through.<br><br><br><br>You'll leave with a written commitment to your 90-day goal, a clear daily schedule, and access to the Inner Circle community where you'll continue to grow.</p>
+                <h3>Key Takeaways</h3>
+                <ul class="takeaways-list">
+                    <li>The complete AI Hustle Engine framework: How all 12 modules connect</li>
+                    <li>The predictable hard moments: What they are and how to get through them</li>
+                    <li>Building accountability structures that keep you in action when motivation dips</li>
+                    <li>The compounding effect: How early income investments create exponential growth</li>
+                    <li>Your next level: What to focus on after you hit your first income milestone</li>
+                </ul>
+                <h3>Action Items</h3>
+                <ul class="action-list">
+                    <li>Write your 90-day commitment statement and share it with someone who will hold you accountable</li>
+                    <li>Set up your daily and weekly review rituals</li>
+                    <li>Join the Inner Circle community and introduce yourself</li>
+                    <li>Schedule your first 30-day check-in with yourself</li>
+                </ul>
+                <h3>Resources</h3>
+                <div class="resources">
+                <a href="/community" target="_blank" class="resource-link">Inner Circle Community</a>
+                <a href="/prompts/bs-009" target="_blank" class="resource-link">90-Day Growth Sprint Plan Prompt</a>
+                <a href="/api/playbook" target="_blank" class="resource-link">Your AI Hustle Playbook</a>
+                </div>
+                <button class="btn-start" onclick="startLesson(3)">Start Lesson</button>
+            </div>
+        </div>
+
+                
+                <div class="completion-badge" id="completionBadge" style="display: none;">
+                    <h3>🎉 Course Complete!</h3>
+                    <p>You've finished all 12 modules of the AI Hustle Engine. Ready to build your empire?</p>
+                </div>
+                
+                <div class="module-nav">
+                    <a href="/member/module-11.html" class="nav-link"><i data-lucide="arrow-left"></i> Previous Module</a>
+                    <a href="/member/dashboard.html" class="nav-link">Back to Dashboard <i data-lucide="layout-dashboard"></i></a>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <div class="upgrade-overlay" id="upgradeOverlay">
+        <div class="upgrade-card">
+            <h2>🔒 Inner Circle Content</h2>
+            <p>This module is part of the Inner Circle tier. Upgrade to access all 12 modules plus 1-on-1 coaching and exclusive benefits.</p>
+            <a href="/checkout.html?tier=inner-circle" class="btn-upgrade">Upgrade to Inner Circle</a>
+        </div>
+    </div>
+    
+    <script>
+        lucide.createIcons();
+        
+        const user = JSON.parse(localStorage.getItem('ahe_user') || '{"tier": "starter"}');
+        if (user.tier !== 'inner-circle') {
+            document.getElementById('upgradeOverlay').style.display = 'flex';
+        }
+        
+        const completed = JSON.parse(localStorage.getItem('module12_completed') || '[]');
+        document.getElementById('progressFill').style.width = (completed.length / 3 * 100) + '%';
+        
+        if (completed.length === 3) {
+            document.getElementById('completionBadge').style.display = 'block';
+        }
+        
+        function startLesson(n) {
+            alert('Lesson video would play here. Marking as complete.');
+            if (!completed.includes(n)) {
+                completed.push(n);
+                localStorage.setItem('module12_completed', JSON.stringify(completed));
+                document.getElementById('progressFill').style.width = (completed.length / 3 * 100) + '%';
+                if (completed.length === 3) {
+                    document.getElementById('completionBadge').style.display = 'block';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

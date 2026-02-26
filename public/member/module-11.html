@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 11: Inner Circle Strategies | AI Hustle Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--dark); }
+        .app { display: flex; min-height: 100vh; }
+        .sidebar { width: 260px; background: white; border-right: 1px solid #e2e8f0; display: flex; flex-direction: column; position: fixed; height: 100vh; z-index: 100; }
+        .sidebar-header { padding: 24px; border-bottom: 1px solid #e2e8f0; }
+        .logo { font-weight: 800; font-size: 1.25rem; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav { flex: 1; padding: 16px 12px; overflow-y: auto; }
+        .nav-title { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray); padding: 0 12px; margin-bottom: 8px; }
+        .nav-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 8px; cursor: pointer; transition: all 0.2s; color: var(--dark); text-decoration: none; font-size: 0.9rem; }
+        .nav-item:hover, .nav-item.active { background: var(--light); color: var(--primary); }
+        .main-content { flex: 1; margin-left: 260px; min-height: 100vh; }
+        .module-header { background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%); color: white; padding: 48px 32px; }
+        .module-number { display: inline-block; background: var(--primary); color: white; padding: 6px 16px; border-radius: 50px; font-size: 0.875rem; font-weight: 600; margin-bottom: 16px; }
+        .module-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 12px; }
+        .module-description { font-size: 1.1rem; color: #94a3b8; max-width: 600px; }
+        .progress-bar { background: rgba(255,255,255,0.1); height: 6px; border-radius: 3px; margin-top: 24px; max-width: 400px; }
+        .progress-fill { background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%); height: 100%; border-radius: 3px; width: 0%; }
+        .content-area { padding: 32px; max-width: 900px; }
+        .lesson-card { background: white; border-radius: 16px; border: 1px solid #e2e8f0; margin-bottom: 24px; overflow: hidden; }
+        .lesson-header { padding: 24px; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; gap: 16px; }
+        .lesson-number { width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.25rem; flex-shrink: 0; }
+        .lesson-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 4px; }
+        .lesson-duration { font-size: 0.875rem; color: var(--gray); display: flex; align-items: center; gap: 4px; }
+        .icon-small { width: 14px; height: 14px; }
+        .lesson-description { padding: 16px 24px; color: var(--gray); font-size: 0.95rem; border-bottom: 1px solid #e2e8f0; }
+        .lesson-content { padding: 24px; }
+        .lesson-content h3 { font-size: 1rem; font-weight: 600; margin: 24px 0 12px; color: var(--dark); }
+        .lesson-content h3:first-child { margin-top: 0; }
+        .lesson-content p { color: #475569; line-height: 1.7; margin-bottom: 16px; }
+        .takeaways-list, .action-list { list-style: none; }
+        .takeaways-list li, .action-list li { padding: 10px 0; padding-left: 28px; position: relative; color: #475569; line-height: 1.6; }
+        .takeaways-list li::before { content: '✓'; position: absolute; left: 0; color: var(--success); font-weight: bold; }
+        .action-list li::before { content: '□'; position: absolute; left: 0; color: var(--gray); }
+        .resources { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+        .resource-link { padding: 8px 16px; background: var(--light); border-radius: 8px; color: var(--primary); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: all 0.2s; }
+        .resource-link:hover { background: var(--primary); color: white; }
+        .btn-start { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 24px; transition: all 0.2s; }
+        .btn-start:hover { transform: translateY(-1px); box-shadow: 0 8px 25px rgba(99,102,241,0.3); }
+        .module-nav { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0; }
+        .nav-link { display: flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-weight: 500; padding: 12px 20px; border-radius: 8px; transition: all 0.2s; }
+        .nav-link:hover { background: var(--light); }
+        .upgrade-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15, 23, 42, 0.9); z-index: 1000; justify-content: center; align-items: center; }
+        .upgrade-card { background: white; padding: 48px; border-radius: 20px; text-align: center; max-width: 500px; }
+        .upgrade-card h2 { font-size: 1.75rem; margin-bottom: 16px; }
+        .upgrade-card p { color: var(--gray); margin-bottom: 24px; }
+        .btn-upgrade { padding: 14px 28px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">AI Hustle Engine</div>
+            </div>
+            <nav class="nav">
+                <div class="nav-title">Menu</div>
+                <a href="/member/dashboard.html" class="nav-item"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+                <a href="/member/module-1.html" class="nav-item active"><i data-lucide="book-open"></i> My Courses</a>
+                <a href="/member/prompt-vault.html" class="nav-item"><i data-lucide="sparkles"></i> Prompt Vault</a>
+                <a href="/member/templates.html" class="nav-item"><i data-lucide="file-text"></i> Templates</a>
+                <div class="nav-title">Account</div>
+                <a href="/member/account.html" class="nav-item"><i data-lucide="user"></i> Settings</a>
+                <a href="/login.html" class="nav-item"><i data-lucide="log-out"></i> Logout</a>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="module-header">
+                <span class="module-number">Module 11</span>
+                <h1 class="module-title">Inner Circle Strategies</h1>
+                <p class="module-description">Advanced frameworks for top performers</p>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+            </div>
+            
+            <div class="content-area">
+
+        <div class="lesson-card">
+            <div class="lesson-header">
+                <div class="lesson-number">1</div>
+                <div class="lesson-title-section">
+                    <h2 class="lesson-title">High-Ticket AI Services</h2>
+                    <span class="lesson-duration"><i data-lucide="clock" class="icon-small"></i> 40 min</span>
+                </div>
+            </div>
+            <p class="lesson-description">$10k+ projects and retainers</p>
+            <div class="lesson-content">
+                <h3>Overview</h3>
+                <p>High-ticket offers are where serious wealth is built. The economics are simple: one $5,000 sale requires the same effort as twenty $250 sales. In this Inner Circle lesson, we cover the advanced sales and positioning strategies required to consistently close $3,000-$25,000 deals.<br><br><br><br>We go deep on the psychology of high-ticket buyers, how to create context that makes premium pricing feel justified, advanced proposal techniques, and how to use AI to prepare for and execute high-stakes sales conversations.<br><br><br><br>This lesson is for people already generating income who want to 3-5x their average deal size without working more hours.</p>
+                <h3>Key Takeaways</h3>
+                <ul class="takeaways-list">
+                    <li>High-ticket buyer psychology: What wealthy buyers care about (and what they don't)</li>
+                    <li>Premium positioning: The 5 signals that communicate premium value instantly</li>
+                    <li>Advanced proposal technique: How to write proposals that close before the call</li>
+                    <li>AI sales prep: How to use AI to research prospects and personalize at scale</li>
+                    <li>The premium close: How to handle the 'too expensive' response at $10K+ price points</li>
+                </ul>
+                <h3>Action Items</h3>
+                <ul class="action-list">
+                    <li>Identify your highest-value service and build a $5,000+ offer around it</li>
+                    <li>Research 3 ideal high-ticket prospects using AI research tools</li>
+                    <li>Rebuild your proposal template for high-ticket using the Client Proposal Builder prompt</li>
+                    <li>Practice your high-ticket sales pitch until you can deliver it without notes</li>
+                </ul>
+                <h3>Resources</h3>
+                <div class="resources">
+                <a href="/prompts/ca-013" target="_blank" class="resource-link">High-Ticket Sales Script Prompt</a>
+                <a href="/prompts/ca-003" target="_blank" class="resource-link">Client Proposal Builder Prompt</a>
+                <a href="/prompts/pd-005" target="_blank" class="resource-link">VSL Script Writer Prompt</a>
+                </div>
+                <button class="btn-start" onclick="startLesson(1)">Start Lesson</button>
+            </div>
+        </div>
+
+        <div class="lesson-card">
+            <div class="lesson-header">
+                <div class="lesson-number">2</div>
+                <div class="lesson-title-section">
+                    <h2 class="lesson-title">AI Productized Services</h2>
+                    <span class="lesson-duration"><i data-lucide="clock" class="icon-small"></i> 45 min</span>
+                </div>
+            </div>
+            <p class="lesson-description">Scalable service models</p>
+            <div class="lesson-content">
+                <h3>Overview</h3>
+                <p>Building systems that work without you is the final frontier of leverage. At this level, we cover the advanced operational infrastructure that transforms an AI services business from a high-paying job into a true business asset: documented intellectual property, self-managing team structures, and financial systems that optimize for exit value.<br><br><br><br>This is the lesson where we connect everything in the course to a single unified system — one that can be documented, replicated, and eventually sold if you choose.<br><br><br><br>This level of business architecture is what makes an AI business worth $1M-$5M to an acquirer.</p>
+                <h3>Key Takeaways</h3>
+                <ul class="takeaways-list">
+                    <li>Intellectual property documentation: How to turn your methods into sellable assets</li>
+                    <li>Self-managing team structures: Meeting cadences and systems that run without you</li>
+                    <li>Client success automation: Renewals and expansion without relationship-dependent selling</li>
+                    <li>Financial architecture: P&L structure, cash flow management, and exit preparation</li>
+                    <li>The acquisition-ready business checklist: 20 criteria sophisticated buyers evaluate</li>
+                </ul>
+                <h3>Action Items</h3>
+                <ul class="action-list">
+                    <li>Document your core methodology as a proprietary framework with a name</li>
+                    <li>Build your monthly operating rhythm: All recurring activities on a documented calendar</li>
+                    <li>Create a client health scoring system to predict renewals and churn</li>
+                    <li>Prepare a one-page business overview as if you were presenting to an acquirer today</li>
+                </ul>
+                <h3>Resources</h3>
+                <div class="resources">
+                <a href="/prompts/bs-013" target="_blank" class="resource-link">Annual Planning Workshop Guide Prompt</a>
+                <a href="/prompts/oa-003" target="_blank" class="resource-link">KPI Dashboard Designer Prompt</a>
+                <a href="/prompts/bs-014" target="_blank" class="resource-link">Exit Strategy Planner Prompt</a>
+                </div>
+                <button class="btn-start" onclick="startLesson(2)">Start Lesson</button>
+            </div>
+        </div>
+
+        <div class="lesson-card">
+            <div class="lesson-header">
+                <div class="lesson-number">3</div>
+                <div class="lesson-title-section">
+                    <h2 class="lesson-title">Building an AI Brand</h2>
+                    <span class="lesson-duration"><i data-lucide="clock" class="icon-small"></i> 35 min</span>
+                </div>
+            </div>
+            <p class="lesson-description">Becoming the go-to expert</p>
+            <div class="lesson-content">
+                <h3>Overview</h3>
+                <p>The AI landscape is changing faster than any other technology sector in history. What's cutting-edge today may be commoditized in 12-18 months. Staying ahead isn't just about learning new tools — it's about building a business architecture that adapts and evolves as the technology changes.<br><br><br><br>This final Inner Circle lesson covers the long-term positioning strategy: how to build expertise moats that compound over time, how to evaluate emerging AI technologies for business opportunity, and how to build a reputation that remains valuable regardless of which specific AI tools dominate.<br><br><br><br>This is the capstone lesson — connecting everything you've learned into a coherent, evolving strategy.</p>
+                <h3>Key Takeaways</h3>
+                <ul class="takeaways-list">
+                    <li>Expertise moats: How to build AI knowledge that doesn't commoditize</li>
+                    <li>Trend identification: How to evaluate emerging AI tools for early-mover opportunity</li>
+                    <li>Reputation architecture: Building a professional standing that transcends specific tools</li>
+                    <li>Continuous learning system: How to stay ahead without consuming all your time</li>
+                    <li>The long game: Building a 10-year AI business vs. chasing 6-month opportunities</li>
+                </ul>
+                <h3>Action Items</h3>
+                <ul class="action-list">
+                    <li>Set up your AI learning system: Follow the right people, publications, and communities</li>
+                    <li>Identify 2-3 emerging AI capabilities to develop expertise in over the next 6 months</li>
+                    <li>Write your 3-year professional vision statement for your AI career or business</li>
+                    <li>Complete your Inner Circle graduation checklist and share your progress</li>
+                </ul>
+                <h3>Resources</h3>
+                <div class="resources">
+                <a href="/prompts#ai-tools-mastery" target="_blank" class="resource-link">AI Tools Mastery Prompts</a>
+                <a href="https://huggingface.co" target="_blank" class="resource-link">Hugging Face</a>
+                <a href="/resources/blueprint" target="_blank" class="resource-link">AI Business Blueprint</a>
+                </div>
+                <button class="btn-start" onclick="startLesson(3)">Start Lesson</button>
+            </div>
+        </div>
+
+                
+                <div class="module-nav">
+                    <a href="/member/module-10.html" class="nav-link"><i data-lucide="arrow-left"></i> Previous Module</a>
+                    <a href="/member/module-12.html" class="nav-link">Next Module <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <div class="upgrade-overlay" id="upgradeOverlay">
+        <div class="upgrade-card">
+            <h2>🔒 Inner Circle Content</h2>
+            <p>This module is part of the Inner Circle tier. Upgrade to access all 12 modules plus 1-on-1 coaching and exclusive benefits.</p>
+            <a href="/checkout.html?tier=inner-circle" class="btn-upgrade">Upgrade to Inner Circle</a>
+        </div>
+    </div>
+    
+    <script>
+        lucide.createIcons();
+        
+        const user = JSON.parse(localStorage.getItem('ahe_user') || '{"tier": "starter"}');
+        if (user.tier !== 'inner-circle') {
+            document.getElementById('upgradeOverlay').style.display = 'flex';
+        }
+        
+        const completed = JSON.parse(localStorage.getItem('module11_completed') || '[]');
+        document.getElementById('progressFill').style.width = (completed.length / 3 * 100) + '%';
+        
+        function startLesson(n) {
+            alert('Lesson video would play here. Marking as complete.');
+            if (!completed.includes(n)) {
+                completed.push(n);
+                localStorage.setItem('module11_completed', JSON.stringify(completed));
+                document.getElementById('progressFill').style.width = (completed.length / 3 * 100) + '%';
+            }
+        }
+    </script>
+</body>
+</html>
