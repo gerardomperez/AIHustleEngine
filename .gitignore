@@ -1,0 +1,19 @@
+# Environment & secrets
+api/.env
+*.env
+.env*
+
+# Logs
+*.log
+monitor.log
+video-download.log
+
+# Database
+api/data/*.db
+
+# Node modules
+node_modules/
+
+# Videos (large files)
+videos/
+*.mp4

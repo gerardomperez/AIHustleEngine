@@ -1,0 +1,333 @@
+{
+  "version": "1.0",
+  "updated": "2026-02-26",
+  "templates": [
+    {
+      "id": "tpl-001",
+      "title": "Cold Email - SaaS/Tech Companies",
+      "category": "Cold Email",
+      "tier": "accelerator",
+      "description": "High-converting cold email template for reaching SaaS or tech companies about AI services",
+      "format": "email",
+      "tags": [
+        "cold email",
+        "SaaS",
+        "tech",
+        "outreach",
+        "AI services"
+      ],
+      "content": "Subject: Quick question about [COMPANY NAME]'s [SPECIFIC PROCESS]\n\nHi [FIRST NAME],\n\nI noticed [COMPANY NAME] recently [SPECIFIC RECENT ACTIVITY - funding/launch/job posting]. Congrats.\n\nI work with SaaS companies to automate [SPECIFIC PROCESS] using AI — typically saving their team [X HOURS] per week while [SPECIFIC OUTCOME].\n\nDid it for [SIMILAR COMPANY] last quarter. They went from [BEFORE STATE] to [AFTER STATE] in 6 weeks.\n\nWorth a 15-minute chat to see if there's something similar I can do for [COMPANY NAME]?\n\n[YOUR NAME]\n\nP.S. No prep needed — I'll do all the research before we talk."
+    },
+    {
+      "id": "tpl-002",
+      "title": "Cold Email - Local Service Businesses",
+      "category": "Cold Email",
+      "tier": "accelerator",
+      "description": "Cold email template for reaching local service businesses (restaurants, gyms, salons, etc.) about AI automation",
+      "format": "email",
+      "tags": [
+        "cold email",
+        "local business",
+        "SMB",
+        "outreach"
+      ],
+      "content": "Subject: [FIRST NAME] — saving [BUSINESS TYPE] owners 10 hours/week\n\nHi [FIRST NAME],\n\nMost [BUSINESS TYPE] owners I talk to are handling [SPECIFIC TASK] manually — which takes [TIME ESTIMATE] a week and pulls you away from actually running the business.\n\nI help [BUSINESS TYPE] businesses automate [SPECIFIC TASK] using AI tools. Usually takes about a week to set up and runs without touching it after that.\n\n[REFERENCE NEARBY BUSINESS OR LOCAL DETAIL] made me think you'd be a good fit.\n\nHappy to show you exactly how it works — no tech knowledge needed on your end.\n\nWould a quick call this week work?\n\n[YOUR NAME]\n[PHONE NUMBER]"
+    },
+    {
+      "id": "tpl-003",
+      "title": "Cold Email - E-commerce Brands",
+      "category": "Cold Email",
+      "tier": "accelerator",
+      "description": "Cold email template targeting e-commerce brands for AI content, automation, or CX services",
+      "format": "email",
+      "tags": [
+        "cold email",
+        "ecommerce",
+        "DTC",
+        "outreach",
+        "AI content"
+      ],
+      "content": "Subject: [BRAND NAME]'s [CONTENT/SUPPORT/ADS] — quick thought\n\nHi [FIRST NAME],\n\nCame across [BRAND NAME] while researching [THEIR NICHE] brands. Love what you're doing with [SPECIFIC PRODUCT OR CAMPAIGN].\n\nQuick observation: [SPECIFIC OPPORTUNITY — e.g., your product descriptions don't highlight X, your email sequences end after 3 touches, your ad creative is running the same angle for 60+ days].\n\nI help DTC brands [SPECIFIC OUTCOME] using AI. Recent example: [BRAND TYPE] went from [BEFORE] to [AFTER] in [TIMEFRAME].\n\nWould love to share a few ideas specifically for [BRAND NAME] — no strings attached. Worth 20 minutes?\n\n[YOUR NAME]\n\nP.S. I already pulled your [SPECIFIC ASSET — website/emails/ads] for review. Happy to share what I found."
+    },
+    {
+      "id": "tpl-004",
+      "title": "Cold Email - Coaches and Consultants",
+      "category": "Cold Email",
+      "tier": "accelerator",
+      "description": "Cold email template for coaches and consultants who could benefit from AI content or automation",
+      "format": "email",
+      "tags": [
+        "cold email",
+        "coaches",
+        "consultants",
+        "content",
+        "outreach"
+      ],
+      "content": "Subject: Your content system — are you doing this manually?\n\nHi [FIRST NAME],\n\nI follow your work on [PLATFORM] — really like [SPECIFIC CONTENT PIECE OR TOPIC THEY POST ABOUT].\n\nQuick question: Are you personally writing all your [NEWSLETTER/SOCIAL CONTENT/COURSE MATERIALS], or do you have a system?\n\nI help coaches and consultants build AI-powered content systems that generate a week of content in 2-3 hours. Stuff that sounds like them — not generic AI.\n\n[SPECIFIC PERSON IN THEIR SPACE] uses a version of this and it's freed up [TIME] per week for them to focus on client work.\n\nWould it make sense to show you what this looks like for your situation?\n\n[YOUR NAME]"
+    },
+    {
+      "id": "tpl-005",
+      "title": "Cold Email - Marketing Agencies",
+      "category": "Cold Email",
+      "tier": "accelerator",
+      "description": "Cold email template for marketing agencies to offer white-label AI services or tools",
+      "format": "email",
+      "tags": [
+        "cold email",
+        "agency",
+        "white label",
+        "B2B",
+        "partnership"
+      ],
+      "content": "Subject: Adding AI delivery to [AGENCY NAME]'s offering?\n\nHi [FIRST NAME],\n\nFound [AGENCY NAME] through [HOW YOU FOUND THEM — directory/referral/LinkedIn].\n\nA few agencies I work with have added AI-powered [SPECIFIC SERVICE — content/SEO/automation] to their stack — delivered under their brand, fully white-labeled.\n\nThe economics work well: they're able to offer [SPECIFIC SERVICE] at [PRICE RANGE] with margins most aren't achieving on traditional delivery.\n\nIf you're exploring AI services for [AGENCY NAME]'s clients, I'd be happy to share exactly how this is structured and what the economics look like.\n\n20 minutes this week?\n\n[YOUR NAME]\n\nP.S. No pitch — I'm selective about who I work with. Just want to see if it's a fit."
+    },
+    {
+      "id": "tpl-006",
+      "title": "30-Day Social Media Content Calendar",
+      "category": "Social Media",
+      "tier": "accelerator",
+      "description": "A structured 30-day content calendar template for any niche or platform",
+      "format": "doc",
+      "tags": [
+        "content calendar",
+        "social media",
+        "planning",
+        "content strategy"
+      ],
+      "content": "# 30-Day Social Media Content Calendar\n**Brand:** [YOUR BRAND]\n**Platform(s):** [PLATFORMS]\n**Monthly Theme:** [MONTHLY FOCUS THEME]\n**Posting Frequency:** [X] posts/week\n\n---\n\n## CONTENT PILLARS\n1. EDUCATIONAL: How-to content, tips, tutorials (40% of posts)\n2. AUTHORITY: Case studies, results, testimonials (20% of posts)\n3. ENTERTAINMENT: Behind-the-scenes, humor, personal (20% of posts)\n4. PROMOTIONAL: Offers, services, products (20% of posts)\n\n---\n\n## WEEK 1: FOUNDATION\n| Day | Pillar | Format | Topic | Hook | CTA | Status |\n|-----|--------|--------|-------|------|-----|--------|\n| Mon | Educational | Carousel | [TOPIC] | [HOOK LINE] | Save this | □ |\n| Wed | Authority | Static | [RESULT/WIN] | [HOOK LINE] | DM me | □ |\n| Fri | Entertainment | Reel | [BEHIND-SCENES] | [HOOK LINE] | Follow | □ |\n\n## WEEK 2: MOMENTUM\n| Day | Pillar | Format | Topic | Hook | CTA | Status |\n|-----|--------|--------|-------|------|-----|--------|\n| Mon | Educational | Carousel | [TOPIC] | [HOOK LINE] | Share | □ |\n| Tue | Promotional | Static | [OFFER] | [HOOK LINE] | Link in bio | □ |\n| Thu | Authority | Video | [CASE STUDY] | [HOOK LINE] | Comment | □ |\n| Sat | Entertainment | Story | [POLL/Q&A] | [HOOK LINE] | Reply | □ |\n\n## WEEK 3: ENGAGEMENT PUSH\n| Day | Pillar | Format | Topic | Hook | CTA | Status |\n|-----|--------|--------|-------|------|-----|--------|\n| Mon | Educational | Thread/Carousel | [TOPIC] | [HOOK LINE] | Save | □ |\n| Wed | Authority | Testimonial post | [CLIENT WIN] | [HOOK LINE] | DM | □ |\n| Fri | Entertainment | Reel | [TRENDING TOPIC] | [HOOK LINE] | Share | □ |\n\n## WEEK 4: CLOSE & CONVERT\n| Day | Pillar | Format | Topic | Hook | CTA | Status |\n|-----|--------|--------|-------|------|-----|--------|\n| Mon | Educational | Carousel | [MONTH BEST OF] | [HOOK LINE] | Save | □ |\n| Tue | Promotional | Static + Story | [OFFER REMINDER] | [HOOK LINE] | DM | □ |\n| Thu | Authority | [TESTIMONIAL] | [RESULT] | [HOOK LINE] | Link | □ |\n| Sat | Entertainment | [PERSONAL] | [REFLECTION] | [HOOK LINE] | Follow | □ |\n\n---\n\n## MONTHLY METRICS\n- Total posts published: ___\n- Average engagement rate: ___\n- Follower growth: ___\n- DMs/leads generated: ___\n- Best performing post: ___\n- Worst performing post: ___\n- Next month adjustment: ___"
+    },
+    {
+      "id": "tpl-007",
+      "title": "Client Proposal Template",
+      "category": "Client Proposals",
+      "tier": "accelerator",
+      "description": "A professional client proposal template that covers all key sections to win projects",
+      "format": "doc",
+      "tags": [
+        "proposal",
+        "client work",
+        "sales",
+        "freelancing",
+        "agency"
+      ],
+      "content": "# PROJECT PROPOSAL\n**Prepared for:** [CLIENT NAME / COMPANY]\n**Prepared by:** [YOUR NAME / COMPANY]\n**Date:** [DATE]\n**Valid until:** [EXPIRY DATE — 30 days recommended]\n\n---\n\n## EXECUTIVE SUMMARY\n[CLIENT COMPANY] is facing [CORE PROBLEM IN 1-2 SENTENCES]. This proposal outlines how [YOUR COMPANY] will [SOLUTION IN 1 SENTENCE], delivering [SPECIFIC OUTCOME] within [TIMEFRAME].\n\n---\n\n## WE UNDERSTAND YOUR SITUATION\nBased on our conversation on [DATE], here's what we understand about your current situation:\n- [SPECIFIC PAIN POINT 1 — use their exact words]\n- [SPECIFIC PAIN POINT 2]\n- [SPECIFIC PAIN POINT 3]\n- [SPECIFIC GOAL OR DESIRED OUTCOME]\n\nThis tells us [INSIGHT THAT DEMONSTRATES YOU UNDERSTAND THEM].\n\n---\n\n## THE PROBLEM WE'RE SOLVING\n[CLIENT COMPANY] is currently [SPECIFIC PROBLEM]. This is costing you:\n- **Time:** [X HOURS/WEEK] spent on [MANUAL TASK]\n- **Money:** Approximately $[COST ESTIMATE] per [PERIOD] in [CATEGORY]\n- **Opportunity:** [SPECIFIC OPPORTUNITY BEING MISSED]\n\nWithout addressing this, [CONSEQUENCE OF INACTION].\n\n---\n\n## PROPOSED SOLUTION\nWe will [SPECIFIC SOLUTION] using [APPROACH/METHODOLOGY].\n\nThis will result in:\n✓ [SPECIFIC OUTCOME 1]\n✓ [SPECIFIC OUTCOME 2]\n✓ [SPECIFIC OUTCOME 3]\n\n---\n\n## SCOPE OF WORK & DELIVERABLES\n\n### Phase 1: [PHASE NAME] (Weeks 1-[X])\n- [DELIVERABLE 1] — [FORMAT/SPECIFICATION]\n- [DELIVERABLE 2] — [FORMAT/SPECIFICATION]\n- [MILESTONE: APPROVAL DATE]\n\n### Phase 2: [PHASE NAME] (Weeks [X]-[Y])\n- [DELIVERABLE 3] — [FORMAT/SPECIFICATION]\n- [DELIVERABLE 4] — [FORMAT/SPECIFICATION]\n- [MILESTONE: LAUNCH DATE]\n\n**What's NOT included in this scope:**\n- [EXCLUSION 1]\n- [EXCLUSION 2]\n- (Any additional requests will be handled as a change order)\n\n---\n\n## INVESTMENT\n\n| Option | Includes | Investment |\n|--------|----------|------------|\n| **Starter** | [CORE DELIVERABLES] | $[PRICE] |\n| **Growth** ⭐ | [MORE DELIVERABLES] | $[PRICE] |\n| **Premium** | [FULL SCOPE + EXTRAS] | $[PRICE] |\n\n*Payment terms: [50% upfront, 50% on delivery / Monthly / etc.]*\n*Accepted payment: [Stripe / ACH / Check]*\n\n---\n\n## WHY [YOUR COMPANY]\n\n**[PROOF POINT 1]:** [Specific result you achieved for a similar client]\n\n**[PROOF POINT 2]:** [Years of experience / specific credential / methodology]\n\n**[PROOF POINT 3]:** [Testimonial quote or another specific result]\n\n---\n\n## TIMELINE\n\n| Milestone | Date |\n|-----------|------|\n| Project kickoff | [DATE] |\n| [MILESTONE 1] | [DATE] |\n| [MILESTONE 2] | [DATE] |\n| Final delivery | [DATE] |\n\n*Timeline assumes client provides required materials within [X] business days of each request.*\n\n---\n\n## NEXT STEPS\n\nTo move forward:\n1. Review this proposal and let us know your questions\n2. Select your preferred package\n3. Sign the agreement and submit initial payment\n4. We'll schedule your kickoff call within [24/48] hours\n\n**To accept this proposal:** Reply \"I'm ready to proceed\" and we'll send the agreement and invoice.\n\nThis proposal is valid until [DATE].\n\n---\n\n## FREQUENTLY ASKED QUESTIONS\n\n**Q: What if I need changes to the scope?**\nAdditional work outside this scope is available at $[HOURLY/PROJECT RATE]. We'll always get your approval before proceeding.\n\n**Q: What do you need from me to get started?**\n[LIST 2-3 THINGS: access, assets, information]\n\n**Q: What happens if I'm not happy with the work?**\n[YOUR REVISION POLICY]\n\n---\n\n*Questions? [YOUR EMAIL] | [YOUR PHONE]*"
+    },
+    {
+      "id": "tpl-008",
+      "title": "Service Package Pricing Template",
+      "category": "Pricing",
+      "tier": "accelerator",
+      "description": "A clean service package pricing template with 3 tiers for any service business",
+      "format": "doc",
+      "tags": [
+        "pricing",
+        "packages",
+        "service menu",
+        "freelancing",
+        "agency"
+      ],
+      "content": "# [YOUR SERVICE] PACKAGES\n\n## [STARTER PACKAGE NAME]\n**Best for:** [TYPE OF CLIENT — new businesses, single project, testing the waters]\n**Investment: $[PRICE]** [one-time / per month]\n\n✓ [DELIVERABLE 1]\n✓ [DELIVERABLE 2]\n✓ [DELIVERABLE 3]\n✓ [DELIVERABLE 4]\n✗ [WHAT'S NOT INCLUDED]\n✗ [WHAT'S NOT INCLUDED]\n\nTurnaround: [X] business days\nRevisions: [X] rounds included\n\n---\n\n## [CORE PACKAGE NAME] ⭐ MOST POPULAR\n**Best for:** [TYPE OF CLIENT — growing businesses, serious about results]\n**Investment: $[PRICE]** [one-time / per month]\n\nEverything in [STARTER PACKAGE], plus:\n✓ [ADDITIONAL DELIVERABLE 1]\n✓ [ADDITIONAL DELIVERABLE 2]\n✓ [ADDITIONAL DELIVERABLE 3]\n✓ [PREMIUM FEATURE — priority support / monthly call / extras]\n\nTurnaround: [X] business days\nRevisions: [X] rounds included\n\n---\n\n## [PREMIUM PACKAGE NAME]\n**Best for:** [TYPE OF CLIENT — enterprise, maximum results, full-service]\n**Investment: $[PRICE]** [one-time / per month]\n\nEverything in [CORE PACKAGE], plus:\n✓ [VIP FEATURE 1]\n✓ [VIP FEATURE 2]\n✓ [VIP FEATURE 3]\n✓ [VIP FEATURE 4 — dedicated support / SLA / white-glove]\n\nTurnaround: [X] business days (priority)\nRevisions: Unlimited within scope\n\n---\n\n## ADD-ONS\n\n| Service | Price |\n|---------|-------|\n| [ADD-ON 1] | $[PRICE] |\n| [ADD-ON 2] | $[PRICE] |\n| [ADD-ON 3] | $[PRICE] |\n| Rush delivery (48h) | +$[PRICE] |\n\n---\n\n## HOW TO GET STARTED\n1. Choose your package above\n2. Email [YOUR EMAIL] or book a call at [CALENDAR LINK]\n3. We'll review your project and send an agreement within 24 hours\n\n---\n\n## FREQUENTLY ASKED\n**Do you offer payment plans?** [YES/NO — details]\n**What do I need to provide?** [LIST REQUIREMENTS]\n**How many clients do you take at once?** [CAPACITY NOTE]\n**Is there a guarantee?** [YOUR GUARANTEE]"
+    },
+    {
+      "id": "tpl-009",
+      "title": "Freelancer Client Onboarding Checklist",
+      "category": "Client Management",
+      "tier": "accelerator",
+      "description": "Complete onboarding checklist for new freelance or agency clients",
+      "format": "checklist",
+      "tags": [
+        "onboarding",
+        "checklist",
+        "client management",
+        "freelancing",
+        "agency"
+      ],
+      "content": "# CLIENT ONBOARDING CHECKLIST\n**Client:** [CLIENT NAME]\n**Project:** [PROJECT NAME]\n**Start Date:** [DATE]\n**Project Manager:** [YOUR NAME]\n\n---\n\n## BEFORE KICKOFF: YOUR TASKS\n- [ ] Send signed contract to client\n- [ ] Send invoice for deposit/first payment\n- [ ] Confirm payment received\n- [ ] Send welcome email (template: onboarding-welcome.txt)\n- [ ] Create project folder in [CLOUD STORAGE]\n- [ ] Set up project in [PROJECT MANAGEMENT TOOL]\n- [ ] Create client portal / shared workspace\n- [ ] Add client to [COMMUNICATION CHANNEL — Slack/email thread]\n- [ ] Schedule kickoff call\n- [ ] Prepare kickoff call agenda\n\n---\n\n## INFORMATION TO COLLECT FROM CLIENT\n- [ ] Brand guidelines (logo, colors, fonts)\n- [ ] Access credentials: [LIST PLATFORMS NEEDED]\n- [ ] Existing assets: [LIST ASSETS]\n- [ ] Competitors list (3-5 names)\n- [ ] Target audience description\n- [ ] Goals and success metrics\n- [ ] Key stakeholders and approvers\n- [ ] Communication preferences (response time, channels)\n- [ ] Any absolute restrictions or sensitivities\n- [ ] Previous work in this area (if any)\n\n---\n\n## KICKOFF CALL AGENDA\n- [ ] Introductions and relationship building (5 min)\n- [ ] Review project goals and success criteria (10 min)\n- [ ] Walk through project scope and deliverables (10 min)\n- [ ] Review timeline and milestones (5 min)\n- [ ] Communication cadence agreement (5 min)\n- [ ] Collect remaining needed information (5 min)\n- [ ] Q&A (5 min)\n- [ ] Confirm next steps and dates (5 min)\n\n---\n\n## WEEK 1 MILESTONES\n- [ ] Send kickoff call notes within 24 hours\n- [ ] Complete initial research/strategy\n- [ ] Share preliminary work for feedback\n- [ ] Confirm Week 2 check-in time\n\n---\n\n## ONGOING PROJECT MANAGEMENT\n- [ ] Weekly status update scheduled (every [DAY] at [TIME])\n- [ ] Milestone approval process confirmed\n- [ ] Revision request process documented\n- [ ] Out-of-scope request process explained\n- [ ] Emergency contact protocol shared\n\n---\n\n## BILLING SETUP\n- [ ] Invoice schedule documented\n- [ ] Payment method confirmed\n- [ ] Receipt process confirmed\n- [ ] Budget tracking started\n\n---\n\n## NOTES\n[Space for project-specific notes]"
+    },
+    {
+      "id": "tpl-010",
+      "title": "Weekly AI Income Tracker",
+      "category": "Finance & Tracking",
+      "tier": "accelerator",
+      "description": "Weekly income tracking spreadsheet structure for AI freelancers and agency owners",
+      "format": "spreadsheet",
+      "tags": [
+        "income tracking",
+        "finance",
+        "freelancing",
+        "metrics",
+        "revenue"
+      ],
+      "content": "# WEEKLY AI INCOME TRACKER\n\n---\n\n## SHEET 1: WEEKLY OVERVIEW\n\n| Week | Services Revenue | Product Revenue | Affiliate Revenue | Total Revenue | Expenses | Net Profit | Notes |\n|------|-----------------|-----------------|-------------------|---------------|----------|------------|-------|\n| Week 1 (Jan 1-7) | $0 | $0 | $0 | $0 | $0 | $0 | |\n| Week 2 (Jan 8-14) | $0 | $0 | $0 | $0 | $0 | $0 | |\n| Week 3 (Jan 15-21) | $0 | $0 | $0 | $0 | $0 | $0 | |\n| Week 4 (Jan 22-28) | $0 | $0 | $0 | $0 | $0 | $0 | |\n| **MONTHLY TOTAL** | **$0** | **$0** | **$0** | **$0** | **$0** | **$0** | |\n\n---\n\n## SHEET 2: ACTIVE CLIENTS\n\n| Client Name | Service | Monthly Value | Start Date | Renewal Date | Status | Notes |\n|-------------|---------|---------------|------------|--------------|--------|-------|\n| [CLIENT 1] | [SERVICE] | $[AMT] | [DATE] | [DATE] | Active | |\n| [CLIENT 2] | [SERVICE] | $[AMT] | [DATE] | [DATE] | Active | |\n\n**MONTHLY RECURRING REVENUE (MRR):** $[TOTAL]\n\n---\n\n## SHEET 3: PIPELINE\n\n| Prospect | Service | Value | Stage | Next Action | Date | Probability |\n|----------|---------|-------|-------|-------------|------|-------------|\n| [PROSPECT] | [SERVICE] | $[AMT] | Discovery | Send proposal | [DATE] | 60% |\n| [PROSPECT] | [SERVICE] | $[AMT] | Proposal | Follow up | [DATE] | 40% |\n\n**PIPELINE TOTAL:** $[TOTAL]\n**WEIGHTED PIPELINE:** $[TOTAL x PROBABILITY]\n\n---\n\n## SHEET 4: PRODUCTS\n\n| Product | Platform | Units Sold (Week) | Revenue | Refunds | Net | Cumulative |\n|---------|----------|-------------------|---------|---------|-----|------------|\n| [PRODUCT 1] | Gumroad | 0 | $0 | $0 | $0 | $0 |\n| [PRODUCT 2] | Gumroad | 0 | $0 | $0 | $0 | $0 |\n\n---\n\n## SHEET 5: EXPENSES\n\n| Date | Category | Description | Amount | Monthly/One-time |\n|------|----------|-------------|--------|-----------------|\n| [DATE] | AI Tools | ChatGPT Plus | $20 | Monthly |\n| [DATE] | AI Tools | Claude Pro | $20 | Monthly |\n| [DATE] | Software | [TOOL] | $[AMT] | Monthly |\n| [DATE] | Marketing | [EXPENSE] | $[AMT] | One-time |\n\n**TOTAL MONTHLY EXPENSES:** $[TOTAL]\n\n---\n\n## SHEET 6: GOALS & ACTUALS\n\n| Goal | Target | Actual | % of Goal |\n|------|--------|--------|-----------|\n| Monthly Revenue | $[TARGET] | $[ACTUAL] | [%] |\n| New Clients | [#] | [#] | [%] |\n| Discovery Calls | [#] | [#] | [%] |\n| Outreach Sent | [#] | [#] | [%] |\n| Content Published | [#] | [#] | [%] |\n| Product Sales | [#] | [#] | [%] |"
+    },
+    {
+      "id": "tpl-011",
+      "title": "Content Repurposing Workflow",
+      "category": "Content Operations",
+      "tier": "accelerator",
+      "description": "Step-by-step content repurposing workflow to turn one piece into 10+ assets",
+      "format": "doc",
+      "tags": [
+        "content repurposing",
+        "workflow",
+        "content strategy",
+        "operations"
+      ],
+      "content": "# CONTENT REPURPOSING WORKFLOW\n\n## STEP 1: IDENTIFY THE PILLAR PIECE\n**Source content type:** [Long-form video / Podcast episode / Blog post / Workshop]\n**Source content title:** [TITLE]\n**Core message:** [ONE SENTENCE]\n**Primary audience insight:** [KEY TAKEAWAY]\n\n---\n\n## STEP 2: EXTRACT KEY ASSETS\n\n### From this one piece, extract:\n- [ ] 5-8 quotable insights (single sentences or short paragraphs)\n- [ ] 3-5 data points or statistics mentioned\n- [ ] Top 5 actionable takeaways\n- [ ] 2-3 story moments or examples\n- [ ] The core framework or methodology (if any)\n\n---\n\n## STEP 3: REPURPOSE BY PLATFORM\n\n### TWITTER/X (Create within 24 hours of publishing)\n- [ ] Thread: [X main ideas from the piece]\n- [ ] 5 standalone tweet quotes from the piece\n- [ ] Poll based on a question raised in the piece\n\n### LINKEDIN (Create within 48 hours)\n- [ ] Long-form post: Top insight expanded with personal context\n- [ ] Image quote from the best quote in the piece\n\n### INSTAGRAM (Create within 48 hours)\n- [ ] Carousel: 8-slide summary (1 cover + 6 points + 1 CTA)\n- [ ] Story: Key stat or quote + poll\n\n### TIKTOK/REELS (Create within 72 hours)\n- [ ] 60-second summary video\n- [ ] Clip or highlight if it was video content\n\n### EMAIL/NEWSLETTER (Include in next newsletter)\n- [ ] Newsletter section: 150-word excerpt with link\n- [ ] Subject line options: [USE EMAIL SUBJECT LINE PROMPT]\n\n### YOUTUBE (If podcast/workshop)\n- [ ] Audiogram clip (1-2 minutes, best moment)\n- [ ] YouTube description with full timestamps\n\n### BLOG (Create within 1 week)\n- [ ] Expand into 1,000-word blog post\n- [ ] Add SEO optimization\n\n---\n\n## STEP 4: SCHEDULING GRID\n\n| Platform | Asset Type | Scheduled Date | Status |\n|----------|-----------|----------------|--------|\n| Twitter | Thread | [DATE] | □ |\n| LinkedIn | Post | [DATE] | □ |\n| Instagram | Carousel | [DATE] | □ |\n| TikTok | Video | [DATE] | □ |\n| Email | Newsletter | [DATE] | □ |\n| Blog | Article | [DATE] | □ |\n\n---\n\n## STEP 5: PERFORMANCE TRACKING (7 days after)\n\n| Platform | Asset | Reach | Engagement | Leads | Best Performer? |\n|----------|-------|-------|------------|-------|----------------|\n| Twitter | Thread | | | | □ |\n| LinkedIn | Post | | | | □ |\n| Instagram | Carousel | | | | □ |\n\n**Insight for next repurpose:** [What performed best and why]"
+    },
+    {
+      "id": "tpl-012",
+      "title": "Client Testimonial Request Email",
+      "category": "Client Management",
+      "tier": "starter",
+      "description": "Email template to request powerful testimonials from happy clients",
+      "format": "email",
+      "tags": [
+        "testimonials",
+        "social proof",
+        "client management",
+        "email"
+      ],
+      "content": "Subject: Quick favor? (+ congrats on [RESULT])\n\nHi [CLIENT FIRST NAME],\n\nI just wanted to take a moment to say congratulations on [SPECIFIC RESULT YOU HELPED THEM ACHIEVE]. Seeing [SPECIFIC METRIC OR OUTCOME] has been genuinely exciting to watch.\n\nI have a small favor to ask — and I completely understand if you're too busy.\n\nWe're putting together some case studies to help other [CLIENT TYPE] businesses understand what's possible with AI [or your service]. Your story would be a perfect fit because of [SPECIFIC REASON — unique situation, fast results, notable challenge overcome].\n\nIf you're willing, here are 3 questions that would take about 5-10 minutes to answer:\n\n1. **Before we worked together:** What was the situation and what challenge were you trying to solve?\n\n2. **During the work:** What was the process like and what stood out to you?\n\n3. **After (now):** What specific results have you seen, and how has it impacted your business?\n\nYou can reply directly to this email, record a quick Loom, or if you'd prefer, I can schedule a 10-minute call and write it up for your review.\n\nWhatever format works for you works for me.\n\nEither way — thank you for being such a great client to work with. Looking forward to our next project together.\n\n[YOUR NAME]\n\nP.S. If you feel comfortable sharing this publicly, it'll be featured on [YOUR WEBSITE/SOCIAL MEDIA]. If you'd prefer to keep it anonymous or private (for internal use only), that works perfectly too — just let me know."
+    },
+    {
+      "id": "tpl-013",
+      "title": "Project Scope Document",
+      "category": "Client Management",
+      "tier": "accelerator",
+      "description": "Watertight project scope document that prevents scope creep and miscommunication",
+      "format": "doc",
+      "tags": [
+        "scope",
+        "project management",
+        "contracts",
+        "freelancing",
+        "client work"
+      ],
+      "content": "# PROJECT SCOPE DOCUMENT\n\n**Project Name:** [PROJECT NAME]\n**Client:** [CLIENT COMPANY / NAME]\n**Service Provider:** [YOUR NAME / COMPANY]\n**Document Date:** [DATE]\n**Agreement Date:** [DATE OF SIGNED CONTRACT]\n\n---\n\n## 1. PROJECT OVERVIEW\n[2-3 sentence description of what this project is and what it will accomplish]\n\n---\n\n## 2. DELIVERABLES\nThe following deliverables will be produced under this agreement:\n\n| # | Deliverable | Format | Specifications | Quantity | Due Date |\n|---|------------|--------|----------------|----------|----------|\n| 1 | [DELIVERABLE NAME] | [FORMAT — PDF/Video/File type] | [SPECS] | [#] | [DATE] |\n| 2 | [DELIVERABLE NAME] | [FORMAT] | [SPECS] | [#] | [DATE] |\n| 3 | [DELIVERABLE NAME] | [FORMAT] | [SPECS] | [#] | [DATE] |\n\n---\n\n## 3. WHAT IS INCLUDED\n\n✓ [SPECIFIC INCLUDED SERVICE/FEATURE]\n✓ [SPECIFIC INCLUDED SERVICE/FEATURE]\n✓ [SPECIFIC INCLUDED SERVICE/FEATURE]\n✓ [NUMBER] rounds of revisions per deliverable\n✓ [COMMUNICATION INCLUDED — weekly calls, Slack access, etc.]\n✓ [SUPPORT DURATION — 30 days post-delivery]\n\n---\n\n## 4. WHAT IS NOT INCLUDED\n\n✗ [SPECIFIC EXCLUSION — e.g., paid advertising costs]\n✗ [SPECIFIC EXCLUSION — e.g., photography or video production]\n✗ [SPECIFIC EXCLUSION — e.g., ongoing maintenance after 30 days]\n✗ [SPECIFIC EXCLUSION]\n✗ Any work not explicitly listed in Section 2 above\n\n*Additional services are available at $[RATE] per hour or via a separate agreement.*\n\n---\n\n## 5. CLIENT RESPONSIBILITIES\n\nFor this project to proceed on schedule, the client agrees to:\n\n- Provide [REQUIRED MATERIALS/ACCESS] within [X] business days of this agreement\n- Provide feedback/approval on deliverables within [X] business days of submission\n- Assign a primary point of contact: [CLIENT POC NAME]\n- Respond to time-sensitive requests within [X] business hours\n- [ANY OTHER CLIENT RESPONSIBILITIES]\n\n*Delays in client-provided materials may result in timeline adjustments.*\n\n---\n\n## 6. TIMELINE\n\n| Milestone | Deliverable | Due Date | Owner |\n|-----------|------------|----------|-------|\n| Project kickoff | Kickoff call | [DATE] | Both |\n| [MILESTONE 1] | [DELIVERABLE] | [DATE] | Provider |\n| [CLIENT APPROVAL 1] | Feedback due | [DATE] | Client |\n| [MILESTONE 2] | [DELIVERABLE] | [DATE] | Provider |\n| [CLIENT APPROVAL 2] | Feedback due | [DATE] | Client |\n| Final delivery | All deliverables | [DATE] | Provider |\n\n---\n\n## 7. OUT-OF-SCOPE REQUESTS\n\nAny request for work outside this scope will be handled as follows:\n1. Service provider identifies the request as out-of-scope\n2. Service provider provides a change order estimate within [X] business days\n3. Client approves (or declines) the change order\n4. Out-of-scope work does not begin until written approval is received\n5. Change order rate: $[RATE] per hour or $[FLAT FEE] for [SPECIFIC TASK TYPE]\n\n---\n\n## 8. COMMUNICATION\n\n- **Primary channel:** [EMAIL / SLACK / PROJECT TOOL]\n- **Response time:** [X] business hours during [HOURS/DAYS]\n- **Check-in cadence:** [WEEKLY CALL / ASYNC UPDATES]\n- **Emergency contact:** [EMAIL/PHONE for urgent matters]\n\n---\n\n## 9. ACKNOWLEDGMENT\n\nBy proceeding with this project, both parties acknowledge they have read and agree to this scope document.\n\nProvider: [YOUR SIGNATURE/INITIALS] ___________  Date: ___________\nClient: ___________  Date: ___________"
+    },
+    {
+      "id": "tpl-014",
+      "title": "30-Day Launch Plan",
+      "category": "Launch Planning",
+      "tier": "accelerator",
+      "description": "Complete 30-day launch plan template for any product, service, or business",
+      "format": "doc",
+      "tags": [
+        "launch plan",
+        "product launch",
+        "marketing",
+        "planning"
+      ],
+      "content": "# 30-DAY LAUNCH PLAN\n\n**Product/Service:** [WHAT YOU'RE LAUNCHING]\n**Launch Date:** [TARGET DATE]\n**Revenue Goal:** $[TARGET] in [TIMEFRAME]\n**Primary Channel:** [WHERE MOST SALES WILL COME FROM]\n\n---\n\n## PRE-LAUNCH PHASE (Days 1-10): BUILD ANTICIPATION\n\n### Week 1: Foundation\n**Day 1-2:** Setup\n- [ ] Finalize product/service (stop tweaking)\n- [ ] Set up payment processing (Stripe/PayPal/etc.)\n- [ ] Build or finalize landing page\n- [ ] Set up email capture/automation\n- [ ] Create launch content folder\n\n**Day 3-4:** Audience Warm-Up\n- [ ] Email existing list: \"Something exciting is coming\" teaser\n- [ ] Post behind-the-scenes content on [PLATFORM]\n- [ ] Post on [PLATFORM]: Problem you're solving (no mention of product)\n- [ ] Reach out to 10 warm prospects directly\n\n**Day 5-7:** Social Proof Building\n- [ ] Reach out to [X] beta users or early clients for testimonials\n- [ ] Collect at least 3 testimonials or results screenshots\n- [ ] Create case study from best testimonial\n- [ ] Schedule all pre-launch content\n\n---\n\n### Week 2 (Days 8-14): Build Urgency\n**Day 8:** Early Bird Announcement\n- [ ] Email list: Early bird offer with deadline\n- [ ] Social post: Announce early bird\n- [ ] DM [X] warm prospects personally\n\n**Days 9-10:** Education Posts\n- [ ] Post: \"The problem [PRODUCT] solves\" (educational)\n- [ ] Post: \"Why [COMMON APPROACH] doesn't work\" (contrarian)\n- [ ] Email: Case study or proof point\n\n**Days 11-13:** Engage and Answer\n- [ ] Go live on [PLATFORM] or share behind-the-scenes\n- [ ] Email: FAQ + address top objections\n- [ ] DM anyone who engaged with launch content\n\n**Day 14:** Early Bird Close\n- [ ] Email: Last 24 hours of early bird pricing\n- [ ] Social post: Last chance for early bird\n- [ ] Send personal DMs to anyone who showed interest\n\n---\n\n## LAUNCH PHASE (Days 15-21): SELL\n\n**Day 15 (LAUNCH DAY):**\n- [ ] Email list: Full launch announcement\n- [ ] Social post: It's live (with link)\n- [ ] Personal outreach to warm list (DMs/texts)\n\n**Days 16-19:**\n- [ ] Email: Testimonial/social proof email\n- [ ] Email: Address the #1 objection\n- [ ] Social posts: Daily value + soft CTA each day\n- [ ] Engage with all comments and DMs personally\n\n**Days 20-21 (Urgency Close):**\n- [ ] Email: 48 hours remaining\n- [ ] Email: Final day (24 hours)\n- [ ] Social: Urgency posts\n- [ ] Personal outreach to fence-sitters\n\n---\n\n## POST-LAUNCH PHASE (Days 22-30): OPTIMIZE\n\n**Days 22-24:**\n- [ ] Send onboarding sequence to all new buyers\n- [ ] Collect initial feedback\n- [ ] Address any early issues immediately\n\n**Days 25-27:**\n- [ ] Analyze: What worked vs. what didn't\n- [ ] Collect testimonials from early buyers\n- [ ] Decide: Evergreen the offer or do another launch?\n\n**Days 28-30:**\n- [ ] Compile launch debrief (revenue, metrics, lessons)\n- [ ] Plan next launch or ongoing sales strategy\n- [ ] Celebrate the wins!\n\n---\n\n## LAUNCH METRICS\n\n| Metric | Goal | Actual |\n|--------|------|--------|\n| Revenue | $[TARGET] | |\n| Units sold | [#] | |\n| Email open rate | [%]+ | |\n| Conversion rate | [%] | |\n| Refund rate | <[%] | |\n| Testimonials collected | [#]+ | |\n\n---\n\n## LAUNCH DEBRIEF NOTES\n[Space for post-launch notes]"
+    },
+    {
+      "id": "tpl-015",
+      "title": "AI Automation Audit Template",
+      "category": "Operations",
+      "tier": "accelerator",
+      "description": "Template to audit a client's business for AI automation opportunities",
+      "format": "doc",
+      "tags": [
+        "automation audit",
+        "AI consulting",
+        "operations",
+        "client delivery"
+      ],
+      "content": "# AI AUTOMATION AUDIT\n**Company:** [CLIENT COMPANY]\n**Audit Date:** [DATE]\n**Conducted by:** [YOUR NAME]\n\n---\n\n## SECTION 1: BUSINESS OVERVIEW\n- Primary revenue streams: [LIST]\n- Team size: [#] employees\n- Current tools/software: [LIST KEY TOOLS]\n- Biggest operational bottleneck: [ANSWER FROM DISCOVERY]\n\n---\n\n## SECTION 2: PROCESS AUDIT\n\nFor each department/function, rate current automation (1=fully manual, 5=fully automated):\n\n| Process Area | Current State | Automation Score (1-5) | Time Spent/Week | Notes |\n|-------------|---------------|----------------------|-----------------|-------|\n| Lead generation | | | | |\n| Lead qualification | | | | |\n| Proposal creation | | | | |\n| Client onboarding | | | | |\n| Project management | | | | |\n| Content creation | | | | |\n| Customer support | | | | |\n| Invoicing/billing | | | | |\n| Reporting/analytics | | | | |\n| Email management | | | | |\n| Social media | | | | |\n| Data entry/transfers | | | | |\n\n---\n\n## SECTION 3: OPPORTUNITY ANALYSIS\n\n### HIGH-VALUE AUTOMATIONS (Quick wins):\n1. **[PROCESS]:** [CURRENT STATE] → [AUTOMATED STATE] — Saves ~[X] hours/week\n2. **[PROCESS]:** [CURRENT STATE] → [AUTOMATED STATE] — Saves ~[X] hours/week\n3. **[PROCESS]:** [CURRENT STATE] → [AUTOMATED STATE] — Saves ~[X] hours/week\n\n### MEDIUM-VALUE AUTOMATIONS (Moderate effort):\n4. **[PROCESS]:** [DESCRIPTION] — Saves ~[X] hours/week\n5. **[PROCESS]:** [DESCRIPTION] — Saves ~[X] hours/week\n\n### COMPLEX AUTOMATIONS (Strategic):\n6. **[PROCESS]:** [DESCRIPTION] — Saves ~[X] hours/week\n\n---\n\n## SECTION 4: RECOMMENDATION PRIORITY MATRIX\n\n| # | Automation | Value | Effort | Priority |\n|---|-----------|-------|--------|----------|\n| 1 | [AUTOMATION] | High | Low | ⭐⭐⭐ Do First |\n| 2 | [AUTOMATION] | High | Medium | ⭐⭐ Do Second |\n| 3 | [AUTOMATION] | Medium | Low | ⭐⭐ Do Second |\n| 4 | [AUTOMATION] | High | High | ⭐ Plan Carefully |\n| 5 | [AUTOMATION] | Low | Low | Do if Time Permits |\n\n---\n\n## SECTION 5: RECOMMENDED NEXT STEPS\n\n**Phase 1 (Start immediately):**\n- [ ] [SPECIFIC ACTION 1]\n- [ ] [SPECIFIC ACTION 2]\n\n**Phase 2 (Within 30 days):**\n- [ ] [SPECIFIC ACTION 3]\n- [ ] [SPECIFIC ACTION 4]\n\n**Phase 3 (Within 90 days):**\n- [ ] [SPECIFIC ACTION 5]\n- [ ] [SPECIFIC ACTION 6]\n\n---\n\n## SECTION 6: ESTIMATED ROI\n\n| Metric | Current | After Automation |\n|--------|---------|-----------------|\n| Hours spent on manual tasks/week | [X] hrs | [Y] hrs |\n| Hours saved/week | — | [X-Y] hrs |\n| Dollar value of time saved/week | — | $[VALUE] |\n| Annual value of automation | — | $[ANNUAL] |\n| Implementation cost | — | $[YOUR FEE] |\n| **ROI (1 year)** | — | **[%]** |\n\n---\n\n*This audit was prepared based on [DATE] discovery session. Full implementation details available upon request.*"
+    },
+    {
+      "id": "tpl-016",
+      "title": "Lead Magnet Delivery Email Sequence",
+      "category": "Email Marketing",
+      "tier": "starter",
+      "description": "4-email lead magnet delivery and nurture sequence template",
+      "format": "email",
+      "tags": [
+        "lead magnet",
+        "email sequence",
+        "nurturing",
+        "list building"
+      ],
+      "content": "# LEAD MAGNET DELIVERY SEQUENCE\n\n---\n\n## EMAIL 1: DELIVERY (Send immediately)\n\n**Subject:** Here's your [LEAD MAGNET NAME] + one quick thing\n\nHi [FIRST NAME],\n\nHere's the [LEAD MAGNET NAME] you requested:\n👉 [DOWNLOAD LINK / ACCESS LINK]\n\nQuick heads-up: The most important part is [SPECIFIC SECTION/PAGE/TIP]. Most people skip it. Don't.\n\nOver the next few days, I'll share a few things to help you get even more out of this. Short, practical, no fluff.\n\nTalk soon,\n[YOUR NAME]\n\nP.S. Got a question? Just reply. I actually read these.\n\n---\n\n## EMAIL 2: QUICK WIN (Day 2)\n\n**Subject:** Did you try [SPECIFIC TACTIC FROM LEAD MAGNET] yet?\n\nHi [FIRST NAME],\n\nHope you had a chance to look through [LEAD MAGNET NAME].\n\nThe one thing I hear from most people: \"[COMMON DOUBT OR OBSTACLE].\"\n\nHere's what I tell them: [SHORT, DIRECT INSIGHT THAT ADDRESSES THAT OBSTACLE].\n\nThe fastest way to see results is to [SPECIFIC FIRST ACTION]. Takes [TIME ESTIMATE] to do.\n\nIf you try it and get stuck, hit reply and tell me where. I'll help.\n\n[YOUR NAME]\n\n---\n\n## EMAIL 3: PROOF (Day 4)\n\n**Subject:** [REAL RESULT] from doing exactly what's in [LEAD MAGNET NAME]\n\nHi [FIRST NAME],\n\n[FIRST NAME OF PERSON IN YOUR STORY] had the exact situation you're probably in right now.\n\n[SPECIFIC BEFORE STATE — 1-2 sentences]\n\nThey used [SPECIFIC STRATEGY FROM LEAD MAGNET].\n\n[SPECIFIC AFTER RESULT — 1-2 sentences with numbers if possible]\n\nHere's the part that matters: They didn't have [THING PEOPLE THINK IS REQUIRED — more experience/time/money]. They just started.\n\nIf [WHAT YOU HELP PEOPLE DO] is something you're working toward, I'd love to share how [YOUR SERVICE/PRODUCT] could help.\n\nNo pressure at all — but if you're curious, [CTA: reply 'tell me more' / click here / book a call].\n\n[YOUR NAME]\n\n---\n\n## EMAIL 4: SOFT OFFER (Day 7)\n\n**Subject:** Quick question for you, [FIRST NAME]\n\nHi [FIRST NAME],\n\nThis is my last email in this series — I know your inbox is full and I respect your time.\n\nOne question before I sign off: Is [SPECIFIC PAIN POINT YOUR OFFER SOLVES] something you're actively working on right now?\n\nIf yes, I think [YOUR SERVICE/PRODUCT] could be exactly what you need. Here's what it includes: [2-3 BULLET POINTS].\n\n[CTA BUTTON OR LINK: Learn More / Book a Call / See the Offer]\n\nIf now's not the right time, totally fine — you can come back to this whenever you're ready.\n\nEither way, I hope [LEAD MAGNET NAME] gave you something useful.\n\n[YOUR NAME]\n\nP.S. Still have the [LEAD MAGNET NAME] if you need the link again: [LINK]"
+    },
+    {
+      "id": "tpl-017",
+      "title": "Discovery Call Intake Form",
+      "category": "Client Acquisition",
+      "tier": "starter",
+      "description": "Pre-call intake form to qualify prospects before discovery calls",
+      "format": "doc",
+      "tags": [
+        "discovery call",
+        "intake form",
+        "qualification",
+        "sales"
+      ],
+      "content": "# DISCOVERY CALL APPLICATION FORM\n\n**Instructions:** Please complete this form before our [DATE/TIME] call. This helps me prepare and ensures we use our time together as effectively as possible.\n\n---\n\n## YOUR INFORMATION\nName: _______________________________________________\nCompany: _______________________________________________\nWebsite: _______________________________________________\nLinkedIn: _______________________________________________\nBest phone: _______________________________________________\n\n---\n\n## ABOUT YOUR SITUATION\n\n**1. In 2-3 sentences, describe what you do and who you serve:**\n_______________________________________________\n_______________________________________________\n\n**2. What is the specific challenge or goal that prompted you to book this call?**\n_______________________________________________\n_______________________________________________\n\n**3. How long have you been dealing with this challenge?**\n□ Less than 1 month\n□ 1-3 months\n□ 3-6 months\n□ 6-12 months\n□ More than a year\n\n**4. What have you already tried to solve this?**\n_______________________________________________\n_______________________________________________\n\n**5. On a scale of 1-10, how urgent is solving this right now?** (1 = not urgent, 10 = critical)\n□ 1-3 (Exploring options)\n□ 4-6 (Moderate urgency)\n□ 7-9 (High urgency)\n□ 10 (This is costing me significantly every week)\n\n---\n\n## GOALS & EXPECTATIONS\n\n**6. What does success look like in 90 days if we work together?**\n_______________________________________________\n_______________________________________________\n\n**7. What would make this a \"10/10 investment\" for you?**\n_______________________________________________\n\n---\n\n## PRACTICAL DETAILS\n\n**8. Are you the primary decision-maker for this investment?**\n□ Yes, I make this decision alone\n□ I need to consult with [partner/team/spouse]\n□ I present to someone else (who: _______________)\n\n**9. What is your budget range for solving this problem?**\n□ Under $500\n□ $500 - $1,500\n□ $1,500 - $3,000\n□ $3,000 - $5,000\n□ $5,000+\n□ I'm not sure yet — I need to understand ROI first\n\n**10. When are you looking to get started?**\n□ Immediately (this week)\n□ Within 30 days\n□ 1-3 months\n□ Just exploring for now\n\n---\n\n## ANYTHING ELSE\n\n**11. Is there anything else I should know before our call?**\n_______________________________________________\n_______________________________________________\n\n---\n\n*I look forward to speaking with you. I'll review your answers before our call and come prepared with specific ideas for your situation.*"
+    },
+    {
+      "id": "tpl-018",
+      "title": "Monthly Business Report Template",
+      "category": "Operations",
+      "tier": "accelerator",
+      "description": "Monthly business performance report template for freelancers and agency owners",
+      "format": "doc",
+      "tags": [
+        "reporting",
+        "metrics",
+        "business review",
+        "operations",
+        "finance"
+      ],
+      "content": "# MONTHLY BUSINESS REPORT\n\n**Month:** [MONTH YEAR]\n**Prepared by:** [YOUR NAME]\n**Date prepared:** [DATE]\n\n---\n\n## EXECUTIVE SUMMARY (The One-Paragraph Version)\n[Write 3-5 sentences summarizing: what happened this month, the key win, the key challenge, and what you'll do differently next month]\n\n---\n\n## REVENUE METRICS\n\n| Metric | This Month | Last Month | Goal | Variance |\n|--------|-----------|------------|------|----------|\n| Total Revenue | $[AMT] | $[AMT] | $[TARGET] | [+/-$] |\n| Services Revenue | $[AMT] | $[AMT] | — | — |\n| Product Revenue | $[AMT] | $[AMT] | — | — |\n| Recurring/Retainer | $[AMT] | $[AMT] | — | — |\n| New Revenue | $[AMT] | $[AMT] | — | — |\n| Total Expenses | $[AMT] | $[AMT] | — | — |\n| **Net Profit** | **$[AMT]** | **$[AMT]** | **$[TARGET]** | **[+/-$]** |\n| Profit Margin | [%] | [%] | — | — |\n\n---\n\n## CLIENT METRICS\n\n| Metric | This Month | Last Month |\n|--------|-----------|------------|\n| Active clients | [#] | [#] |\n| New clients | [#] | [#] |\n| Churned clients | [#] | [#] |\n| Net client change | [+/-#] | [+/-#] |\n| Avg revenue per client | $[AMT] | $[AMT] |\n\n---\n\n## PIPELINE\n\n| Stage | # of Prospects | Total Value |\n|-------|---------------|-------------|\n| Awareness/Cold | [#] | $[AMT] |\n| Active conversations | [#] | $[AMT] |\n| Proposal sent | [#] | $[AMT] |\n| Verbal yes | [#] | $[AMT] |\n| **Total Pipeline** | **[#]** | **$[AMT]** |\n\n---\n\n## BUSINESS DEVELOPMENT ACTIVITIES\n\n| Activity | Goal | Actual | Notes |\n|----------|------|--------|-------|\n| Discovery calls booked | [#] | [#] | |\n| Proposals sent | [#] | [#] | |\n| Outreach messages sent | [#] | [#] | |\n| Content pieces published | [#] | [#] | |\n\n---\n\n## TOP 3 WINS THIS MONTH\n1. **[WIN 1]:** [What happened and why it matters]\n2. **[WIN 2]:** [What happened and why it matters]\n3. **[WIN 3]:** [What happened and why it matters]\n\n---\n\n## TOP 3 CHALLENGES THIS MONTH\n1. **[CHALLENGE 1]:** [What happened and what you'll do about it]\n2. **[CHALLENGE 2]:** [What happened and what you'll do about it]\n3. **[CHALLENGE 3]:** [What happened and what you'll do about it]\n\n---\n\n## KEY LEARNINGS\n- [LEARNING 1]\n- [LEARNING 2]\n- [LEARNING 3]\n\n---\n\n## NEXT MONTH FOCUS\n\n**Primary goal:** [ONE BIG OUTCOME FOR NEXT MONTH]\n**Target revenue:** $[TARGET]\n**Top 3 priorities:**\n1. [PRIORITY 1]\n2. [PRIORITY 2]\n3. [PRIORITY 3]\n\n**What will I stop/change?**\n[WHAT YOU'RE DOING DIFFERENTLY NEXT MONTH]"
+    },
+    {
+      "id": "tpl-019",
+      "title": "AI Workflow Documentation Template",
+      "category": "Operations",
+      "tier": "accelerator",
+      "description": "Template to document any AI-powered workflow for team use or client delivery",
+      "format": "doc",
+      "tags": [
+        "AI workflow",
+        "documentation",
+        "SOPs",
+        "automation",
+        "team"
+      ],
+      "content": "# AI WORKFLOW DOCUMENTATION\n\n**Workflow Name:** [NAME]\n**Created by:** [YOUR NAME]\n**Date:** [DATE]\n**Last updated:** [DATE]\n**Version:** 1.0\n\n---\n\n## WORKFLOW OVERVIEW\n\n**Purpose:** [What this workflow accomplishes in one sentence]\n**Trigger:** [What starts this workflow — time-based, event-based, manual]\n**Output:** [What this workflow produces]\n**Time required:** [How long it takes to run]\n**Who runs it:** [Role/person]\n**Frequency:** [How often it runs]\n\n---\n\n## PREREQUISITES\n\nBefore running this workflow, ensure:\n- [ ] [REQUIRED TOOL/ACCESS 1] is set up and connected\n- [ ] [REQUIRED INPUT — file, data, account] is available\n- [ ] [REQUIRED PERMISSION/SUBSCRIPTION] is active\n- [ ] [OTHER PREREQUISITE]\n\n---\n\n## STEP-BY-STEP PROCESS\n\n### STEP 1: [STEP NAME]\n**Tool:** [AI TOOL OR SOFTWARE]\n**Input required:** [WHAT GOES IN]\n**Action:**\n1. Open [TOOL/PLATFORM]\n2. [SPECIFIC ACTION]\n3. [SPECIFIC ACTION]\n**Prompt used:** (if AI step)\n```\n[EXACT PROMPT TEXT — paste here]\n```\n**Expected output:** [WHAT SHOULD COME OUT]\n**Quality check:** [HOW TO VERIFY IT'S CORRECT]\n**Common error:** [MOST COMMON MISTAKE AND HOW TO FIX IT]\n\n---\n\n### STEP 2: [STEP NAME]\n**Tool:** [TOOL]\n**Input:** Output from Step 1\n**Action:**\n1. [ACTION]\n2. [ACTION]\n**Expected output:** [DESCRIPTION]\n**Quality check:** [VERIFICATION METHOD]\n\n---\n\n### STEP 3: [STEP NAME]\n[Continue same format for each step]\n\n---\n\n## QUALITY STANDARDS\n\nThe output of this workflow is acceptable when:\n- [ ] [STANDARD 1]\n- [ ] [STANDARD 2]\n- [ ] [STANDARD 3]\n\nIf output doesn't meet these standards, [WHAT TO DO — retry, adjust prompt, escalate].\n\n---\n\n## TOOLS USED\n\n| Tool | Purpose | Cost | Login |\n|------|---------|------|-------|\n| [TOOL 1] | [PURPOSE] | $[COST]/mo | [WHERE TO FIND LOGIN] |\n| [TOOL 2] | [PURPOSE] | $[COST]/mo | [WHERE TO FIND LOGIN] |\n\n---\n\n## TROUBLESHOOTING\n\n| Problem | Likely Cause | Solution |\n|---------|-------------|----------|\n| [PROBLEM] | [CAUSE] | [SOLUTION] |\n| [PROBLEM] | [CAUSE] | [SOLUTION] |\n\n---\n\n## REVISION HISTORY\n\n| Date | Changed by | What changed |\n|------|-----------|-------------|\n| [DATE] | [NAME] | Initial creation |\n| [DATE] | [NAME] | [CHANGE] |"
+    },
+    {
+      "id": "tpl-020",
+      "title": "AI Tool Client Report Template",
+      "category": "Client Delivery",
+      "tier": "accelerator",
+      "description": "Monthly client reporting template for AI automation and content services",
+      "format": "doc",
+      "tags": [
+        "client report",
+        "agency",
+        "reporting",
+        "client management",
+        "AI services"
+      ],
+      "content": "# MONTHLY AI SERVICES REPORT\n\n**Client:** [CLIENT NAME]\n**Period:** [MONTH YEAR]\n**Prepared by:** [YOUR NAME / AGENCY]\n**Date:** [DATE]\n\n---\n\n## EXECUTIVE SUMMARY\n\nThis month, we [KEY ACHIEVEMENT]. The [PRIMARY METRIC] improved by [PERCENTAGE/NUMBER], which [WHY IT MATTERS].\n\nTop 3 highlights:\n1. [HIGHLIGHT 1]\n2. [HIGHLIGHT 2]\n3. [HIGHLIGHT 3]\n\n---\n\n## DELIVERABLES COMPLETED THIS MONTH\n\n| # | Deliverable | Status | Notes |\n|---|------------|--------|-------|\n| 1 | [DELIVERABLE] | ✅ Complete | [NOTES] |\n| 2 | [DELIVERABLE] | ✅ Complete | [NOTES] |\n| 3 | [DELIVERABLE] | ✅ Complete | [NOTES] |\n| 4 | [DELIVERABLE] | ⚠️ In progress | [NOTES] |\n\n---\n\n## PERFORMANCE METRICS\n\n| Metric | Previous Month | This Month | Change |\n|--------|---------------|------------|--------|\n| [METRIC 1] | [VALUE] | [VALUE] | [+/-] |\n| [METRIC 2] | [VALUE] | [VALUE] | [+/-] |\n| [METRIC 3] | [VALUE] | [VALUE] | [+/-] |\n| [METRIC 4] | [VALUE] | [VALUE] | [+/-] |\n\n---\n\n## AI TOOLS ACTIVITY SUMMARY\n\n### Content Created This Month\n- [CONTENT TYPE]: [QUANTITY] pieces\n- [CONTENT TYPE]: [QUANTITY] pieces\n- Total: [#] assets created\n\n### Automations Running\n| Automation | Status | Runs This Month | Issues |\n|-----------|--------|-----------------|--------|\n| [AUTOMATION 1] | 🟢 Active | [#] | None |\n| [AUTOMATION 2] | 🟢 Active | [#] | None |\n\n### Time Saved (Estimated)\n- Before AI implementation: [X] hours/week for [SPECIFIC TASK]\n- After AI implementation: [Y] hours/week\n- **Time saved: [X-Y] hours/week = [MONTHLY TOTAL] hours/month**\n\n---\n\n## INSIGHTS & OBSERVATIONS\n\n**What's working well:**\n- [OBSERVATION 1]\n- [OBSERVATION 2]\n\n**Areas for improvement:**\n- [OPPORTUNITY 1]\n- [OPPORTUNITY 2]\n\n---\n\n## NEXT MONTH PLAN\n\n**Priorities:**\n1. [PRIORITY 1]\n2. [PRIORITY 2]\n3. [PRIORITY 3]\n\n**Upcoming deliverables:**\n| Deliverable | Due Date |\n|------------|----------|\n| [DELIVERABLE] | [DATE] |\n| [DELIVERABLE] | [DATE] |\n\n**Decisions needed from client:**\n- [ ] [DECISION 1] — needed by [DATE]\n- [ ] [DECISION 2] — needed by [DATE]\n\n---\n\n## NOTES & QUESTIONS\n\n[Space for additional notes, client questions, or discussion items for next call]\n\n---\n\n*Report generated: [DATE]. Questions? Contact [YOUR EMAIL]*"
+    },
+    {
+      "id": "tpl-021",
+      "title": "Strategic Business Review Template",
+      "category": "Operations",
+      "tier": "inner_circle",
+      "description": "Quarterly strategic business review template for scaling AI businesses",
+      "format": "doc",
+      "tags": [
+        "quarterly review",
+        "strategy",
+        "planning",
+        "business review"
+      ],
+      "content": "# QUARTERLY STRATEGIC REVIEW\n\n**Quarter:** Q[#] [YEAR]\n**Date:** [DATE]\n**Reviewer:** [YOUR NAME]\n\n---\n\n## SECTION 1: QUARTER IN REVIEW (30 minutes)\n\n### Revenue Results\n- Q[#] Goal: $[TARGET]\n- Q[#] Actual: $[ACTUAL]\n- Achievement: [%] of goal\n- YTD Revenue: $[YTD TOTAL]\n\n### 3 Biggest Wins\n1. [WIN WITH SPECIFIC OUTCOME]\n2. [WIN WITH SPECIFIC OUTCOME]\n3. [WIN WITH SPECIFIC OUTCOME]\n\n### 3 Biggest Misses\n1. [MISS — what happened and why]\n2. [MISS — what happened and why]\n3. [MISS — what happened and why]\n\n### Top 3 Lessons Learned\n1. [LESSON]\n2. [LESSON]\n3. [LESSON]\n\n---\n\n## SECTION 2: MARKET REALITY CHECK\n\n**What changed in my market this quarter?**\n[MARKET SHIFTS, COMPETITOR MOVES, PLATFORM CHANGES]\n\n**What's the biggest external threat right now?**\n[SPECIFIC THREAT]\n\n**What's the biggest external opportunity right now?**\n[SPECIFIC OPPORTUNITY]\n\n---\n\n## SECTION 3: STRATEGIC PRIORITIES FOR NEXT QUARTER\n\n**The BIG GOAL for Q[NEXT]:**\n[ONE OUTCOME THAT WOULD MAKE THIS QUARTER A SUCCESS]\nTarget: $[REVENUE] by [DATE]\n\n**Top 3 Strategic Initiatives:**\n\n### Initiative 1: [NAME]\n- What it is: [DESCRIPTION]\n- Why this quarter: [RATIONALE]\n- Success metric: [HOW I KNOW IT'S WORKING]\n- Owner: [WHO'S RESPONSIBLE]\n- Resources needed: [TIME/MONEY/PEOPLE]\n\n### Initiative 2: [NAME]\n[Same structure]\n\n### Initiative 3: [NAME]\n[Same structure]\n\n---\n\n## SECTION 4: WHAT TO STOP DOING\n\nThings to eliminate from my time/resources this quarter:\n1. [ACTIVITY TO STOP] — because [REASON]\n2. [ACTIVITY TO STOP] — because [REASON]\n3. [COMMITMENT TO EXIT] — by [DATE]\n\n---\n\n## SECTION 5: OPERATING RHYTHM FOR Q[NEXT]\n\n**Daily non-negotiables (30 min max each):**\n- [DAILY HABIT 1]\n- [DAILY HABIT 2]\n\n**Weekly non-negotiables:**\n- Monday: [FOCUS]\n- Friday: [REVIEW RITUAL]\n\n**Monthly non-negotiables:**\n- [DATE]: Financial review\n- [DATE]: Team/partner check-in\n- [DATE]: Content planning\n\n---\n\n## SECTION 6: 13-WEEK MILESTONE MAP\n\n| Week | Priority | Milestone |\n|------|----------|-----------|\n| Week 1 | [INITIATIVE] | [MILESTONE] |\n| Week 2 | [INITIATIVE] | [MILESTONE] |\n| Week 4 | [INITIATIVE] | [MILESTONE] |\n| Week 6 | [INITIATIVE] | [MILESTONE] |\n| Week 9 | [INITIATIVE] | [MILESTONE] |\n| Week 12 | [INITIATIVE] | [MILESTONE] |\n\n---\n\n*Reviewed and committed to: [YOUR SIGNATURE] | [DATE]*"
+    }
+  ]
+}

@@ -1,0 +1,2174 @@
+{
+  "categories": [
+    {
+      "name": "Business Strategy",
+      "icon": "📊",
+      "prompts": [
+        {
+          "id": "bs-001",
+          "title": "Market Research Analysis",
+          "category": "Business Strategy",
+          "tier": "starter",
+          "description": "Deep dive into any market niche to uncover opportunities, sizing, and trends",
+          "prompt": "Act as a market research analyst. Analyze the {{niche}} market comprehensively.\n\nProvide:\n1. Market size (current + projected 3-year)\n2. Top 5 players and their positioning\n3. Primary customer pain points (ranked by severity)\n4. Pricing benchmarks across tiers\n5. Underserved segments and white-space opportunities\n6. AI/automation disruption potential in this space\n7. Top 3 entry strategies for a new player\n\nFormat as a structured report with actionable insights. Be specific, not generic.",
+          "variables": [
+            "niche"
+          ],
+          "tags": [
+            "research",
+            "strategy",
+            "market analysis",
+            "validation"
+          ],
+          "use_case": "Use before entering a new market or launching a new offer"
+        },
+        {
+          "id": "bs-002",
+          "title": "Competitor Deep Dive",
+          "category": "Business Strategy",
+          "tier": "starter",
+          "description": "Analyze any competitor's full strategy to find gaps you can exploit",
+          "prompt": "Act as a competitive intelligence analyst. Conduct a deep analysis of {{competitor}}.\n\nCover:\n1. Business model and revenue streams\n2. Pricing strategy and positioning\n3. Marketing channels and messaging\n4. Product/service strengths and gaps\n5. Customer sentiment (what reviews reveal)\n6. Team and operational weaknesses\n7. Your top 5 differentiation opportunities\n\nBe specific. Identify actionable gaps I can target.",
+          "variables": [
+            "competitor"
+          ],
+          "tags": [
+            "competition",
+            "strategy",
+            "differentiation"
+          ],
+          "use_case": "Use to position yourself against established players"
+        },
+        {
+          "id": "bs-003",
+          "title": "Pricing Strategy Builder",
+          "category": "Business Strategy",
+          "tier": "starter",
+          "description": "Build a value-based pricing model for any offer",
+          "prompt": "Act as a pricing strategist. Help me price {{offer}} for {{target_customer}}.\n\nAnalyze:\n1. Value delivered vs. cost of the problem unsolved\n2. Competitor pricing landscape\n3. Tiered pricing options (3 packages: entry, core, premium)\n4. Psychological pricing tactics that apply\n5. Price anchoring strategy\n6. Recommended price points with rationale\n7. How to justify the price to skeptical buyers\n\nProvide specific numbers, not ranges. Be decisive.",
+          "variables": [
+            "offer",
+            "target_customer"
+          ],
+          "tags": [
+            "pricing",
+            "strategy",
+            "revenue"
+          ],
+          "use_case": "Use when launching a new offer or repositioning an existing one"
+        },
+        {
+          "id": "bs-004",
+          "title": "Business Plan Generator",
+          "category": "Business Strategy",
+          "tier": "accelerator",
+          "description": "Generate a concise, actionable business plan for any AI venture",
+          "prompt": "Act as a startup business strategist. Create a lean business plan for {{business_idea}} targeting {{market}}.\n\nInclude:\n1. Problem statement and solution\n2. Target customer persona (specific)\n3. Revenue model and pricing\n4. Go-to-market strategy (first 90 days)\n5. Key milestones: 30/60/90 days\n6. Revenue projections: Month 1-6\n7. Core risks and mitigation strategies\n8. Resources needed to launch\n\nMake this executable by a solo operator. Keep it lean and action-focused.",
+          "variables": [
+            "business_idea",
+            "market"
+          ],
+          "tags": [
+            "business plan",
+            "startup",
+            "planning"
+          ],
+          "use_case": "Use before launching any new venture to validate the model"
+        },
+        {
+          "id": "bs-005",
+          "title": "Niche Finder and Validator",
+          "category": "Business Strategy",
+          "tier": "starter",
+          "description": "Find and validate the perfect niche for your AI services business",
+          "prompt": "Act as a niche strategy consultant. Help me identify and validate a profitable niche for {{service_type}} services.\n\nProcess:\n1. Generate 10 niche candidates\n2. Score each on: demand (1-10), competition (1-10 inversely), willingness to pay (1-10), AI leverage (1-10)\n3. Identify top 3 niches with highest combined score\n4. For the #1 niche: ideal client avatar, primary pain points, how to reach them, average project value\n5. Validation checklist (5 steps to confirm before committing)\n\nBe specific. Name industries, job titles, business types.",
+          "variables": [
+            "service_type"
+          ],
+          "tags": [
+            "niche",
+            "validation",
+            "strategy"
+          ],
+          "use_case": "Use when starting out or pivoting to a new market"
+        },
+        {
+          "id": "bs-006",
+          "title": "Revenue Model Designer",
+          "category": "Business Strategy",
+          "tier": "accelerator",
+          "description": "Design multiple revenue streams for maximum income stability",
+          "prompt": "Act as a revenue architect. Design a multi-stream revenue model for {{business_type}} in {{niche}}.\n\nCreate 4 revenue streams:\n1. Primary (high-ticket, low-volume)\n2. Recurring (subscription or retainer)\n3. Passive/scalable (productized or digital)\n4. Quick-cash (done-for-you service)\n\nFor each stream: price point, volume needed for ${{monthly_goal}}/month, effort to set up (1-10), time to first dollar.\n\n5. 90-day roadmap to activate all 4 streams\n\nPrioritize by fastest path to cash first.",
+          "variables": [
+            "business_type",
+            "niche",
+            "monthly_goal"
+          ],
+          "tags": [
+            "revenue",
+            "monetization",
+            "business model"
+          ],
+          "use_case": "Use to diversify income and reduce reliance on one revenue source"
+        },
+        {
+          "id": "bs-007",
+          "title": "SWOT Analysis Builder",
+          "category": "Business Strategy",
+          "tier": "starter",
+          "description": "Run a strategic SWOT analysis on your business or idea",
+          "prompt": "Act as a business strategist. Conduct a detailed SWOT analysis for {{business_or_idea}}.\n\nFor each quadrant, provide 5-7 specific items:\nSTRENGTHS: Genuine competitive advantages\nWEAKNESSES: Honest internal limitations\nOPPORTUNITIES: External trends and market gaps\nTHREATS: Real risks that could derail success\n\nThen provide:\n- Top 3 SO strategies (use strengths to grab opportunities)\n- Top 3 WT strategies (minimize weaknesses to avoid threats)\n- Priority actions for the next 30 days\n\nBe brutally honest, not flattering.",
+          "variables": [
+            "business_or_idea"
+          ],
+          "tags": [
+            "SWOT",
+            "strategy",
+            "analysis"
+          ],
+          "use_case": "Use quarterly for strategic planning and decision-making"
+        },
+        {
+          "id": "bs-008",
+          "title": "Offer Validation Framework",
+          "category": "Business Strategy",
+          "tier": "starter",
+          "description": "Validate any offer before investing time and money building it",
+          "prompt": "Act as a product validation expert. Help me validate {{offer_idea}} before building it.\n\nValidation checklist:\n1. Problem clarity: Is it real, urgent, and expensive?\n2. Customer existence: Who exactly has this problem?\n3. Willingness to pay: Evidence of spending in this space\n4. Competition check: What exists, and why would mine win?\n5. Distribution channel: How do I reach these buyers?\n6. MVP definition: Smallest version I can sell in 14 days\n7. Pre-sell test: Script to validate with 10 real conversations\n8. Kill criteria: What would make this not worth pursuing?\n\nGive me a go/no-go recommendation with reasoning.",
+          "variables": [
+            "offer_idea"
+          ],
+          "tags": [
+            "validation",
+            "offer",
+            "product-market fit"
+          ],
+          "use_case": "Use before building any new product or service"
+        },
+        {
+          "id": "bs-009",
+          "title": "90-Day Growth Sprint Plan",
+          "category": "Business Strategy",
+          "tier": "accelerator",
+          "description": "Build a focused 90-day plan to hit a specific business milestone",
+          "prompt": "Act as a business growth strategist. Create a 90-day sprint plan to achieve: {{goal}}\n\nCurrent state: {{current_state}}\nAvailable time: {{hours_per_week}} hours/week\nBudget: ${{budget}}\n\nDeliver:\n1. THE SINGLE BIG MOVE: One primary initiative that drives 80% of results\n2. MONTH 1 (Foundation): Week 1-2 priorities, Week 3-4 priorities, Month 1 milestone\n3. MONTH 2 (Momentum): Key activities, Month 2 milestone\n4. MONTH 3 (Scale): Key activities, Month 3 milestone\n5. WEEKLY CADENCE: What to do every week without exception\n6. WHAT TO STOP DOING: 3 things to cut immediately\n7. SUCCESS DEFINITION: How I know I hit the goal\n\nMake it aggressive but realistic for one person.",
+          "variables": [
+            "goal",
+            "current_state",
+            "hours_per_week",
+            "budget"
+          ],
+          "tags": [
+            "growth",
+            "planning",
+            "strategy",
+            "quarterly"
+          ],
+          "use_case": "Use at the start of every quarter to set focused priorities"
+        },
+        {
+          "id": "bs-010",
+          "title": "Service Productization Blueprint",
+          "category": "Business Strategy",
+          "tier": "accelerator",
+          "description": "Turn a custom service into a scalable productized offer",
+          "prompt": "Act as a business model consultant. Help me productize {{service}} into a scalable offer.\n\nCurrent delivery: {{current_delivery}}\nAverage client: {{average_client}}\nTime per client: {{time_per_client}}\nCurrent price: ${{current_price}}\n\nCreate:\n1. THE PRODUCTIZED OFFER: Name, scope, and clear deliverables\n2. WHAT'S INCLUDED: Specific list\n3. WHAT'S NOT INCLUDED: Clear boundaries\n4. DELIVERY PROCESS: Step-by-step, time-boxed\n5. PRICING STRUCTURE: Fixed price or package options\n6. TURNAROUND TIME: Standard timeline\n7. HOW TO SCALE: Handle 5x clients with same or less time\n8. POSITIONING STATEMENT: One sentence description\n\nGoal: Sell the same thing to everyone, deliver with minimal customization.",
+          "variables": [
+            "service",
+            "current_delivery",
+            "average_client",
+            "time_per_client",
+            "current_price"
+          ],
+          "tags": [
+            "productized service",
+            "scaling",
+            "business model"
+          ],
+          "use_case": "Use to stop selling custom work and start selling systems"
+        },
+        {
+          "id": "bs-011",
+          "title": "Ideal Client Avatar Builder",
+          "category": "Business Strategy",
+          "tier": "starter",
+          "description": "Build a hyper-specific ideal client profile that drives all marketing decisions",
+          "prompt": "Act as a market research expert. Build a detailed ideal client avatar for {{business_type}} offering {{service}}.\n\nCreate a profile covering:\n1. DEMOGRAPHICS: Age, location, income, job title, company size\n2. PSYCHOGRAPHICS: Values, beliefs, aspirations, fears\n3. DAILY REALITY: What their typical day looks like\n4. PAIN HIERARCHY: Top 3 problems (primary, secondary, symptomatic)\n5. DECISION TRIGGERS: What makes them buy NOW vs. later\n6. OBJECTION MINDSET: What holds them back from buying\n7. INFORMATION DIET: Where they consume content\n8. LANGUAGE PATTERNS: Exact words they use to describe their problem\n9. TRANSFORMATION DESIRE: Where they want to be in 6-12 months\n10. SUCCESS STORY: Write a 150-word before/after narrative for this person\n\nGive this person a name and make them feel real.",
+          "variables": [
+            "business_type",
+            "service"
+          ],
+          "tags": [
+            "ICA",
+            "avatar",
+            "targeting",
+            "marketing"
+          ],
+          "use_case": "Use as the foundation for all marketing copy and targeting decisions"
+        },
+        {
+          "id": "bs-012",
+          "title": "Strategic Partnership Blueprint",
+          "category": "Business Strategy",
+          "tier": "accelerator",
+          "description": "Identify and structure strategic partnerships to accelerate growth",
+          "prompt": "Act as a business development strategist. Design a strategic partnership program for {{business}} in {{niche}}.\n\nTarget partnership type: {{partnership_type}} (referral/co-creation/affiliate/JV)\nWhat I offer partners: {{value_to_partners}}\nWhat I need from partners: {{what_I_need}}\n\nDeliver:\n1. IDEAL PARTNER PROFILE: Exactly who to target\n2. PARTNER OUTREACH SCRIPT: Email + DM templates\n3. PARTNERSHIP AGREEMENT STRUCTURE: What to offer, what to ask\n4. VALUE EXCHANGE: How both parties win\n5. COMMISSION/COMPENSATION STRUCTURE\n6. ACTIVATION PLAN: How to keep partners engaged and producing\n7. PARTNER ONBOARDING: 5-step process\n8. TRACKING SYSTEM: How to measure partner performance\n9. 90-DAY GOAL: Realistic target for first quarter\n\nMake the partnership offer irresistible to the right partners.",
+          "variables": [
+            "business",
+            "niche",
+            "partnership_type",
+            "value_to_partners",
+            "what_I_need"
+          ],
+          "tags": [
+            "partnerships",
+            "JV",
+            "growth",
+            "B2B"
+          ],
+          "use_case": "Use to build a referral and partnership network"
+        },
+        {
+          "id": "bs-013",
+          "title": "Annual Planning Workshop Guide",
+          "category": "Business Strategy",
+          "tier": "inner_circle",
+          "description": "Run a comprehensive annual business planning session",
+          "prompt": "Act as a strategic planning facilitator. Guide me through an annual planning workshop for {{business}}.\n\nPrevious year revenue: ${{prev_revenue}}\nNext year revenue goal: ${{next_year_goal}}\nTeam size: {{team_size}}\n\nWorkshop agenda:\n1. YEAR IN REVIEW (30 min): What worked, what didn't, biggest lessons\n2. MARKET LANDSCAPE (20 min): How has the market changed?\n3. STRATEGIC PRIORITIES (40 min): Top 3 initiatives for the year\n4. RESOURCE ALLOCATION (20 min): Budget and time allocation per initiative\n5. QUARTERLY MILESTONES: 4 quarterly targets\n6. ONE-WORD THEME: The word that captures the year's focus\n7. ANTI-GOALS: What you will NOT do this year\n8. ACCOUNTABILITY STRUCTURE: How to stay on track all year\n\nInclude guiding questions for each section.",
+          "variables": [
+            "business",
+            "prev_revenue",
+            "next_year_goal",
+            "team_size"
+          ],
+          "tags": [
+            "annual planning",
+            "strategy",
+            "goal setting",
+            "vision"
+          ],
+          "use_case": "Use every December/January for annual strategic planning"
+        },
+        {
+          "id": "bs-014",
+          "title": "Exit Strategy Planner",
+          "category": "Business Strategy",
+          "tier": "inner_circle",
+          "description": "Plan a business exit or acquisition strategy",
+          "prompt": "Act as an M&A advisor. Create an exit strategy for {{business}} with current revenue of ${{annual_revenue}}.\n\nDesired exit timeline: {{timeline}}\nExit type: {{exit_type}} (acquisition/merger/sellout/succession)\nTarget exit valuation: ${{target_valuation}}\n\nDeliver:\n1. CURRENT VALUATION ESTIMATE: Multiple analysis for this business type\n2. VALUE DRIVERS: What increases valuation most in this business category\n3. VALUE DETRACTORS: What's currently reducing valuation\n4. 24-MONTH PREP PLAN: How to maximize value before exit\n5. BUYER TYPES: Who would want to acquire this business and why\n6. CLEAN-UP CHECKLIST: Financial, legal, operational items to address\n7. DOCUMENTATION NEEDED: What buyers will ask for\n8. BROKER VS. DIRECT: When to use each\n\nBe realistic about valuation. Most online businesses sell for 2-4x annual profit.",
+          "variables": [
+            "business",
+            "annual_revenue",
+            "timeline",
+            "exit_type",
+            "target_valuation"
+          ],
+          "tags": [
+            "exit strategy",
+            "acquisition",
+            "valuation",
+            "business sale"
+          ],
+          "use_case": "Use when planning to sell or step back from a business"
+        }
+      ]
+    },
+    {
+      "name": "Content Creation",
+      "icon": "✍️",
+      "prompts": [
+        {
+          "id": "cc-001",
+          "title": "YouTube Script Writer",
+          "category": "Content Creation",
+          "tier": "starter",
+          "description": "Generate high-retention YouTube video scripts with proven hooks",
+          "prompt": "Act as a top YouTube scriptwriter. Write a full script for a {{length}}-minute video titled: {{title}}\n\nTarget audience: {{audience}}\nTone: {{tone}}\n\nStructure:\n[HOOK - 30 sec]: Pattern interrupt + bold claim + reason to keep watching\n[CONTEXT - 1 min]: Who you are, why qualified, what they'll get\n[MAIN CONTENT]: 3-5 key points, each with: claim, story/proof, application\n[MIDPOINT PATTERN INTERRUPT]: Re-engage with question or surprising stat\n[CTA]: Specific ask tied to their transformation\n\nInclude: [B-ROLL suggestions], timestamps, and thumbnail concept.\nMake the hook the strongest part.",
+          "variables": [
+            "length",
+            "title",
+            "audience",
+            "tone"
+          ],
+          "tags": [
+            "youtube",
+            "video",
+            "script",
+            "content"
+          ],
+          "use_case": "Use for any YouTube video to maximize retention and engagement"
+        },
+        {
+          "id": "cc-002",
+          "title": "Newsletter Issue Writer",
+          "category": "Content Creation",
+          "tier": "starter",
+          "description": "Write engaging newsletters that readers actually open and click",
+          "prompt": "Act as a newsletter copywriter. Write an issue about: {{topic}}\n\nAudience: {{audience}}\nGoal: {{goal}}\nWord count: {{word_count}}\n\nDeliverables:\n1. Subject lines (5 options: curiosity, benefit, urgency, personal, contrarian)\n2. Preview text (90 chars max)\n3. Opening hook (the sentence that makes them keep reading)\n4. Main content (story-driven, one core insight)\n5. Actionable takeaways (3-5 bullets)\n6. Resource of the week\n7. CTA (one clear ask)\n8. P.S. line\n\nWrite conversationally. No corporate speak.",
+          "variables": [
+            "topic",
+            "audience",
+            "goal",
+            "word_count"
+          ],
+          "tags": [
+            "newsletter",
+            "email",
+            "content",
+            "copywriting"
+          ],
+          "use_case": "Use for weekly newsletter sends to your list"
+        },
+        {
+          "id": "cc-003",
+          "title": "SEO Blog Article",
+          "category": "Content Creation",
+          "tier": "starter",
+          "description": "Write SEO-optimized blog posts that rank and convert",
+          "prompt": "Act as an SEO content strategist and writer. Write a comprehensive blog post:\n\nTopic: {{topic}}\nPrimary keyword: {{keyword}}\nTarget length: {{word_count}} words\nTone: {{tone}}\n\nStructure:\n- SEO title (under 60 chars, keyword near front)\n- Meta description (under 155 chars with CTA)\n- H1 heading\n- Introduction (hook + problem + promise)\n- 4-6 H2 sections with H3 subsections\n- Internal link placeholders [LINK: topic]\n- FAQ section (5 questions)\n- Conclusion with CTA\n\nOptimize for featured snippets where possible.",
+          "variables": [
+            "topic",
+            "keyword",
+            "word_count",
+            "tone"
+          ],
+          "tags": [
+            "blog",
+            "seo",
+            "content",
+            "writing"
+          ],
+          "use_case": "Use for blog content that drives organic traffic"
+        },
+        {
+          "id": "cc-004",
+          "title": "Twitter/X Thread Creator",
+          "category": "Content Creation",
+          "tier": "starter",
+          "description": "Write viral Twitter/X threads that grow your following fast",
+          "prompt": "Act as a viral Twitter/X strategist. Write a high-engagement thread about: {{topic}}\n\nAudience: {{audience}}\nGoal: {{goal}}\n\nThread structure:\nTweet 1 (HOOK): Bold claim or contrarian take. End with 'Thread.'\nTweets 2-8: One insight per tweet. Specific, counterintuitive, with data or examples.\nTweet 9: Recap tweet (best insights)\nTweet 10 (CTA): Specific ask + why to follow you\n\nRules:\n- Each tweet under 280 chars\n- No filler. Every tweet earns its spot.\n- Number each tweet (1/10, 2/10, etc.)\n\nMake tweet 1 so compelling they MUST read the rest.",
+          "variables": [
+            "topic",
+            "audience",
+            "goal"
+          ],
+          "tags": [
+            "twitter",
+            "X",
+            "thread",
+            "viral",
+            "social media"
+          ],
+          "use_case": "Use to build authority and grow your Twitter/X following"
+        },
+        {
+          "id": "cc-005",
+          "title": "LinkedIn Post Writer",
+          "category": "Content Creation",
+          "tier": "starter",
+          "description": "Write LinkedIn posts that generate leads and build B2B authority",
+          "prompt": "Act as a LinkedIn content strategist. Write a high-performing post about: {{topic}}\n\nIndustry: {{industry}}\nPersonal angle: {{personal_angle}}\nGoal: {{goal}}\n\nPost structure:\nLine 1 (HOOK): Single sentence. Make them click 'see more'.\nLines 2-4: Set up the tension or story\nLines 5-12: The insight or value (use white space)\nLine 13-15: The takeaway in simple terms\nLine 16 (CTA): One clear ask\n3-5 relevant hashtags at the bottom\n\nTarget: 200-300 words total. Short sentences.",
+          "variables": [
+            "topic",
+            "industry",
+            "personal_angle",
+            "goal"
+          ],
+          "tags": [
+            "linkedin",
+            "B2B",
+            "social media",
+            "leads"
+          ],
+          "use_case": "Use 3-5x per week to build a consistent LinkedIn presence"
+        },
+        {
+          "id": "cc-006",
+          "title": "TikTok Script Writer",
+          "category": "Content Creation",
+          "tier": "starter",
+          "description": "Write fast-paced TikTok scripts optimized for watch time and shares",
+          "prompt": "Act as a TikTok content creator. Write a script for a {{duration}}-second TikTok.\n\nTopic: {{topic}}\nHook style: {{hook_style}}\nTarget audience: {{target_audience}}\n\nScript:\n[0-3 sec HOOK]: Most attention-grabbing thing first. No intros.\n[4-15 sec SETUP]: Brief context. Why should they care?\n[16-{{duration}} sec CONTENT]: Fast-paced value. One idea every 3-5 seconds.\n[Final 3 sec CTA]: Follow + comment prompt\n\nInclude:\n- Text overlay suggestions [TEXT: ...]\n- Caption (150 chars) + hashtags\n- B-roll/visual notes",
+          "variables": [
+            "duration",
+            "topic",
+            "hook_style",
+            "target_audience"
+          ],
+          "tags": [
+            "tiktok",
+            "short-form",
+            "viral",
+            "content"
+          ],
+          "use_case": "Use for TikTok content to grow a new or existing account"
+        },
+        {
+          "id": "cc-007",
+          "title": "Podcast Episode Outline",
+          "category": "Content Creation",
+          "tier": "accelerator",
+          "description": "Create structured podcast episode outlines with talking points",
+          "prompt": "Act as a podcast producer. Create a full episode outline for:\n\nEpisode title: {{title}}\nGuest/topic: {{guest_or_topic}}\nLength: {{length}} minutes\nFormat: {{format}}\n\nInclude:\n1. Pre-roll hook (30-second teaser)\n2. Intro talking points\n3. 4-6 main segments: title, key questions, desired insight, transition\n4. Lightning round (5 questions)\n5. Closing + guest CTA\n6. Outro CTA\n7. 5 alternative episode titles\n8. Episode description (200 words for podcast platforms)\n\nMake transitions smooth and natural.",
+          "variables": [
+            "title",
+            "guest_or_topic",
+            "length",
+            "format"
+          ],
+          "tags": [
+            "podcast",
+            "audio",
+            "content",
+            "interview"
+          ],
+          "use_case": "Use before every recording session"
+        },
+        {
+          "id": "cc-008",
+          "title": "Email Subject Line Generator",
+          "category": "Content Creation",
+          "tier": "starter",
+          "description": "Generate high-open-rate email subject lines for any campaign",
+          "prompt": "Act as an email marketing expert. Generate 20 subject lines for an email about: {{email_topic}}\n\nAudience: {{audience}}\nGoal: {{goal}}\n\nGenerate 4 subject lines for each style:\n1. Curiosity gap\n2. Benefit-forward\n3. Controversy/contrarian\n4. Personalization hook\n5. Urgency/scarcity\n\nFor each: preview text (under 90 chars) + open rate prediction (high/medium/low).\n\nFlag top 3 to A/B test first.",
+          "variables": [
+            "email_topic",
+            "audience",
+            "goal"
+          ],
+          "tags": [
+            "email",
+            "subject lines",
+            "open rate",
+            "copywriting"
+          ],
+          "use_case": "Use before every email send to maximize open rates"
+        },
+        {
+          "id": "cc-009",
+          "title": "Content Repurposing Engine",
+          "category": "Content Creation",
+          "tier": "accelerator",
+          "description": "Turn one piece of content into 10+ assets across platforms",
+          "prompt": "Act as a content repurposing strategist. Take this content and repurpose it into 10+ formats:\n\nOriginal content: {{original_content}}\nOriginal format: {{original_format}}\nCore message: {{core_message}}\n\nRepurpose into:\n1. Twitter/X thread (10 tweets)\n2. LinkedIn post (250 words)\n3. Instagram carousel (8 slides - headlines only)\n4. TikTok script (60 seconds)\n5. Email newsletter excerpt (150 words)\n6. YouTube description + timestamps\n7. 5 quotable insights\n8. Blog post intro paragraph\n9. Podcast talking points (5 bullets)\n10. Pinterest pin headline + description\n\nAdapt tone per platform — don't copy-paste.",
+          "variables": [
+            "original_content",
+            "original_format",
+            "core_message"
+          ],
+          "tags": [
+            "repurposing",
+            "content strategy",
+            "multi-platform"
+          ],
+          "use_case": "Use after creating any long-form content to maximize ROI"
+        },
+        {
+          "id": "cc-010",
+          "title": "Instagram Caption Writer",
+          "category": "Content Creation",
+          "tier": "starter",
+          "description": "Write engaging Instagram captions that drive saves, shares, and follows",
+          "prompt": "Act as an Instagram content strategist. Write 3 caption options for a post about: {{post_topic}}\n\nNiche: {{niche}}\nVisual description: {{visual_description}}\nGoal: {{goal}}\n\nFor each caption:\n- Opening line (stop the scroll with words alone)\n- Story or context (2-4 sentences)\n- Value/insight (why they'll save it)\n- Question or CTA\n- 15-20 hashtags (3 large, 7 medium, 5 niche, 3 brand)\n\nRank from most to least likely to go viral. Explain why #1 wins.",
+          "variables": [
+            "post_topic",
+            "niche",
+            "visual_description",
+            "goal"
+          ],
+          "tags": [
+            "instagram",
+            "captions",
+            "social media",
+            "engagement"
+          ],
+          "use_case": "Use for every Instagram post to maximize reach"
+        },
+        {
+          "id": "cc-011",
+          "title": "Email Nurture Sequence Builder",
+          "category": "Content Creation",
+          "tier": "accelerator",
+          "description": "Write a full 7-email nurture sequence for any lead magnet or product",
+          "prompt": "Act as an email marketing strategist. Create a 7-email nurture sequence for {{product_or_lead_magnet}}.\n\nSubscriber origin: {{traffic_source}}\nGoal: {{goal}}\nOffer: {{offer}} at ${{price}}\n\nSequence:\nEmail 1 (Immediate): Welcome + deliver + set expectations\nEmail 2 (Day 2): Best content. No ask. Build trust.\nEmail 3 (Day 4): Your story/origin.\nEmail 4 (Day 6): Social proof + case study\nEmail 5 (Day 8): Pivot to the problem your offer solves\nEmail 6 (Day 10): Present the offer + bonuses\nEmail 7 (Day 12): Urgency close\n\nFor each: subject line (3 options), preview text, full body, CTA.",
+          "variables": [
+            "product_or_lead_magnet",
+            "traffic_source",
+            "goal",
+            "offer",
+            "price"
+          ],
+          "tags": [
+            "email marketing",
+            "nurture sequence",
+            "list building",
+            "automation"
+          ],
+          "use_case": "Use for any new lead magnet or product funnel"
+        },
+        {
+          "id": "cc-012",
+          "title": "Long-Form Content Blueprint",
+          "category": "Content Creation",
+          "tier": "accelerator",
+          "description": "Plan and outline pillar content pieces that drive authority and SEO",
+          "prompt": "Act as a content strategist. Create a complete blueprint for a long-form content piece on: {{topic}}\n\nFormat: {{format}}\nPrimary keyword: {{keyword}}\nTarget length: {{word_count}} words\nBrand angle: {{brand_angle}}\n\nDeliver:\n1. HEADLINE OPTIONS (5 with numbers, emotion, power words)\n2. CONTENT OUTLINE: Full H2/H3 hierarchy\n3. HOOK PARAGRAPH: First 100 words\n4. DATA POINTS TO INCLUDE\n5. VISUALS NEEDED: Charts, screenshots, diagrams\n6. CONVERSION ELEMENTS: Where to place CTAs\n7. PROMOTION PLAN: Where to share after publishing\n8. REPURPOSING PLAN: 5 derivative pieces from this one asset\n\nThis piece should become the definitive resource on the topic.",
+          "variables": [
+            "topic",
+            "format",
+            "keyword",
+            "word_count",
+            "brand_angle"
+          ],
+          "tags": [
+            "pillar content",
+            "SEO",
+            "authority building",
+            "long-form"
+          ],
+          "use_case": "Use for quarterly content pillars that drive compounding traffic"
+        },
+        {
+          "id": "cc-013",
+          "title": "Brand Voice Style Guide Creator",
+          "category": "Content Creation",
+          "tier": "accelerator",
+          "description": "Build a brand voice guide that keeps all content consistent",
+          "prompt": "Act as a brand strategist. Create a comprehensive brand voice style guide for {{brand_name}} in {{industry}}.\n\nBrand personality: {{personality_adjectives}}\nTarget audience: {{audience}}\nCompetitor voices to avoid: {{competitors}}\n\nCreate:\n1. BRAND VOICE STATEMENT: 1-paragraph description of how the brand sounds\n2. PERSONALITY TRAITS: 4 adjectives + what each means in practice\n3. TONE SPECTRUM: How tone shifts by context (social vs. sales vs. support)\n4. VOCABULARY GUIDE:\n   - Words we love and use often\n   - Words we never use\n   - Jargon to use vs. avoid\n5. WRITING RULES: 10 specific do's and don'ts\n6. EXAMPLE TRANSFORMATIONS: 5 before/after copy examples\n7. SOCIAL MEDIA VOICE: Platform-specific adjustments\n8. CTA LANGUAGE: Approved call-to-action phrases\n\nFormat for easy use by writers, marketers, and AI tools.",
+          "variables": [
+            "brand_name",
+            "industry",
+            "personality_adjectives",
+            "audience",
+            "competitors"
+          ],
+          "tags": [
+            "brand voice",
+            "style guide",
+            "content strategy",
+            "consistency"
+          ],
+          "use_case": "Use to align all content creators and AI tools to your brand"
+        },
+        {
+          "id": "cc-014",
+          "title": "Video Content Strategy Builder",
+          "category": "Content Creation",
+          "tier": "accelerator",
+          "description": "Design a full video content strategy across YouTube, TikTok, and Reels",
+          "prompt": "Act as a video content strategist. Design a multi-platform video strategy for {{creator_or_brand}} in {{niche}}.\n\nCurrent platforms: {{platforms}}\nContent creation capacity: {{hours_per_week}} hours/week\nGoal: {{goal}}\n\nCreate:\n1. PLATFORM HIERARCHY: Primary vs. secondary platform (with reasoning)\n2. CONTENT PILLARS: 4 repeatable series formats\n3. FOR EACH PLATFORM:\n   - Optimal video length\n   - Posting frequency\n   - Best content types\n   - Native features to leverage\n4. VIDEO PRODUCTION WORKFLOW: From idea to published\n5. REPURPOSING MAP: How one video becomes content on all platforms\n6. GROWTH TACTICS: Platform-specific growth levers\n7. MONETIZATION PATH: How video content converts to revenue\n8. 90-DAY CONTENT PLAN: Week-by-week themes and formats\n\nDesign for a creator with limited time who needs to maximize output.",
+          "variables": [
+            "creator_or_brand",
+            "niche",
+            "platforms",
+            "hours_per_week",
+            "goal"
+          ],
+          "tags": [
+            "video strategy",
+            "youtube",
+            "tiktok",
+            "reels",
+            "content"
+          ],
+          "use_case": "Use when building or scaling a video content presence"
+        },
+        {
+          "id": "cc-015",
+          "title": "Thought Leadership Article Builder",
+          "category": "Content Creation",
+          "tier": "accelerator",
+          "description": "Write thought leadership articles that establish you as an industry authority",
+          "prompt": "Act as a thought leadership ghostwriter. Write a thought leadership article for {{author}} in {{industry}}.\n\nUnique perspective: {{perspective}}\nTarget publication: {{publication}}\nTarget length: {{word_count}} words\n\nArticle structure:\n1. PROVOCATIVE HEADLINE: Challenge conventional wisdom\n2. OPENING HOOK: A story, stat, or scene that opens with tension\n3. THE CONVENTIONAL WISDOM: What most people believe\n4. THE COUNTER-NARRATIVE: Your unique POV and why it's right\n5. THE EVIDENCE: 3 supporting points (data, examples, reasoning)\n6. THE IMPLICATION: What this means for the reader\n7. THE CALL TO ARMS: Challenge readers to act or think differently\n\nTone: Authoritative but not arrogant. Contrarian without being inflammatory.\nAvoid: Obvious advice, listicles, and 'in conclusion'.",
+          "variables": [
+            "author",
+            "industry",
+            "perspective",
+            "publication",
+            "word_count"
+          ],
+          "tags": [
+            "thought leadership",
+            "authority",
+            "content",
+            "publishing"
+          ],
+          "use_case": "Use for Forbes, LinkedIn articles, or industry publication submissions"
+        },
+        {
+          "id": "cc-016",
+          "title": "Ghostwriting Service Prompt Pack",
+          "category": "Content Creation",
+          "tier": "inner_circle",
+          "description": "Complete prompt system for delivering ghostwriting services to clients",
+          "prompt": "Act as a professional ghostwriter. I need a complete content pack for {{client_name}} in {{industry}}.\n\nClient voice sample: {{voice_sample}}\nPlatform: {{platform}}\nContent type: {{content_type}}\nQuantity needed: {{quantity}}\n\nFor each piece, write in first person as if I am {{client_name}}:\n1. VOICE MATCHING: Identify 3 voice characteristics from sample\n2. CONTENT PIECES: Write {{quantity}} pieces matching:\n   - Their vocabulary level\n   - Their typical sentence structure\n   - Their personality quirks\n   - Their professional expertise level\n3. REVISION NOTES: What to look for to make it sound more authentic\n4. APPROVAL CHECKLIST: How client can verify it sounds like them\n\nNote: This is for content the client will publish under their name with their full knowledge and approval.",
+          "variables": [
+            "client_name",
+            "industry",
+            "voice_sample",
+            "platform",
+            "content_type",
+            "quantity"
+          ],
+          "tags": [
+            "ghostwriting",
+            "content service",
+            "voice matching",
+            "client delivery"
+          ],
+          "use_case": "Use when providing ghostwriting services to clients"
+        }
+      ]
+    },
+    {
+      "name": "Client Acquisition",
+      "icon": "🎯",
+      "prompts": [
+        {
+          "id": "ca-001",
+          "title": "Cold Email Sequence",
+          "category": "Client Acquisition",
+          "tier": "starter",
+          "description": "Write a high-converting 5-email cold outreach sequence",
+          "prompt": "Act as a sales copywriter. Write a 5-email cold outreach sequence for {{target}} offering {{service}}.\n\nMy credibility: {{credibility}}\n\nEmail 1 (Day 1) - Pure value, no pitch:\n- Subject lines (3 options)\n- Body: Identify their pain, offer one insight. Zero ask.\n\nEmail 2 (Day 3) - Social proof:\n- Subject lines (3 options)\n- Body: Case study or result. Soft mention of service.\n\nEmail 3 (Day 6) - The pitch:\n- Subject lines (3 options)\n- Body: Clear offer, clear ask, easy reply.\n\nEmail 4 (Day 10) - Breakup:\n- Body: Pattern interrupt. Create urgency.\n\nEmail 5 (Day 14) - Final:\n- Body: Lightest touch, leave door open.\n\nTone: Human, not salesy.",
+          "variables": [
+            "target",
+            "service",
+            "credibility"
+          ],
+          "tags": [
+            "cold email",
+            "outreach",
+            "sales",
+            "prospecting"
+          ],
+          "use_case": "Use for any cold B2B outreach campaign"
+        },
+        {
+          "id": "ca-002",
+          "title": "DM Outreach Script",
+          "category": "Client Acquisition",
+          "tier": "starter",
+          "description": "Write non-sleazy DM scripts that actually get responses",
+          "prompt": "Act as a social selling expert. Write DM outreach scripts for {{platform}} targeting {{prospect_type}} for {{service}}.\n\nCreate 3 DM variations:\n1. The Compliment + Question (genuine, specific)\n2. The Shared Content angle (reference something they posted)\n3. The Direct Value Drop (give insight before asking)\n\nFor each:\n- Opening message (under 150 words)\n- Follow-up if no response in 48h\n- Response to: 'Not interested right now'\n\nRules: Never pitch in first message. Sound human, not templated.",
+          "variables": [
+            "platform",
+            "prospect_type",
+            "service"
+          ],
+          "tags": [
+            "DM",
+            "outreach",
+            "social selling",
+            "prospecting"
+          ],
+          "use_case": "Use for Instagram, LinkedIn, or Twitter DM outreach"
+        },
+        {
+          "id": "ca-003",
+          "title": "Client Proposal Builder",
+          "category": "Client Acquisition",
+          "tier": "accelerator",
+          "description": "Write a persuasive client proposal that wins projects",
+          "prompt": "Act as a business development expert. Write a winning proposal for:\n\nProject: {{project}}\nClient: {{client_name}} at {{company}}\nBudget indicator: {{budget}}\n\nProposal structure:\n1. EXECUTIVE SUMMARY (3 sentences: problem, solution, result)\n2. UNDERSTANDING YOUR SITUATION\n3. THE PROBLEM (reframe pain into dollars/time lost)\n4. PROPOSED SOLUTION\n5. PROCESS & TIMELINE (phases, milestones, deliverables)\n6. INVESTMENT (3 package options: good/better/best)\n7. WHY US (2-3 proof points)\n8. NEXT STEPS (specific, dated CTA)\n9. FAQ (3-5 objections preemptively answered)\n\nTone: Confident and consultative. Write like you've already won.",
+          "variables": [
+            "project",
+            "client_name",
+            "company",
+            "budget"
+          ],
+          "tags": [
+            "proposal",
+            "B2B",
+            "sales",
+            "closing"
+          ],
+          "use_case": "Use for any service-based project proposal"
+        },
+        {
+          "id": "ca-004",
+          "title": "Discovery Call Script",
+          "category": "Client Acquisition",
+          "tier": "starter",
+          "description": "Run discovery calls that qualify leads and lead naturally to proposals",
+          "prompt": "Act as a sales coach. Create a complete discovery call script for selling {{service}} to {{target}}.\n\nCall duration: {{duration}} minutes\n\nScript sections:\n[0-2 min] OPENER & AGENDA SETTING\n[2-7 min] RAPPORT QUESTIONS (3 questions)\n[7-18 min] DISCOVERY (8 questions covering: situation, pain depth, consequences, what they've tried, ideal outcome, timeline, budget, decision process)\n[18-25 min] PRESENT SOLUTION (briefly, 20% of call)\n[25-30 min] CLOSE & NEXT STEPS\n\nFor each question: the question + what to listen for + how to probe deeper\n5 common objections with word-for-word responses",
+          "variables": [
+            "service",
+            "target",
+            "duration"
+          ],
+          "tags": [
+            "discovery call",
+            "sales",
+            "qualification",
+            "closing"
+          ],
+          "use_case": "Use as your framework for every new prospect conversation"
+        },
+        {
+          "id": "ca-005",
+          "title": "Follow-Up Sequence Builder",
+          "category": "Client Acquisition",
+          "tier": "accelerator",
+          "description": "Write follow-up sequences for leads who went quiet",
+          "prompt": "Act as a sales strategist. Write a follow-up sequence for a prospect who {{last_interaction}} about {{service}}.\n\nDays since last contact: {{days_since}}\n\n6-touch sequence:\nTouch 1: Value add, no ask\nTouch 2: Case study (thought you'd find this relevant)\nTouch 3: New angle, address likely objection\nTouch 4: Direct (still exploring options?)\nTouch 5: Urgency (real reason timing matters now)\nTouch 6: Breakup (I'll stop — but before I do)\n\nFor each touch: channel, subject line if email, message body (under 100 words), best time to send.\n\nMake each touch feel fresh.",
+          "variables": [
+            "last_interaction",
+            "service",
+            "days_since"
+          ],
+          "tags": [
+            "follow-up",
+            "sales",
+            "nurturing",
+            "lead management"
+          ],
+          "use_case": "Use for prospects who went cold after initial interest"
+        },
+        {
+          "id": "ca-006",
+          "title": "Objection Handling Playbook",
+          "category": "Client Acquisition",
+          "tier": "accelerator",
+          "description": "Master responses to every common sales objection",
+          "prompt": "Act as a sales coach. Write an objection handling playbook for {{service}} at {{price_point}}.\n\nFor each of 8 objections, provide:\n- Word-for-word response (under 60 words)\n- Real objection beneath the stated one\n- Follow-up question to keep conversation open\n- When to hold firm vs. flex\n\nObjections:\n1. Too expensive\n2. Need to think about it\n3. Need to talk to partner/team\n4. Tried something similar before\n5. Can do it myself / have in-house\n6. Not ready yet\n7. Can you do it cheaper?\n8. Send me more information\n\nBonus: 3 preemptive objection killers.",
+          "variables": [
+            "service",
+            "price_point"
+          ],
+          "tags": [
+            "objection handling",
+            "sales",
+            "closing",
+            "negotiation"
+          ],
+          "use_case": "Use to train yourself on handling any sales resistance"
+        },
+        {
+          "id": "ca-007",
+          "title": "LinkedIn Outreach Campaign",
+          "category": "Client Acquisition",
+          "tier": "accelerator",
+          "description": "Build a multi-touch LinkedIn outreach campaign for B2B leads",
+          "prompt": "Act as a LinkedIn sales strategist. Design a 4-week outreach campaign targeting {{ideal_client}} for {{service}}.\n\nWeek 1: Connection phase\n- Connection request note (under 300 chars)\n- Day 3 thank you message (value-only)\n\nWeek 2: Engagement phase\n- 3 comment scripts for their posts\n- Day 10 value message\n\nWeek 3: Pitch phase\n- Day 14 soft pitch\n- Day 17 follow-up\n\nWeek 4: Close or nurture\n- Day 21 case study message\n- Day 25 breakup message\n\nFor each message: exact copy, tone notes, personalization hooks",
+          "variables": [
+            "ideal_client",
+            "service"
+          ],
+          "tags": [
+            "linkedin",
+            "outreach",
+            "B2B",
+            "lead generation"
+          ],
+          "use_case": "Use for systematic LinkedIn lead generation"
+        },
+        {
+          "id": "ca-008",
+          "title": "Case Study Creator",
+          "category": "Client Acquisition",
+          "tier": "accelerator",
+          "description": "Turn client results into compelling case studies that sell for you",
+          "prompt": "Act as a case study writer. Create a compelling case study:\n\nClient type: {{client_type}}\nSituation before: {{situation_before}}\nService provided: {{service}}\nResults: {{results}}\nTimeframe: {{timeframe}}\n\nStructure:\n1. HEADLINE: Result-focused, specific numbers\n2. SUBHEADLINE: Who + what + how fast\n3. THE CHALLENGE: Relatable pain and urgency\n4. THE SOLUTION: What you did, why it worked\n5. THE RESULTS: Quantified + emotional impact\n6. THE TURNING POINT: The moment everything changed\n7. CLIENT QUOTE: 3 quote options for client to choose\n8. CTA: 'Could this work for you too?'\n\nWrite as narrative, not a report.",
+          "variables": [
+            "client_type",
+            "situation_before",
+            "service",
+            "results",
+            "timeframe"
+          ],
+          "tags": [
+            "case study",
+            "social proof",
+            "sales",
+            "portfolio"
+          ],
+          "use_case": "Use after completing any notable client project"
+        },
+        {
+          "id": "ca-009",
+          "title": "Testimonial Request Template",
+          "category": "Client Acquisition",
+          "tier": "starter",
+          "description": "Get powerful testimonials from happy clients with the right ask",
+          "prompt": "Act as a client success manager. Write a testimonial request for {{client}} who completed {{service}}.\n\nResults achieved: {{results}}\nProject duration: {{duration}}\n\nCreate:\n1. EMAIL SUBJECT (5 options, easy to say yes to)\n2. EMAIL BODY:\n   - Celebrate their results specifically\n   - Explain why their story helps others\n   - Three guided questions:\n     a. What was the situation before?\n     b. What did we do, and how did it go?\n     c. What specific results have you seen?\n   - Format options: Written / Video / Audio\n3. FOLLOW-UP (if no response in 5 days)\n\nMake the ask feel natural, not transactional.",
+          "variables": [
+            "client",
+            "service",
+            "results",
+            "duration"
+          ],
+          "tags": [
+            "testimonials",
+            "social proof",
+            "client success"
+          ],
+          "use_case": "Use within 2 weeks of completing any successful project"
+        },
+        {
+          "id": "ca-010",
+          "title": "Referral Program Builder",
+          "category": "Client Acquisition",
+          "tier": "accelerator",
+          "description": "Design a referral program that turns clients into your best salespeople",
+          "prompt": "Act as a growth strategist. Design a referral program for {{business}} with ${{average_client_value}} average client value.\n\nCurrent clients: {{client_count}}\n\nCreate:\n1. PROGRAM NAME: Memorable (not just 'Refer a Friend')\n2. REFERRER INCENTIVE: What they get\n3. REFERRED PERSON INCENTIVE: What the new lead gets\n4. THE ASK EMAIL: Word-for-word message to current clients\n5. IN-PERSON/CALL SCRIPT\n6. TRACKING SYSTEM: Simple way to track referrals\n7. FULFILLMENT PROCESS: How and when rewards are delivered\n8. LAUNCH SEQUENCE: How to announce to current clients\n\nCalculate break-even and projected ROI.",
+          "variables": [
+            "business",
+            "average_client_value",
+            "client_count"
+          ],
+          "tags": [
+            "referrals",
+            "growth",
+            "word of mouth",
+            "client acquisition"
+          ],
+          "use_case": "Use when you have happy clients but no systematic referral process"
+        },
+        {
+          "id": "ca-011",
+          "title": "Inbound Lead System Designer",
+          "category": "Client Acquisition",
+          "tier": "accelerator",
+          "description": "Design a content-driven inbound lead generation system",
+          "prompt": "Act as an inbound marketing strategist. Design an inbound lead generation system for {{service}} targeting {{target}}.\n\nContent creation capacity: {{content_hours}}/week\nPrimary platform: {{platform}}\nLead value: ${{average_deal_value}}\n\nCreate:\n1. CONTENT STRATEGY: Types of content that attract ideal clients\n2. LEAD MAGNET: Specific free offer that pre-qualifies prospects\n3. CONVERSION PATH: Content > Landing Page > Email > Discovery Call\n4. NURTURE SEQUENCE: 5-email sequence after lead magnet download\n5. BOOKING FLOW: How leads schedule a discovery call\n6. PRE-CALL QUALIFICATION: Form questions to filter before the call\n7. FOLLOW-UP SYSTEM: What happens if they don't book\n8. METRICS: What to track to optimize the system\n\nDesign so it runs mostly on autopilot after initial setup.",
+          "variables": [
+            "service",
+            "target",
+            "content_hours",
+            "platform",
+            "average_deal_value"
+          ],
+          "tags": [
+            "inbound",
+            "lead generation",
+            "content marketing",
+            "funnels"
+          ],
+          "use_case": "Use to build a lead generation system that works while you sleep"
+        },
+        {
+          "id": "ca-012",
+          "title": "Partnership Referral Outreach",
+          "category": "Client Acquisition",
+          "tier": "accelerator",
+          "description": "Write outreach to build a referral partner network",
+          "prompt": "Act as a partnership development consultant. Write outreach templates for building a referral partner network for {{service}}.\n\nIdeal referral partners: {{partner_type}}\nReferral incentive: {{incentive}}\nValue I provide partners: {{value_to_partners}}\n\nCreate:\n1. INITIAL OUTREACH EMAIL (5 variations for different partner types)\n2. FOLLOW-UP EMAIL (if no response in 5 days)\n3. PARTNERSHIP PITCH: 2-paragraph description of the opportunity\n4. OBJECTION HANDLING: 3 reasons they might say no + responses\n5. ONBOARDING EMAIL: Welcome + how to refer clients\n6. MONTHLY PARTNER CHECK-IN TEMPLATE\n7. THANK YOU AFTER REFERRAL: Template to send after a referred client signs\n\nTone: Collegial and mutually beneficial. Not transactional.",
+          "variables": [
+            "service",
+            "partner_type",
+            "incentive",
+            "value_to_partners"
+          ],
+          "tags": [
+            "partnerships",
+            "referrals",
+            "outreach",
+            "network"
+          ],
+          "use_case": "Use to build a network of professionals who send you clients"
+        },
+        {
+          "id": "ca-013",
+          "title": "High-Ticket Sales Script",
+          "category": "Client Acquisition",
+          "tier": "inner_circle",
+          "description": "Write a complete high-ticket sales conversation script",
+          "prompt": "Act as a high-ticket sales coach. Write a complete sales conversation script for selling {{offer}} at ${{price}}.\n\nProspect type: {{prospect}\nCall type: {{call_type}} (strategy call/demo/application call)\nDuration: {{duration}} minutes\n\nScript:\n[OPENER]: Build rapport, confirm call agenda, set frame\n[DISCOVERY]: 6 questions to understand their situation deeply\n[PAIN AMPLIFICATION]: Help them articulate the cost of not solving this\n[VISION]: Help them paint the picture of the ideal outcome\n[PRESENT THE OFFER]: Walk through what they get and how it works\n[ADDRESS OBJECTIONS]: Handle top 3 objections\n[CLOSE]: Ask for the decision in a non-pushy way\n[HANDLE HESITATION]: What to do when they say 'I need to think about it'\n[PAYMENT]: How to collect payment on the call\n\nTone: Consultative, not pushy. Coach them to a decision.",
+          "variables": [
+            "offer",
+            "price",
+            "prospect",
+            "call_type",
+            "duration"
+          ],
+          "tags": [
+            "high-ticket",
+            "sales",
+            "closing",
+            "scripts"
+          ],
+          "use_case": "Use for any $1,000+ product or service sales conversation"
+        }
+      ]
+    },
+    {
+      "name": "Product Development",
+      "icon": "🛠️",
+      "prompts": [
+        {
+          "id": "pd-001",
+          "title": "Course Outline Builder",
+          "category": "Product Development",
+          "tier": "accelerator",
+          "description": "Design a complete, results-driven online course structure",
+          "prompt": "Act as an instructional designer. Build a full outline for a course on: {{course_topic}}\n\nTarget student: {{target_student}}\nDesired transformation: {{transformation}}\nPrice point: {{price}}\nDelivery format: {{format}}\n\nDeliver:\n1. Course title (5 options, benefit-focused)\n2. Course promise/transformation statement\n3. 8-12 module structure: module title, core objective, 3-5 lessons, key exercise\n4. Bonus materials (3-5 ideas)\n5. Community/support component\n6. Quick-win lesson in Module 1 (reduces refunds)\n7. Course sales hook: 'By the end of Module 1, you will...'\n\nDesign for completion, not just enrollment.",
+          "variables": [
+            "course_topic",
+            "target_student",
+            "transformation",
+            "price",
+            "format"
+          ],
+          "tags": [
+            "course",
+            "online education",
+            "curriculum",
+            "product"
+          ],
+          "use_case": "Use when building any online course from scratch"
+        },
+        {
+          "id": "pd-002",
+          "title": "Ebook Structure Creator",
+          "category": "Product Development",
+          "tier": "starter",
+          "description": "Design a monetizable ebook or guide structure",
+          "prompt": "Act as a digital product creator. Structure an ebook on: {{topic}}\n\nTarget reader: {{target_reader}}\nDesired outcome: {{outcome}}\nTarget length: {{pages}} pages\n\nCreate:\n1. Title (5 options) + subtitle options\n2. Table of contents\n3. Introduction structure\n4. Chapter breakdown: title, core concept, key insight, exercise, summary\n5. Resources section\n6. Back matter (about, next steps, offers)\n7. Lead magnet version: Which chapter becomes the free excerpt?\n\nDesign for value and shareability.",
+          "variables": [
+            "topic",
+            "target_reader",
+            "outcome",
+            "pages"
+          ],
+          "tags": [
+            "ebook",
+            "digital product",
+            "passive income",
+            "writing"
+          ],
+          "use_case": "Use to create a lead magnet or paid digital product"
+        },
+        {
+          "id": "pd-003",
+          "title": "Sales Page Copywriter",
+          "category": "Product Development",
+          "tier": "accelerator",
+          "description": "Write a long-form sales page that converts browsers to buyers",
+          "prompt": "Act as a direct response copywriter. Write a full sales page for: {{product}}\n\nTarget customer: {{customer}}\nCore pain: {{pain}}\nPrice: {{price}}\nBig promise: {{promise}}\n\nPage structure:\n[HERO]: Headline + subheadline + above-fold hook\n[PAIN]: Agitate the problem\n[CREDIBILITY]: Why you, why now\n[SOLUTION]: The product reveal\n[FEATURES TO BENEFITS]: Each feature as an outcome\n[PROOF]: 3 testimonials, results, case studies\n[THE OFFER]: Everything included, stacked\n[PRICING + BONUSES]: Anchor high, justify\n[GUARANTEE]: Reverse the risk\n[FAQ]: 7 buying objections answered\n[CTA BUTTONS]: 4 placements\n[URGENCY CLOSE]: Real scarcity\n\nWrite at a 7th grade reading level. Sell transformation.",
+          "variables": [
+            "product",
+            "customer",
+            "pain",
+            "price",
+            "promise"
+          ],
+          "tags": [
+            "sales page",
+            "copywriting",
+            "conversion",
+            "landing page"
+          ],
+          "use_case": "Use for any product or service sales page"
+        },
+        {
+          "id": "pd-004",
+          "title": "Landing Page Copy Builder",
+          "category": "Product Development",
+          "tier": "starter",
+          "description": "Write high-converting opt-in or squeeze page copy",
+          "prompt": "Act as a conversion copywriter. Write landing page copy for: {{offer}}\n\nGoal: {{goal}}\nTarget visitor: {{visitor}}\nTraffic source: {{traffic_source}}\n\nDeliver:\n1. Headline (result + timeframe + objection removal)\n2. Subheadline (who it's for + how it works)\n3. Primary CTA button copy (5 options)\n4. 3 benefit bullets (outcome-focused)\n5. Social proof element\n6. Secondary CTA section\n7. Trust signals\n8. Exit-intent popup headline\n9. A/B test variation: alternate headline + CTA\n\nRemove every word that doesn't earn its place.",
+          "variables": [
+            "offer",
+            "goal",
+            "visitor",
+            "traffic_source"
+          ],
+          "tags": [
+            "landing page",
+            "conversion",
+            "copywriting",
+            "lead generation"
+          ],
+          "use_case": "Use for any opt-in page, webinar page, or offer page"
+        },
+        {
+          "id": "pd-005",
+          "title": "VSL Script Writer",
+          "category": "Product Development",
+          "tier": "inner_circle",
+          "description": "Write a video sales letter (VSL) script that converts cold traffic",
+          "prompt": "Act as a direct response VSL copywriter. Write a {{duration}}-minute VSL for: {{product}}\n\nTarget customer: {{customer}}\nCore transformation: {{transformation}}\nPrice: {{price}}\n\nVSL structure:\n[0:00-1:00] PATTERN INTERRUPT: Shocking statement or story hook\n[1:00-3:00] IDENTIFY PAIN: 'If you're like me...'\n[3:00-5:00] FAILED SOLUTIONS: Why what they've tried doesn't work\n[5:00-7:00] THE DISCOVERY: How you found the solution\n[7:00-10:00] THE MECHANISM: Why this works\n[10:00-14:00] THE PRODUCT: What they get + transformation story\n[14:00-17:00] PROOF: Results and testimonials\n[17:00-18:00] THE OFFER STACK\n[18:00-19:00] GUARANTEE\n[19:00-20:00] URGENCY + CTA\n\nWrite for audio. Short sentences. [PAUSE] markers.",
+          "variables": [
+            "duration",
+            "product",
+            "customer",
+            "transformation",
+            "price"
+          ],
+          "tags": [
+            "VSL",
+            "video sales letter",
+            "copywriting",
+            "sales"
+          ],
+          "use_case": "Use for paid traffic campaigns and product launches"
+        },
+        {
+          "id": "pd-006",
+          "title": "Checkout Page Optimizer",
+          "category": "Product Development",
+          "tier": "accelerator",
+          "description": "Write checkout page copy that reduces cart abandonment",
+          "prompt": "Act as a checkout optimization expert. Write all copy for a checkout page for: {{product}} at {{price}}\n\nCreate:\n1. Page headline (reinforce the decision)\n2. Order summary copy\n3. Benefit reminder bullets (3-5)\n4. Trust badges and their copy\n5. Guarantee statement (bold and specific)\n6. Sidebar testimonial (2 options)\n7. Order bump: headline, 2-sentence description, price justification\n8. Security/privacy assurance text\n9. FAQ (3 questions about the purchase process)\n10. Post-purchase confirmation page headline + copy\n\nGoal: eliminate buyer's remorse and increase AOV.",
+          "variables": [
+            "product",
+            "price"
+          ],
+          "tags": [
+            "checkout",
+            "conversion",
+            "cart abandonment",
+            "AOV"
+          ],
+          "use_case": "Use to reduce cart abandonment and add order bumps"
+        },
+        {
+          "id": "pd-007",
+          "title": "Webinar Script Builder",
+          "category": "Product Development",
+          "tier": "inner_circle",
+          "description": "Write a high-converting webinar script for any offer",
+          "prompt": "Act as a webinar strategist. Write a 60-minute webinar script for: {{topic}}\n\nOffer at the end: {{offer}} at {{price}}\nTarget audience: {{audience}}\n\nScript structure:\n[0-5 min] INTRO: Who you are, social proof, what they'll get\n[5-10 min] COMMON ENEMY: What's holding them back\n[10-15 min] THE BIG PROMISE: Where they could be\n[15-40 min] THE CONTENT: 3 strategies/secrets (story, insight, application each)\n[40-45 min] THE TRANSITION: Bridge content to offer\n[45-55 min] THE OFFER STACK: Present, price, bonuses, guarantee\n[55-60 min] Q&A PREP: 5 anticipated questions\n\nInclude [SLIDE X] markers throughout.",
+          "variables": [
+            "topic",
+            "offer",
+            "price",
+            "audience"
+          ],
+          "tags": [
+            "webinar",
+            "presentation",
+            "sales",
+            "live training"
+          ],
+          "use_case": "Use for live or recorded webinar funnels"
+        },
+        {
+          "id": "pd-008",
+          "title": "Digital Product Launch Plan",
+          "category": "Product Development",
+          "tier": "accelerator",
+          "description": "Plan a complete product launch sequence for maximum sales",
+          "prompt": "Act as a launch strategist. Create a complete 14-day launch plan for: {{product}} at {{price}}\n\nAudience size: {{audience_size}}\nLaunch channels: {{channels}}\nRevenue goal: ${{revenue_goal}}\n\nDeliver:\n1. Pre-launch (Days 1-7): Content calendar, email sequence (3 emails), social proof collection\n2. Launch week (Days 8-12): Day-by-day email calendar with subject lines, social content\n3. Close (Days 13-14): Last 48h urgency sequence, cart close email\n4. Revenue projection model\n5. What to do if sales are slow mid-launch\n\nGive me a day-by-day execution plan.",
+          "variables": [
+            "product",
+            "price",
+            "audience_size",
+            "channels",
+            "revenue_goal"
+          ],
+          "tags": [
+            "launch",
+            "product launch",
+            "marketing",
+            "sales"
+          ],
+          "use_case": "Use for any digital product or course launch"
+        },
+        {
+          "id": "pd-009",
+          "title": "Lead Magnet Creator",
+          "category": "Product Development",
+          "tier": "starter",
+          "description": "Design a high-converting lead magnet for any niche",
+          "prompt": "Act as a lead generation specialist. Design a high-converting lead magnet for {{niche}} targeting {{audience}}.\n\nGoal after opt-in: {{funnel_goal}}\nAudience sophistication: {{sophistication}}\n\nCreate:\n1. LEAD MAGNET TYPE: Best format for this audience (checklist/template/guide/quiz/tool/challenge)\n2. TITLE OPTIONS (5): Value-packed, specific, and easy to consume\n3. CONTENT OUTLINE: What it covers, in order\n4. QUICK WIN: The one thing they can implement immediately\n5. NATURAL TRANSITION: How it leads to your paid offer\n6. DELIVERY MECHANISM: How they access it\n7. LANDING PAGE HEADLINE: For the opt-in page\n8. CONFIRMATION EMAIL: What they receive immediately after\n9. PROMOTION STRATEGY: Top 3 ways to get this in front of people\n\nDesign for fast consumption (under 15 minutes to complete).",
+          "variables": [
+            "niche",
+            "audience",
+            "funnel_goal",
+            "sophistication"
+          ],
+          "tags": [
+            "lead magnet",
+            "list building",
+            "opt-in",
+            "funnels"
+          ],
+          "use_case": "Use when starting or refreshing your email list building"
+        },
+        {
+          "id": "pd-010",
+          "title": "Upsell/Downsell Sequence Designer",
+          "category": "Product Development",
+          "tier": "inner_circle",
+          "description": "Design a complete upsell and downsell funnel to maximize revenue per buyer",
+          "prompt": "Act as a funnel optimization expert. Design a complete upsell/downsell sequence for a buyer of {{core_product}} at ${{core_price}}.\n\nTarget customer: {{customer}}\nBusiness model: {{business_model}}\nRevenue goal: Maximize LTV\n\nCreate:\n1. IMMEDIATE UPSELL (OTO 1): \n   - Product: What makes sense to offer next?\n   - Price point: What's the right premium?\n   - Sales copy: 5-sentence pitch\n   - Acceptance rate target\n2. UPSELL REJECTION DOWNSELL:\n   - Stripped version or payment plan\n   - Copy for the downgrade offer\n3. SECOND UPSELL (OTO 2):\n   - Product that complements OTO 1\n   - Price and pitch\n4. ORDER CONFIRMATION BUMP:\n   - Small add-on on confirmation page\n5. EMAIL UPSELL SEQUENCE:\n   - 3 emails over 7 days for buyers who declined funnel offers\n\nProvide the math: Expected lift in revenue per 100 customers.",
+          "variables": [
+            "core_product",
+            "core_price",
+            "customer",
+            "business_model"
+          ],
+          "tags": [
+            "upsell",
+            "downsell",
+            "funnel",
+            "LTV",
+            "revenue"
+          ],
+          "use_case": "Use to maximize revenue from every buyer"
+        },
+        {
+          "id": "pd-011",
+          "title": "Membership Site Content Plan",
+          "category": "Product Development",
+          "tier": "inner_circle",
+          "description": "Plan and structure a membership site for recurring revenue",
+          "prompt": "Act as a membership site strategist. Design a complete membership site for {{topic}} targeting {{audience}}.\n\nMonthly price: ${{price}}/month\nCurrent content available: {{existing_content}}\nDelivery platform: {{platform}}\n\nCreate:\n1. MEMBERSHIP POSITIONING: Why people stay every month (not just join)\n2. CONTENT TIERS: What different levels get\n3. MONTHLY CONTENT CALENDAR: What drops every month\n4. COMMUNITY COMPONENT: How members connect\n5. RETENTION FEATURES: Monthly wins, progress tracking, accountability\n6. ONBOARDING SEQUENCE: First 7 days after joining\n7. CHURN PREVENTION: How to identify at-risk members before they cancel\n8. UPSELL PATH: What's the next level or product\n9. LAUNCH PLAN: How to get first 100 members\n\nMake the math work: How many members needed to hit ${{monthly_goal}}/month.",
+          "variables": [
+            "topic",
+            "audience",
+            "price",
+            "existing_content",
+            "platform",
+            "monthly_goal"
+          ],
+          "tags": [
+            "membership",
+            "recurring revenue",
+            "community",
+            "digital product"
+          ],
+          "use_case": "Use when building or restructuring a membership or subscription offer"
+        }
+      ]
+    },
+    {
+      "name": "Operations & Automation",
+      "icon": "⚙️",
+      "prompts": [
+        {
+          "id": "oa-001",
+          "title": "SOP Creator",
+          "category": "Operations & Automation",
+          "tier": "accelerator",
+          "description": "Create detailed standard operating procedures for any business process",
+          "prompt": "Act as an operations manager. Create a detailed SOP for: {{process}}\n\nRole responsible: {{role}}\nFrequency: {{frequency}}\nTools involved: {{tools}}\n\nSOP structure:\n1. PURPOSE: Why this process exists\n2. SCOPE: Who does this, when, with what authority\n3. PREREQUISITES: What must be in place before starting\n4. STEP-BY-STEP: For each step: what to do, how to do it, expected output, common mistake\n5. QUALITY CHECK: How to verify it was done correctly\n6. ESCALATION PATH: What to do when something goes wrong\n7. METRICS: How to measure if this process is working\n\nWrite at a level a new hire could follow on day one.",
+          "variables": [
+            "process",
+            "role",
+            "frequency",
+            "tools"
+          ],
+          "tags": [
+            "SOP",
+            "operations",
+            "documentation",
+            "process"
+          ],
+          "use_case": "Use to document repeatable processes before hiring"
+        },
+        {
+          "id": "oa-002",
+          "title": "Hiring Post Writer",
+          "category": "Operations & Automation",
+          "tier": "accelerator",
+          "description": "Write job posts that attract top-quality contractors and team members",
+          "prompt": "Act as an HR strategist. Write a hiring post for: {{role}}\n\nBusiness type: {{business_type}}\nLocation: {{location}}\nBudget: {{budget}}\nHours: {{hours}}\n\nPost structure:\n1. HEADLINE: Role + what makes this different\n2. WHO WE ARE (2-3 sentences)\n3. THE ROLE: Day-to-day activities\n4. WHAT GREAT LOOKS LIKE: Deliverables in 30/60/90 days\n5. MUST-HAVES: Non-negotiables\n6. NICE-TO-HAVES\n7. WHAT YOU'LL GET: Compensation + growth\n8. HOW TO APPLY: Instructions that filter low-effort candidates\n\nInclude one secret instruction to weed out copy-pasters.",
+          "variables": [
+            "role",
+            "business_type",
+            "location",
+            "budget",
+            "hours"
+          ],
+          "tags": [
+            "hiring",
+            "recruitment",
+            "HR",
+            "team building"
+          ],
+          "use_case": "Use when ready to bring on your first VA or contractor"
+        },
+        {
+          "id": "oa-003",
+          "title": "KPI Dashboard Designer",
+          "category": "Operations & Automation",
+          "tier": "accelerator",
+          "description": "Design the right KPI dashboard for your business stage",
+          "prompt": "Act as a business analyst. Design a KPI dashboard for a {{business_type}} at the {{stage}} stage.\n\nRevenue goal: ${{monthly_goal}}/month\nTeam size: {{team_size}}\nKey focus: {{focus}}\n\nCreate:\n1. NORTH STAR METRIC: The one number that predicts everything\n2. WEEKLY DASHBOARD: Revenue (3), Pipeline (3), Delivery (3), Team (2)\n3. For each metric: definition, calculation, target, warning threshold, data source\n4. MONTHLY REVIEW METRICS\n5. What NOT to track\n6. Simple spreadsheet structure\n\nPrioritize leading indicators over lagging ones.",
+          "variables": [
+            "business_type",
+            "stage",
+            "monthly_goal",
+            "team_size",
+            "focus"
+          ],
+          "tags": [
+            "KPIs",
+            "analytics",
+            "dashboard",
+            "metrics"
+          ],
+          "use_case": "Use to build a data-driven business review routine"
+        },
+        {
+          "id": "oa-004",
+          "title": "Weekly Business Review",
+          "category": "Operations & Automation",
+          "tier": "starter",
+          "description": "Create a structured weekly review process to stay on track",
+          "prompt": "Act as an executive coach. Create a weekly review framework for a {{business_type}} operator.\n\nTime available: {{time_available}} minutes\n\nTemplate:\nSECTION 1: WINS (5 min) — What actually worked?\nSECTION 2: NUMBERS (10 min) — Scorecard vs. targets\nSECTION 3: PIPELINE (5 min) — Status of every active deal/project\nSECTION 4: FRICTION (10 min) — What slowed me down?\nSECTION 5: NEXT WEEK (10 min) — Top 3 priorities only\nSECTION 6: CALENDAR AUDIT (5 min) — Schedule vs. priorities aligned?\nSECTION 7: ENERGY (5 min) — What do I need to protect output?\n\nInclude guiding questions for each section.",
+          "variables": [
+            "business_type",
+            "time_available"
+          ],
+          "tags": [
+            "weekly review",
+            "productivity",
+            "planning",
+            "accountability"
+          ],
+          "use_case": "Use every Friday for a structured business review"
+        },
+        {
+          "id": "oa-005",
+          "title": "Project Brief Creator",
+          "category": "Operations & Automation",
+          "tier": "starter",
+          "description": "Write clear project briefs that eliminate miscommunication",
+          "prompt": "Act as a project manager. Write a project brief for: {{project_name}}\n\nClient: {{client}}\nBudget: {{budget}}\nDeadline: {{deadline}}\n\nBrief structure:\n1. PROJECT OVERVIEW (3 sentences)\n2. OBJECTIVES: 3-5 measurable goals\n3. SCOPE: In scope + Out of scope (prevents scope creep)\n4. DELIVERABLES: Numbered with format and quality standards\n5. TIMELINE: Milestone-based schedule\n6. TEAM & ROLES\n7. RESOURCES: Budget, tools, access\n8. SUCCESS CRITERIA\n9. RISKS & MITIGATION: Top 3\n10. APPROVAL PROCESS\n\nKeep it under 2 pages.",
+          "variables": [
+            "project_name",
+            "client",
+            "budget",
+            "deadline"
+          ],
+          "tags": [
+            "project management",
+            "brief",
+            "planning",
+            "client work"
+          ],
+          "use_case": "Use at the start of every project or initiative"
+        },
+        {
+          "id": "oa-006",
+          "title": "Meeting Agenda Builder",
+          "category": "Operations & Automation",
+          "tier": "starter",
+          "description": "Create focused meeting agendas that don't waste time",
+          "prompt": "Act as a meeting facilitator. Create an agenda for a {{duration}}-minute {{meeting_type}} meeting.\n\nAttendees: {{attendees}}\nDesired outcome: {{outcome}}\nDecisions needed: {{decisions}}\n\nAgenda:\n[2 min] GROUNDING: Why this meeting matters today\n[Topics with time blocks, owners, and required outputs]\n[Buffer] PARKING LOT\n[5 min] ACTIONS & ACCOUNTABILITY: Who does what by when\n[2 min] NEXT MEETING: Date, pre-work, owner\n\nPre-work required from attendees.\nMeeting rules: Start and end on time.",
+          "variables": [
+            "duration",
+            "meeting_type",
+            "attendees",
+            "outcome",
+            "decisions"
+          ],
+          "tags": [
+            "meetings",
+            "productivity",
+            "agenda",
+            "team"
+          ],
+          "use_case": "Use before any meeting to create structure"
+        },
+        {
+          "id": "oa-007",
+          "title": "Automation Workflow Mapper",
+          "category": "Operations & Automation",
+          "tier": "inner_circle",
+          "description": "Design complete automation workflows to remove yourself from repetitive tasks",
+          "prompt": "Act as an automation architect. Design a complete automation workflow for: {{process}}\n\nTools I use: {{tools}}\nVolume: {{volume}} per {{frequency}}\nTime spent manually: {{manual_time}}\nPlatform preference: {{platform}}\n\nDeliver:\n1. CURRENT STATE MAP: Manual process steps\n2. AUTOMATION ANALYSIS: Which steps to automate and why\n3. AUTOMATION BLUEPRINT: Trigger, action sequence, conditions, error handling\n4. TOOL STACK: Specific tool for each step\n5. IMPLEMENTATION PLAN: Build in phases\n6. TIME SAVINGS: Hours per week/month\n7. MONITORING: Alerts if it breaks\n\nBuild this so it runs without me.",
+          "variables": [
+            "process",
+            "tools",
+            "volume",
+            "frequency",
+            "manual_time",
+            "platform"
+          ],
+          "tags": [
+            "automation",
+            "workflow",
+            "systems",
+            "efficiency"
+          ],
+          "use_case": "Use to eliminate any repetitive task from your workflow"
+        },
+        {
+          "id": "oa-008",
+          "title": "Client Onboarding Sequence",
+          "category": "Operations & Automation",
+          "tier": "accelerator",
+          "description": "Design a seamless client onboarding process that reduces churn",
+          "prompt": "Act as a client success strategist. Design a complete onboarding sequence for new clients of {{service}}.\n\nClient type: {{client_type}}\nProject length: {{project_length}}\n\nCreate:\n1. WELCOME EMAIL (within 1 hour of signing): Celebrate, next steps, documents needed\n2. ONBOARDING FORM: 10 questions to gather everything you need\n3. KICKOFF CALL AGENDA: 30-minute structure\n4. WEEK 1 COMMUNICATION PLAN\n5. CLIENT PORTAL: What to include\n6. EXPECTATION-SETTING DOC: Response times, revision policy\n7. 30-DAY CHECK-IN TEMPLATE\n\nGoal: make them feel like they made the best decision within 48 hours.",
+          "variables": [
+            "service",
+            "client_type",
+            "project_length"
+          ],
+          "tags": [
+            "onboarding",
+            "client success",
+            "retention",
+            "systems"
+          ],
+          "use_case": "Use when onboarding any new client"
+        },
+        {
+          "id": "oa-009",
+          "title": "Content Production SOPs",
+          "category": "Operations & Automation",
+          "tier": "accelerator",
+          "description": "Build complete SOPs for content production at scale",
+          "prompt": "Act as a content operations manager. Create a complete SOP for producing {{content_type}} content at scale.\n\nTeam size: {{team_size}}\nVolume target: {{volume}} pieces per week\nQuality standard: {{quality_standard}}\n\nCreate SOPs for:\n1. IDEATION: How to generate, store, and prioritize content ideas\n2. BRIEFING: Template for briefing a writer/creator\n3. PRODUCTION: Step-by-step creation checklist\n4. EDITING: Quality review checklist (technical + creative)\n5. SEO/OPTIMIZATION: Platform-specific optimization steps\n6. PUBLISHING: Scheduling, formatting, and distribution\n7. REPURPOSING: How each piece becomes multiple assets\n8. PERFORMANCE REVIEW: Weekly analytics review process\n\nInclude: Tool recommendations for each step, time estimates, and handoff protocols.",
+          "variables": [
+            "content_type",
+            "team_size",
+            "volume",
+            "quality_standard"
+          ],
+          "tags": [
+            "content operations",
+            "SOP",
+            "scale",
+            "production"
+          ],
+          "use_case": "Use when scaling content production beyond yourself"
+        },
+        {
+          "id": "oa-010",
+          "title": "Revenue Tracking Dashboard",
+          "category": "Operations & Automation",
+          "tier": "accelerator",
+          "description": "Design a revenue tracking and forecasting dashboard for your business",
+          "prompt": "Act as a financial operations analyst. Design a revenue tracking dashboard for {{business_type}} with multiple income streams.\n\nRevenue streams: {{revenue_streams}}\nMonthly revenue goal: ${{monthly_goal}}\nTeam size: {{team_size}}\n\nCreate:\n1. DAILY DASHBOARD: Metrics to check every morning (under 5 minutes)\n2. WEEKLY DASHBOARD: Deeper revenue analysis\n3. MONTHLY DASHBOARD: Full P&L view\n4. KEY METRICS:\n   - Monthly Recurring Revenue (MRR)\n   - New Revenue vs. Renewals\n   - Revenue by stream\n   - Refund rate\n   - Average transaction value\n   - Customer acquisition cost\n5. FORECASTING MODEL: 3-month forward projection formula\n6. ALERT THRESHOLDS: What triggers a review meeting\n7. SPREADSHEET STRUCTURE: Exact columns and tabs to build\n\nMake this something you'll actually use daily.",
+          "variables": [
+            "business_type",
+            "revenue_streams",
+            "monthly_goal",
+            "team_size"
+          ],
+          "tags": [
+            "revenue tracking",
+            "dashboard",
+            "finance",
+            "metrics"
+          ],
+          "use_case": "Use to stay on top of business finances without an accountant"
+        },
+        {
+          "id": "oa-011",
+          "title": "AI-Powered Email Management System",
+          "category": "Operations & Automation",
+          "tier": "accelerator",
+          "description": "Build a system to manage email with AI and reclaim hours per week",
+          "prompt": "Act as a productivity systems consultant. Design an AI-powered email management system for {{business_type}}.\n\nCurrent email volume: {{emails_per_day}} emails/day\nTime spent on email: {{time_spent}} hours/day\nPrimary email types: {{email_types}}\n\nDesign:\n1. EMAIL TRIAGE SYSTEM: How to process inbox in under 30 minutes/day\n2. AI PROMPT TEMPLATES FOR:\n   - Drafting replies to common email types\n   - Summarizing long email threads\n   - Extracting action items from emails\n   - Writing declination emails\n3. FOLDER/LABEL STRUCTURE: How to organize for zero inbox\n4. AUTO-RESPONSE TEMPLATES: For common inquiries\n5. UNSUBSCRIBE PROTOCOL: How to reduce incoming volume\n6. DELEGATION RULES: What to forward vs. handle yourself\n7. BATCHING SCHEDULE: When to check email (and when not to)\n\nGoal: Process all email in under 45 minutes total per day.",
+          "variables": [
+            "business_type",
+            "emails_per_day",
+            "time_spent",
+            "email_types"
+          ],
+          "tags": [
+            "email management",
+            "productivity",
+            "AI",
+            "automation"
+          ],
+          "use_case": "Use to reclaim time lost to email overload"
+        },
+        {
+          "id": "oa-012",
+          "title": "Quarterly Business Reset",
+          "category": "Operations & Automation",
+          "tier": "starter",
+          "description": "Run a structured quarterly business reset to realign priorities",
+          "prompt": "Act as a business coach. Guide me through a quarterly reset for {{business_type}}.\n\nLast quarter revenue: ${{last_q_revenue}}\nGoal for this quarter: ${{this_q_goal}}\nBiggest challenge: {{challenge}}\n\nReset agenda:\n1. QUARTER IN REVIEW (15 min):\n   - Revenue vs. target: What happened?\n   - Top 3 wins\n   - Top 3 misses\n   - Biggest lesson\n2. ENVIRONMENT RESET (10 min):\n   - What tools/subscriptions to cut?\n   - What commitments to drop?\n   - What relationships to invest more in?\n3. THIS QUARTER'S BIG ROCKS (20 min):\n   - The 3 outcomes that would make this quarter a win\n   - For each: milestones, blockers, who owns it\n4. SYSTEMS REVIEW (10 min):\n   - What's breaking that needs fixing?\n5. PERSONAL OPERATING PLAN (5 min):\n   - Schedule for the next 13 weeks\n\nEnd with: One sentence that captures what this quarter is about.",
+          "variables": [
+            "business_type",
+            "last_q_revenue",
+            "this_q_goal",
+            "challenge"
+          ],
+          "tags": [
+            "quarterly review",
+            "planning",
+            "reset",
+            "productivity"
+          ],
+          "use_case": "Use every quarter-end to reset and realign the business"
+        }
+      ]
+    },
+    {
+      "name": "AI Tools Mastery",
+      "icon": "🤖",
+      "prompts": [
+        {
+          "id": "ai-001",
+          "title": "Custom GPT Instructions Builder",
+          "category": "AI Tools Mastery",
+          "tier": "accelerator",
+          "description": "Write complete system instructions for custom GPTs and AI assistants",
+          "prompt": "Act as an AI prompt engineer. Write complete system instructions for a custom GPT called {{gpt_name}}.\n\nPurpose: {{purpose}}\nTarget user: {{target_user}}\nCore capabilities: {{capabilities}}\n\nCreate a full system prompt:\n1. IDENTITY: Who this GPT is, its persona\n2. PURPOSE: What it does and doesn't do\n3. COMMUNICATION STYLE: Tone, format, response length\n4. CORE BEHAVIORS: How it approaches every interaction\n5. SPECIFIC INSTRUCTIONS: Step-by-step for primary use case\n6. WHAT TO AVOID: Never say or do\n7. EXAMPLE INTERACTIONS: 2 sample Q&A pairs\n8. FALLBACK BEHAVIOR: When unclear\n\nFormat for direct paste into GPT system prompt field.",
+          "variables": [
+            "gpt_name",
+            "purpose",
+            "target_user",
+            "capabilities"
+          ],
+          "tags": [
+            "GPT",
+            "AI",
+            "prompt engineering",
+            "custom AI"
+          ],
+          "use_case": "Use when building a custom GPT for yourself, clients, or to sell"
+        },
+        {
+          "id": "ai-002",
+          "title": "Image Generation Prompt Template",
+          "category": "AI Tools Mastery",
+          "tier": "starter",
+          "description": "Create detailed image generation prompts for any AI art tool",
+          "prompt": "Act as an AI image prompt engineer. Create prompts for: {{concept}}\n\nTool: {{ai_tool}}\nStyle: {{style}}\nUse case: {{use_case}}\n\nCreate 5 prompt variations:\n1. PHOTOREALISTIC: Cinematic quality\n2. ILLUSTRATIVE: Design/art-forward\n3. MINIMALIST: Clean, simple composition\n4. DRAMATIC: High contrast, emotional impact\n5. COMMERCIAL: Ready for marketing use\n\nFor each prompt include: subject description, setting, lighting, camera/perspective, art style references, color palette, technical parameters, negative prompts.\n\nMake each copy-paste ready.",
+          "variables": [
+            "concept",
+            "ai_tool",
+            "style",
+            "use_case"
+          ],
+          "tags": [
+            "image generation",
+            "AI art",
+            "Midjourney",
+            "DALL-E",
+            "prompts"
+          ],
+          "use_case": "Use to create consistent, high-quality AI images"
+        },
+        {
+          "id": "ai-003",
+          "title": "AI Workflow Designer",
+          "category": "AI Tools Mastery",
+          "tier": "inner_circle",
+          "description": "Design multi-step AI workflows that chain tools for maximum output",
+          "prompt": "Act as an AI systems architect. Design a complete AI workflow for: {{goal}}\n\nAvailable tools: {{tools}}\nInput: {{input_type}}\nDesired output: {{output_type}}\nVolume: {{volume}} per {{frequency}}\n\nDesign:\n1. WORKFLOW MAP: Step-by-step flow\n2. FOR EACH STEP: Tool, prompt/instruction, input/output, quality check, fallback\n3. HUMAN CHECKPOINTS: Where to review before continuing\n4. AUTOMATION OPTIONS: Which steps run without human review\n5. COST ESTIMATE: Approximate tokens/API cost per run\n6. TIME SAVINGS vs. manual workflow\n7. SAMPLE OUTPUT: What a completed run looks like\n\nOptimize for quality and speed.",
+          "variables": [
+            "goal",
+            "tools",
+            "input_type",
+            "output_type",
+            "volume",
+            "frequency"
+          ],
+          "tags": [
+            "AI workflow",
+            "automation",
+            "systems",
+            "LLM chaining"
+          ],
+          "use_case": "Use to build scalable AI production systems"
+        },
+        {
+          "id": "ai-004",
+          "title": "Automation Blueprint Creator",
+          "category": "AI Tools Mastery",
+          "tier": "inner_circle",
+          "description": "Build detailed automation blueprints combining AI with no-code tools",
+          "prompt": "Act as an automation consultant. Create a complete blueprint for: {{automation_goal}}\n\nBusiness context: {{business}}\nTools available: {{tools}}\nMonthly budget: ${{monthly_budget}}\n\nBlueprint:\n1. TRIGGER: What starts this automation\n2. AI LAYER: Which model(s), what prompts, what outputs\n3. ROUTING LOGIC: Conditions and branches\n4. INTEGRATIONS: APIs, webhooks, databases\n5. HUMAN TOUCHPOINTS: Where humans approve/review\n6. OUTPUT DELIVERY: How results reach end user\n7. ERROR HANDLING: What happens when it fails\n8. MONITORING: Logs, alerts, dashboards\n9. SETUP GUIDE: Step-by-step to build it\n10. MAINTENANCE: What to check monthly\n\nMake it buildable without coding knowledge where possible.",
+          "variables": [
+            "automation_goal",
+            "business",
+            "tools",
+            "monthly_budget"
+          ],
+          "tags": [
+            "automation blueprint",
+            "no-code",
+            "AI",
+            "workflow"
+          ],
+          "use_case": "Use to design and sell automation systems to clients"
+        },
+        {
+          "id": "ai-005",
+          "title": "AI Prompt Chaining Framework",
+          "category": "AI Tools Mastery",
+          "tier": "inner_circle",
+          "description": "Design prompt chains that produce consistent, high-quality outputs",
+          "prompt": "Act as a prompt engineering expert. Design a prompt chain for: {{task}}\n\nFinal desired output: {{output}}\nQuality bar: {{quality_standard}}\n\nCreate a 4-6 step prompt chain:\nFor each step:\n- STEP NAME: What this step produces\n- INPUT: What goes in\n- THE PROMPT: Exact text to send to the AI\n- OUTPUT FORMAT: What the model should return\n- QUALITY CHECK: How to verify before passing to next step\n- IF POOR QUALITY: How to retry or fix\n\nChain rules:\n- Each step output feeds into next step input\n- Never try to do everything in one prompt\n- Include a final review/polish step\n\nThis chain should be reusable for similar tasks.",
+          "variables": [
+            "task",
+            "output",
+            "quality_standard"
+          ],
+          "tags": [
+            "prompt chaining",
+            "AI engineering",
+            "workflow",
+            "quality"
+          ],
+          "use_case": "Use when a single prompt doesn't produce good enough results"
+        },
+        {
+          "id": "ai-006",
+          "title": "Voice Clone Script Writer",
+          "category": "AI Tools Mastery",
+          "tier": "accelerator",
+          "description": "Write scripts optimized for voice cloning and text-to-speech",
+          "prompt": "Act as a voice content scriptwriter. Write a {{duration}}-minute script for {{purpose}} using voice AI.\n\nTone/persona: {{tone}}\nTarget listener: {{audience}}\nPlatform: {{platform}}\n\nScript requirements:\n- Write for the ear, not the eye\n- Short sentences (under 15 words each)\n- Natural speech patterns and contractions\n- Phonetic hints for unusual words [spelled out]\n- Pause markers: [SHORT PAUSE], [LONG PAUSE], [BREATH]\n- Emphasis markers: *emphasize this*\n- No abbreviations — spell everything out\n\nScript structure:\n[0:00] Hook: Make them want to listen\n[Content blocks with clear transitions]\n[Close: Strong CTA or memorable ending]\n\nWrite it exactly as it will be spoken.",
+          "variables": [
+            "duration",
+            "purpose",
+            "tone",
+            "audience",
+            "platform"
+          ],
+          "tags": [
+            "voice AI",
+            "text-to-speech",
+            "audio",
+            "script"
+          ],
+          "use_case": "Use for AI voiceovers, podcast intros, or audio products"
+        },
+        {
+          "id": "ai-007",
+          "title": "AI Client Delivery System",
+          "category": "AI Tools Mastery",
+          "tier": "accelerator",
+          "description": "Build an AI-powered system to deliver client work faster with consistent quality",
+          "prompt": "Act as a service delivery architect. Design an AI-powered delivery system for {{service}}.\n\nCurrent delivery time: {{current_time}}\nQuality issues: {{quality_issues}}\nClients per month: {{client_volume}}\n\nCreate:\n1. INTAKE PROCESS: AI-assisted client brief intake form + automated follow-up questions\n2. RESEARCH PHASE: AI workflow for gathering needed information\n3. CREATION PHASE: Prompt templates for each deliverable type\n4. QUALITY REVIEW: AI-assisted review checklist\n5. CLIENT REVIEW PREP: How to use AI to anticipate revisions\n6. DELIVERY PACKAGE: AI-generated delivery email template\n7. REVISION HANDLING: Prompt templates for common revision types\n\nGoal: Deliver in 50% of the current time without sacrificing quality.",
+          "variables": [
+            "service",
+            "current_time",
+            "quality_issues",
+            "client_volume"
+          ],
+          "tags": [
+            "AI delivery",
+            "service business",
+            "efficiency",
+            "systems"
+          ],
+          "use_case": "Use to scale a service business without hiring more people"
+        },
+        {
+          "id": "ai-008",
+          "title": "AI Tool Stack Builder",
+          "category": "AI Tools Mastery",
+          "tier": "starter",
+          "description": "Design the optimal AI tool stack for your business type and budget",
+          "prompt": "Act as an AI consultant. Design the optimal AI tool stack for {{business_type}} with a ${{monthly_budget}}/month budget.\n\nPrimary tasks I need AI for: {{primary_tasks}}\nTech comfort level: {{tech_level}} (beginner/intermediate/advanced)\n\nCreate:\n1. CORE STACK (must-have tools, listed by function):\n   - AI writing/content tool\n   - AI image/visual tool\n   - Automation/workflow tool\n   - AI research tool\n2. FOR EACH TOOL:\n   - Name and URL\n   - Monthly cost\n   - What it replaces or saves you from doing manually\n   - Learning curve (1-5)\n   - Integration with other tools in stack\n3. NICE-TO-HAVE tools (if budget allows)\n4. FREE ALTERNATIVES for each paid tool\n5. SETUP PRIORITY: What to implement first\n6. Monthly ROI estimate for the full stack\n\nOptimize for impact per dollar.",
+          "variables": [
+            "business_type",
+            "monthly_budget",
+            "primary_tasks",
+            "tech_level"
+          ],
+          "tags": [
+            "AI tools",
+            "tech stack",
+            "productivity",
+            "ROI"
+          ],
+          "use_case": "Use to build or audit your AI toolset for maximum efficiency"
+        },
+        {
+          "id": "ai-009",
+          "title": "AI-Powered Research System",
+          "category": "AI Tools Mastery",
+          "tier": "accelerator",
+          "description": "Build an AI research system for market research, content research, and competitor intel",
+          "prompt": "Act as an AI research strategist. Build a comprehensive AI-powered research system for {{research_purpose}}.\n\nResearch frequency: {{frequency}}\nOutput format: {{output_format}}\nTools available: {{tools}}\n\nCreate:\n1. RESEARCH WORKFLOW: Step-by-step AI-assisted research process\n2. PROMPT TEMPLATES FOR:\n   - Initial topic exploration\n   - Deep dive on specific angles\n   - Counter-argument generation\n   - Source validation\n   - Summary synthesis\n3. ORGANIZATION SYSTEM: How to store and retrieve research\n4. QUALITY CHECKS: How to verify AI-generated research\n5. TOOL STACK: Best AI tools for each research type\n6. BATCH RESEARCH: How to research 10 topics in the time of 1\n7. OUTPUT TEMPLATES: How to format research for different uses\n\nInclude example prompts with sample outputs.",
+          "variables": [
+            "research_purpose",
+            "frequency",
+            "output_format",
+            "tools"
+          ],
+          "tags": [
+            "AI research",
+            "workflow",
+            "productivity",
+            "information"
+          ],
+          "use_case": "Use to dramatically speed up any research-heavy task"
+        },
+        {
+          "id": "ai-010",
+          "title": "AI Business Audit Prompt",
+          "category": "AI Tools Mastery",
+          "tier": "accelerator",
+          "description": "Use AI to audit your business for hidden opportunities and risks",
+          "prompt": "Act as a business consultant conducting an AI-assisted business audit of {{business_name}}.\n\nBusiness type: {{business_type}}\nAnnual revenue: ${{revenue}}\nTeam size: {{team_size}}\nMain challenges: {{challenges}}\n\nConduct an audit across 6 areas:\n\n1. REVENUE AUDIT: Current streams, pricing, money left on the table\n2. PROCESS AUDIT: Bottlenecks, manual work that should be automated\n3. MARKETING AUDIT: Lead generation gaps, conversion leaks\n4. DELIVERY AUDIT: Client satisfaction, refund triggers, quality issues\n5. TEAM AUDIT: Capacity constraints, hiring needs, skill gaps\n6. TECHNOLOGY AUDIT: Tools not being used to full potential, missing tools\n\nFor each area:\n- Current state assessment\n- Top 3 findings\n- Recommended actions (prioritized)\n- Estimated ROI of fixing\n\nEnd with: Top 5 highest-leverage actions to take in 90 days.",
+          "variables": [
+            "business_name",
+            "business_type",
+            "revenue",
+            "team_size",
+            "challenges"
+          ],
+          "tags": [
+            "business audit",
+            "optimization",
+            "AI consulting",
+            "growth"
+          ],
+          "use_case": "Use quarterly to identify and fix the biggest levers in your business"
+        },
+        {
+          "id": "ai-011",
+          "title": "AI Writing Style Replicator",
+          "category": "AI Tools Mastery",
+          "tier": "accelerator",
+          "description": "Train AI to write in your exact voice and style",
+          "prompt": "Act as an AI writing coach. Help me create a style guide that trains AI to write in {{author_name}}'s voice.\n\nSample writing: {{writing_samples}}\n\nAnalyze the samples and create:\n1. VOICE DESCRIPTOR: 5 adjectives that define this writing style\n2. SENTENCE STRUCTURE PATTERNS: How sentences are typically formed\n3. VOCABULARY PATTERNS: Common words, phrases, and expressions used\n4. WHAT TO AVOID: Patterns that feel out of character\n5. TONE SHIFTS: How the voice changes (formal vs. casual contexts)\n6. STYLISTIC QUIRKS: Unique elements that make this voice recognizable\n7. SAMPLE PROMPT: A reusable prompt that instructs AI to match this style\n8. TEST EXERCISE: 3 prompts to test if AI has captured the voice\n\nOutput a copy-paste-ready system prompt for AI writing assistants.",
+          "variables": [
+            "author_name",
+            "writing_samples"
+          ],
+          "tags": [
+            "writing style",
+            "voice",
+            "ghostwriting",
+            "AI prompting"
+          ],
+          "use_case": "Use to make AI write content that sounds like you, not a robot"
+        }
+      ]
+    },
+    {
+      "name": "Freelancing & Agency",
+      "icon": "💼",
+      "prompts": [
+        {
+          "id": "fa-001",
+          "title": "Service Package Designer",
+          "category": "Freelancing & Agency",
+          "tier": "starter",
+          "description": "Design compelling service packages that make it easy for clients to say yes",
+          "prompt": "Act as a service business consultant. Design 3 service packages for {{service}} targeting {{target_client}}.\n\nYour expertise level: {{expertise}}\nDelivery capacity: {{capacity}}\nGoal monthly revenue: ${{monthly_revenue}}\n\nCreate 3 tiers:\nSTARTER package:\n- Name (outcome-focused, not generic)\n- What's included (specific deliverables)\n- What's NOT included\n- Turnaround time\n- Price\n- Best for: [type of client]\n\nGROWTH package: (same structure)\n\nPREMIUM package: (same structure)\n\nAlso provide:\n- Which package most clients will choose and why\n- How to present all 3 so they anchor to the middle\n- Upsell path from Starter to Growth\n- Most common add-ons to increase per-project revenue",
+          "variables": [
+            "service",
+            "target_client",
+            "expertise",
+            "capacity",
+            "monthly_revenue"
+          ],
+          "tags": [
+            "service packages",
+            "pricing",
+            "freelancing",
+            "productized"
+          ],
+          "use_case": "Use when launching or repositioning your freelance/agency services"
+        },
+        {
+          "id": "fa-002",
+          "title": "Client Onboarding Checklist",
+          "category": "Freelancing & Agency",
+          "tier": "starter",
+          "description": "Create a comprehensive client onboarding checklist for any service business",
+          "prompt": "Act as a client success manager. Create a complete client onboarding checklist for {{service}} clients.\n\nProject type: {{project_type}}\nTypical project duration: {{duration}}\nDelivery method: {{delivery}}\n\nChecklist sections:\n1. CONTRACT & PAYMENT (pre-start)\n2. INFORMATION GATHERING (client provides)\n3. TOOL ACCESS & SETUP\n4. KICKOFF PREPARATION\n5. KICKOFF CALL\n6. WEEK 1 ACTIONS\n7. COMMUNICATION CADENCE SETUP\n8. FIRST DELIVERABLE DELIVERY\n9. FEEDBACK PROCESS\n10. ONGOING PROJECT MANAGEMENT\n\nFor each item: checkbox, who's responsible (you/client), when (timing), and what happens if it's missed.\n\nCreate a version for you and a version for the client.",
+          "variables": [
+            "service",
+            "project_type",
+            "duration",
+            "delivery"
+          ],
+          "tags": [
+            "onboarding",
+            "checklist",
+            "client management",
+            "freelancing"
+          ],
+          "use_case": "Use for every new client to ensure nothing falls through the cracks"
+        },
+        {
+          "id": "fa-003",
+          "title": "Project Scope Document",
+          "category": "Freelancing & Agency",
+          "tier": "accelerator",
+          "description": "Write watertight project scope documents to prevent scope creep",
+          "prompt": "Act as a project lawyer. Write a clear project scope document for: {{project}}\n\nClient: {{client}}\nAgreed price: ${{price}}\nTimeline: {{timeline}}\n\nScope document includes:\n1. PROJECT OVERVIEW: What we're building/doing\n2. DELIVERABLES: Numbered list of exactly what they receive (specific file types, quantities, formats)\n3. NUMBER OF REVISIONS: By deliverable type\n4. WHAT'S INCLUDED: Exhaustive list\n5. WHAT'S NOT INCLUDED: Explicitly excluded (the most important section)\n6. CLIENT RESPONSIBILITIES: What they must provide and when\n7. TIMELINE: Milestone dates with client approval deadlines\n8. OUT-OF-SCOPE PROCESS: How additional requests are handled and priced\n9. COMMUNICATION CHANNEL & RESPONSE TIME\n10. CHANGE ORDER RATE: Price for out-of-scope work\n\nTone: Professional but readable. Not legal gobbledygook.",
+          "variables": [
+            "project",
+            "client",
+            "price",
+            "timeline"
+          ],
+          "tags": [
+            "scope",
+            "freelancing",
+            "contracts",
+            "project management"
+          ],
+          "use_case": "Use before starting any project to protect yourself from scope creep"
+        },
+        {
+          "id": "fa-004",
+          "title": "Invoice Template Creator",
+          "category": "Freelancing & Agency",
+          "tier": "starter",
+          "description": "Create professional invoice templates that get paid faster",
+          "prompt": "Act as a financial operations consultant. Create a professional invoice template for {{business_name}} providing {{service}}.\n\nPayment terms: {{payment_terms}}\nAccepted payment methods: {{payment_methods}}\n\nInvoice structure:\n1. HEADER: Logo placement, company name, INVOICE label, invoice number format\n2. YOUR CONTACT INFO: Business name, address, email, phone, website\n3. CLIENT INFO: Bill to section\n4. INVOICE DETAILS: Number, date issued, due date\n5. LINE ITEMS: Description, quantity, rate, total columns\n6. TOTALS: Subtotal, any tax, total due\n7. PAYMENT INSTRUCTIONS: Exactly how to pay, with account/link details\n8. PAYMENT TERMS: Due date, late payment policy\n9. THANK YOU NOTE: 1-2 sentences that feel human\n10. FOOTER: Business registration/tax ID if required\n\nAlso write: 3 email templates for sending invoices (new, reminder, final notice).",
+          "variables": [
+            "business_name",
+            "service",
+            "payment_terms",
+            "payment_methods"
+          ],
+          "tags": [
+            "invoice",
+            "payment",
+            "freelancing",
+            "finance"
+          ],
+          "use_case": "Use for every client billing interaction"
+        },
+        {
+          "id": "fa-005",
+          "title": "Agency Service Menu",
+          "category": "Freelancing & Agency",
+          "tier": "accelerator",
+          "description": "Create a complete service menu for an AI-powered agency",
+          "prompt": "Act as an agency strategist. Create a complete service menu for an AI agency specializing in {{niche}}.\n\nTeam size: {{team_size}}\nMonthly capacity: {{capacity}}\nTarget client budget range: ${{min_budget}}-${{max_budget}}/month\n\nCreate:\n1. SERVICE CATEGORIES (3-5): Each with a clear value statement\n2. FOR EACH SERVICE:\n   - Service name (outcome-focused)\n   - What they get (specific deliverables)\n   - Who it's for\n   - Starting price / price range\n   - Turnaround\n   - Why AI makes yours better\n3. RETAINER PACKAGES: Monthly ongoing services (3 tiers)\n4. A LA CARTE ADD-ONS: 5-8 additional services\n5. SERVICE COMBINATIONS: 2-3 popular bundles\n6. WHAT SETS YOU APART: 3 specific differentiators vs. traditional agencies\n\nPrice based on value, not hours.",
+          "variables": [
+            "niche",
+            "team_size",
+            "capacity",
+            "min_budget",
+            "max_budget"
+          ],
+          "tags": [
+            "agency",
+            "service menu",
+            "pricing",
+            "positioning"
+          ],
+          "use_case": "Use when launching or rebranding an AI services agency"
+        },
+        {
+          "id": "fa-006",
+          "title": "Freelancer Rate Calculator Prompt",
+          "category": "Freelancing & Agency",
+          "tier": "starter",
+          "description": "Calculate the right rates for your freelance services",
+          "prompt": "Act as a freelance business advisor. Help me calculate and justify my rates for {{service}}.\n\nMy target annual income: ${{annual_income}}\nBillable hours available per week: {{billable_hours}}\nBusiness expenses monthly: ${{expenses}}\nYears of experience: {{experience}}\nNiche specialization: {{niche}}\n\nCalculate:\n1. MINIMUM VIABLE RATE: What I must charge to cover costs + income\n2. MARKET RATE: What others with similar skills charge (provide range)\n3. PREMIUM RATE: What I could charge with strong positioning\n4. VALUE-BASED RATE: What the outcome is worth to the client\n5. RECOMMENDED RATE: What to charge now, what to target in 6 months\n6. HOW TO JUSTIFY IT: Script for explaining your rate confidently\n7. RATE INCREASE PLAN: How to raise rates with existing clients\n\nBe specific with numbers.",
+          "variables": [
+            "service",
+            "annual_income",
+            "billable_hours",
+            "expenses",
+            "experience",
+            "niche"
+          ],
+          "tags": [
+            "rates",
+            "pricing",
+            "freelancing",
+            "income"
+          ],
+          "use_case": "Use when setting or raising your freelance rates"
+        },
+        {
+          "id": "fa-007",
+          "title": "Client Contract Template",
+          "category": "Freelancing & Agency",
+          "tier": "accelerator",
+          "description": "Write a clear, protective freelance contract for any service",
+          "prompt": "Act as a business attorney consultant. Draft a freelance services agreement for {{service}} between {{your_name}} and {{client_name}}.\n\nProject: {{project}}\nPrice: ${{price}}\nTimeline: {{timeline}}\n\nContract sections:\n1. SERVICES: Exact description of what you'll deliver\n2. TIMELINE & MILESTONES: Dates and what's due when\n3. PAYMENT TERMS: Amount, schedule, method, late fees\n4. REVISIONS POLICY: Number included, cost for additional\n5. INTELLECTUAL PROPERTY: Who owns what and when\n6. CONFIDENTIALITY: What remains private\n7. CANCELLATION POLICY: How either party can exit\n8. KILL FEE: What client owes if they cancel mid-project\n9. LIMITATION OF LIABILITY\n10. DISPUTE RESOLUTION\n11. SIGNATURES\n\nWrite in plain English. Protect both parties fairly.",
+          "variables": [
+            "service",
+            "your_name",
+            "client_name",
+            "project",
+            "price",
+            "timeline"
+          ],
+          "tags": [
+            "contract",
+            "legal",
+            "freelancing",
+            "protection"
+          ],
+          "use_case": "Use as your standard client agreement for every project"
+        },
+        {
+          "id": "fa-008",
+          "title": "Agency Pitch Deck Outline",
+          "category": "Freelancing & Agency",
+          "tier": "inner_circle",
+          "description": "Create a compelling agency pitch deck structure for enterprise clients",
+          "prompt": "Act as an agency growth consultant. Create a pitch deck outline for {{agency_name}} pitching {{service}} to {{target_client_type}}.\n\nDeal size: ${{deal_size}}/month\nKey differentiator: {{differentiator}}\n\nSlide outline:\nSlide 1: COVER — Company name, tagline, date\nSlide 2: THE PROBLEM — Their pain (3 bullet points)\nSlide 3: THE COST OF INACTION — What staying the same costs them\nSlide 4: THE SOLUTION — How you solve it (not a feature list)\nSlide 5: HOW IT WORKS — 3-step process visual\nSlide 6: WHY NOW — Why AI makes this possible today\nSlide 7: RESULTS — Case study or data proof\nSlide 8: THE TEAM — Why you specifically can deliver this\nSlide 9: THE OFFER — What they get, package options\nSlide 10: INVESTMENT — Pricing with ROI calculation\nSlide 11: NEXT STEPS — Specific CTA with timeline\n\nFor each slide: headline + 2-4 bullet points of content guidance.",
+          "variables": [
+            "agency_name",
+            "service",
+            "target_client_type",
+            "deal_size",
+            "differentiator"
+          ],
+          "tags": [
+            "pitch deck",
+            "agency",
+            "B2B",
+            "sales"
+          ],
+          "use_case": "Use when pitching larger clients or presenting to decision-makers"
+        },
+        {
+          "id": "fa-009",
+          "title": "Portfolio Case Study Builder",
+          "category": "Freelancing & Agency",
+          "tier": "accelerator",
+          "description": "Build a portfolio of compelling case studies that attract premium clients",
+          "prompt": "Act as a portfolio strategist. Help me build a compelling portfolio case study for {{project}}.\n\nMy role: {{my_role}}\nClient type: {{client_type}}\nResults achieved: {{results}}\nTools/skills used: {{tools_skills}}\n\nCreate:\n1. CASE STUDY STRUCTURE:\n   - Client situation (without revealing confidential details)\n   - Challenge and objectives\n   - My approach and methodology\n   - Tools and techniques used\n   - Results with specific metrics\n   - Testimonial slot\n2. VISUAL PRESENTATION NOTES: What screenshots/examples to include\n3. SHORT VERSION (150 words): For website/portfolio thumbnail\n4. MEDIUM VERSION (400 words): For detailed portfolio page\n5. PITCH VERSION: 3 sentences to use in proposals\n6. METADATA: Tags, categories, and keywords for portfolio SEO\n\nFocus on the transformation, not the process.",
+          "variables": [
+            "project",
+            "my_role",
+            "client_type",
+            "results",
+            "tools_skills"
+          ],
+          "tags": [
+            "portfolio",
+            "case study",
+            "social proof",
+            "freelancing"
+          ],
+          "use_case": "Use to document every significant project for portfolio and proposals"
+        },
+        {
+          "id": "fa-010",
+          "title": "Freelance Income Accelerator Plan",
+          "category": "Freelancing & Agency",
+          "tier": "accelerator",
+          "description": "Create a personalized plan to reach $10K/month as a freelancer",
+          "prompt": "Act as a freelance business coach. Create a personalized plan for me to reach ${{income_goal}}/month as a freelancer in {{niche}}.\n\nCurrent monthly revenue: ${{current_revenue}}\nCurrent clients: {{client_count}}\nHours available: {{hours_per_week}}/week\nCore skills: {{skills}}\n\nCreate:\n1. GAP ANALYSIS: What's between current state and goal\n2. PRICING STRATEGY: What to charge to hit the goal with reasonable client count\n3. SERVICE POSITIONING: How to attract higher-paying clients\n4. CLIENT ACQUISITION PLAN: Monthly outreach targets and channels\n5. RETENTION STRATEGY: How to turn one-time clients into recurring revenue\n6. INCOME DIVERSIFICATION: Mix of 1:1, productized, and passive income\n7. 30/60/90 DAY MILESTONES: Specific targets for each month\n8. WEEKLY ROUTINE: Hour-by-hour template for maximum productivity\n\nMake this a real plan, not generic advice.",
+          "variables": [
+            "income_goal",
+            "niche",
+            "current_revenue",
+            "client_count",
+            "hours_per_week",
+            "skills"
+          ],
+          "tags": [
+            "income growth",
+            "freelancing",
+            "business planning",
+            "revenue"
+          ],
+          "use_case": "Use when you want to scale freelance income to a specific target"
+        },
+        {
+          "id": "fa-011",
+          "title": "Retainer Client Proposal",
+          "category": "Freelancing & Agency",
+          "tier": "accelerator",
+          "description": "Write a proposal specifically designed to convert clients to monthly retainers",
+          "prompt": "Act as a retainer sales consultant. Write a proposal to convert {{client_type}} to a monthly retainer for {{service}}.\n\nOne-time project they just completed: {{past_project}}\nMonthly retainer price: ${{retainer_price}}\nWhat's included: {{deliverables}}\n\nProposal structure:\n1. OUTCOME SUMMARY: What the one-time project achieved\n2. THE COMPOUNDING PROBLEM: What will happen without ongoing support\n3. THE RETAINER OFFER: What they get every month\n4. VALUE CALCULATION: Cost of retainer vs. cost of inaction\n5. EXCLUSIVITY ANGLE: Why they get priority access as a retainer client\n6. RISK REMOVAL: Trial period or guarantee\n7. COMPARISON: Retainer vs. hiring full-time vs. ad hoc\n8. EASY YES: Specific, dated next step\n\nMake the retainer feel like the obvious next move after the project.",
+          "variables": [
+            "client_type",
+            "service",
+            "past_project",
+            "retainer_price",
+            "deliverables"
+          ],
+          "tags": [
+            "retainer",
+            "recurring revenue",
+            "freelancing",
+            "proposal"
+          ],
+          "use_case": "Use after completing a successful project to lock in recurring revenue"
+        },
+        {
+          "id": "fa-012",
+          "title": "White Label Service Designer",
+          "category": "Freelancing & Agency",
+          "tier": "inner_circle",
+          "description": "Design a white label service offering for other agencies to resell",
+          "prompt": "Act as a white label business consultant. Design a white label service offering for {{service}} that other agencies can resell.\n\nDelivery capacity: {{capacity}}/month\nTarget reseller: {{reseller_type}}\nYour cost to deliver: ${{your_cost}}\n\nCreate:\n1. WHITE LABEL OFFER DESIGN:\n   - Service name (generic, rebrandable)\n   - Deliverables and specifications\n   - Quality standards\n   - Turnaround times\n2. PRICING STRUCTURE:\n   - Your wholesale price\n   - Recommended retail price for resellers\n   - Volume discounts\n3. RESELLER PACKAGE:\n   - Marketing materials they can white label\n   - Sales scripts they can use\n   - Onboarding process\n4. QUALITY CONTROL SYSTEM\n5. COMMUNICATION PROTOCOL: How to work with resellers without client-poaching risk\n6. RESELLER RECRUITMENT: How to find and sign up resellers\n7. AGREEMENT TEMPLATE: Key clauses for reseller agreements\n\nMake this scalable to 10+ resellers without proportional overhead.",
+          "variables": [
+            "service",
+            "capacity",
+            "reseller_type",
+            "your_cost"
+          ],
+          "tags": [
+            "white label",
+            "agency",
+            "B2B",
+            "scaling"
+          ],
+          "use_case": "Use to create an agency-to-agency revenue stream"
+        }
+      ]
+    },
+    {
+      "name": "Social Media Growth",
+      "icon": "📱",
+      "prompts": [
+        {
+          "id": "sm-001",
+          "title": "Instagram Bio Optimizer",
+          "category": "Social Media Growth",
+          "tier": "starter",
+          "description": "Write an Instagram bio that converts profile visitors into followers and leads",
+          "prompt": "Act as an Instagram growth strategist. Write 5 optimized Instagram bio options for {{name}} who does {{what_you_do}} for {{target_audience}}.\n\nGoal: {{goal}} (followers/leads/sales)\nUnique angle: {{unique_angle}}\n\nFor each bio option:\n- Line 1: Who you are + credibility\n- Line 2: What you do for them (outcome-focused)\n- Line 3: Social proof or unique fact\n- Line 4: CTA with link-in-bio direction\n- Emoji strategy: Which emojis to use and where\n- Keyword optimization: Which searchable words to include\n\nRule: Under 150 characters total. Every word earns its spot.\n\nAlso: Suggest 3 link-in-bio page headlines.",
+          "variables": [
+            "name",
+            "what_you_do",
+            "target_audience",
+            "goal",
+            "unique_angle"
+          ],
+          "tags": [
+            "instagram",
+            "bio",
+            "profile optimization",
+            "social media"
+          ],
+          "use_case": "Use when launching a new Instagram account or rebranding"
+        },
+        {
+          "id": "sm-002",
+          "title": "Content Calendar Builder",
+          "category": "Social Media Growth",
+          "tier": "accelerator",
+          "description": "Create a 30-day content calendar for any platform or niche",
+          "prompt": "Act as a social media strategist. Create a 30-day content calendar for {{platform}} in the {{niche}} niche.\n\nPosting frequency: {{posts_per_week}} times/week\nContent goals: {{goals}}\nBrand voice: {{brand_voice}}\n\nFor each post slot:\n- Day and date\n- Content type (educational/entertaining/promotional/personal/engagement)\n- Post topic\n- Hook/opening line\n- Format (carousel/reel/static/story)\n- CTA\n\nCalendar rules:\n- No more than 20% promotional content\n- Mix of content types each week\n- Batch similar content types for efficient creation\n\nInclude: Monthly content theme + 5 repeatable content series ideas.",
+          "variables": [
+            "platform",
+            "niche",
+            "posts_per_week",
+            "goals",
+            "brand_voice"
+          ],
+          "tags": [
+            "content calendar",
+            "planning",
+            "social media",
+            "strategy"
+          ],
+          "use_case": "Use monthly to plan and batch content creation"
+        },
+        {
+          "id": "sm-003",
+          "title": "Hashtag Strategy Builder",
+          "category": "Social Media Growth",
+          "tier": "starter",
+          "description": "Build a strategic hashtag system for maximum reach",
+          "prompt": "Act as a social media SEO specialist. Build a complete hashtag strategy for {{platform}} in the {{niche}} niche.\n\nAccount size: {{follower_count}} followers\nContent type: {{content_type}}\n\nCreate:\n1. MASTER HASHTAG LIST (30 total):\n   - 3 mega hashtags (1M+ posts)\n   - 10 large hashtags (100K-1M)\n   - 12 medium hashtags (10K-100K)\n   - 5 niche-specific hashtags (under 10K)\n\n2. HASHTAG SETS: 5 pre-built sets for different content types\n   (Rotate these to avoid appearing spammy)\n\n3. BRAND HASHTAG: 2-3 unique hashtag options for your brand\n\n4. HOW TO USE THEM: Best placement, timing, rotation strategy\n\n5. WHAT TO AVOID: Banned/flagged hashtags in this niche\n\n6. MONTHLY AUDIT: How to check and update your sets",
+          "variables": [
+            "platform",
+            "niche",
+            "follower_count",
+            "content_type"
+          ],
+          "tags": [
+            "hashtags",
+            "reach",
+            "social media",
+            "SEO"
+          ],
+          "use_case": "Use to maximize organic reach on every post"
+        },
+        {
+          "id": "sm-004",
+          "title": "Story Script Writer",
+          "category": "Social Media Growth",
+          "tier": "starter",
+          "description": "Write engaging Instagram/Facebook story scripts that drive action",
+          "prompt": "Act as a social media storyteller. Write a {{story_count}}-slide story script for {{platform}} about: {{topic}}\n\nGoal: {{goal}} (engagement/poll/link click/DM)\nBrand voice: {{brand_voice}}\n\nFor each story slide:\n- SLIDE NUMBER\n- VISUAL: What to show (photo/video/graphic/selfie)\n- TEXT OVERLAY: Exact words (under 7 words per slide)\n- STICKER/INTERACTIVE ELEMENT: Poll/question/quiz/slider\n- TRANSITION NOTE: How to move to next slide\n\nStory arc:\nSlide 1: Hook (stop the tap-through)\nSlides 2-N: Value/content\nFinal slide: CTA (specific action to take)\n\nMake it feel native to the platform, not like an ad.",
+          "variables": [
+            "story_count",
+            "platform",
+            "topic",
+            "goal",
+            "brand_voice"
+          ],
+          "tags": [
+            "stories",
+            "instagram",
+            "engagement",
+            "content"
+          ],
+          "use_case": "Use for engaging story content that drives real action"
+        },
+        {
+          "id": "sm-005",
+          "title": "Reel/Short Video Concept Generator",
+          "category": "Social Media Growth",
+          "tier": "starter",
+          "description": "Generate 10 viral reel and short video concepts for your niche",
+          "prompt": "Act as a viral content strategist. Generate 10 Reel/Short video concepts for {{niche}} targeting {{audience}}.\n\nPlatform: {{platform}}\nAccount goal: {{goal}}\nBrand personality: {{personality}}\n\nFor each concept:\n1. CONCEPT TITLE: Internal reference name\n2. HOOK (first 3 seconds): Exactly what happens or is said\n3. FORMAT: Tutorial/story/transition/POV/talking head/b-roll\n4. CORE VALUE: What the viewer learns or feels\n5. TRENDING ANGLE: Why this has viral potential now\n6. TEXT OVERLAYS: Key text to show on screen\n7. CALL TO ACTION: What to ask at the end\n8. VIRAL HOOK SCORE: High/Medium/Low + reasoning\n\nRank them from most to least likely to go viral.",
+          "variables": [
+            "niche",
+            "audience",
+            "platform",
+            "goal",
+            "personality"
+          ],
+          "tags": [
+            "reels",
+            "short video",
+            "viral",
+            "content ideas"
+          ],
+          "use_case": "Use when planning a month of short-form video content"
+        },
+        {
+          "id": "sm-006",
+          "title": "Viral Hook Formula Builder",
+          "category": "Social Media Growth",
+          "tier": "accelerator",
+          "description": "Generate 20 viral hook formulas for any niche and platform",
+          "prompt": "Act as a viral content engineer. Generate 20 proven hook formulas for {{niche}} content on {{platform}}.\n\nTarget emotion: {{emotion}} (curiosity/FOMO/anger/inspiration/shock)\nContent type: {{content_type}}\n\nFor each hook:\n1. THE FORMULA: The template with [FILL IN] placeholders\n2. EXAMPLE: A completed example for my niche\n3. WHY IT WORKS: The psychological trigger it activates\n4. BEST FOR: Which platform/format it performs best on\n5. VARIATION: An alternate version with different angle\n\nCategories to cover:\n- Curiosity gaps (5 hooks)\n- Contrarian takes (4 hooks)\n- Numbered lists (3 hooks)\n- 'How I did X' (3 hooks)\n- Story openers (3 hooks)\n- Fear/warning (2 hooks)\n\nInclude real examples from successful viral content.",
+          "variables": [
+            "niche",
+            "platform",
+            "emotion",
+            "content_type"
+          ],
+          "tags": [
+            "hooks",
+            "viral",
+            "copywriting",
+            "engagement"
+          ],
+          "use_case": "Use to write scroll-stopping hooks for any content piece"
+        },
+        {
+          "id": "sm-007",
+          "title": "Growth Strategy Blueprint",
+          "category": "Social Media Growth",
+          "tier": "accelerator",
+          "description": "Create a data-driven 90-day social media growth strategy",
+          "prompt": "Act as a social media growth strategist. Create a 90-day growth plan for {{platform}} in {{niche}}.\n\nCurrent followers: {{current_followers}}\nGoal: {{follower_goal}} followers in 90 days\nPosting capacity: {{posts_per_week}} posts/week\nMonetization goal: {{monetization}}\n\nCreate:\n1. GROWTH STRATEGY: Primary mechanism (algorithm, collaboration, ads, SEO)\n2. CONTENT PILLARS: 4-5 repeatable content categories\n3. POSTING SCHEDULE: Best days/times based on platform data\n4. ENGAGEMENT STRATEGY: How to grow through engagement (not just posting)\n5. COLLABORATION PLAN: How to leverage other accounts\n6. WEEKLY CHECKLIST: Non-negotiable weekly actions\n7. MILESTONE METRICS: What to hit at 30/60/90 days\n8. WHAT TO A/B TEST: Format, timing, content type, hooks\n\nBe specific. Include real tactics, not platitudes.",
+          "variables": [
+            "platform",
+            "niche",
+            "current_followers",
+            "follower_goal",
+            "posts_per_week",
+            "monetization"
+          ],
+          "tags": [
+            "growth strategy",
+            "social media",
+            "followers",
+            "planning"
+          ],
+          "use_case": "Use to build a systematic social media growth engine"
+        },
+        {
+          "id": "sm-008",
+          "title": "Community Building Playbook",
+          "category": "Social Media Growth",
+          "tier": "accelerator",
+          "description": "Build an engaged community around your brand across platforms",
+          "prompt": "Act as a community strategist. Create a community building playbook for {{brand}} in the {{niche}} space.\n\nPlatform: {{platform}}\nTarget community size: {{size}} members in {{timeframe}}\nCommunity purpose: {{purpose}}\n\nPlaybook includes:\n1. COMMUNITY POSITIONING: What makes this community different\n2. PLATFORM STRATEGY: Why {{platform}} vs. alternatives\n3. CONTENT STRATEGY: What gets posted, by whom, how often\n4. ENGAGEMENT RITUALS: Weekly/monthly recurring activities that build habit\n5. MODERATION GUIDELINES: Rules and how to enforce them\n6. GROWTH TACTICS: How to get first 100, then 1K, then 10K members\n7. MONETIZATION PATH: How the community supports business goals\n8. AMBASSADOR PROGRAM: How to activate your most engaged members\n\nInclude: Welcome message template + first 30 days launch plan.",
+          "variables": [
+            "brand",
+            "niche",
+            "platform",
+            "size",
+            "timeframe",
+            "purpose"
+          ],
+          "tags": [
+            "community",
+            "engagement",
+            "brand building",
+            "social media"
+          ],
+          "use_case": "Use when launching or growing a brand community"
+        },
+        {
+          "id": "sm-009",
+          "title": "Viral Content Formula Builder",
+          "category": "Social Media Growth",
+          "tier": "accelerator",
+          "description": "Reverse-engineer viral content to build your own repeatable formula",
+          "prompt": "Act as a viral content analyst. Help me build a viral content formula for {{niche}} on {{platform}}.\n\nAnalyze these viral elements for my niche and create a repeatable system:\n\n1. CONTENT AUTOPSY: Break down the anatomy of what makes content go viral in {{niche}}\n2. THE 5 VIRAL TRIGGERS: Which emotions/reactions drive shares in my niche\n3. FORMAT ANALYSIS: Which content formats perform best\n4. TIMING PATTERNS: When viral content tends to get posted in my niche\n5. HOOK LIBRARY: 10 proven opening lines adapted for my niche\n6. STRUCTURE TEMPLATES: 3 repeatable content structures\n7. TITLE/HEADLINE FORMULAS: 5 templates with fill-in-the-blank blanks\n8. AMPLIFICATION TACTICS: How to give content the best chance to spread\n9. TEST & ITERATE: How to systematically improve over time\n\nGive me a formula I can use for every piece of content.",
+          "variables": [
+            "niche",
+            "platform"
+          ],
+          "tags": [
+            "viral content",
+            "formula",
+            "growth",
+            "social media"
+          ],
+          "use_case": "Use to systematize your approach to creating content that spreads"
+        },
+        {
+          "id": "sm-010",
+          "title": "Influencer Collaboration Strategy",
+          "category": "Social Media Growth",
+          "tier": "accelerator",
+          "description": "Design a micro-influencer collaboration program to accelerate growth",
+          "prompt": "Act as an influencer marketing strategist. Design a collaboration program for {{brand}} in {{niche}}.\n\nBudget: ${{budget}}/month\nTarget audience: {{audience}}\nGoal: {{goal}} (followers/sales/awareness)\n\nCreate:\n1. INFLUENCER TIER STRATEGY: Micro vs. macro (with reasoning for your situation)\n2. IDEAL COLLABORATOR PROFILE: Follower count, engagement rate, content style, audience match\n3. OUTREACH SCRIPT: DM and email templates\n4. COLLABORATION FORMATS: Product reviews, tutorials, challenges, takeovers\n5. COMPENSATION STRUCTURE: What to offer at each tier\n6. BRIEF TEMPLATE: What you provide to collaborators\n7. LEGAL CONSIDERATIONS: Disclosure requirements\n8. PERFORMANCE METRICS: How to measure collaboration ROI\n9. RELATIONSHIP BUILDING: How to turn one-time collaborators into long-term partners\n\nBuild this as a repeatable system, not ad hoc deals.",
+          "variables": [
+            "brand",
+            "niche",
+            "budget",
+            "audience",
+            "goal"
+          ],
+          "tags": [
+            "influencer marketing",
+            "collaborations",
+            "growth",
+            "partnerships"
+          ],
+          "use_case": "Use when ready to leverage other audiences for faster growth"
+        },
+        {
+          "id": "sm-011",
+          "title": "Social Proof Amplification System",
+          "category": "Social Media Growth",
+          "tier": "accelerator",
+          "description": "Build a system to collect, repurpose, and amplify social proof",
+          "prompt": "Act as a social proof strategist. Build a social proof amplification system for {{business}} in {{niche}}.\n\nTypes of proof available: {{proof_types}}\nPrimary platform: {{platform}}\nSales goal: {{sales_goal}}\n\nCreate:\n1. SOCIAL PROOF TYPES TO COLLECT: Ranked by conversion power\n2. COLLECTION SYSTEM: Automated and manual methods\n3. APPROVAL WORKFLOW: How to get permission\n4. CONTENT FORMATS: How to present each type of proof\n5. PLATFORM STRATEGY: Where to use each proof type\n6. TIMING STRATEGY: When to amplify social proof in buyer journey\n7. REPURPOSING PLAN: How one testimonial becomes 10 pieces of content\n8. ANTI-FAKE SIGNALS: How to make proof feel real and credible\n\nInclude: Email template to request testimonials + follow-up.",
+          "variables": [
+            "business",
+            "niche",
+            "proof_types",
+            "platform",
+            "sales_goal"
+          ],
+          "tags": [
+            "social proof",
+            "testimonials",
+            "trust",
+            "conversion"
+          ],
+          "use_case": "Use to turn customer results into a conversion machine"
+        },
+        {
+          "id": "sm-012",
+          "title": "Social Media Monetization Blueprint",
+          "category": "Social Media Growth",
+          "tier": "accelerator",
+          "description": "Build a monetization strategy for any social media following",
+          "prompt": "Act as a social media monetization strategist. Design a monetization plan for a {{follower_count}}-follower account in {{niche}} on {{platform}}.\n\nCurrent monetization: {{current_monetization}}\nRevenue goal: ${{monthly_goal}}/month\nContent type: {{content_type}}\n\nCreate:\n1. MONETIZATION AUDIT: What your current following is worth\n2. MONETIZATION OPTIONS RANKED BY: Revenue potential + effort\n3. RECOMMENDED PATH:\n   - Primary monetization method\n   - Secondary method\n   - Passive income layer\n4. PLATFORM-SPECIFIC OPTIONS: What's available natively on {{platform}}\n5. BRAND DEAL STRATEGY: How to attract and price sponsorships\n6. OWN PRODUCT PATH: What to create for this audience\n7. EMAIL LIST: Why and how to convert followers to email subscribers\n8. 90-DAY LAUNCH PLAN: How to go from $0 to ${{monthly_goal}}/month\n\nBe realistic. Give me dollar estimates based on engagement rates.",
+          "variables": [
+            "follower_count",
+            "niche",
+            "platform",
+            "current_monetization",
+            "monthly_goal",
+            "content_type"
+          ],
+          "tags": [
+            "monetization",
+            "social media",
+            "creator economy",
+            "revenue"
+          ],
+          "use_case": "Use when ready to turn your social following into income"
+        }
+      ]
+    }
+  ]
+}

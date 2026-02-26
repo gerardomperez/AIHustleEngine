@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Settings | AI Hustle Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #6366f1; --primary-dark: #4f46e5; --secondary: #8b5cf6;
+            --accent: #06b6d4; --dark: #0f172a; --gray: #64748b; --light: #f8fafc;
+            --success: #10b981; --warning: #f59e0b; --danger: #ef4444;
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--dark); }
+        .app { display: flex; min-height: 100vh; }
+        .sidebar {
+            width: 260px; background: white; border-right: 1px solid #e2e8f0;
+            display: flex; flex-direction: column; position: fixed; height: 100vh; z-index: 100;
+        }
+        .sidebar-header { padding: 24px; border-bottom: 1px solid #e2e8f0; }
+        .logo {
+            font-weight: 800; font-size: 1.25rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-decoration: none; display: block;
+        }
+        .tier-badge {
+            display: inline-block; margin-top: 8px; padding: 4px 12px;
+            background: var(--primary); color: white; border-radius: 50px; font-size: 0.75rem; font-weight: 600;
+        }
+        .nav { flex: 1; padding: 16px 12px; overflow-y: auto; }
+        .nav-title { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray); padding: 0 12px; margin-bottom: 8px; }
+        .nav-item {
+            display: flex; align-items: center; gap: 12px; padding: 10px 12px;
+            border-radius: 8px; cursor: pointer; transition: all 0.2s;
+            color: var(--dark); text-decoration: none; margin-bottom: 2px;
+        }
+        .nav-item:hover, .nav-item.active { background: var(--light); color: var(--primary); }
+        .nav-item.active { font-weight: 600; }
+        .sidebar-footer { padding: 16px; border-top: 1px solid #e2e8f0; }
+        .user-menu { display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 8px; }
+        .avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 0.875rem; flex-shrink: 0; }
+        .user-name { font-weight: 600; font-size: 0.875rem; }
+        .user-email { font-size: 0.75rem; color: var(--gray); }
+        .main { flex: 1; margin-left: 260px; padding: 32px; max-width: calc(100vw - 260px); }
+        .page-title { font-size: 1.75rem; font-weight: 700; margin-bottom: 32px; }
+        .settings-grid { display: flex; flex-direction: column; gap: 24px; max-width: 640px; }
+        .section-card { background: white; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden; }
+        .section-header { padding: 20px 24px; border-bottom: 1px solid #e2e8f0; }
+        .section-header h2 { font-size: 1rem; font-weight: 700; }
+        .section-header p { font-size: 0.875rem; color: var(--gray); margin-top: 2px; }
+        .section-body { padding: 24px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group:last-child { margin-bottom: 0; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        label { display: block; font-size: 0.875rem; font-weight: 500; color: #374151; margin-bottom: 6px; }
+        input {
+            width: 100%; padding: 10px 14px; border: 1px solid #e2e8f0; border-radius: 8px;
+            font-family: 'Inter', sans-serif; font-size: 0.9rem; color: var(--dark);
+            background: white; transition: all 0.2s; outline: none;
+        }
+        input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(99,102,241,0.1); }
+        input[readonly] { background: var(--light); color: var(--gray); cursor: not-allowed; }
+        .input-note { font-size: 0.75rem; color: var(--gray); margin-top: 4px; }
+        .btn-save {
+            padding: 10px 24px; background: var(--primary); color: white;
+            border: none; border-radius: 8px; font-size: 0.875rem; font-weight: 600;
+            cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s;
+        }
+        .btn-save:hover { background: var(--primary-dark); }
+        .btn-save:disabled { opacity: 0.6; cursor: not-allowed; }
+        .btn-danger {
+            padding: 10px 24px; background: white; color: var(--danger);
+            border: 1px solid var(--danger); border-radius: 8px; font-size: 0.875rem; font-weight: 600;
+            cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s;
+        }
+        .btn-danger:hover { background: rgba(239,68,68,0.05); }
+        .btn-upgrade {
+            padding: 10px 24px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white; border: none; border-radius: 8px; font-size: 0.875rem; font-weight: 600;
+            cursor: pointer; font-family: 'Inter', sans-serif; text-decoration: none; display: inline-block;
+        }
+        /* Subscription card */
+        .subscription-info { display: flex; flex-direction: column; gap: 12px; }
+        .sub-tier {
+            display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px;
+            background: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(139,92,246,0.1) 100%);
+            border: 1px solid rgba(99,102,241,0.2); border-radius: 50px;
+            font-size: 0.875rem; font-weight: 600; color: var(--primary); width: fit-content;
+        }
+        .sub-detail { font-size: 0.875rem; color: var(--gray); }
+        .sub-detail strong { color: var(--dark); }
+        .sub-actions { display: flex; gap: 12px; margin-top: 4px; }
+        /* Danger zone */
+        .danger-zone { border-color: rgba(239,68,68,0.2); }
+        .danger-zone .section-header { background: rgba(239,68,68,0.03); }
+        .danger-zone .section-header h2 { color: var(--danger); }
+        .danger-note { font-size: 0.875rem; color: var(--gray); margin-bottom: 16px; line-height: 1.5; }
+        /* Divider */
+        .form-divider { border: none; border-top: 1px solid #f1f5f9; margin: 20px 0; }
+        /* Toast */
+        .toast {
+            position: fixed; bottom: 24px; right: 24px; padding: 12px 20px;
+            border-radius: 10px; font-size: 0.875rem; font-weight: 500;
+            transform: translateY(80px); opacity: 0; transition: all 0.3s; z-index: 1000;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .toast.show { transform: translateY(0); opacity: 1; }
+        .toast.success { background: var(--success); color: white; }
+        .toast.error { background: var(--danger); color: white; }
+        /* Modal */
+        .modal-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center; padding: 24px; }
+        .modal-backdrop.show { display: flex; }
+        .modal { background: white; border-radius: 16px; max-width: 420px; width: 100%; padding: 32px; }
+        .modal h3 { font-size: 1.125rem; font-weight: 700; margin-bottom: 12px; color: var(--danger); }
+        .modal p { font-size: 0.9rem; color: var(--gray); line-height: 1.6; margin-bottom: 24px; }
+        .modal-actions { display: flex; gap: 12px; }
+        .btn-cancel-confirm { padding: 10px 20px; background: var(--danger); color: white; border: none; border-radius: 8px; font-size: 0.875rem; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; }
+        .btn-cancel-back { padding: 10px 20px; background: white; color: var(--dark); border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.875rem; cursor: pointer; font-family: 'Inter', sans-serif; }
+        .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 6px; vertical-align: middle; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .mobile-toggle { display: none; position: fixed; top: 16px; left: 16px; z-index: 200; background: white; border: 1px solid #e2e8f0; padding: 12px; border-radius: 8px; cursor: pointer; }
+        @media (max-width: 768px) {
+            .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+            .sidebar.open { transform: translateX(0); }
+            .main { margin-left: 0; max-width: 100vw; }
+            .mobile-toggle { display: block; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <button class="mobile-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">AI Hustle Engine</a>
+                <span class="tier-badge" id="tierBadge">Starter</span>
+            </div>
+            <nav class="nav">
+                <div class="nav-title">Member Area</div>
+                <a href="dashboard.html" class="nav-item">📊 Dashboard</a>
+                <a href="module.html" class="nav-item">📚 My Courses</a>
+                <a href="prompt-vault.html" class="nav-item">⚡ Prompt Vault</a>
+                <a href="templates.html" class="nav-item">📝 Templates</a>
+                <a href="account.html" class="nav-item active">⚙️ Account</a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-menu">
+                    <div class="avatar" id="userAvatar">?</div>
+                    <div>
+                        <div class="user-name" id="userName">Loading...</div>
+                        <div class="user-email" id="userEmail"></div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main">
+            <h1 class="page-title">Account Settings</h1>
+
+            <div class="settings-grid">
+
+                <!-- Profile Section -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2>👤 Profile</h2>
+                        <p>Update your name and display settings</p>
+                    </div>
+                    <div class="section-body">
+                        <form id="profileForm" onsubmit="saveProfile(event)">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" placeholder="John">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" placeholder="Smith">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" readonly>
+                                <div class="input-note">Email cannot be changed. Contact support if needed.</div>
+                            </div>
+                            <button type="submit" class="btn-save" id="profileBtn">Save Profile</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Change Password -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2>🔒 Change Password</h2>
+                        <p>Update your account password</p>
+                    </div>
+                    <div class="section-body">
+                        <form id="passwordForm" onsubmit="changePassword(event)">
+                            <div class="form-group">
+                                <label for="currentPassword">Current Password</label>
+                                <input type="password" id="currentPassword" placeholder="••••••••" required>
+                            </div>
+                            <hr class="form-divider">
+                            <div class="form-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" id="newPassword" placeholder="••••••••" required minlength="8">
+                                <div class="input-note">Minimum 8 characters</div>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm New Password</label>
+                                <input type="password" id="confirmPassword" placeholder="••••••••" required>
+                            </div>
+                            <button type="submit" class="btn-save" id="passwordBtn">Update Password</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Subscription -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <h2>💳 Subscription</h2>
+                        <p>Your current plan and billing details</p>
+                    </div>
+                    <div class="section-body">
+                        <div class="subscription-info">
+                            <div class="sub-tier" id="subTierDisplay">⚡ Starter Kit</div>
+                            <div class="sub-detail">Next billing date: <strong id="billingDate">—</strong></div>
+                            <div class="sub-detail">Member since: <strong id="memberSince">—</strong></div>
+                            <div class="sub-actions">
+                                <a href="/#pricing" class="btn-upgrade">⬆️ Upgrade Plan</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Danger Zone -->
+                <div class="section-card danger-zone">
+                    <div class="section-header">
+                        <h2>⚠️ Danger Zone</h2>
+                    </div>
+                    <div class="section-body">
+                        <p class="danger-note">Canceling your subscription will remove access to all course content, prompts, and templates at the end of your current billing period. This action cannot be undone.</p>
+                        <button class="btn-danger" onclick="openCancelModal()">Cancel Subscription</button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Cancel Confirmation Modal -->
+    <div class="modal-backdrop" id="cancelModal">
+        <div class="modal">
+            <h3>⚠️ Cancel Subscription?</h3>
+            <p>Are you sure you want to cancel? You'll lose access to all courses, prompts, and templates at the end of your billing period. We don't offer partial refunds for cancellations.</p>
+            <p style="margin-top:8px;"><strong>Your access continues until:</strong> <span id="cancelDate">your next billing date</span>.</p>
+            <div class="modal-actions" style="margin-top:24px;">
+                <button class="btn-cancel-back" onclick="closeCancelModal()">Keep My Subscription</button>
+                <button class="btn-cancel-confirm" onclick="confirmCancel()">Yes, Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script>
+        const API = 'https://ai-hustle.advancedmedias.com/api';
+
+        function loadUser() {
+            const token = localStorage.getItem('ahe_token');
+            if (!token) { window.location.href = '/login.html'; return; }
+            const raw = localStorage.getItem('ahe_user');
+            if (raw) {
+                try {
+                    const user = JSON.parse(raw);
+                    const name = (user.name || '').split(' ');
+                    document.getElementById('firstName').value = name[0] || '';
+                    document.getElementById('lastName').value = name.slice(1).join(' ') || '';
+                    document.getElementById('email').value = user.email || '';
+                    document.getElementById('userName').textContent = user.name || user.email;
+                    document.getElementById('userEmail').textContent = user.email || '';
+                    document.getElementById('userAvatar').textContent = (user.name || user.email || 'U')[0].toUpperCase();
+                    const tier = user.tier || 'starter';
+                    document.getElementById('tierBadge').textContent = tier;
+                    const tierLabels = { starter: '🚀 Starter Kit', accelerator: '⚡ Accelerator', 'inner-circle': '👑 Inner Circle' };
+                    document.getElementById('subTierDisplay').textContent = tierLabels[tier.toLowerCase()] || tier;
+                    document.getElementById('memberSince').textContent = user.createdAt ? new Date(user.createdAt).toLocaleDateString() : 'N/A';
+                    document.getElementById('billingDate').textContent = user.nextBillingDate ? new Date(user.nextBillingDate).toLocaleDateString() : 'N/A';
+                    document.getElementById('cancelDate').textContent = user.nextBillingDate ? new Date(user.nextBillingDate).toLocaleDateString() : 'your next billing date';
+                } catch(e) {}
+            }
+        }
+
+        async function saveProfile(e) {
+            e.preventDefault();
+            const btn = document.getElementById('profileBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner"></span>Saving...';
+            const name = `${document.getElementById('firstName').value} ${document.getElementById('lastName').value}`.trim();
+            try {
+                const res = await fetch(`${API}/user/profile`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('ahe_token')}`
+                    },
+                    body: JSON.stringify({ name })
+                });
+                const data = await res.json();
+                if (res.ok) {
+                    const user = JSON.parse(localStorage.getItem('ahe_user') || '{}');
+                    user.name = name;
+                    localStorage.setItem('ahe_user', JSON.stringify(user));
+                    showToast('✅ Profile updated!', 'success');
+                } else throw new Error(data.message || 'Failed to update profile');
+            } catch(err) {
+                showToast('❌ ' + err.message, 'error');
+            }
+            btn.disabled = false;
+            btn.textContent = 'Save Profile';
+        }
+
+        async function changePassword(e) {
+            e.preventDefault();
+            const newPw = document.getElementById('newPassword').value;
+            const confirmPw = document.getElementById('confirmPassword').value;
+            if (newPw !== confirmPw) { showToast('❌ Passwords do not match', 'error'); return; }
+            const btn = document.getElementById('passwordBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner"></span>Updating...';
+            try {
+                const res = await fetch(`${API}/user/password`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('ahe_token')}`
+                    },
+                    body: JSON.stringify({
+                        currentPassword: document.getElementById('currentPassword').value,
+                        newPassword: newPw
+                    })
+                });
+                const data = await res.json();
+                if (res.ok) {
+                    showToast('✅ Password updated!', 'success');
+                    document.getElementById('passwordForm').reset();
+                } else throw new Error(data.message || 'Failed to update password');
+            } catch(err) {
+                showToast('❌ ' + err.message, 'error');
+            }
+            btn.disabled = false;
+            btn.textContent = 'Update Password';
+        }
+
+        function openCancelModal() {
+            document.getElementById('cancelModal').classList.add('show');
+        }
+        function closeCancelModal() {
+            document.getElementById('cancelModal').classList.remove('show');
+        }
+
+        async function confirmCancel() {
+            try {
+                await fetch(`${API}/user/cancel`, {
+                    method: 'POST',
+                    headers: { 'Authorization': `Bearer ${localStorage.getItem('ahe_token')}` }
+                });
+                closeCancelModal();
+                showToast('Subscription canceled. Access continues until billing date.', 'success');
+            } catch(err) {
+                closeCancelModal();
+                showToast('❌ Something went wrong. Contact support.', 'error');
+            }
+        }
+
+        function showToast(message, type) {
+            const t = document.getElementById('toast');
+            t.textContent = message;
+            t.className = `toast ${type} show`;
+            setTimeout(() => t.classList.remove('show'), 3500);
+        }
+
+        loadUser();
+    </script>
+</body>
+</html>

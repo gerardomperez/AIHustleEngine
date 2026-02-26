@@ -1,0 +1,1370 @@
+{
+  "course": {
+    "title": "AI Hustle Engine",
+    "subtitle": "Build Income Streams with AI",
+    "modules": [
+      {
+        "number": 1,
+        "title": "AI Fundamentals",
+        "description": "Understanding the AI landscape and how to leverage it",
+        "lessons": [
+          {
+            "number": 1,
+            "title": "The AI Opportunity",
+            "duration": "15 min",
+            "description": "Why now is the best time to build with AI",
+            "full_description": "The AI revolution is here. In 2024-2026, AI has crossed from experimental to essential, and the gap between those using it and those not is widening every month. This lesson breaks down exactly why now is the most important moment in a generation to build with AI.\n\nWe look at the economic forces driving AI adoption, the income opportunities that have emerged, and the unique positioning advantage early movers have. You don't need to be a tech expert — you need to understand the landscape and move fast.\n\nBy the end, you'll have a clear mental model of where AI income comes from, and you'll be able to articulate the opportunity to anyone in under 60 seconds.",
+            "key_takeaways": [
+              "AI is creating a new class of knowledge workers operating at 10x productivity",
+              "The income opportunity window is 2024-2027 — first movers will dominate",
+              "You don't need to code to make significant income with AI",
+              "5 specific AI income categories generating real money right now",
+              "Why businesses are desperate for AI help and willing to pay premium prices"
+            ],
+            "action_items": [
+              "Write down 3 skills you already have that AI can amplify",
+              "Find 5 job postings asking for AI skills and analyze what they need",
+              "Calculate: If you did your current work 3x faster, what would that be worth?",
+              "List 3 businesses you know that could benefit from AI automation today"
+            ],
+            "resources": [
+              {
+                "name": "ChatGPT",
+                "url": "https://chat.openai.com"
+              },
+              {
+                "name": "Claude AI",
+                "url": "https://claude.ai"
+              },
+              {
+                "name": "AI Hustle Playbook",
+                "url": "/api/playbook"
+              }
+            ],
+            "transcript_preview": "If you've ever watched an industry shift happen in real-time, you know there's a brief window where early movers capture disproportionate value before the market normalizes. We're in that window right now with AI, and I'm going to show you exactly how to take advantage of it."
+          },
+          {
+            "number": 2,
+            "title": "AI Tools Overview",
+            "duration": "20 min",
+            "description": "The essential AI toolkit for hustlers",
+            "full_description": "Not all AI tools are equal. Some are essential; others are expensive distractions. In this lesson, we build your core AI toolkit — the minimum set of tools that covers 90% of income-generating tasks, without wasting money on subscriptions you won't use.\n\nWe categorize tools by function: writing, image generation, automation, research, and operations. For each category, I show you the best free option, the best paid option, and when upgrading makes financial sense.\n\nThe goal is to have your toolkit fully configured and ready to generate income by the end of this module.",
+            "key_takeaways": [
+              "The 8 essential AI tools that cover all core income-generating tasks",
+              "How to evaluate any new AI tool before paying for it",
+              "Free vs. paid: When the upgrade actually pays off",
+              "How to stack tools into workflows that multiply output",
+              "The tools your future clients are most likely to ask you about"
+            ],
+            "action_items": [
+              "Create accounts for ChatGPT, Claude, and Make.com",
+              "Set up a free Notion workspace to organize your AI workflow notes",
+              "Run your first 10 prompts across 3 different AI tools and compare outputs",
+              "Calculate your current AI tool budget and allocate it strategically"
+            ],
+            "resources": [
+              {
+                "name": "ChatGPT",
+                "url": "https://chat.openai.com"
+              },
+              {
+                "name": "Claude AI",
+                "url": "https://claude.ai"
+              },
+              {
+                "name": "Make.com",
+                "url": "https://make.com"
+              },
+              {
+                "name": "Perplexity AI",
+                "url": "https://perplexity.ai"
+              }
+            ],
+            "transcript_preview": "I've spent over $3,000 testing AI tools over 18 months so you don't have to. What I found is that 80% of the value comes from 5-6 core tools — and most of the rest are redundant, overhyped, or not actually ready for production use."
+          },
+          {
+            "number": 3,
+            "title": "Prompt Engineering Basics",
+            "duration": "25 min",
+            "description": "How to talk to AI for maximum results",
+            "full_description": "Prompt engineering is the skill that separates AI users who get mediocre output from those who get extraordinary, client-ready results. This lesson teaches you the fundamental techniques that unlock AI's full potential.\n\nWe cover the anatomy of a high-quality prompt: role, context, task, format, and constraints. You'll learn why most people's prompts fail and how to fix that in 30 seconds with a simple rewrite framework.\n\nBy the end, you'll have a personal prompt library started and can produce usable output on the first try.",
+            "key_takeaways": [
+              "The RCTF framework: Role, Context, Task, Format — foundation of every good prompt",
+              "Why vague prompts produce vague results and how to be specific fast",
+              "Chaining prompts: How to break complex tasks into reliable steps",
+              "The 'Act as' technique and when to use different AI personas",
+              "How to save and organize your best prompts for reuse"
+            ],
+            "action_items": [
+              "Rewrite 5 prompts you've used before using the RCTF framework",
+              "Build your first prompt library with 10 prompts for tasks you do weekly",
+              "Practice prompt chaining: Take one task and split it into a 3-step chain",
+              "Add at least 3 prompts from the Prompt Vault to your personal library"
+            ],
+            "resources": [
+              {
+                "name": "Prompt Vault",
+                "url": "/prompts"
+              },
+              {
+                "name": "OpenAI Prompt Engineering Guide",
+                "url": "https://platform.openai.com/docs/guides/prompt-engineering"
+              },
+              {
+                "name": "Learn Prompting",
+                "url": "https://learnprompting.org"
+              }
+            ],
+            "transcript_preview": "The single biggest mistake I see beginners make with AI is writing prompts like text messages. Short, vague, no context. And then they're surprised when the output is short, vague, and unhelpful. The good news is that fixing this is simple once you know the framework."
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Income Stream Identification",
+        "description": "Finding your profitable AI-powered niche",
+        "lessons": [
+          {
+            "number": 1,
+            "title": "The 5 AI Income Models",
+            "duration": "20 min",
+            "description": "Services, products, content, agencies, and arbitrage",
+            "full_description": "Before you spend a single hour building skills or creating offers, you need a strategic framework for evaluating which AI income opportunity is right for you specifically. This lesson gives you that framework.\n\nWe examine the 5 primary AI income categories: services (fastest to first dollar), products (scalable but slower), agency (high ceiling), content (compounding), and automation (high value, specialized).\n\nYou'll leave knowing exactly which 1-2 income streams to pursue first.",
+            "key_takeaways": [
+              "The 5 AI income categories and their risk/reward profiles",
+              "How to score each income stream against your current situation",
+              "Why starting with services is almost always the right first move",
+              "The sequencing strategy: Which income stream unlocks the next",
+              "Common mistakes people make when choosing an income stream"
+            ],
+            "action_items": [
+              "Complete the Income Stream Scoring Matrix",
+              "List your top 5 professional skills and match them to AI income opportunities",
+              "Identify your #1 income stream to pursue for the next 90 days",
+              "Set a specific 90-day revenue target for your chosen stream"
+            ],
+            "resources": [
+              {
+                "name": "Income Stream Scoring Matrix",
+                "url": "/resources/income-matrix"
+              },
+              {
+                "name": "AI Freelancing Market Data",
+                "url": "https://upwork.com/research"
+              }
+            ],
+            "transcript_preview": "Everyone wants to know: What's the fastest way to make money with AI? The honest answer is: it depends. But I've identified a scoring system that gives a highly reliable answer for any individual situation in about 10 minutes."
+          },
+          {
+            "number": 2,
+            "title": "Skill-AI Matching",
+            "duration": "25 min",
+            "description": "Map your existing skills to AI opportunities",
+            "full_description": "Services are the fastest path to AI income. There's no product to build, no audience to grow, no complex funnel to create. You identify a problem, solve it using AI, and someone pays you. This lesson shows you how to find what people will pay for right now.\n\nWe cover demand research techniques: mining job boards, Reddit, freelance platforms, and LinkedIn to find AI services with genuine demand and pricing power.\n\nYou'll leave with a prioritized shortlist of 3-5 specific services you could offer starting this week.",
+            "key_takeaways": [
+              "How to research service demand using job boards and freelance platforms in under 2 hours",
+              "The AI efficiency test: How to identify services where AI gives you an unfair advantage",
+              "Pricing research: How to find what the market actually pays for AI services",
+              "The difference between services people want and services people pay for",
+              "How to validate a service idea before investing time in it"
+            ],
+            "action_items": [
+              "Spend 1 hour on Upwork/Fiverr researching AI service categories and pricing",
+              "Search LinkedIn Jobs for 'AI' in your industry and document the skills they want",
+              "Complete the Service Validation Worksheet",
+              "Pick your #1 service and research 5 potential clients this week"
+            ],
+            "resources": [
+              {
+                "name": "Upwork",
+                "url": "https://upwork.com"
+              },
+              {
+                "name": "Fiverr",
+                "url": "https://fiverr.com"
+              },
+              {
+                "name": "Service Validation Worksheet",
+                "url": "/resources/service-validation"
+              }
+            ],
+            "transcript_preview": "Here's the dirty secret about building a services business: most people skip research entirely. They decide what they want to offer based on what sounds exciting — and then they're confused when nobody buys. Research first, build second. Every time."
+          },
+          {
+            "number": 3,
+            "title": "Market Research with AI",
+            "duration": "30 min",
+            "description": "Validate demand before building",
+            "full_description": "Digital products are the holy grail of AI income: create once, sell forever. But the path from idea to profitable product is littered with people who built things nobody wanted. This lesson shows you how to validate, design, and position digital products with genuine market demand.\n\nWe cover the three fastest digital product types to create with AI: templates and frameworks, guides and reports, and micro-tools.\n\nYou'll have a validated product idea before this lesson is over.",
+            "key_takeaways": [
+              "The 3 fastest digital products to create with AI assistance",
+              "How to validate demand before building anything",
+              "Pricing strategy for digital products at different price points",
+              "Distribution channels that work best for AI-created products",
+              "How to create a publishable digital product in under 72 hours"
+            ],
+            "action_items": [
+              "Generate 10 digital product ideas using the Ebook Structure Creator prompt",
+              "Validate your top idea by finding 10 people currently spending money in this space",
+              "Outline your first digital product (can be a simple PDF or template pack)",
+              "Research 3 competitors selling similar products and analyze their positioning"
+            ],
+            "resources": [
+              {
+                "name": "Gumroad",
+                "url": "https://gumroad.com"
+              },
+              {
+                "name": "Lemon Squeezy",
+                "url": "https://lemonsqueezy.com"
+              },
+              {
+                "name": "Ebook Structure Creator Prompt",
+                "url": "/prompts/pd-002"
+              }
+            ],
+            "transcript_preview": "I want to reframe how you think about digital products. Most people think of them as big, complex things that take months to build. But some of the highest-converting digital products are 5-page PDF checklists that took 4 hours to make and sell for $27 a pop."
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "title": "AI Services Business",
+        "description": "Start earning immediately with AI services",
+        "lessons": [
+          {
+            "number": 1,
+            "title": "High-Demand AI Services",
+            "duration": "20 min",
+            "description": "What businesses are paying for right now",
+            "full_description": "Your offer is the foundation of your AI services business. A weak offer means endless objections and clients who don't see your value. A strong offer means premium pricing, easy sales conversations, and clients who refer you. This lesson teaches you how to build the latter.\n\nWe cover the anatomy of a compelling service offer: the transformation promised, the target client, the proof you can deliver, and the risk reversal that removes hesitation.\n\nYou'll walk away with a draft offer statement ready to test this week.",
+            "key_takeaways": [
+              "The 4 components every high-converting service offer needs",
+              "How to shift from 'I provide X service' to 'I help Y achieve Z result'",
+              "Offer naming: Why your service name is a marketing decision",
+              "Risk reversal: How to make it easy to say yes",
+              "The difference between a feature list and an outcome promise"
+            ],
+            "action_items": [
+              "Write your one-sentence offer statement using the template provided",
+              "Test your offer on 3 people outside your industry — can they explain it back?",
+              "Identify 3 case studies or examples that prove your offer delivers results",
+              "Draft your first service package (starter/core/premium) with clear deliverables"
+            ],
+            "resources": [
+              {
+                "name": "Service Package Designer Prompt",
+                "url": "/prompts/fa-001"
+              },
+              {
+                "name": "Client Proposal Builder Prompt",
+                "url": "/prompts/ca-003"
+              }
+            ],
+            "transcript_preview": "I ask every person I coach the same question when they're stuck: What does your client's life look like 30 days after they hire you? Most people answer by describing their deliverables. That's wrong. The answer should describe a transformation. That shift changes everything."
+          },
+          {
+            "number": 2,
+            "title": "Pricing Your Services",
+            "duration": "25 min",
+            "description": "How to charge premium rates for AI work",
+            "full_description": "Pricing is where most freelancers leave the most money on the table. Not because they price too high — but because they undercharge, use hourly rates that punish efficiency, and fail to anchor pricing to value created. This lesson changes that.\n\nWe cover value-based pricing in depth: how to identify the economic value of the outcome you create, and how to present pricing that makes the premium feel obvious and logical.\n\nBy the end, you'll have a pricing structure that reflects the real value you provide.",
+            "key_takeaways": [
+              "Why hourly pricing is the enemy of AI-powered business growth",
+              "How to calculate the economic value of your service's outcome",
+              "The 3-tier pricing model and why clients almost always choose the middle",
+              "Price anchoring: Make your real price seem like a bargain",
+              "How to raise prices with existing clients without losing them"
+            ],
+            "action_items": [
+              "Calculate the ROI your service creates for a typical client",
+              "Rebuild your pricing using outcome-based value instead of time",
+              "Create your 3-tier package with clear differentiation at each level",
+              "Practice saying your price out loud without qualifying or apologizing"
+            ],
+            "resources": [
+              {
+                "name": "Pricing Strategy Builder Prompt",
+                "url": "/prompts/bs-003"
+              },
+              {
+                "name": "Freelance Rate Calculator Prompt",
+                "url": "/prompts/fa-006"
+              }
+            ],
+            "transcript_preview": "I charged $50 an hour when I started. At that rate, the fact that AI let me work 3x faster made me 3x less money, not more. When you price on outcomes instead of time, AI efficiency becomes pure profit."
+          },
+          {
+            "number": 3,
+            "title": "Getting Your First Clients",
+            "duration": "30 min",
+            "description": "Proven outreach strategies",
+            "full_description": "Getting your first client is the most important milestone in your AI services business — more important than your tool stack, your website, or your niche. The first client proves the model, gives you a case study, and creates confidence to sell to the next one.\n\nWe cover a battle-tested outreach system: identifying 20 warm prospects, crafting a message that gets a response, running a discovery call, and closing without feeling pushy. All with zero advertising budget.\n\nYou'll leave with an outreach plan, a list of 20 prospects, and a first message draft ready to send today.",
+            "key_takeaways": [
+              "Why your first client should come from warm outreach, not cold prospecting",
+              "How to identify 20 high-probability prospects from your existing network",
+              "The 3-message outreach sequence that books discovery calls",
+              "Discovery call framework: Diagnose the problem and present your solution",
+              "How to close without pressure using the consultative close"
+            ],
+            "action_items": [
+              "List 20 people in your network who could use your service or know someone who could",
+              "Draft your 3-message outreach sequence using the Cold Email Sequence prompt",
+              "Send your first 5 outreach messages today",
+              "Book your first discovery call within 7 days"
+            ],
+            "resources": [
+              {
+                "name": "Cold Email Sequence Prompt",
+                "url": "/prompts/ca-001"
+              },
+              {
+                "name": "Discovery Call Script Prompt",
+                "url": "/prompts/ca-004"
+              },
+              {
+                "name": "DM Outreach Script Prompt",
+                "url": "/prompts/ca-002"
+              }
+            ],
+            "transcript_preview": "Stop waiting until your website is perfect, your LinkedIn is optimized, and you have a case study. None of that matters for your first client. What matters is sending 20 targeted messages to the right people with the right offer. That's it."
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "title": "AI Content Empire",
+        "description": "Build scalable content businesses",
+        "lessons": [
+          {
+            "number": 1,
+            "title": "Content at Scale",
+            "duration": "25 min",
+            "description": "Producing 10x content with AI",
+            "full_description": "Content is the most scalable way to build an AI income business. Done right, content generates leads, builds authority, and sells while you sleep. But most creators produce content reactively, without strategy — and then burn out with nothing to show for it.\n\nWe cover the content strategy framework: platform selection, content pillars, posting schedule, and designing content that connects to an offer. AI changes the economics: what took 3 hours now takes 30 minutes.\n\nYou'll finish with a complete 30-day content calendar for your primary platform.",
+            "key_takeaways": [
+              "Platform selection: How to choose based on where your audience already is",
+              "Content pillars: The 4 types every creator needs in their mix",
+              "The content-to-cash path: How to connect every piece to a revenue action",
+              "AI content production stack: Produce a week of content in 2 hours",
+              "Distribution strategy: Get more eyes on content you've already created"
+            ],
+            "action_items": [
+              "Choose your primary content platform based on your audience",
+              "Define your 4 content pillars using the Content Calendar Builder prompt",
+              "Create your first 30-day content calendar",
+              "Batch-create your first week of content using AI tools"
+            ],
+            "resources": [
+              {
+                "name": "Content Calendar Builder Prompt",
+                "url": "/prompts/sm-002"
+              },
+              {
+                "name": "Content Repurposing Engine Prompt",
+                "url": "/prompts/cc-009"
+              },
+              {
+                "name": "Buffer",
+                "url": "https://buffer.com"
+              }
+            ],
+            "transcript_preview": "Here's the brutal truth about content marketing: the creators who win aren't the ones with the most talent. They're the ones with the most consistent systems. AI didn't change that rule — it just made the system 5x easier to run."
+          },
+          {
+            "number": 2,
+            "title": "YouTube with AI",
+            "duration": "30 min",
+            "description": "Scripting, editing, and optimizing",
+            "full_description": "Newsletter and email content is the highest-ROI content channel in existence. While social algorithms decide who sees your content, your email list is an asset you own — and a well-run newsletter converts readers into buyers at 3-5x the rate of social media.\n\nWe cover newsletter strategy from scratch: choosing your format, writing issues people actually read, building your list through content and lead magnets, and monetizing through your own offers.\n\nYou'll have a newsletter template built and a list-building strategy ready to launch by the end of this lesson.",
+            "key_takeaways": [
+              "Why email converts 40x better than social media",
+              "The 3 newsletter formats and which one fits your content style",
+              "Subject line psychology: 5 formulas that generate 40%+ open rates consistently",
+              "How to use AI to write a complete newsletter issue in under 20 minutes",
+              "Monetization: The 3 newsletter revenue streams and when to activate each"
+            ],
+            "action_items": [
+              "Set up your newsletter on ConvertKit, Beehiiv, or Substack",
+              "Write your first issue using the Newsletter Issue Writer prompt",
+              "Create a lead magnet to accelerate list growth",
+              "Send your first newsletter to your existing contacts this week"
+            ],
+            "resources": [
+              {
+                "name": "ConvertKit",
+                "url": "https://convertkit.com"
+              },
+              {
+                "name": "Beehiiv",
+                "url": "https://beehiiv.com"
+              },
+              {
+                "name": "Newsletter Issue Writer Prompt",
+                "url": "/prompts/cc-002"
+              },
+              {
+                "name": "Email Subject Line Generator Prompt",
+                "url": "/prompts/cc-008"
+              }
+            ],
+            "transcript_preview": "Every creator I know who's built a real business has one thing in common: they have an email list. Not just followers — a responsive email list. It's the difference between renting an audience on someone else's platform and owning one outright."
+          },
+          {
+            "number": 3,
+            "title": "Newsletter & Blog Automation",
+            "duration": "25 min",
+            "description": "Building an audience on autopilot",
+            "full_description": "Short-form video is the fastest organic growth channel in 2025-2026. The combination of AI tools that speed up production, algorithms that push new creators, and the format's compatibility with all buying stages makes this the highest-leverage content investment for most AI entrepreneurs.\n\nThis lesson covers the full short-form video system: scripting with AI, filming efficiently, using AI to edit, and posting with a strategy that builds consistently.\n\nYou'll build your first batch of 5 short-form video scripts before this lesson ends.",
+            "key_takeaways": [
+              "The anatomy of a viral short-form video: hook, content, CTA in 60 seconds",
+              "AI scriptwriting: How to produce 10 video scripts in under 1 hour",
+              "Filming efficiency: How to batch-record a week of content in 90 minutes",
+              "AI editing tools that cut production time by 80%",
+              "The metrics that predict channel growth vs. vanity metrics"
+            ],
+            "action_items": [
+              "Generate 10 video concepts using the Reel Concept Generator prompt",
+              "Script your first 5 videos using the TikTok Script Writer prompt",
+              "Film and post your first video within 48 hours of completing this lesson",
+              "Set up a batch filming schedule — aim for 1 hour per week"
+            ],
+            "resources": [
+              {
+                "name": "TikTok Script Writer Prompt",
+                "url": "/prompts/cc-006"
+              },
+              {
+                "name": "Reel Concept Generator Prompt",
+                "url": "/prompts/sm-005"
+              },
+              {
+                "name": "CapCut",
+                "url": "https://capcut.com"
+              },
+              {
+                "name": "Descript",
+                "url": "https://descript.com"
+              }
+            ],
+            "transcript_preview": "I posted my first AI-related short video and it got 47 views. My fourth video hit 12,000. I hadn't changed anything about production — I just got better at hooks. That's the lever. And once you understand it, AI can help you engineer it every time."
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "title": "AI Product Creation",
+        "description": "Build and sell digital products",
+        "lessons": [
+          {
+            "number": 1,
+            "title": "Info Products with AI",
+            "duration": "25 min",
+            "description": "Courses, templates, and guides",
+            "full_description": "Courses and educational content are the backbone of the AI creator economy. With AI, the economics have changed: what used to require months can now be built in days. But the #1 mistake course creators make isn't production speed — it's building before validating.\n\nThis lesson walks you through the validation and design framework for AI-powered courses. We cover how to identify the transformation your course creates, structure content for high completion rates, and use AI to generate all course materials efficiently.\n\nYou'll have a fully validated course idea and complete module outline before this lesson ends.",
+            "key_takeaways": [
+              "Validation-first approach: Why you should sell before you build",
+              "The transformation framework: Design backwards from the result",
+              "Module sequencing: Structure for maximum completion and satisfaction",
+              "AI course production stack: Create all content assets in record time",
+              "Pricing tiers: When to go low-ticket vs. high-ticket"
+            ],
+            "action_items": [
+              "Identify your course topic and write a one-sentence transformation promise",
+              "Validate with 10 potential buyers before building anything",
+              "Use the Course Outline Builder prompt to create your full module structure",
+              "Plan your quick-win lesson — Module 1 should create a result immediately"
+            ],
+            "resources": [
+              {
+                "name": "Course Outline Builder Prompt",
+                "url": "/prompts/pd-001"
+              },
+              {
+                "name": "Teachable",
+                "url": "https://teachable.com"
+              },
+              {
+                "name": "Skool",
+                "url": "https://skool.com"
+              }
+            ],
+            "transcript_preview": "The most expensive thing you can do when building a course is spend six months creating content before anyone has paid you for it. Validation isn't optional — it's the difference between a course that makes $40,000 and one that makes $400 before you abandon it."
+          },
+          {
+            "number": 2,
+            "title": "AI-Assisted Software",
+            "duration": "35 min",
+            "description": "Building apps without being a developer",
+            "full_description": "Done-For-You templates and systems are the fastest-growing segment of the AI digital product market. Buyers want outcomes, not information — and a well-designed template delivers an outcome in minutes. This makes templates command premium pricing relative to their production cost.\n\nThis lesson covers the full template product ecosystem: what types sell best, how to price them, how to use AI to produce them at scale, and where to distribute for maximum sales.\n\nYou'll have a complete template product created, priced, and listed for sale by the end of this lesson.",
+            "key_takeaways": [
+              "The 6 template categories with highest demand in 2025",
+              "How to price templates: When $47 vs. $197 vs. $497 makes sense",
+              "Using AI to build an entire template library in a single weekend",
+              "Distribution: The 4 best places to sell digital templates",
+              "How to bundle templates into higher-value productized packs"
+            ],
+            "action_items": [
+              "Choose one template type your ideal buyer desperately needs",
+              "Use AI to build your first template in 2 hours",
+              "List it on Gumroad for $17-47 and test the market",
+              "Collect feedback from first 5 buyers and iterate"
+            ],
+            "resources": [
+              {
+                "name": "Gumroad",
+                "url": "https://gumroad.com"
+              },
+              {
+                "name": "Done-For-You Templates",
+                "url": "/templates"
+              },
+              {
+                "name": "Etsy Digital Downloads",
+                "url": "https://etsy.com"
+              }
+            ],
+            "transcript_preview": "I sold $4,200 worth of templates in one month from a single Notion template I built in an afternoon. It solved one very specific problem for a very specific person, had a clear thumbnail, and was priced at $27. That's the formula: specific, visual, priced to impulse buy."
+          },
+          {
+            "number": 3,
+            "title": "Launch Strategies",
+            "duration": "30 min",
+            "description": "Going from zero to first sale",
+            "full_description": "AI-powered consulting is one of the fastest ways to generate significant income — and most AI entrepreneurs overlook it entirely in favor of lower-ticket products. Consulting is where your expertise, combined with AI, can command $500-$5,000 per day rates.\n\nThis lesson covers how to package your AI knowledge into a consulting offer: defining your expertise zone, creating an assessment or audit product, and structuring a consulting engagement for maximum value delivery.\n\nYou'll have a high-ticket consulting offer defined, priced, and ready to present to your first prospect.",
+            "key_takeaways": [
+              "The expertise zone framework: Where AI meets your domain knowledge",
+              "How to structure a high-ticket consulting engagement for premium pricing",
+              "The AI audit offer: A $1,500-$3,000 entry point that converts to retainers",
+              "How to productize consulting so it doesn't require 100% custom delivery",
+              "Proposal writing for consulting that wins high-ticket clients"
+            ],
+            "action_items": [
+              "Define your unique expertise zone (skills + AI + target industry)",
+              "Design a 90-minute AI audit offer as your entry-point product",
+              "Price your consulting package using the Pricing Strategy Builder prompt",
+              "Identify 10 companies that would benefit from your specific AI expertise"
+            ],
+            "resources": [
+              {
+                "name": "Pricing Strategy Builder Prompt",
+                "url": "/prompts/bs-003"
+              },
+              {
+                "name": "Client Proposal Builder Prompt",
+                "url": "/prompts/ca-003"
+              },
+              {
+                "name": "High-Ticket Sales Script Prompt",
+                "url": "/prompts/ca-013"
+              }
+            ],
+            "transcript_preview": "There's a client I worked with who paid $4,500 for 6 hours of my time spread over 3 weeks. What did I do? I showed them how to use AI to automate 3 business processes they'd been doing manually for years. The ROI for them was 10x in the first 30 days. That's consulting."
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "title": "AI Agency Model",
+        "description": "Scale with an AI-powered agency",
+        "lessons": [
+          {
+            "number": 1,
+            "title": "Agency Fundamentals",
+            "duration": "25 min",
+            "description": "Structuring for growth",
+            "full_description": "An AI agency is the highest-ceiling model in this course — but requires the most infrastructure. This lesson is for people who want to build beyond a one-person operation and create a business that generates income when they're not personally working.\n\nWe cover the foundational decisions: What services to offer, how to position the agency, what your first hire should be, and how to structure retainer agreements that create predictable monthly revenue.\n\nYou'll leave with your agency model defined: service menu, client avatar, pricing, and team structure.",
+            "key_takeaways": [
+              "The lean agency model: How to run a 6-figure agency with 2-3 people",
+              "Niche selection: Why 'we do everything' is a strategy for staying broke",
+              "Service packaging: How to create agency offers deliverable at scale",
+              "Retainer model: How to structure agreements that clients renew",
+              "First hire framework: Who to hire first, second, and third"
+            ],
+            "action_items": [
+              "Define your agency's single niche and core service",
+              "Create your agency service menu using the Agency Service Menu prompt",
+              "Price your services at agency rates, not freelancer rates",
+              "Draft your retainer agreement structure"
+            ],
+            "resources": [
+              {
+                "name": "Agency Service Menu Prompt",
+                "url": "/prompts/fa-005"
+              },
+              {
+                "name": "White Label Service Designer Prompt",
+                "url": "/prompts/fa-012"
+              },
+              {
+                "name": "Agency Pitch Deck Prompt",
+                "url": "/prompts/fa-008"
+              }
+            ],
+            "transcript_preview": "Most people who want to start an agency think they need 10 clients before they can call themselves an agency. That's backwards. You build the agency first — the systems, the positioning, the delivery model — and the clients follow."
+          },
+          {
+            "number": 2,
+            "title": "AI Team Building",
+            "duration": "30 min",
+            "description": "Hiring and training with AI tools",
+            "full_description": "Client acquisition at scale is where most agencies stall. Getting 1-2 clients through your network is one thing — building a repeatable pipeline that fills capacity is another skill entirely.\n\nWe focus on the highest-ROI acquisition channels for AI agencies: LinkedIn content and outreach, strategic partnerships with non-competing agencies, and referral programs. These three channels can fill a 10-client agency without paid advertising.\n\nYou'll build a complete 30-day client acquisition plan before this lesson is complete.",
+            "key_takeaways": [
+              "The 3-channel acquisition system: LinkedIn + partnerships + referrals",
+              "LinkedIn content strategy specifically for B2B agency client attraction",
+              "Partnership acquisition: How to get other agencies to send you clients",
+              "Referral program design: Making it easy and rewarding to refer",
+              "How to build a predictable pipeline that fills capacity monthly"
+            ],
+            "action_items": [
+              "Set up your LinkedIn outreach campaign using the LinkedIn Outreach Campaign prompt",
+              "Identify 10 non-competing agencies for partnership outreach",
+              "Design your client referral program using the Referral Program Builder prompt",
+              "Create a 30-day prospecting calendar with daily action targets"
+            ],
+            "resources": [
+              {
+                "name": "LinkedIn Outreach Campaign Prompt",
+                "url": "/prompts/ca-007"
+              },
+              {
+                "name": "Referral Program Builder Prompt",
+                "url": "/prompts/ca-010"
+              },
+              {
+                "name": "Apollo.io",
+                "url": "https://apollo.io"
+              }
+            ],
+            "transcript_preview": "I see agency owners spending 40 hours a week on delivery and zero hours on business development, and then wondering why their pipeline is empty. The agencies that survive long-term protect time for new business every single day — even when they're at capacity."
+          },
+          {
+            "number": 3,
+            "title": "Systems & Automation",
+            "duration": "35 min",
+            "description": "Running the business on autopilot",
+            "full_description": "Delivery is where agencies win or lose long-term. You can have the best sales process, but if delivery is inconsistent, you'll churn clients faster than you acquire them. Successful AI agencies have turned delivery into a system, not a heroic effort.\n\nThis lesson covers the full client delivery system: onboarding, project management, quality control, and offboarding. First impressions set the relationship tone — and turning project completions into testimonials and referrals is how you grow without increasing marketing spend.\n\nYou'll build your complete client lifecycle system in this lesson.",
+            "key_takeaways": [
+              "Onboarding: Why the first 48 hours determine retention at 6 months",
+              "Project management systems that keep clients informed and confident",
+              "Quality control: Using AI to review work before it goes to clients",
+              "Scope management: How to handle expansion requests without resentment",
+              "Offboarding: Turning completion into testimonials and referrals"
+            ],
+            "action_items": [
+              "Build your client onboarding sequence using the Client Onboarding Sequence prompt",
+              "Set up a project management system in ClickUp, Notion, or Asana",
+              "Create an AI-powered quality review checklist for your main service",
+              "Draft your testimonial request email"
+            ],
+            "resources": [
+              {
+                "name": "Client Onboarding Sequence Prompt",
+                "url": "/prompts/oa-008"
+              },
+              {
+                "name": "Testimonial Request Prompt",
+                "url": "/prompts/ca-009"
+              },
+              {
+                "name": "SOP Creator Prompt",
+                "url": "/prompts/oa-001"
+              },
+              {
+                "name": "ClickUp",
+                "url": "https://clickup.com"
+              }
+            ],
+            "transcript_preview": "Client churn is the silent killer of agencies. You don't notice it at first because new clients are coming in. But every client you lose means you're on a treadmill — constantly acquiring just to stay still. The fix isn't better sales. It's better delivery."
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "title": "Advanced AI Tactics",
+        "description": "Pro-level techniques for maximum output",
+        "tier": "accelerator",
+        "lessons": [
+          {
+            "number": 1,
+            "title": "Multi-AI Workflows",
+            "duration": "30 min",
+            "description": "Chaining tools for complex results",
+            "full_description": "Most AI users are linear thinkers — they send one prompt and use whatever comes back. Advanced AI users think in systems: chains of prompts, feedback loops, and quality checks that produce reliable output at scale. This lesson is the upgrade from AI user to AI architect.\n\nWe cover advanced prompting techniques: few-shot prompting, chain-of-thought, and system prompt architecture. We also cover how to chain multiple AI tools for tasks no single tool can handle.\n\nYou'll leave with a custom AI workflow for your most important recurring task, fully documented and ready to run.",
+            "key_takeaways": [
+              "Few-shot prompting: How to teach AI your specific style and standards",
+              "Chain-of-thought: Making AI reason through complex problems reliably",
+              "System prompt architecture: Building AI assistants with consistent behavior",
+              "Prompt chaining: How to connect multiple prompts for complex deliverables",
+              "Quality loops: How to use AI to review and improve its own output"
+            ],
+            "action_items": [
+              "Identify your most time-consuming recurring task and build a prompt chain for it",
+              "Create a custom GPT or AI assistant for one specific workflow",
+              "Build 3 few-shot examples for your primary content type",
+              "Test your prompt chain on 5 different inputs and refine based on results"
+            ],
+            "resources": [
+              {
+                "name": "Custom GPT Instructions Builder Prompt",
+                "url": "/prompts/ai-001"
+              },
+              {
+                "name": "AI Workflow Designer Prompt",
+                "url": "/prompts/ai-003"
+              },
+              {
+                "name": "AI Prompt Chaining Framework Prompt",
+                "url": "/prompts/ai-005"
+              }
+            ],
+            "transcript_preview": "There's a concept I call 'prompt debt' — every time you write a prompt from scratch for a task you've done before, you're wasting time you could have saved by building a reusable system the first time. Advanced AI users have zero prompt debt."
+          },
+          {
+            "number": 2,
+            "title": "Custom GPTs & Assistants",
+            "duration": "35 min",
+            "description": "Building your own AI tools",
+            "full_description": "AI automation is where significant income leverage comes from. Instead of getting paid once for work you do once, automation lets you build systems that deliver ongoing value — earning recurring income or dramatically reducing client delivery costs.\n\nThis lesson covers the practical side of AI automation: no-code automation tools (Make.com, n8n, Zapier), how to identify automation opportunities in client businesses, and how to build and deliver automations as a productized service.\n\nYou'll leave with a working automation built and a clear service model for selling automation to clients.",
+            "key_takeaways": [
+              "The automation opportunity map: Where businesses most need automation",
+              "Make.com vs. Zapier vs. n8n: Which platform for which use case",
+              "How to price automation projects: Setup fee plus monthly retainer model",
+              "Selling automation: How to identify and close automation clients",
+              "The AI layer: How to integrate LLMs into automation workflows"
+            ],
+            "action_items": [
+              "Sign up for Make.com (free tier) and complete their beginner tutorial",
+              "Build one automation that saves you 2+ hours per week",
+              "Document this automation as a case study for your portfolio",
+              "Identify 5 client businesses that have the same problem your automation solves"
+            ],
+            "resources": [
+              {
+                "name": "Make.com",
+                "url": "https://make.com"
+              },
+              {
+                "name": "n8n",
+                "url": "https://n8n.io"
+              },
+              {
+                "name": "Automation Blueprint Creator Prompt",
+                "url": "/prompts/ai-004"
+              },
+              {
+                "name": "Zapier",
+                "url": "https://zapier.com"
+              }
+            ],
+            "transcript_preview": "I want to tell you about an automation I built for a client in 3 days that took their team 12 hours a week to do manually. I charged $2,500 for the build plus $500/month to maintain it. That's $14,500 from one weekend of work. That's automation leverage."
+          },
+          {
+            "number": 3,
+            "title": "API & Automation Mastery",
+            "duration": "40 min",
+            "description": "Connecting everything together",
+            "full_description": "Selling AI services is different from selling traditional services. Prospects are often skeptical, uncertain about what they need, or afraid of implications for their team. Understanding these dynamics is what separates AI consultants who close deals from those who have endless educational conversations that go nowhere.\n\nThis lesson covers the complete AI sales process: how to frame AI as a force multiplier, how to use demonstrations to overcome skepticism, how to identify budget and urgency quickly, and how to close high-ticket deals consultatively.\n\nYou'll build and practice your full AI sales pitch before this lesson ends.",
+            "key_takeaways": [
+              "The skepticism loop: Why AI prospects need more proof than typical buyers",
+              "Demonstration closes: How showing beats telling in AI sales",
+              "Framing AI as a team multiplier, not job replacement",
+              "ROI framing: How to anchor your price to their current cost",
+              "The consultative close: Helping prospects decide without pressure"
+            ],
+            "action_items": [
+              "Build a live demonstration of your AI service's output using real client problems",
+              "Write 3 ROI case study statements about client results",
+              "Practice your discovery-to-close conversation with a role-play partner",
+              "Read and internalize the Objection Handling Playbook for your service"
+            ],
+            "resources": [
+              {
+                "name": "Objection Handling Playbook Prompt",
+                "url": "/prompts/ca-006"
+              },
+              {
+                "name": "High-Ticket Sales Script Prompt",
+                "url": "/prompts/ca-013"
+              },
+              {
+                "name": "Discovery Call Script Prompt",
+                "url": "/prompts/ca-004"
+              }
+            ],
+            "transcript_preview": "The number one question I get: How do I handle it when prospects say AI just does it automatically for free? My answer is always the same: Show them what free AI actually produces versus what you produce. That conversation ends immediately."
+          }
+        ]
+      },
+      {
+        "number": 8,
+        "title": "Scaling to 6 Figures",
+        "description": "Growth strategies for serious income",
+        "tier": "accelerator",
+        "lessons": [
+          {
+            "number": 1,
+            "title": "Revenue Stacking",
+            "duration": "30 min",
+            "description": "Multiple income streams that complement",
+            "full_description": "Getting to $10,000/month is a systems problem, not a talent problem. Most AI entrepreneurs who plateau at $3,000-$5,000/month have the skills to earn significantly more — they're just spending their time wrong. This lesson introduces the scale framework.\n\nWe cover the three leverage points for scaling: offer leverage (charging more for the same time), capacity leverage (delivering more without proportionally more time), and distribution leverage (reaching more prospects without proportionally more effort).\n\nYou'll map your current business against this framework and identify the 2-3 changes that would have the biggest impact.",
+            "key_takeaways": [
+              "The 3 leverage points: Offer, capacity, and distribution leverage",
+              "Time audit: How to identify what to cut, delegate, and automate",
+              "The offer stack: How to increase average client value without more clients",
+              "Delegation framework: What to outsource first for maximum leverage",
+              "Revenue milestone map: What needs to happen at $3K, $5K, $10K, $20K/month"
+            ],
+            "action_items": [
+              "Complete a time audit: Track everything for 3 days and categorize by leverage",
+              "Identify your top 3 time-wasters that could be delegated or automated",
+              "Recalculate your effective hourly rate across all activities",
+              "Build your revenue milestone map with specific actions at each stage"
+            ],
+            "resources": [
+              {
+                "name": "KPI Dashboard Designer Prompt",
+                "url": "/prompts/oa-003"
+              },
+              {
+                "name": "Revenue Model Designer Prompt",
+                "url": "/prompts/bs-006"
+              },
+              {
+                "name": "90-Day Growth Sprint Plan Prompt",
+                "url": "/prompts/bs-009"
+              }
+            ],
+            "transcript_preview": "I talk to freelancers making $4,000/month who feel like they're on a ceiling. When I look at their business, the ceiling isn't talent or opportunity — it's structure. They're doing $50/hour work and $200/hour work in the same day with no system to separate them."
+          },
+          {
+            "number": 2,
+            "title": "Team & Delegation",
+            "duration": "35 min",
+            "description": "When and how to hire",
+            "full_description": "Building a team is the multiplier that takes most solopreneurs from $10K to $30K+ per month — but it's also where many go wrong. Hiring too early, hiring wrong roles, or failing to document processes before delegating are all common costly mistakes.\n\nWe cover the lean team model for AI businesses: which roles to hire first, how to write job posts that attract quality candidates, how to vet AI skills specifically, and how to build management systems that don't require your constant presence.\n\nYou'll have your first hiring post written and a role description ready by the end of this lesson.",
+            "key_takeaways": [
+              "The lean team model: Maximum output with minimum management overhead",
+              "First hire framework: Operations VA vs. delivery assistant vs. salesperson",
+              "How to evaluate AI skills in candidates who claim them",
+              "Onboarding a remote team member using SOPs and AI-assisted training",
+              "Management without micromanagement: Weekly systems that keep things on track"
+            ],
+            "action_items": [
+              "Define the first role you'll hire for and what they'll take off your plate",
+              "Write your hiring post using the Hiring Post Writer prompt",
+              "Build a 30-day onboarding plan for the role",
+              "Create the SOP for the first task you'll delegate"
+            ],
+            "resources": [
+              {
+                "name": "Hiring Post Writer Prompt",
+                "url": "/prompts/oa-002"
+              },
+              {
+                "name": "SOP Creator Prompt",
+                "url": "/prompts/oa-001"
+              },
+              {
+                "name": "Contra",
+                "url": "https://contra.com"
+              }
+            ],
+            "transcript_preview": "The first person you hire should take something you hate doing off your plate — not something you love. When you delegate drains, you free up energy for the work that drives revenue."
+          },
+          {
+            "number": 3,
+            "title": "Operational Excellence",
+            "duration": "30 min",
+            "description": "Systems that scale",
+            "full_description": "Recurring revenue is the foundation of a stable, scalable AI business. One-time project work creates feast-or-famine cycles that are stressful and hard to plan around. Recurring revenue through retainers, subscriptions, or memberships creates financial stability that lets you invest in growth.\n\nThis lesson covers the full recurring revenue strategy: converting project clients to retainers, designing retainer offers clients want to stay in, and building subscription products. We also cover the metrics that matter: churn rate, lifetime value, and MRR.\n\nYou'll design your first retainer or subscription offer before this lesson is over.",
+            "key_takeaways": [
+              "Project vs. retainer: Why retainers are better for almost every AI business",
+              "Retainer design: Creating an offer clients renew without being asked",
+              "The conversion conversation: How to transition a project client to a retainer",
+              "Churn prevention: Early warning signs and how to address them",
+              "MRR milestone planning: What recurring revenue milestones unlock"
+            ],
+            "action_items": [
+              "Design your retainer offer: What's included, what's excluded, monthly price",
+              "Write your retainer proposal using the Retainer Client Proposal prompt",
+              "Identify 3 current/past project clients who would benefit from ongoing support",
+              "Calculate: How many retainers at your target price equals your income goal?"
+            ],
+            "resources": [
+              {
+                "name": "Retainer Client Proposal Prompt",
+                "url": "/prompts/fa-011"
+              },
+              {
+                "name": "Revenue Model Designer Prompt",
+                "url": "/prompts/bs-006"
+              },
+              {
+                "name": "Stripe",
+                "url": "https://stripe.com"
+              }
+            ],
+            "transcript_preview": "I made $2,400 one month from project work. The next month, $1,800. The month after, $4,100. That rollercoaster is exhausting. Now I have $9,500/month in locked-in retainer income before I wake up on the 1st. The path to get there is repeatable."
+          }
+        ]
+      },
+      {
+        "number": 9,
+        "title": "AI Arbitrage & Flipping",
+        "description": "Profiting from AI efficiency gaps",
+        "tier": "accelerator",
+        "lessons": [
+          {
+            "number": 1,
+            "title": "Service Arbitrage",
+            "duration": "25 min",
+            "description": "Buying low, selling high with AI",
+            "full_description": "AI arbitrage is a unique opportunity at the intersection of AI capability and market timing: buyers willing to pay premium prices for AI-produced outputs in categories where the market hasn't realized AI can produce them cheaply.\n\nWe cover the core arbitrage categories: AI-written content for niche publications, AI-generated images for stock sites, AI-assisted research for professional markets, and AI-powered data enrichment for B2B companies.\n\nYou'll identify the best arbitrage opportunity for your skills and have a basic operation plan ready to launch in 7 days.",
+            "key_takeaways": [
+              "The 5 active AI arbitrage categories with highest margins in 2025",
+              "How to identify arbitrage opportunities before they become crowded",
+              "Quality standards: What separates AI output that sells from AI output that doesn't",
+              "Volume strategy: How to scale output without proportional time investment",
+              "Risk management: Protecting income from market and platform changes"
+            ],
+            "action_items": [
+              "Research 3 arbitrage categories using the Market Research Analysis prompt",
+              "Run test batches on your top 2 categories to validate quality and speed",
+              "Calculate the economic model: Input cost + time vs. expected output revenue",
+              "Launch your first arbitrage income stream with a 30-day test"
+            ],
+            "resources": [
+              {
+                "name": "Market Research Analysis Prompt",
+                "url": "/prompts/bs-001"
+              },
+              {
+                "name": "Adobe Stock Contributor",
+                "url": "https://stock.adobe.com/contributor"
+              },
+              {
+                "name": "Shutterstock Submit",
+                "url": "https://submit.shutterstock.com"
+              }
+            ],
+            "transcript_preview": "There's a category of AI income that requires almost no client work, no sales, and no ongoing relationships. I call it AI arbitrage — and it's working right now in specific niches where buyers haven't yet realized AI can produce what they're paying humans to create."
+          },
+          {
+            "number": 2,
+            "title": "Digital Asset Flipping",
+            "duration": "30 min",
+            "description": "Creating and selling AI-enhanced assets",
+            "full_description": "Digital asset flipping with AI is one of the least-known high-margin activities in the creator economy. The concept: identify underperforming digital assets, improve them dramatically using AI, and sell at a multiple of improved value. What takes humans months, AI accelerates to weeks.\n\nThis lesson covers the full digital asset flipping cycle: where to source undervalued assets, AI-assisted due diligence, improvement strategies, valuation, and where to list for maximum sale price.\n\nYou'll understand the economics and have a target asset type identified before this lesson ends.",
+            "key_takeaways": [
+              "Digital asset types with the best AI improvement potential and flip margins",
+              "Due diligence framework for evaluating potential acquisitions",
+              "AI improvement playbook: What to improve and in what order",
+              "Valuation math: How digital assets are priced and how to maximize multiples",
+              "Where to list and sell for maximum buyer exposure"
+            ],
+            "action_items": [
+              "Browse Flippa and Empire Flippers for undervalued assets under $2,000",
+              "Analyze 3 listings using the Competitor Deep Dive prompt for improvement opportunities",
+              "Calculate potential post-improvement valuation for your top candidate",
+              "Start with a free asset: An abandoned open-source tool or neglected niche site"
+            ],
+            "resources": [
+              {
+                "name": "Flippa",
+                "url": "https://flippa.com"
+              },
+              {
+                "name": "Empire Flippers",
+                "url": "https://empirefippers.com"
+              },
+              {
+                "name": "Competitor Deep Dive Prompt",
+                "url": "/prompts/bs-002"
+              }
+            ],
+            "transcript_preview": "A content site bought for $800 that ranked for a handful of keywords. Six weeks of AI-assisted content, 40 new articles, traffic doubled. Listed it four months after purchase for $4,200. That's a 5.25x return. The AI did most of the heavy lifting."
+          },
+          {
+            "number": 3,
+            "title": "Niche Domination",
+            "duration": "35 min",
+            "description": "Owning small profitable markets",
+            "full_description": "Building and selling AI tools and micro-SaaS represents the highest-ceiling category in this module. With modern no-code platforms and AI APIs, it's possible to build a functional, marketable tool in days — even without traditional coding skills. The market for specialized AI tools is exploding.\n\nThis lesson covers the complete micro-SaaS playbook: identifying opportunities, building with no-code platforms, pricing and marketing, and how to exit by selling to a strategic buyer.\n\nYou'll have a specific tool concept validated and a build plan ready by the end of this lesson.",
+            "key_takeaways": [
+              "Micro-SaaS opportunity identification: AI capability plus unsolved problems",
+              "No-code platforms: Which tools to use for which type of product",
+              "Pricing micro-SaaS: Monthly subscription vs. one-time vs. usage-based",
+              "Customer acquisition for small SaaS products with zero ad budget",
+              "When and how to exit: Selling micro-SaaS at 3-5x annual revenue multiples"
+            ],
+            "action_items": [
+              "Identify 5 recurring tasks professionals in your niche do that AI could automate",
+              "Validate your top idea by finding 10 people paying for a worse solution",
+              "Build a no-code prototype using Bubble or Glide plus an AI API",
+              "Pre-sell to 5 beta users before investing in full development"
+            ],
+            "resources": [
+              {
+                "name": "Bubble",
+                "url": "https://bubble.io"
+              },
+              {
+                "name": "Glide",
+                "url": "https://glideapps.com"
+              },
+              {
+                "name": "OpenAI API",
+                "url": "https://platform.openai.com"
+              },
+              {
+                "name": "ProductHunt",
+                "url": "https://producthunt.com"
+              }
+            ],
+            "transcript_preview": "A friend built a 300-user SaaS tool in 3 weeks using Bubble and the OpenAI API. No coding background. It does one thing — takes raw interview transcripts and turns them into formatted articles for journalists. $49/month. Sold it 14 months later for $28,000."
+          }
+        ]
+      },
+      {
+        "number": 10,
+        "title": "Building Your AI Empire",
+        "description": "Long-term wealth with AI",
+        "tier": "accelerator",
+        "lessons": [
+          {
+            "number": 1,
+            "title": "Equity & Ownership",
+            "duration": "30 min",
+            "description": "Moving from freelancer to owner",
+            "full_description": "Your personal brand is the unfair advantage in the AI economy. With so many people claiming to be AI experts, the differentiator isn't credentials — it's trust. A strong personal brand means prospects come to you, you can charge premiums competitors can't, and your content works as a sales team that never sleeps.\n\nThis lesson covers the complete personal brand architecture for AI entrepreneurs: your unique POV, your story, your content platform, and your monetization path.\n\nYou'll articulate your unique positioning statement and have a content strategy aligned to it before this lesson ends.",
+            "key_takeaways": [
+              "The 3-part brand architecture: POV + Story + Platform",
+              "Point of View: How to articulate a belief that makes you distinctly valuable",
+              "Story packaging: How to use your experience as a credibility asset",
+              "Platform selection: Which platform builds the most valuable brand for your business",
+              "Brand monetization: How to convert brand equity into direct revenue"
+            ],
+            "action_items": [
+              "Write your unique POV statement: 'I believe ___. That's why I ___.''",
+              "Draft your origin story in 150 words: The experience that led you here",
+              "Choose your primary brand platform and post your first piece of introductory content",
+              "Map your brand to revenue: How does your content lead to your offer?"
+            ],
+            "resources": [
+              {
+                "name": "LinkedIn Post Writer Prompt",
+                "url": "/prompts/cc-005"
+              },
+              {
+                "name": "Thought Leadership Article Builder Prompt",
+                "url": "/prompts/cc-015"
+              },
+              {
+                "name": "Brand Voice Style Guide Creator Prompt",
+                "url": "/prompts/cc-013"
+              }
+            ],
+            "transcript_preview": "I've met a hundred AI experts who know more than me. Some are earning less than $2,000/month. The difference isn't knowledge. It's visibility. The expert nobody knows about can't help anyone — and can't earn from what they know. Brand is the distribution channel for expertise."
+          },
+          {
+            "number": 2,
+            "title": "AI & Investment",
+            "duration": "35 min",
+            "description": "Using AI for financial decisions",
+            "full_description": "Strategic partnerships are the fastest growth lever for AI entrepreneurs who have proven their model but lack distribution. A single strategic partner with an existing audience of your ideal clients can do more in 90 days than a year of solo content creation.\n\nThis lesson covers how to identify ideal partnership candidates, structure win-win agreements, activate partners effectively, and build a partnership program that generates consistent referrals without constant maintenance.\n\nYou'll leave with 10 specific partnership prospects identified and outreach messages drafted.",
+            "key_takeaways": [
+              "Partnership identification: Finding partners whose audience is your audience",
+              "Win-win structure: How to design partnerships both parties want to maintain",
+              "Partnership activation: Getting partners to actually refer you",
+              "Passive partnerships: Affiliate and referral structures that run without constant attention",
+              "Partnership pitfalls: The 3 mistakes that kill partnerships before they start"
+            ],
+            "action_items": [
+              "Identify 10 non-competing businesses whose clients overlap with yours",
+              "Write partnership outreach emails using the Strategic Partnership Blueprint prompt",
+              "Design your partnership compensation structure",
+              "Schedule one partnership conversation in the next 7 days"
+            ],
+            "resources": [
+              {
+                "name": "Strategic Partnership Blueprint Prompt",
+                "url": "/prompts/bs-012"
+              },
+              {
+                "name": "Partnership Referral Outreach Prompt",
+                "url": "/prompts/ca-012"
+              },
+              {
+                "name": "Referral Program Builder Prompt",
+                "url": "/prompts/ca-010"
+              }
+            ],
+            "transcript_preview": "One strategic partnership I formed three years ago has sent me 23 clients. I've sent my partner 11 clients. That's combined $180,000+ in referred revenue from one relationship that takes 10 minutes a month to maintain. That's the power of the right partnership."
+          },
+          {
+            "number": 3,
+            "title": "Future-Proofing",
+            "duration": "30 min",
+            "description": "Staying ahead of AI changes",
+            "full_description": "Building an AI empire means designing your business to grow beyond your direct involvement. This lesson covers the advanced strategies that create compound growth: building an affiliate program, licensing your systems, creating a certified community, and designing the business for eventual exit.\n\nThese are Inner Circle strategies — they require a proven foundation to implement effectively. But understanding them from day one shapes how you build.\n\nYou'll create a 3-year vision for your AI business and identify the leverage points that unlock each phase.",
+            "key_takeaways": [
+              "Affiliate program architecture: How to build a sales army that earns you money",
+              "Licensing and certification: Turning your methodology into a scalable asset",
+              "White label partnerships: How to have other businesses sell your services",
+              "Exit strategy planning: What makes an AI business sellable at a premium multiple",
+              "The compound growth model: How each layer multiplies the others"
+            ],
+            "action_items": [
+              "Map your 3-year empire vision: What does the business look like at $1M/year?",
+              "Identify which leverage strategy fits your current business best",
+              "Design the first phase of your affiliate or partner program",
+              "Calculate what your business is worth today and what would double that valuation"
+            ],
+            "resources": [
+              {
+                "name": "Exit Strategy Planner Prompt",
+                "url": "/prompts/bs-014"
+              },
+              {
+                "name": "White Label Service Designer Prompt",
+                "url": "/prompts/fa-012"
+              },
+              {
+                "name": "Annual Planning Workshop Guide Prompt",
+                "url": "/prompts/bs-013"
+              }
+            ],
+            "transcript_preview": "I want to give you a glimpse of what a fully built AI empire looks like. It's not you working 60-hour weeks to keep up. It's systems, partners, and products all generating income simultaneously — and a team running operations while you focus on strategy, creation, and growth."
+          }
+        ]
+      },
+      {
+        "number": 11,
+        "title": "Inner Circle Strategies",
+        "description": "Advanced frameworks for top performers",
+        "tier": "inner_circle",
+        "lessons": [
+          {
+            "number": 1,
+            "title": "High-Ticket AI Services",
+            "duration": "40 min",
+            "description": "$10k+ projects and retainers",
+            "full_description": "High-ticket offers are where serious wealth is built. The economics are simple: one $5,000 sale requires the same effort as twenty $250 sales. In this Inner Circle lesson, we cover the advanced sales and positioning strategies required to consistently close $3,000-$25,000 deals.\n\nWe go deep on the psychology of high-ticket buyers, how to create context that makes premium pricing feel justified, advanced proposal techniques, and how to use AI to prepare for and execute high-stakes sales conversations.\n\nThis lesson is for people already generating income who want to 3-5x their average deal size without working more hours.",
+            "key_takeaways": [
+              "High-ticket buyer psychology: What wealthy buyers care about (and what they don't)",
+              "Premium positioning: The 5 signals that communicate premium value instantly",
+              "Advanced proposal technique: How to write proposals that close before the call",
+              "AI sales prep: How to use AI to research prospects and personalize at scale",
+              "The premium close: How to handle the 'too expensive' response at $10K+ price points"
+            ],
+            "action_items": [
+              "Identify your highest-value service and build a $5,000+ offer around it",
+              "Research 3 ideal high-ticket prospects using AI research tools",
+              "Rebuild your proposal template for high-ticket using the Client Proposal Builder prompt",
+              "Practice your high-ticket sales pitch until you can deliver it without notes"
+            ],
+            "resources": [
+              {
+                "name": "High-Ticket Sales Script Prompt",
+                "url": "/prompts/ca-013"
+              },
+              {
+                "name": "Client Proposal Builder Prompt",
+                "url": "/prompts/ca-003"
+              },
+              {
+                "name": "VSL Script Writer Prompt",
+                "url": "/prompts/pd-005"
+              }
+            ],
+            "transcript_preview": "I want to share something personal. My first $10,000 deal terrified me. Not because I didn't know the work — I did it every day at $1,500. The fear was about the number itself. Once I said it out loud and someone said yes, everything changed. The work was identical. The revenue was 6x."
+          },
+          {
+            "number": 2,
+            "title": "AI Productized Services",
+            "duration": "45 min",
+            "description": "Scalable service models",
+            "full_description": "Building systems that work without you is the final frontier of leverage. At this level, we cover the advanced operational infrastructure that transforms an AI services business from a high-paying job into a true business asset: documented intellectual property, self-managing team structures, and financial systems that optimize for exit value.\n\nThis is the lesson where we connect everything in the course to a single unified system — one that can be documented, replicated, and eventually sold if you choose.\n\nThis level of business architecture is what makes an AI business worth $1M-$5M to an acquirer.",
+            "key_takeaways": [
+              "Intellectual property documentation: How to turn your methods into sellable assets",
+              "Self-managing team structures: Meeting cadences and systems that run without you",
+              "Client success automation: Renewals and expansion without relationship-dependent selling",
+              "Financial architecture: P&L structure, cash flow management, and exit preparation",
+              "The acquisition-ready business checklist: 20 criteria sophisticated buyers evaluate"
+            ],
+            "action_items": [
+              "Document your core methodology as a proprietary framework with a name",
+              "Build your monthly operating rhythm: All recurring activities on a documented calendar",
+              "Create a client health scoring system to predict renewals and churn",
+              "Prepare a one-page business overview as if you were presenting to an acquirer today"
+            ],
+            "resources": [
+              {
+                "name": "Annual Planning Workshop Guide Prompt",
+                "url": "/prompts/bs-013"
+              },
+              {
+                "name": "KPI Dashboard Designer Prompt",
+                "url": "/prompts/oa-003"
+              },
+              {
+                "name": "Exit Strategy Planner Prompt",
+                "url": "/prompts/bs-014"
+              }
+            ],
+            "transcript_preview": "Here's a useful mental exercise: Imagine you had to take 3 months completely off from your business. What would happen? If the answer is 'it would fall apart,' that's not a business — it's a job. This lesson is about building the systems that change that answer."
+          },
+          {
+            "number": 3,
+            "title": "Building an AI Brand",
+            "duration": "35 min",
+            "description": "Becoming the go-to expert",
+            "full_description": "The AI landscape is changing faster than any other technology sector in history. What's cutting-edge today may be commoditized in 12-18 months. Staying ahead isn't just about learning new tools — it's about building a business architecture that adapts and evolves as the technology changes.\n\nThis final Inner Circle lesson covers the long-term positioning strategy: how to build expertise moats that compound over time, how to evaluate emerging AI technologies for business opportunity, and how to build a reputation that remains valuable regardless of which specific AI tools dominate.\n\nThis is the capstone lesson — connecting everything you've learned into a coherent, evolving strategy.",
+            "key_takeaways": [
+              "Expertise moats: How to build AI knowledge that doesn't commoditize",
+              "Trend identification: How to evaluate emerging AI tools for early-mover opportunity",
+              "Reputation architecture: Building a professional standing that transcends specific tools",
+              "Continuous learning system: How to stay ahead without consuming all your time",
+              "The long game: Building a 10-year AI business vs. chasing 6-month opportunities"
+            ],
+            "action_items": [
+              "Set up your AI learning system: Follow the right people, publications, and communities",
+              "Identify 2-3 emerging AI capabilities to develop expertise in over the next 6 months",
+              "Write your 3-year professional vision statement for your AI career or business",
+              "Complete your Inner Circle graduation checklist and share your progress"
+            ],
+            "resources": [
+              {
+                "name": "AI Tools Mastery Prompts",
+                "url": "/prompts#ai-tools-mastery"
+              },
+              {
+                "name": "Hugging Face",
+                "url": "https://huggingface.co"
+              },
+              {
+                "name": "AI Business Blueprint",
+                "url": "/resources/blueprint"
+              }
+            ],
+            "transcript_preview": "I want to leave you with one idea I think about constantly: the AI practitioners who will be most successful in 10 years aren't the ones who mastered today's tools. They're the ones who mastered the process of staying ahead. That's a learnable skill. And you've just built the foundation to do it."
+          }
+        ]
+      },
+      {
+        "number": 12,
+        "title": "Your First 30 Days",
+        "description": "Action plan to start immediately",
+        "tier": "inner_circle",
+        "lessons": [
+          {
+            "number": 1,
+            "title": "Week 1: Foundation",
+            "duration": "30 min",
+            "description": "Setup and first experiments",
+            "full_description": "Everything in this course comes down to execution. This final module is your launch plan — a specific, daily action schedule for your first 30 days that builds momentum, creates early wins, and sets the foundation for sustainable income.\n\nWeek 1 is about foundations: setting up your tools, defining your offer, and building your outreach list. Week 2 is about first contact: sending outreach, running your first discovery call, and landing your first paid client. Weeks 3-4 are about momentum: delivering excellent work, collecting your first testimonial, and starting your content presence.\n\nYou don't need a perfect plan. You need a good plan you'll actually execute. This is it.",
+            "key_takeaways": [
+              "The 30-day launch framework: Daily priorities organized for maximum momentum",
+              "Week 1 non-negotiables: The foundation work that everything else builds on",
+              "Your first client target: How to land a paying client in the first 14 days",
+              "Early win design: How to structure first projects for success and testimonials",
+              "Momentum maintenance: How to avoid the Day 15 slump that kills most new businesses"
+            ],
+            "action_items": [
+              "Download and print your 30-Day Launch Calendar",
+              "Complete all Week 1 setup items: Tools, offer, outreach list (20 names)",
+              "Send your first 5 outreach messages by end of Day 3",
+              "Book your first discovery call within 7 days"
+            ],
+            "resources": [
+              {
+                "name": "30-Day Launch Calendar",
+                "url": "/resources/30-day-launch"
+              },
+              {
+                "name": "Cold Email Sequence Prompt",
+                "url": "/prompts/ca-001"
+              },
+              {
+                "name": "Offer Validation Framework Prompt",
+                "url": "/prompts/bs-008"
+              }
+            ],
+            "transcript_preview": "Momentum is everything when you're starting. The goal of Week 1 isn't to land a client — it's to take enough action that you can't stop. The goal of Week 2 is your first paid conversation. The goal of Week 3 is your first dollar. I'll walk you through each day."
+          },
+          {
+            "number": 2,
+            "title": "Week 2: First Offer",
+            "duration": "35 min",
+            "description": "Create and validate",
+            "full_description": "Your first 90 days are the most important 90 days of your AI income journey. This lesson shows you how to build on your first client, turn early results into a case study, use that case study to get the next client, and begin the compound growth cycle that takes most successful AI entrepreneurs to $5,000-$10,000/month within their first year.\n\nWe cover the key activities at each 30-day milestone: the metrics to track, the decisions to make, and the pitfalls to avoid at each stage. This is the roadmap from your first client to a sustainable business.\n\nYou'll leave with a clear picture of what success looks like at Day 30, Day 60, and Day 90.",
+            "key_takeaways": [
+              "Day 30 milestone: What a successful first month looks like",
+              "Day 60 milestone: How to compound early results into consistent income",
+              "Day 90 milestone: The activities that predict long-term success",
+              "The 5 pitfalls that derail most new AI entrepreneurs in the first 90 days",
+              "How to use your first client to get your next 5 clients through referrals and case studies"
+            ],
+            "action_items": [
+              "Write out your personal Day 30, Day 60, and Day 90 success criteria",
+              "Build your case study template using the Case Study Creator prompt",
+              "Plan your first 'content piece' based on your first client result",
+              "Identify 3 metrics you'll track weekly starting now"
+            ],
+            "resources": [
+              {
+                "name": "Case Study Creator Prompt",
+                "url": "/prompts/ca-008"
+              },
+              {
+                "name": "Testimonial Request Prompt",
+                "url": "/prompts/ca-009"
+              },
+              {
+                "name": "Weekly Business Review Template",
+                "url": "/prompts/oa-004"
+              }
+            ],
+            "transcript_preview": "The clients I've seen go from zero to $10K/month fastest have one thing in common: they're obsessed with learning from every interaction. Every call, every project, every rejection teaches them something. Then they adjust and move faster. The learning loop is the secret weapon."
+          },
+          {
+            "number": 3,
+            "title": "Weeks 3-4: First Clients",
+            "duration": "40 min",
+            "description": "Outreach and closing",
+            "full_description": "This is your graduation lesson — the moment where everything comes together. We'll review the complete AI Hustle Engine framework, identify where you are in your journey, and map the specific next steps that will take you from here to your income goal.\n\nWe cover the psychology of building an AI business through the hard parts: the week where you want to quit, the client who pushes back, the month where revenue dips. These moments are predictable, and they're the filter — most people stop here. This lesson prepares you to push through.\n\nYou'll leave with a written commitment to your 90-day goal, a clear daily schedule, and access to the Inner Circle community where you'll continue to grow.",
+            "key_takeaways": [
+              "The complete AI Hustle Engine framework: How all 12 modules connect",
+              "The predictable hard moments: What they are and how to get through them",
+              "Building accountability structures that keep you in action when motivation dips",
+              "The compounding effect: How early income investments create exponential growth",
+              "Your next level: What to focus on after you hit your first income milestone"
+            ],
+            "action_items": [
+              "Write your 90-day commitment statement and share it with someone who will hold you accountable",
+              "Set up your daily and weekly review rituals",
+              "Join the Inner Circle community and introduce yourself",
+              "Schedule your first 30-day check-in with yourself"
+            ],
+            "resources": [
+              {
+                "name": "Inner Circle Community",
+                "url": "/community"
+              },
+              {
+                "name": "90-Day Growth Sprint Plan Prompt",
+                "url": "/prompts/bs-009"
+              },
+              {
+                "name": "Your AI Hustle Playbook",
+                "url": "/api/playbook"
+              }
+            ],
+            "transcript_preview": "Here's what I know about you: You finished this course. That puts you in a very small percentage of people who started it. That tells me something about your drive. Now it's time to show yourself what you're capable of. The tools are in your hands. The opportunity is real. Let's go."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,407 @@
+{
+  "title": "The AI Income Cheat Sheet",
+  "subtitle": "5 AI Income Models, 20 Tools, and 10 Prompts That Pay",
+  "version": "1.0",
+  "created": "2026-02-26",
+  "tagline": "Bookmark this. You'll use it more than you expect.",
+  "sections": [
+    {
+      "id": "models",
+      "heading": "THE 5 AI INCOME MODELS",
+      "intro": "Pick one. Start there. The people who fail try three at once.",
+      "items": [
+        {
+          "name": "AI Copywriting & Content Services",
+          "difficulty": "Beginner",
+          "time_to_first_income": "7–14 days",
+          "income_range": "$500–$8,000/month",
+          "description": "Write marketing copy, email sequences, product descriptions, blog posts, and social content using AI tools. Sell to small businesses, e-commerce brands, and coaches who need content but can't afford agencies.",
+          "where_to_sell": "Upwork, Fiverr, LinkedIn, direct outreach to local businesses",
+          "what_clients_pay": "$50–$200 per email sequence, $75–$300 per blog post, $150–$500 for landing page copy",
+          "competitive_edge": "Faster turnaround than human-only writers + lower rates than agencies = you win both on price and speed"
+        },
+        {
+          "name": "AI Prompt Engineering & Vault Creation",
+          "difficulty": "Beginner-Intermediate",
+          "time_to_first_income": "3–7 days",
+          "income_range": "$300–$5,000/month",
+          "description": "Create and sell prompt packs, workflow templates, and custom prompts for specific industries or use cases. Can be sold on Etsy, Gumroad, or direct.",
+          "where_to_sell": "Etsy (search 'ChatGPT prompts'), Gumroad, your own website, Reddit communities",
+          "what_clients_pay": "$5–$47 per prompt pack (passive), $100–$500 for custom prompt engineering projects",
+          "competitive_edge": "Truly passive income once created. Best prompts for high-demand niches (real estate, law, healthcare) command premium prices."
+        },
+        {
+          "name": "AI-Powered Virtual Assistance",
+          "difficulty": "Beginner",
+          "time_to_first_income": "7–21 days",
+          "income_range": "$1,000–$6,000/month",
+          "description": "Offer VA services but leverage AI to handle 3–5x the workload of a traditional VA. Services include email management, scheduling support, research, data summarization, and content drafts.",
+          "where_to_sell": "Upwork, OnlineJobs.ph (clients looking for skilled VAs), LinkedIn, referrals",
+          "what_clients_pay": "$15–$35/hour as a traditional VA. With AI, you can handle higher-value tasks and charge $25–$65/hour.",
+          "competitive_edge": "Clients pay for output and reliability, not for you to do it the hard way. AI makes you faster and more consistent."
+        },
+        {
+          "name": "AI Consulting & Training",
+          "difficulty": "Intermediate",
+          "time_to_first_income": "14–30 days",
+          "income_range": "$2,000–$15,000/month",
+          "description": "Teach business owners and professionals how to use AI tools in their specific workflows. Offered as one-on-one sessions, workshops, or online courses. High perceived value even with entry-level knowledge.",
+          "where_to_sell": "LinkedIn (best channel), local business associations, direct outreach to small business owners, Facebook groups",
+          "what_clients_pay": "$150–$500 for a 2-hour AI audit session, $500–$2,500 for a day-long team training, $1,500–$5,000 for an AI implementation project",
+          "competitive_edge": "Most small business owners are overwhelmed by AI but know they need to adopt it. A guide who explains it simply and practically is worth a lot."
+        },
+        {
+          "name": "AI-Generated Digital Products",
+          "difficulty": "Beginner-Intermediate",
+          "time_to_first_income": "7–14 days",
+          "income_range": "$500–$10,000/month",
+          "description": "Create and sell ebooks, templates, planners, guides, and other digital downloads made with AI assistance. Low effort to create, passive once live, scales with traffic.",
+          "where_to_sell": "Etsy, Gumroad, Amazon KDP (books), your own Shopify or Squarespace store",
+          "what_clients_pay": "$5–$97 per digital product depending on value and niche. High-niche products (legal templates, real estate forms, business plans) can price much higher.",
+          "competitive_edge": "AI produces first drafts in minutes. Your job is quality control and positioning. Volume + right niches = meaningful passive income."
+        }
+      ]
+    },
+    {
+      "id": "tools",
+      "heading": "THE 20 TOOLS RANKED BY EARNING POTENTIAL",
+      "intro": "Free tools are starred ✦. You don't need paid tools to start.",
+      "categories": [
+        {
+          "category": "AI Writing & Copy",
+          "tools": [
+            {
+              "name": "ChatGPT (GPT-4)",
+              "cost": "Free (Plus: $20/mo)",
+              "best_for": "General copywriting, email sequences, content outlines, research summaries",
+              "earning_potential": "⭐⭐⭐⭐⭐",
+              "tip": "Use GPT-4 for nuanced copy. GPT-3.5 is fast enough for drafts and outlines. Learning prompt patterns matters more than which model you use.",
+              "free_tier": true
+            },
+            {
+              "name": "Claude (Anthropic)",
+              "cost": "Free (Pro: $20/mo)",
+              "best_for": "Long-form content, nuanced tone matching, complex research tasks",
+              "earning_potential": "⭐⭐⭐⭐⭐",
+              "tip": "Claude handles longer context better than ChatGPT. Use it for book-length projects or when you need the AI to 'remember' a lot of context.",
+              "free_tier": true
+            },
+            {
+              "name": "Jasper",
+              "cost": "$49/mo+",
+              "best_for": "Agency-scale content production, brand voice locking, team collaboration",
+              "earning_potential": "⭐⭐⭐⭐",
+              "tip": "Only worth it if you're producing high volume content for clients. For starting out, ChatGPT + your own templates beats Jasper.",
+              "free_tier": false
+            },
+            {
+              "name": "Copy.ai",
+              "cost": "Free (Pro: $36/mo)",
+              "best_for": "Marketing copy, social posts, product descriptions",
+              "earning_potential": "⭐⭐⭐",
+              "tip": "Good for quick variations and A/B testing copy ideas. Free tier is genuinely useful.",
+              "free_tier": true
+            }
+          ]
+        },
+        {
+          "category": "AI Image & Design",
+          "tools": [
+            {
+              "name": "Midjourney",
+              "cost": "$10–$60/mo",
+              "best_for": "Premium image generation, brand imagery, book covers, product mockups",
+              "earning_potential": "⭐⭐⭐⭐⭐",
+              "tip": "Mid-tier plan at $30/mo gives you unlimited relaxed generations. Enough for most client work.",
+              "free_tier": false
+            },
+            {
+              "name": "DALL-E 3 (via ChatGPT)",
+              "cost": "Included with GPT-4",
+              "best_for": "Quick concept images, blog headers, social content",
+              "earning_potential": "⭐⭐⭐⭐",
+              "tip": "Prompt in natural language — DALL-E 3 is much better at understanding instructions than earlier versions.",
+              "free_tier": false
+            },
+            {
+              "name": "Canva AI",
+              "cost": "Free (Pro: $15/mo)",
+              "best_for": "Marketing materials, presentations, social graphics at scale",
+              "earning_potential": "⭐⭐⭐⭐",
+              "tip": "Canva's Magic Studio suite (AI features) is genuinely powerful. Especially useful for client social media management packages.",
+              "free_tier": true
+            },
+            {
+              "name": "Adobe Firefly",
+              "cost": "Free (Generative credits)",
+              "best_for": "Commercially safe AI images (important for client work), background removal, object fill",
+              "earning_potential": "⭐⭐⭐",
+              "tip": "Adobe trains Firefly only on licensed content — important if clients ask about commercial rights.",
+              "free_tier": true
+            }
+          ]
+        },
+        {
+          "category": "AI Video & Audio",
+          "tools": [
+            {
+              "name": "HeyGen",
+              "cost": "$29/mo+",
+              "best_for": "AI avatar videos, explainer content, personalized video outreach",
+              "earning_potential": "⭐⭐⭐⭐⭐",
+              "tip": "Selling AI video production to businesses is a fast-growing niche. A HeyGen + script combo can produce client videos for $200–$500 each.",
+              "free_tier": false
+            },
+            {
+              "name": "ElevenLabs",
+              "cost": "Free (Starter: $5/mo)",
+              "best_for": "Voiceovers for videos, podcasts, audiobook narration, content at scale",
+              "earning_potential": "⭐⭐⭐⭐",
+              "tip": "Voiceover work for explainer videos pays $50–$200 per project. ElevenLabs + a script is often indistinguishable from human.",
+              "free_tier": true
+            },
+            {
+              "name": "Descript",
+              "cost": "Free (Creator: $24/mo)",
+              "best_for": "Video/podcast editing, transcription, overdub for voice correction",
+              "earning_potential": "⭐⭐⭐",
+              "tip": "If you're offering podcast editing or video production services, Descript cuts production time by 70%.",
+              "free_tier": true
+            }
+          ]
+        },
+        {
+          "category": "AI Research & Productivity",
+          "tools": [
+            {
+              "name": "Perplexity AI",
+              "cost": "Free (Pro: $20/mo)",
+              "best_for": "Research with citations, current events, market research for clients",
+              "earning_potential": "⭐⭐⭐⭐",
+              "tip": "Use for research-backed content that clients can fact-check. Much better than ChatGPT for anything requiring recent information.",
+              "free_tier": true
+            },
+            {
+              "name": "Notion AI",
+              "cost": "Add-on: $8/mo",
+              "best_for": "Workspace organization, meeting notes, client documentation, SOPs",
+              "earning_potential": "⭐⭐⭐",
+              "tip": "If you manage client projects or onboard clients, Notion AI dramatically reduces admin time.",
+              "free_tier": false
+            },
+            {
+              "name": "Otter.ai",
+              "cost": "Free (Pro: $10/mo)",
+              "best_for": "Meeting transcription, client call summaries, interview notes",
+              "earning_potential": "⭐⭐⭐",
+              "tip": "Transcribe client discovery calls, then use ChatGPT to extract action items and generate proposals from the transcript.",
+              "free_tier": true
+            }
+          ]
+        },
+        {
+          "category": "Business & Delivery",
+          "tools": [
+            {
+              "name": "Gumroad",
+              "cost": "Free (10% transaction fee)",
+              "best_for": "Selling digital products, prompt packs, ebooks, templates",
+              "earning_potential": "⭐⭐⭐⭐",
+              "tip": "Zero upfront cost. Start selling digital products today with no technical setup.",
+              "free_tier": true
+            },
+            {
+              "name": "Notion (free)",
+              "cost": "Free",
+              "best_for": "Building deliverable documents, client portals, course outlines, SOPs",
+              "earning_potential": "⭐⭐⭐",
+              "tip": "Share a Notion page as your 'client portal' — it looks professional and costs nothing.",
+              "free_tier": true
+            },
+            {
+              "name": "Zapier / Make.com",
+              "cost": "Free tier available",
+              "best_for": "Automating repetitive client tasks, connecting AI tools to workflows",
+              "earning_potential": "⭐⭐⭐⭐",
+              "tip": "Once you're established, AI automation consulting (building custom workflows) commands $100–$200/hour.",
+              "free_tier": true
+            },
+            {
+              "name": "Stripe",
+              "cost": "Free (2.9% + 30¢ per transaction)",
+              "best_for": "Getting paid, invoicing, subscription billing",
+              "earning_potential": "⭐⭐⭐",
+              "tip": "Set up a Stripe account before your first client call. Nothing kills momentum like not being able to accept payment.",
+              "free_tier": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "prompts",
+      "heading": "THE 10 PROMPTS THAT PAY",
+      "intro": "These are real prompts that produce billable output. Copy them. Customize the [brackets]. Use them.",
+      "prompts": [
+        {
+          "number": 1,
+          "name": "The Email Sequence Generator",
+          "use_case": "AI email copywriting services",
+          "prompt": "You are an expert email copywriter specializing in [INDUSTRY]. Write a 5-email welcome sequence for [COMPANY NAME], a [BUSINESS TYPE] that sells [PRODUCT/SERVICE]. Their target customer is [CUSTOMER DESCRIPTION]. The brand voice is [TONE: e.g., professional but warm, energetic, authoritative]. Email 1: Welcome + deliver value. Email 2: Share a relevant tip. Email 3: Address the main objection buyers have. Email 4: Success story or case study. Email 5: Soft sell with a specific offer. Each email should be 150–250 words. Include subject line and preview text for each.",
+          "output": "Full 5-email sequence ready to hand to client",
+          "time_to_produce": "~15 minutes",
+          "what_to_charge": "$150–$350 per sequence"
+        },
+        {
+          "number": 2,
+          "name": "The Blog Post Generator",
+          "use_case": "SEO content services",
+          "prompt": "Write a comprehensive, SEO-optimized blog post titled '[TITLE]' targeting the keyword '[TARGET KEYWORD]'. The target audience is [AUDIENCE DESCRIPTION]. Structure: Introduction (hook + promise), [4–6 H2 subheadings with substantive content under each], Conclusion with clear CTA. Include specific examples, actionable advice, and avoid fluff. Aim for 1,200–1,800 words. Tone: [TONE]. Include a suggested meta description (155 characters max).",
+          "output": "Full blog post with title, meta, and structured body",
+          "time_to_produce": "~20 minutes (including editing)",
+          "what_to_charge": "$75–$250 per post depending on niche and length"
+        },
+        {
+          "number": 3,
+          "name": "The LinkedIn Content Calendar",
+          "use_case": "Social media management / LinkedIn ghostwriting",
+          "prompt": "You are a LinkedIn content strategist. Create a 4-week LinkedIn content calendar for [PERSON/BUSINESS NAME], a [ROLE/BUSINESS TYPE] in the [INDUSTRY]. Their goals on LinkedIn: [e.g., build thought leadership, attract consulting clients, grow their network]. Their unique angle: [THEIR SPECIFIC EXPERTISE OR STORY]. For each week, provide: 3 post ideas with hooks, one long-form article idea, one engagement post (question or poll). Include the actual first 2–3 sentences for each post so they're ready to write immediately.",
+          "output": "4-week calendar with post hooks and openers",
+          "time_to_produce": "~25 minutes",
+          "what_to_charge": "$300–$800/month for LinkedIn ghostwriting retainer"
+        },
+        {
+          "number": 4,
+          "name": "The Business Audit Report",
+          "use_case": "AI consulting",
+          "prompt": "You are a business analyst specializing in AI adoption for small businesses. Based on this information about the business: [PASTE BUSINESS DESCRIPTION, CURRENT TOOLS, PAIN POINTS]. Write a professional AI Opportunity Audit report with: 1) Executive Summary (3 sentences), 2) Top 5 processes that could be improved with AI (with specific tool recommendations for each), 3) Estimated time savings per week for each process, 4) Implementation priority (quick wins vs. long-term), 5) Total estimated ROI over 12 months. Format it as a professional report they can share with their team.",
+          "output": "Professional AI audit document for client",
+          "time_to_produce": "~30 minutes including input gathering",
+          "what_to_charge": "$200–$500 per audit"
+        },
+        {
+          "number": 5,
+          "name": "The Product Description Pack",
+          "use_case": "E-commerce copywriting",
+          "prompt": "Write 5 variations of product descriptions for [PRODUCT NAME], a [PRODUCT CATEGORY] that [MAIN BENEFIT]. Key features: [LIST 3–5 FEATURES]. Target customer: [DESCRIPTION]. Each description should: be 80–120 words, lead with a benefit not a feature, include one sensory or emotional detail, end with a subtle call to action. Label them Variation 1–5. Tone spectrum: Variation 1 (formal), Variation 2 (friendly), Variation 3 (exciting/energetic), Variation 4 (luxury), Variation 5 (conversational/relatable).",
+          "output": "5 ready-to-use product descriptions",
+          "time_to_produce": "~10 minutes",
+          "what_to_charge": "$5–$15 per product on Fiverr at scale, or $150–$300 for a pack of 20 for a client"
+        },
+        {
+          "number": 6,
+          "name": "The Cold Email Writer",
+          "use_case": "Outreach services, your own client acquisition",
+          "prompt": "Write 3 variations of a cold outreach email from [YOUR NAME/COMPANY] to [TARGET PROSPECT TYPE] offering [SERVICE]. The prospect's likely pain point: [PAIN POINT]. The value proposition: [WHAT YOU OFFER AND THE OUTCOME]. Each email should: be under 100 words, have one specific hook line relevant to their industry, make one clear ask (a call, a reply, a review), avoid generic phrases like 'hope this finds you well' or 'I wanted to reach out'. Variation 1: Direct and businesslike. Variation 2: Curiosity-based opening. Variation 3: Problem-first opening.",
+          "output": "3 cold email variations to test",
+          "time_to_produce": "~10 minutes",
+          "what_to_charge": "Use for your own business OR sell as a copywriting service at $100–$300 for a set of tested outreach templates"
+        },
+        {
+          "number": 7,
+          "name": "The Video Script Generator",
+          "use_case": "YouTube/video production services",
+          "prompt": "Write a script for a [LENGTH: e.g., 5-7 minute] YouTube video titled '[TITLE]'. Target audience: [DESCRIPTION]. Goal of the video: [EDUCATE/ENTERTAIN/CONVERT]. Structure: Hook (first 30 seconds — make it impossible to click away), Problem (establish why this matters), Main Content ([3–5 key points with transitions]), Call to Action (specific next step for viewers). Include [B-ROLL NOTES] in brackets throughout. Tone: [CONVERSATIONAL/PROFESSIONAL/ENERGETIC]. End with a subscribe prompt that doesn't sound generic.",
+          "output": "Full video script with B-roll notes",
+          "time_to_produce": "~20 minutes",
+          "what_to_charge": "$75–$200 per script, or bundle with HeyGen production at $300–$600 per video"
+        },
+        {
+          "number": 8,
+          "name": "The Course Outline Builder",
+          "use_case": "Course creation assistance, educational content services",
+          "prompt": "Create a complete online course outline for '[COURSE TITLE]' targeting [AUDIENCE]. The course outcome: by the end, students will be able to [SPECIFIC OUTCOME]. Structure the course as: Module titles (5–8 modules), Lesson titles within each module (3–5 lessons each), 1-sentence description of what each lesson covers, Suggested format for each lesson (video, worksheet, quiz, etc.), One quick win exercise in Module 1 that students can complete in under 20 minutes. Also suggest: Course intro video script outline (30-second hook), Welcome email to new students.",
+          "output": "Complete course structure ready for production",
+          "time_to_produce": "~25 minutes",
+          "what_to_charge": "$300–$1,000 to build a course outline and first module for a client"
+        },
+        {
+          "number": 9,
+          "name": "The Competitive Analysis Generator",
+          "use_case": "Market research / consulting / content strategy",
+          "prompt": "Conduct a competitive analysis for [BUSINESS/PRODUCT NAME], a [DESCRIPTION] competing in the [MARKET/NICHE]. I'll provide information on 3 competitors below. For each competitor, analyze: Positioning (who they say they're for), Apparent pricing strategy, Content/marketing approach, Apparent strengths, Apparent weaknesses or gaps. Then synthesize: Top 3 market gaps [BUSINESS] could exploit, Recommended differentiation angles, One underserved customer segment competitors aren't reaching well. Competitors: [PASTE DESCRIPTIONS OR WEBSITE SUMMARIES]. Format as a professional report.",
+          "output": "Competitive analysis report",
+          "time_to_produce": "~30–45 minutes including research",
+          "what_to_charge": "$200–$500 per competitive analysis as a standalone deliverable"
+        },
+        {
+          "number": 10,
+          "name": "The Proposal Closer",
+          "use_case": "Winning freelance projects — use this for your own proposals",
+          "prompt": "Write a professional project proposal for [YOUR NAME/COMPANY] to deliver [PROJECT TYPE] to [CLIENT NAME], a [CLIENT DESCRIPTION]. Project scope: [WHAT YOU'RE DELIVERING]. Timeline: [TIMELINE]. Investment: [YOUR PRICE]. Structure: 1) Executive Summary (2–3 sentences — lead with the outcome, not the process), 2) Understanding of Their Need (show you listened), 3) Your Approach (brief, focused on why your method works), 4) Deliverables (specific list), 5) Timeline (simple milestones), 6) Investment (price + what's included), 7) Why Work With Me (2–3 sentences — specific, not generic), 8) Next Steps (clear CTA). Tone: [TONE]. Make it feel human and specific, not templated.",
+          "output": "Complete proposal ready to send",
+          "time_to_produce": "~15 minutes after gathering client info",
+          "what_to_charge": "Use for your own proposals — winning one extra project per month justifies everything"
+        }
+      ]
+    },
+    {
+      "id": "quick_start",
+      "heading": "YOUR 48-HOUR QUICK START",
+      "intro": "No more research. Pick a model and do these steps.",
+      "steps": [
+        {
+          "hour_range": "Hour 0–2",
+          "action": "Pick ONE income model from the 5 above. Write it on paper. Cross out the others.",
+          "why": "The #1 reason people don't make money with AI is they never commit to a specific model."
+        },
+        {
+          "hour_range": "Hour 2–4",
+          "action": "Create your free accounts: ChatGPT (free tier), Canva (free), Gumroad (free), Upwork or Fiverr (free).",
+          "why": "Get the tools in place before you need them. Setup friction kills momentum."
+        },
+        {
+          "hour_range": "Hour 4–6",
+          "action": "Use Prompt #1, #2, or #5 from the prompts list above to produce one sample piece of work. Don't sell it yet — just make it.",
+          "why": "Seeing real output with your own eyes is the confidence you need to pitch a client."
+        },
+        {
+          "hour_range": "Hour 6–24",
+          "action": "Find 5 potential clients or buyers for your service. Note their name, platform, and contact info.",
+          "why": "You need a list before you have a pitch."
+        },
+        {
+          "hour_range": "Hour 24–48",
+          "action": "Use Prompt #6 or #10 to write and send your first outreach. Send at least 5. Track responses in a simple spreadsheet.",
+          "why": "Revenue requires outreach. This is the step 90% of people skip indefinitely."
+        }
+      ],
+      "callout": "The goal of your first 48 hours is not to make money. It's to get one reply. One reply is proof the model works."
+    },
+    {
+      "id": "income_benchmarks",
+      "heading": "REALISTIC INCOME BENCHMARKS",
+      "intro": "No fantasy numbers. What real people earn at each stage.",
+      "stages": [
+        {
+          "stage": "Month 1",
+          "realistic_income": "$0–$500",
+          "what_it_takes": "1–3 clients, 1 model, consistent outreach. Most income comes from Fiverr/Upwork first projects or selling a small prompt pack."
+        },
+        {
+          "stage": "Month 2–3",
+          "realistic_income": "$500–$2,000",
+          "what_it_takes": "2–5 repeat clients, raise your rates by 30%, add a second income stream (e.g., add products alongside services)."
+        },
+        {
+          "stage": "Month 4–6",
+          "realistic_income": "$2,000–$5,000",
+          "what_it_takes": "2–3 monthly retainers, raised rates to $75+/hour or $500+/project, referrals starting to come in."
+        },
+        {
+          "stage": "Month 7–12",
+          "realistic_income": "$5,000–$10,000+",
+          "what_it_takes": "Systematized delivery, small team or subcontractors, retainer base of $3K+/month, passive digital product income layered on top."
+        }
+      ],
+      "reality_check": "These numbers assume 10–15 hours/week of focused work. Half-effort gets half the results. Consistent outreach is the single biggest variable."
+    }
+  ],
+  "footer": {
+    "brand": "AI Hustle Engine",
+    "url": "https://ai-hustle.advancedmedias.com",
+    "cta": "Ready to go deeper? The AI Hustle Starter Kit ($27) gives you 100 more prompts, a full income playbook, and a step-by-step checklist. No fluff.",
+    "cta_url": "https://ai-hustle.advancedmedias.com/#pricing",
+    "share_line": "Found this useful? Share it with one person who needs it. That's the only ask."
+  }
+}

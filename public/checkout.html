@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | AI Hustle Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            min-height: 100vh;
+        }
+        header {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 16px 0;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 1.25rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-decoration: none;
+        }
+        .secure-badge {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 48px 0;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        @media (max-width: 768px) {
+            .checkout-grid { grid-template-columns: 1fr; gap: 24px; padding: 24px 0; }
+        }
+        /* Order Summary */
+        .order-summary {
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            padding: 32px;
+            height: fit-content;
+            position: sticky;
+            top: 24px;
+        }
+        .order-summary h2 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .tier-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .tier-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        .tier-badge {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .price-display {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        .price-main {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+        }
+        .price-original {
+            font-size: 1rem;
+            color: var(--gray);
+            text-decoration: line-through;
+        }
+        .price-savings {
+            font-size: 0.875rem;
+            color: var(--success);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .feature-list {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+        .feature-list li {
+            padding: 8px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.9rem;
+            color: #334155;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .feature-list li:last-child { border-bottom: none; }
+        .feature-list li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        .trust-badges {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        .trust-badge-icon {
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        /* Payment Form */
+        .payment-card {
+            background: white;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            padding: 32px;
+        }
+        .payment-card h2 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 6px;
+        }
+        input, .stripe-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--dark);
+            background: white;
+            transition: all 0.2s;
+            outline: none;
+        }
+        input:focus, .stripe-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99,102,241,0.1);
+        }
+        .stripe-placeholder {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: #94a3b8;
+            background: #fafafa;
+            height: 46px;
+            display: flex;
+            align-items: center;
+        }
+        .stripe-note {
+            font-size: 0.75rem;
+            color: var(--gray);
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 20px 0;
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #e2e8f0;
+        }
+        .btn-purchase {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.3px;
+        }
+        .btn-purchase:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(99,102,241,0.4);
+        }
+        .btn-purchase:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
+        .purchase-note {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-top: 12px;
+            line-height: 1.5;
+        }
+        .error-msg {
+            background: rgba(239,68,68,0.08);
+            border: 1px solid rgba(239,68,68,0.3);
+            color: var(--danger);
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            margin-top: 12px;
+            display: none;
+        }
+        .error-msg.show { display: block; }
+        .spinner {
+            display: inline-block;
+            width: 16px; height: 16px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-inner">
+                <a href="/" class="logo">AI Hustle Engine</a>
+                <div class="secure-badge">🔒 Secure Checkout</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="checkout-grid">
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <h2>Order Summary</h2>
+                <div id="orderDetails">
+                    <!-- Populated by JS -->
+                </div>
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <span class="trust-badge-icon">🛡️</span>
+                        <span><strong>30-Day Money Back Guarantee</strong> — Full refund, no questions asked</span>
+                    </div>
+                    <div class="trust-badge">
+                        <span class="trust-badge-icon">🔒</span>
+                        <span><strong>Secure Checkout</strong> — 256-bit SSL encryption</span>
+                    </div>
+                    <div class="trust-badge">
+                        <span class="trust-badge-icon">⚡</span>
+                        <span><strong>Instant Access</strong> — Get into the dashboard immediately</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Form -->
+            <div class="payment-card">
+                <h2>Payment Information</h2>
+                <form id="checkoutForm" onsubmit="handleCheckout(event)">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" placeholder="John Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="john@example.com" required>
+                    </div>
+
+                    <div class="divider">Card Details</div>
+
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <div class="stripe-placeholder" id="cardNumber">
+                            <span>Card number (Stripe Elements)</span>
+                        </div>
+                        <div class="stripe-note">🔒 Powered by Stripe — your card info never touches our servers</div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Expiry Date</label>
+                            <div class="stripe-placeholder" id="cardExpiry">
+                                <span>MM / YY</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>CVC</label>
+                            <div class="stripe-placeholder" id="cardCvc">
+                                <span>CVC</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NOTE: Replace STRIPE_PUBLISHABLE_KEY with actual key before launch -->
+                    <!-- const stripe = Stripe('pk_live_XXXXXXXXXXXX'); -->
+
+                    <button type="submit" class="btn-purchase" id="purchaseBtn">
+                        Complete Purchase →
+                    </button>
+                    <div class="error-msg" id="errorMsg"></div>
+                    <p class="purchase-note">By completing your purchase you agree to our <a href="/terms.html" style="color:var(--primary)">Terms of Service</a>. Your payment is encrypted and secure.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const tiers = {
+            'starter': {
+                name: 'Starter Kit',
+                price: '$27',
+                original: '$97',
+                savings: 'Save $70 today',
+                badge: 'Best Value to Start',
+                features: [
+                    'AI Hustle Playbook (PDF)',
+                    '100+ Prompt Vault Access',
+                    'Quick-Start Checklist',
+                    'AI Tool Stack Guide',
+                    'Private Community Access'
+                ]
+            },
+            'accelerator': {
+                name: 'Accelerator',
+                price: '$97',
+                original: '$297',
+                savings: 'Save $200 today',
+                badge: 'Most Popular',
+                features: [
+                    'Everything in Starter Kit',
+                    '12-Module Video Course',
+                    'Done-For-You Templates Library',
+                    'Weekly Live Q&A Access',
+                    'Private Community',
+                    'Email Support',
+                    'Lifetime Updates'
+                ]
+            },
+            'inner-circle': {
+                name: 'Inner Circle',
+                price: '$297',
+                original: '$997',
+                savings: 'Save $700 today',
+                badge: 'Maximum Results',
+                features: [
+                    'Everything in Accelerator',
+                    '2x 1-on-1 Coaching Sessions',
+                    'Direct Slack Access',
+                    'Monthly Business Audits',
+                    'Custom AI Assistant Setup',
+                    'Priority Support',
+                    'VIP Community Access'
+                ]
+            }
+        };
+
+        const params = new URLSearchParams(window.location.search);
+        const tierKey = params.get('tier') || 'accelerator';
+        const tier = tiers[tierKey] || tiers['accelerator'];
+
+        document.getElementById('orderDetails').innerHTML = `
+            <div class="tier-header">
+                <div class="tier-name">${tier.name}</div>
+                <span class="tier-badge">${tier.badge}</span>
+            </div>
+            <div class="price-display">
+                <span class="price-main">${tier.price}</span>
+                <span class="price-original">${tier.original}</span>
+            </div>
+            <div class="price-savings">🎉 ${tier.savings}</div>
+            <ul class="feature-list">
+                ${tier.features.map(f => `<li>${f}</li>`).join('')}
+            </ul>
+        `;
+
+        // Update purchase button text
+        document.getElementById('purchaseBtn').textContent = `Complete Purchase — ${tier.price} →`;
+
+        async function handleCheckout(e) {
+            e.preventDefault();
+            const btn = document.getElementById('purchaseBtn');
+            const errorMsg = document.getElementById('errorMsg');
+            
+            errorMsg.classList.remove('show');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner"></span>Processing...';
+
+            // NOTE: Integrate actual Stripe payment processing here
+            // This is a placeholder that simulates a successful payment
+            try {
+                const name = document.getElementById('fullName').value;
+                const email = document.getElementById('email').value;
+
+                // TODO: Call Stripe createPaymentMethod and then backend
+                // const { paymentMethod, error } = await stripe.createPaymentMethod({ ... });
+                // const res = await fetch('/api/payments/create-intent', { ... });
+
+                // Simulate processing delay
+                await new Promise(r => setTimeout(r, 1500));
+
+                // On success, redirect to thank-you page
+                window.location.href = `/thank-you.html?tier=${tierKey}&name=${encodeURIComponent(name)}`;
+                
+            } catch (err) {
+                errorMsg.textContent = err.message || 'Payment failed. Please check your card details and try again.';
+                errorMsg.classList.add('show');
+                btn.disabled = false;
+                btn.textContent = `Complete Purchase — ${tier.price} →`;
+            }
+        }
+    </script>
+</body>
+</html>

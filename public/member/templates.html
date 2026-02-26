@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templates | AI Hustle Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--dark); }
+        .app { display: flex; min-height: 100vh; }
+        .sidebar {
+            width: 260px; background: white; border-right: 1px solid #e2e8f0;
+            display: flex; flex-direction: column; position: fixed; height: 100vh; z-index: 100;
+        }
+        .sidebar-header { padding: 24px; border-bottom: 1px solid #e2e8f0; }
+        .logo {
+            font-weight: 800; font-size: 1.25rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-decoration: none; display: block;
+        }
+        .tier-badge {
+            display: inline-block; margin-top: 8px; padding: 4px 12px;
+            background: var(--primary); color: white; border-radius: 50px;
+            font-size: 0.75rem; font-weight: 600;
+        }
+        .nav { flex: 1; padding: 16px 12px; overflow-y: auto; }
+        .nav-title {
+            font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.5px; color: var(--gray); padding: 0 12px; margin-bottom: 8px;
+        }
+        .nav-item {
+            display: flex; align-items: center; gap: 12px; padding: 10px 12px;
+            border-radius: 8px; cursor: pointer; transition: all 0.2s;
+            color: var(--dark); text-decoration: none; margin-bottom: 2px;
+        }
+        .nav-item:hover, .nav-item.active { background: var(--light); color: var(--primary); }
+        .nav-item.active { font-weight: 600; }
+        .sidebar-footer { padding: 16px; border-top: 1px solid #e2e8f0; }
+        .user-menu { display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 8px; }
+        .avatar {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-weight: 600; font-size: 0.875rem; flex-shrink: 0;
+        }
+        .user-name { font-weight: 600; font-size: 0.875rem; }
+        .user-email { font-size: 0.75rem; color: var(--gray); }
+        .main { flex: 1; margin-left: 260px; padding: 32px; }
+        .page-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+        .page-title { font-size: 1.75rem; font-weight: 700; }
+        .count-badge {
+            background: var(--primary); color: white; padding: 4px 12px;
+            border-radius: 50px; font-size: 0.8rem; font-weight: 600;
+        }
+        .filter-bar { display: flex; gap: 12px; margin-bottom: 28px; flex-wrap: wrap; }
+        .search-wrap { position: relative; flex: 1; min-width: 200px; }
+        .search-wrap input {
+            width: 100%; padding: 10px 16px 10px 40px;
+            border: 1px solid #e2e8f0; border-radius: 8px; font-family: 'Inter', sans-serif;
+            font-size: 0.9rem; outline: none; transition: border-color 0.2s; background: white;
+        }
+        .search-wrap input:focus { border-color: var(--primary); }
+        .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--gray); }
+        select {
+            padding: 10px 16px; border: 1px solid #e2e8f0; border-radius: 8px;
+            font-family: 'Inter', sans-serif; font-size: 0.9rem; outline: none;
+            background: white; cursor: pointer;
+        }
+        /* Upgrade Banner */
+        .upgrade-banner {
+            background: linear-gradient(135deg, rgba(99,102,241,0.1) 0%, rgba(139,92,246,0.1) 100%);
+            border: 1px solid rgba(99,102,241,0.3);
+            border-radius: 12px; padding: 20px 24px;
+            display: flex; align-items: center; justify-content: space-between;
+            margin-bottom: 28px; gap: 16px;
+        }
+        .upgrade-banner.hidden { display: none; }
+        .upgrade-banner-text h3 { font-weight: 700; margin-bottom: 4px; }
+        .upgrade-banner-text p { font-size: 0.875rem; color: var(--gray); }
+        .btn-upgrade-banner {
+            padding: 10px 24px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white; border-radius: 8px; text-decoration: none; font-weight: 600;
+            font-size: 0.875rem; white-space: nowrap;
+        }
+        /* Templates Grid */
+        .templates-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;
+        }
+        .template-card {
+            background: white; border-radius: 12px; border: 1px solid #e2e8f0;
+            overflow: hidden; transition: all 0.2s; position: relative;
+        }
+        .template-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); transform: translateY(-2px); }
+        .card-header { padding: 20px 20px 0; }
+        .card-badges { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+        .badge {
+            padding: 3px 10px; border-radius: 50px; font-size: 0.72rem; font-weight: 600;
+        }
+        .badge-cat { background: #ede9fe; color: #7c3aed; }
+        .badge-email { background: #dbeafe; color: #2563eb; }
+        .badge-doc { background: #d1fae5; color: #059669; }
+        .badge-spreadsheet { background: #fef3c7; color: #92400e; }
+        .template-title { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+        .template-desc { font-size: 0.875rem; color: var(--gray); line-height: 1.5; padding: 8px 20px 16px; }
+        .card-actions { padding: 0 20px 20px; display: flex; gap: 8px; }
+        .btn-view {
+            flex: 1; padding: 9px 16px; background: var(--primary); color: white;
+            border: none; border-radius: 8px; font-size: 0.875rem; font-weight: 600;
+            cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif;
+        }
+        .btn-view:hover { background: var(--primary-dark); }
+        .btn-copy-tpl {
+            padding: 9px 12px; background: var(--light); color: var(--dark);
+            border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.875rem;
+            cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif;
+        }
+        /* Lock Overlay */
+        .lock-overlay {
+            position: absolute; inset: 0; background: rgba(255,255,255,0.93);
+            backdrop-filter: blur(4px); display: flex; flex-direction: column;
+            align-items: center; justify-content: center; text-align: center; padding: 24px;
+            border-radius: 12px;
+        }
+        .lock-icon { font-size: 2rem; margin-bottom: 12px; }
+        .lock-overlay h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+        .lock-overlay p { font-size: 0.85rem; color: var(--gray); margin-bottom: 16px; }
+        .btn-upgrade-overlay {
+            padding: 10px 24px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white; border-radius: 8px; text-decoration: none;
+            font-size: 0.875rem; font-weight: 600;
+        }
+        /* Modal */
+        .modal-backdrop {
+            display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+            z-index: 1000; align-items: center; justify-content: center; padding: 24px;
+        }
+        .modal-backdrop.show { display: flex; }
+        .modal {
+            background: white; border-radius: 16px; max-width: 700px; width: 100%;
+            max-height: 80vh; overflow-y: auto;
+        }
+        .modal-header {
+            padding: 24px; border-bottom: 1px solid #e2e8f0;
+            display: flex; justify-content: space-between; align-items: flex-start;
+        }
+        .modal-header h3 { font-size: 1.125rem; font-weight: 700; }
+        .modal-close {
+            width: 32px; height: 32px; border-radius: 50%; border: 1px solid #e2e8f0;
+            background: white; cursor: pointer; display: flex; align-items: center;
+            justify-content: center; font-size: 1rem; flex-shrink: 0;
+        }
+        .modal-body { padding: 24px; }
+        .template-content {
+            background: var(--light); border: 1px solid #e2e8f0; border-radius: 8px;
+            padding: 20px; font-size: 0.875rem; line-height: 1.8; white-space: pre-wrap;
+            color: var(--dark);
+        }
+        .modal-footer {
+            padding: 16px 24px; border-top: 1px solid #e2e8f0;
+            display: flex; gap: 12px; justify-content: flex-end;
+        }
+        .btn-modal-copy {
+            padding: 10px 24px; background: var(--primary); color: white;
+            border: none; border-radius: 8px; font-size: 0.875rem; font-weight: 600;
+            cursor: pointer; font-family: 'Inter', sans-serif;
+        }
+        .btn-modal-close {
+            padding: 10px 24px; background: white; color: var(--dark);
+            border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.875rem;
+            cursor: pointer; font-family: 'Inter', sans-serif;
+        }
+        /* Toast */
+        .toast {
+            position: fixed; bottom: 24px; right: 24px; background: var(--dark);
+            color: white; padding: 12px 20px; border-radius: 10px;
+            font-size: 0.875rem; font-weight: 500; transform: translateY(80px);
+            opacity: 0; transition: all 0.3s; z-index: 2000;
+        }
+        .toast.show { transform: translateY(0); opacity: 1; }
+        .mobile-toggle {
+            display: none; position: fixed; top: 16px; left: 16px; z-index: 200;
+            background: white; border: 1px solid #e2e8f0; padding: 12px;
+            border-radius: 8px; cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+            .sidebar.open { transform: translateX(0); }
+            .main { margin-left: 0; }
+            .mobile-toggle { display: block; }
+            .templates-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <button class="mobile-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">AI Hustle Engine</a>
+                <span class="tier-badge" id="tierBadge">Starter</span>
+            </div>
+            <nav class="nav">
+                <div class="nav-title">Member Area</div>
+                <a href="dashboard.html" class="nav-item">📊 Dashboard</a>
+                <a href="module.html" class="nav-item">📚 My Courses</a>
+                <a href="prompt-vault.html" class="nav-item">⚡ Prompt Vault</a>
+                <a href="templates.html" class="nav-item active">📝 Templates</a>
+                <a href="account.html" class="nav-item">⚙️ Account</a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-menu">
+                    <div class="avatar" id="userAvatar">?</div>
+                    <div>
+                        <div class="user-name" id="userName">Loading...</div>
+                        <div class="user-email" id="userEmail"></div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main">
+            <div class="page-header">
+                <h1 class="page-title">Done-For-You Templates</h1>
+                <span class="count-badge">47 Templates</span>
+            </div>
+
+            <div class="upgrade-banner hidden" id="upgradeBanner">
+                <div class="upgrade-banner-text">
+                    <h3>🔒 Templates are an Accelerator feature</h3>
+                    <p>Upgrade to access 47 done-for-you templates for cold email, proposals, social media, and more.</p>
+                </div>
+                <a href="/#pricing" class="btn-upgrade-banner">Upgrade to Accelerator →</a>
+            </div>
+
+            <div class="filter-bar">
+                <div class="search-wrap">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchInput" placeholder="Search templates..." oninput="filterTemplates()">
+                </div>
+                <select id="categoryFilter" onchange="filterTemplates()">
+                    <option value="">All Categories</option>
+                    <option value="Cold Email">Cold Email</option>
+                    <option value="Proposal">Proposal</option>
+                    <option value="Social Media">Social Media</option>
+                    <option value="Content Calendar">Content Calendar</option>
+                    <option value="Client Onboarding">Client Onboarding</option>
+                    <option value="Invoice/Contract">Invoice/Contract</option>
+                </select>
+            </div>
+
+            <div class="templates-grid" id="templatesGrid"></div>
+        </main>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-backdrop" id="modalBackdrop" onclick="closeModal(event)">
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <div>
+                    <div class="card-badges" id="modalBadges"></div>
+                    <h3 id="modalTitle"></h3>
+                </div>
+                <button class="modal-close" onclick="closeModalDirect()">✕</button>
+            </div>
+            <div class="modal-body">
+                <pre class="template-content" id="modalContent"></pre>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-modal-close" onclick="closeModalDirect()">Close</button>
+                <button class="btn-modal-copy" onclick="copyModalContent()">📋 Copy Template</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">✅ Template copied to clipboard!</div>
+
+    <script>
+        const TEMPLATES = [
+            {
+                id: 1, category: 'Cold Email', format: 'Email',
+                title: 'AI Services Cold Email — Short & Direct',
+                desc: 'A 3-sentence cold email for AI service providers targeting small business owners.',
+                content: `Subject: Quick question about your [area] at {{company_name}}
+
+Hi {{first_name}},
+
+I help {{target_industry}} businesses save 10+ hours a week by automating their [specific task] with AI — without hiring more staff.
+
+I noticed {{observation_about_their_business}} and thought this might be relevant.
+
+Would a 15-minute call this week make sense?
+
+Best,
+{{your_name}}
+{{your_title}}
+{{your_email}}`
+            },
+            {
+                id: 2, category: 'Cold Email', format: 'Email',
+                title: 'Follow-Up Email After No Response',
+                desc: 'A polite, non-pushy follow-up for cold outreach sequences.',
+                content: `Subject: Re: Quick question about {{company_name}}
+
+Hi {{first_name}},
+
+Just bumping this up — wanted to make sure it didn't get buried.
+
+I work with {{client_type}} businesses to [specific result]. One recent example: {{mini_case_study}}.
+
+If this isn't relevant right now, no worries at all — just say the word and I'll stop reaching out.
+
+If it IS interesting, I'd love 15 minutes.
+
+{{your_name}}`
+            },
+            {
+                id: 3, category: 'Proposal', format: 'Doc',
+                title: 'AI Services Freelance Proposal',
+                desc: 'A complete project proposal template for AI service freelancers.',
+                content: `AI SERVICES PROPOSAL
+Prepared for: {{client_name}} | {{client_company}}
+Prepared by: {{your_name}} | {{your_company}}
+Date: {{date}}
+
+---
+
+EXECUTIVE SUMMARY
+-----------------
+{{client_company}} is looking to {{client_goal}}. Based on our discovery call, I propose a {{project_type}} engagement to {{desired_outcome}} within {{timeline}}.
+
+THE CHALLENGE
+-------------
+{{pain_point_description}}
+
+MY APPROACH
+-----------
+Phase 1 (Week 1-2): {{phase_1_description}}
+Phase 2 (Week 3-4): {{phase_2_description}}
+Phase 3 (Week 5-6): {{phase_3_description}}
+
+DELIVERABLES
+------------
+✓ {{deliverable_1}}
+✓ {{deliverable_2}}
+✓ {{deliverable_3}}
+✓ {{deliverable_4}}
+
+INVESTMENT
+----------
+Option A (Basic): ${{price_a}} — {{option_a_description}}
+Option B (Standard): ${{price_b}} — {{option_b_description}}
+Option C (Premium): ${{price_c}} — {{option_c_description}}
+
+TIMELINE
+--------
+Project kick-off: {{start_date}}
+First deliverable: {{milestone_1_date}}
+Project completion: {{end_date}}
+
+TERMS
+-----
+• 50% deposit due upon agreement
+• Remaining 50% upon project completion
+• Revisions: Up to 2 rounds included
+• Additional work billed at ${{hourly_rate}}/hour
+
+NEXT STEPS
+----------
+1. Review and approve this proposal
+2. Sign agreement and pay deposit
+3. Schedule kick-off call on {{kickoff_date}}
+
+Questions? Reply to this email or call {{your_phone}}.
+
+{{your_name}}
+{{your_title}}`
+            },
+            {
+                id: 4, category: 'Social Media', format: 'Doc',
+                title: 'LinkedIn Personal Brand Post Templates',
+                desc: '5 fill-in-the-blank LinkedIn post templates that drive engagement and leads.',
+                content: `LINKEDIN POST TEMPLATES — AI Professional
+
+=== TEMPLATE 1: LESSON LEARNED ===
+I used to {{wrong_approach}}.
+
+It cost me {{negative_consequence}}.
+
+Then I discovered {{insight_or_tool}}.
+
+Now {{positive_result}}.
+
+Here's what changed:
+
+1. {{step_1}}
+2. {{step_2}}
+3. {{step_3}}
+
+If you're still {{common_mistake}}, this might help.
+
+---
+
+=== TEMPLATE 2: CONTROVERSIAL TAKE ===
+Unpopular opinion about AI in {{industry}}:
+
+{{contrarian_statement}}
+
+Most people think {{common_belief}}.
+
+But here's what the data actually shows: {{real_insight}}
+
+The reason this matters: {{why_it_matters}}
+
+What's your take? Drop it in the comments.
+
+---
+
+=== TEMPLATE 3: QUICK WIN SHARE ===
+In the last {{timeframe}}, I {{achievement}}.
+
+Here's the exact process (steal it):
+
+Step 1: {{step_1}}
+Step 2: {{step_2}}
+Step 3: {{step_3}}
+Step 4: {{step_4}}
+Step 5: {{step_5}}
+
+Total time: {{time_invested}}
+Result: {{result}}
+
+Save this for later 👇
+
+---
+
+=== TEMPLATE 4: STORY + LESSON ===
+{{opening_scene}}.
+
+I remember thinking: "{{thought_at_the_time}}."
+
+{{what_happened_next}}.
+
+The lesson I took from it: {{lesson_learned}}.
+
+Now I apply this by: {{current_application}}.
+
+---
+
+=== TEMPLATE 5: LIST POST ===
+{{number}} AI tools that changed how I work in {{year}}:
+
+1. {{tool_1}} — {{what_it_does}}
+2. {{tool_2}} — {{what_it_does}}
+3. {{tool_3}} — {{what_it_does}}
+4. {{tool_4}} — {{what_it_does}}
+5. {{tool_5}} — {{what_it_does}}
+
+Combined time saved: {{total_time_saved}} per week.
+
+Which ones are you using? 🤔`
+            },
+            {
+                id: 5, category: 'Content Calendar', format: 'Spreadsheet',
+                title: '30-Day AI Content Calendar',
+                desc: 'A complete 30-day content schedule with post ideas across all major platforms.',
+                content: `30-DAY AI CONTENT CALENDAR
+Brand: {{brand_name}} | Month: {{month_year}}
+
+CONTENT PILLARS:
+A = Education/How-To
+B = Behind the Scenes
+C = Client Results/Social Proof
+D = Inspiration/Motivation
+E = Promotion/Offer
+
+---
+
+WEEK 1
+Day 1 (Mon) | LinkedIn | Pillar A | Topic: "How I use AI to {{task_1}}" | Format: List post
+Day 2 (Tue) | Twitter/X | Pillar E | Topic: Lead magnet promo | Format: Single tweet + link
+Day 3 (Wed) | Instagram | Pillar B | Topic: My AI workflow setup | Format: Carousel
+Day 4 (Thu) | LinkedIn | Pillar C | Topic: Client win this week | Format: Story post
+Day 5 (Fri) | Twitter/X | Pillar A | Topic: "{{tip_of_the_week}}" | Format: Thread
+
+WEEK 2
+Day 8 (Mon) | LinkedIn | Pillar D | Topic: Mindset shift that changed my AI business | Format: Narrative
+Day 9 (Tue) | Instagram | Pillar A | Topic: AI tool of the week | Format: Reel
+Day 10 (Wed) | Twitter/X | Pillar B | Topic: Day in my AI business life | Format: Thread
+Day 11 (Thu) | LinkedIn | Pillar E | Topic: Service/product promotion | Format: CTA post
+Day 12 (Fri) | Instagram | Pillar C | Topic: Before/after client result | Format: Image + caption
+
+WEEK 3
+Day 15 (Mon) | LinkedIn | Pillar A | Topic: "{{week_3_topic}}" tutorial | Format: Step-by-step
+Day 16 (Tue) | Twitter/X | Pillar D | Topic: Controversial AI opinion | Format: Poll
+Day 17 (Wed) | Instagram | Pillar B | Topic: Tools I use + why | Format: Story series
+Day 18 (Thu) | LinkedIn | Pillar C | Topic: Testimonial + case study | Format: Long-form
+Day 19 (Fri) | All | Pillar E | Topic: Weekend engagement question | Format: Question post
+
+WEEK 4
+Day 22 (Mon) | LinkedIn | Pillar A | Topic: Monthly recap + lessons | Format: Data post
+Day 23 (Tue) | Instagram | Pillar D | Topic: Motivation for builders | Format: Quote graphic
+Day 24 (Wed) | Twitter/X | Pillar B | Topic: What worked/didn't this month | Format: Thread
+Day 25 (Thu) | LinkedIn | Pillar E | Topic: End of month offer | Format: Limited CTA
+Day 26 (Fri) | All | Pillar C | Topic: Community shoutout | Format: Engagement post
+
+NOTES:
+- Posting times: LinkedIn 8-9am, Instagram 6-8pm, Twitter/X 12pm or 9pm
+- Use {{brand_hashtags}} consistently
+- Respond to comments within 2 hours of posting
+- Track: impressions, engagement rate, leads generated`
+            },
+            {
+                id: 6, category: 'Client Onboarding', format: 'Doc',
+                title: 'Client Welcome & Onboarding Document',
+                desc: 'Complete onboarding doc to set expectations and kick off new client relationships professionally.',
+                content: `CLIENT ONBOARDING GUIDE
+{{your_company}} × {{client_company}}
+Project: {{project_name}} | Start Date: {{start_date}}
+
+---
+
+WELCOME, {{client_first_name}}!
+
+Thank you for choosing {{your_company}}. This document covers everything you need to know to ensure our project runs smoothly.
+
+---
+
+YOUR DEDICATED TEAM
+-------------------
+Project Lead: {{your_name}} ({{your_email}})
+Support Contact: {{support_email}}
+Response Time: Within 24 hours on business days
+
+---
+
+PROJECT OVERVIEW
+----------------
+Scope: {{project_scope}}
+Timeline: {{start_date}} → {{end_date}}
+Investment: ${{total_price}} ({{payment_terms}})
+
+---
+
+HOW WE WORK
+-----------
+Communication: Primary via email / secondary via {{communication_tool}}
+Meetings: {{meeting_frequency}} check-ins via Zoom
+Updates: Weekly progress reports sent every Friday
+File sharing: {{file_sharing_platform}}
+
+---
+
+WHAT WE NEED FROM YOU
+----------------------
+Within 48 hours of signing:
+□ Access to {{tool_or_account_1}}
+□ Brand assets (logo, colors, fonts) at {{asset_delivery_method}}
+□ {{other_requirement}}
+
+By {{kickoff_date}}:
+□ Completed questionnaire (see attached)
+□ Payment of initial deposit
+
+---
+
+PROJECT MILESTONES
+------------------
+Week 1: Discovery & setup — {{milestone_1}}
+Week 2-3: Core development — {{milestone_2}}
+Week 4: Review & revisions — {{milestone_3}}
+Week 5-6: Final delivery — {{milestone_4}}
+
+---
+
+REVISION POLICY
+---------------
+• {{number_of_revisions}} rounds of revisions included
+• Additional revisions: ${{revision_rate}}/hour
+• Revision requests must be submitted within {{revision_window}} of delivery
+
+---
+
+IMPORTANT POLICIES
+------------------
+• Refunds: {{refund_policy}}
+• Project delays caused by client: Timeline adjusts accordingly
+• Intellectual property: Delivered to client upon final payment
+
+---
+
+LET'S CONNECT
+-------------
+Kick-off call: {{kickoff_date_time}} via {{meeting_link}}
+
+I'm excited to work with you. Let's build something great.
+
+{{your_name}}
+{{your_title}} | {{your_company}}
+{{your_phone}} | {{your_email}}`
+            },
+            {
+                id: 7, category: 'Cold Email', format: 'Email',
+                title: 'Referral Request Email',
+                desc: 'Ask satisfied clients for referrals without being awkward or pushy.',
+                content: `Subject: Quick favor — who do you know?
+
+Hi {{client_name}},
+
+Working with you on {{project_name}} has been genuinely fun — {{specific_positive_note}}.
+
+I'm growing my client base and the best clients always come through referrals. Do you know anyone in your network who might benefit from {{your_service}}?
+
+If so, even a quick intro email would mean a lot. I make it easy — just forward this to them:
+
+---
+"Hey [name], this is {{your_name}} — they helped me {{result_achieved}} recently. Thought you might find a conversation with them valuable. {{your_email}}"
+---
+
+If no one comes to mind right now, totally fine. I just wanted to ask while the work was fresh.
+
+Either way, thank you again for being a great client.
+
+{{your_name}}`
+            },
+            {
+                id: 8, category: 'Invoice/Contract', format: 'Doc',
+                title: 'Freelance Service Agreement',
+                desc: 'Simple, plain-language service contract for AI/digital service freelancers.',
+                content: `FREELANCE SERVICE AGREEMENT
+
+This agreement is between {{your_name}} ("Service Provider") and {{client_name}} ("Client").
+
+DATE: {{contract_date}}
+
+---
+
+1. SERVICES
+Service Provider agrees to deliver: {{detailed_service_description}}
+
+2. TIMELINE
+Work begins: {{start_date}}
+Estimated completion: {{end_date}}
+Milestones: {{milestone_details}}
+
+3. COMPENSATION
+Total fee: ${{total_price}}
+Payment schedule:
+  - 50% (${{deposit_amount}}) due upon signing
+  - 50% (${{final_payment}}) due upon delivery
+  
+Late payment fee: 1.5% per month after 30 days
+Payment method: {{payment_method}}
+
+4. REVISIONS
+This agreement includes {{revision_count}} rounds of revisions.
+Additional revisions billed at ${{hourly_rate}}/hour.
+
+5. INTELLECTUAL PROPERTY
+Upon receipt of final payment, all work products and deliverables become the property of Client.
+Service Provider retains the right to display work in portfolio unless otherwise agreed.
+
+6. CONFIDENTIALITY
+Both parties agree to keep confidential any proprietary information shared during the project.
+
+7. TERMINATION
+Either party may terminate with {{notice_period}} written notice.
+Client owes payment for work completed through termination date.
+
+8. LIMITATION OF LIABILITY
+Service Provider's total liability shall not exceed the total fees paid under this agreement.
+
+9. INDEPENDENT CONTRACTOR
+Service Provider is an independent contractor, not an employee of Client.
+
+10. GOVERNING LAW
+This agreement is governed by the laws of {{governing_state}}.
+
+---
+
+SIGNATURES
+
+Service Provider: _________________________ Date: _______
+{{your_name}}
+
+Client: _________________________ Date: _______
+{{client_name}}`
+            },
+            {
+                id: 9, category: 'Proposal', format: 'Email',
+                title: 'Discovery Call Follow-Up Email',
+                desc: 'Post-discovery call email that summarizes the conversation and moves toward a proposal.',
+                content: `Subject: Following up from our call + next steps
+
+Hi {{client_name}},
+
+Great talking today. I wanted to capture what we discussed while it's fresh and share what I'm thinking for next steps.
+
+WHAT I HEARD:
+You're trying to {{client_goal}}, but currently {{current_challenge}} is slowing things down. The outcome you're really after is {{desired_outcome}} by {{timeline}}.
+
+WHAT I'M THINKING:
+Based on this, I believe the right approach is {{proposed_solution}}. This would address {{pain_point}} directly and set you up for {{long_term_benefit}}.
+
+WHAT HAPPENS NEXT:
+I'll put together a full proposal with options and pricing by {{proposal_date}}. It'll include a clear scope, timeline, and investment — so you can make a decision without surprises.
+
+One question before I do: Is the budget range we discussed (${{budget_range}}) still workable? I want to make sure the proposal fits.
+
+Talk soon,
+{{your_name}}
+{{your_phone}}`
+            },
+            {
+                id: 10, category: 'Client Onboarding', format: 'Email',
+                title: 'Project Completion & Offboarding Email',
+                desc: 'Wrap up projects professionally with a summary, request for testimonial, and future opportunity.',
+                content: `Subject: ✅ Project complete — what's next
+
+Hi {{client_name}},
+
+We did it! {{project_name}} is officially complete.
+
+WHAT WE DELIVERED:
+✓ {{deliverable_1}}
+✓ {{deliverable_2}}
+✓ {{deliverable_3}}
+[Access everything at: {{delivery_link}}]
+
+THE RESULTS SO FAR:
+{{results_achieved}} — and {{expected_future_result}} as this continues to compound.
+
+ONE SMALL FAVOR:
+If you found working together valuable, a quick Google/LinkedIn review means the world to a small business. Takes 2 minutes:
+{{review_link}}
+
+WHAT'S NEXT:
+If you'd like to continue working together on {{next_opportunity}}, I'd love to discuss it. I'm available starting {{available_date}}.
+
+Thanks for being such a great client, {{client_name}}. This kind of project is why I love what I do.
+
+{{your_name}}`
+            }
+        ];
+
+        let userTier = 'starter';
+
+        function loadUser() {
+            const raw = localStorage.getItem('ahe_user');
+            if (raw) {
+                try {
+                    const user = JSON.parse(raw);
+                    document.getElementById('userName').textContent = user.name || user.email;
+                    document.getElementById('userEmail').textContent = user.email || '';
+                    document.getElementById('userAvatar').textContent = (user.name || user.email || 'U')[0].toUpperCase();
+                    userTier = (user.tier || 'starter').toLowerCase();
+                    document.getElementById('tierBadge').textContent = user.tier || 'Starter';
+                } catch(e) {}
+            }
+            if (userTier === 'starter') {
+                document.getElementById('upgradeBanner').classList.remove('hidden');
+            }
+            renderTemplates(TEMPLATES);
+        }
+
+        function filterTemplates() {
+            const search = document.getElementById('searchInput').value.toLowerCase();
+            const category = document.getElementById('categoryFilter').value;
+            const filtered = TEMPLATES.filter(t => {
+                const matchSearch = !search || t.title.toLowerCase().includes(search) || t.desc.toLowerCase().includes(search);
+                const matchCat = !category || t.category === category;
+                return matchSearch && matchCat;
+            });
+            renderTemplates(filtered);
+        }
+
+        function renderTemplates(templates) {
+            const grid = document.getElementById('templatesGrid');
+            const locked = userTier === 'starter';
+            if (!templates.length) {
+                grid.innerHTML = '<p style="color:var(--gray);grid-column:1/-1;padding:40px;text-align:center;">No templates found.</p>';
+                return;
+            }
+            grid.innerHTML = templates.map(t => {
+                const formatClass = { 'Email': 'badge-email', 'Doc': 'badge-doc', 'Spreadsheet': 'badge-spreadsheet' }[t.format] || 'badge-doc';
+                return `
+                <div class="template-card">
+                    <div class="card-header">
+                        <div class="card-badges">
+                            <span class="badge badge-cat">${t.category}</span>
+                            <span class="badge ${formatClass}">${t.format}</span>
+                        </div>
+                        <div class="template-title">${t.title}</div>
+                    </div>
+                    <div class="template-desc">${t.desc}</div>
+                    <div class="card-actions">
+                        <button class="btn-view" onclick="openTemplate(${t.id})">👁️ View Template</button>
+                        <button class="btn-copy-tpl" onclick="copyTemplate(${t.id})">📋</button>
+                    </div>
+                    ${locked ? `
+                    <div class="lock-overlay">
+                        <div class="lock-icon">🔒</div>
+                        <h4>Accelerator Feature</h4>
+                        <p>Templates are available on the Accelerator plan and above.</p>
+                        <a href="/#pricing" class="btn-upgrade-overlay">Upgrade to Accelerator →</a>
+                    </div>` : ''}
+                </div>`;
+            }).join('');
+        }
+
+        function openTemplate(id) {
+            if (userTier === 'starter') { window.location.href = '/#pricing'; return; }
+            const t = TEMPLATES.find(t => t.id === id);
+            if (!t) return;
+            const formatClass = { 'Email': 'badge-email', 'Doc': 'badge-doc', 'Spreadsheet': 'badge-spreadsheet' }[t.format] || 'badge-doc';
+            document.getElementById('modalTitle').textContent = t.title;
+            document.getElementById('modalBadges').innerHTML = `<span class="badge badge-cat">${t.category}</span><span class="badge ${formatClass}">${t.format}</span>`;
+            document.getElementById('modalContent').textContent = t.content;
+            document.getElementById('modalBackdrop').classList.add('show');
+        }
+
+        function closeModal(e) {
+            if (e.target === document.getElementById('modalBackdrop')) closeModalDirect();
+        }
+        function closeModalDirect() {
+            document.getElementById('modalBackdrop').classList.remove('show');
+        }
+
+        function copyTemplate(id) {
+            if (userTier === 'starter') return;
+            const t = TEMPLATES.find(t => t.id === id);
+            if (!t) return;
+            navigator.clipboard.writeText(t.content).then(() => showToast());
+        }
+
+        function copyModalContent() {
+            const content = document.getElementById('modalContent').textContent;
+            navigator.clipboard.writeText(content).then(() => {
+                showToast();
+                const btn = document.querySelector('.btn-modal-copy');
+                btn.textContent = '✅ Copied!';
+                setTimeout(() => btn.textContent = '📋 Copy Template', 2000);
+            });
+        }
+
+        function showToast() {
+            const t = document.getElementById('toast');
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 2500);
+        }
+
+        loadUser();
+    </script>
+</body>
+</html>

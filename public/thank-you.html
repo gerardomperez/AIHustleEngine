@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to AI Hustle Engine! 🎉</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --success: #10b981;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 60%, #0c1a2e 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            overflow-x: hidden;
+        }
+        .confetti-bg {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top: -10px;
+            animation: fall linear forwards;
+        }
+        @keyframes fall {
+            to { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+        }
+        .wrap {
+            max-width: 640px;
+            width: 100%;
+            text-align: center;
+        }
+        .success-icon-wrap {
+            margin-bottom: 32px;
+        }
+        .success-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--success) 0%, #059669 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            box-shadow: 0 0 60px rgba(16,185,129,0.4);
+            animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        @keyframes popIn {
+            from { transform: scale(0); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .checkmark {
+            font-size: 3rem;
+            line-height: 1;
+        }
+        .tier-pill {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            animation: fadeUp 0.5s 0.2s ease both;
+        }
+        .heading {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 16px;
+            line-height: 1.2;
+            animation: fadeUp 0.5s 0.3s ease both;
+        }
+        .heading span {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .sub-message {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            animation: fadeUp 0.5s 0.4s ease both;
+        }
+        @keyframes fadeUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .steps-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 32px;
+            animation: fadeUp 0.5s 0.5s ease both;
+        }
+        .steps-card h3 {
+            color: white;
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            text-align: left;
+        }
+        .step {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+        .step-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.875rem;
+            flex-shrink: 0;
+        }
+        .step-content h4 {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .step-content p {
+            color: #94a3b8;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        .btn-dashboard {
+            display: inline-block;
+            padding: 16px 36px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: all 0.2s;
+            margin-bottom: 32px;
+            animation: fadeUp 0.5s 0.6s ease both;
+        }
+        .btn-dashboard:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99,102,241,0.5);
+        }
+        .share-section {
+            animation: fadeUp 0.5s 0.7s ease both;
+        }
+        .share-section p {
+            color: #64748b;
+            font-size: 0.875rem;
+            margin-bottom: 12px;
+        }
+        .share-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+        .btn-share {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .btn-twitter {
+            background: #1d9bf0;
+            color: white;
+        }
+        .btn-twitter:hover { background: #1a8fd1; transform: translateY(-1px); }
+        .btn-facebook {
+            background: #1877f2;
+            color: white;
+        }
+        .btn-facebook:hover { background: #1665d8; transform: translateY(-1px); }
+        @media (max-width: 480px) {
+            .heading { font-size: 1.75rem; }
+            .share-buttons { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="confetti-bg" id="confetti"></div>
+
+    <div class="wrap">
+        <div class="success-icon-wrap">
+            <div class="success-circle">
+                <span class="checkmark">✓</span>
+            </div>
+        </div>
+
+        <div class="tier-pill" id="tierPill">🎉 Purchase Complete</div>
+
+        <h1 class="heading">Welcome to <span>AI Hustle Engine</span>!</h1>
+        <p class="sub-message" id="subMessage">
+            Your account is being set up right now. You've made a great decision —
+            let's build something real together.
+        </p>
+
+        <div class="steps-card">
+            <h3>🚀 What Happens Next</h3>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>Check your email</h4>
+                        <p>Your login credentials and welcome email are on their way. Check your spam folder if you don't see it in 5 minutes.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>Access your dashboard</h4>
+                        <p>Log in at <strong style="color:white;">ai-hustle.advancedmedias.com/login</strong> to access your full course library, prompts, and templates.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4>Start Module 1 today</h4>
+                        <p>Don't wait. Module 1 is 45 minutes and will give you the foundation to start building your first AI income stream this week.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="/member/dashboard.html" class="btn-dashboard">Access Your Dashboard →</a>
+
+        <div class="share-section">
+            <p>🙌 Spread the word — help others discover AI Hustle Engine</p>
+            <div class="share-buttons">
+                <a href="#" class="btn-share btn-twitter" id="tweetBtn" target="_blank">
+                    𝕏 Share on X
+                </a>
+                <a href="#" class="btn-share btn-facebook" id="fbBtn" target="_blank">
+                    f Share on Facebook
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const tier = params.get('tier') || 'accelerator';
+        const name = params.get('name') ? `, ${params.get('name').split(' ')[0]}` : '';
+
+        const messages = {
+            'starter': `You just grabbed the Starter Kit — everything you need to build your first AI income stream from scratch. The journey starts now${name}.`,
+            'accelerator': `You just unlocked the Accelerator — 12 modules, 100+ prompts, done-for-you templates, and live Q&A. This is your unfair advantage${name}.`,
+            'inner-circle': `You just joined the Inner Circle — our highest-tier program with 1-on-1 coaching, Slack access, and monthly audits. Let's build something serious${name}.`
+        };
+
+        const tierNames = {
+            'starter': '🚀 Starter Kit Member',
+            'accelerator': '⚡ Accelerator Member',
+            'inner-circle': '👑 Inner Circle Member'
+        };
+
+        document.getElementById('tierPill').textContent = `🎉 ${tierNames[tier] || 'Member'}`;
+        document.getElementById('subMessage').textContent = messages[tier] || messages['accelerator'];
+
+        // Share URLs
+        const shareText = encodeURIComponent(`Just joined AI Hustle Engine — building AI-powered income streams. 🤖💰 If you want to learn how to make money with AI in 2026, check it out:`);
+        const shareUrl = encodeURIComponent('https://ai-hustle.advancedmedias.com');
+        document.getElementById('tweetBtn').href = `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`;
+        document.getElementById('fbBtn').href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
+
+        // Confetti
+        function spawnConfetti() {
+            const colors = ['#6366f1', '#8b5cf6', '#06b6d4', '#10b981', '#f59e0b', '#ef4444'];
+            const container = document.getElementById('confetti');
+            for (let i = 0; i < 60; i++) {
+                const piece = document.createElement('div');
+                piece.className = 'confetti-piece';
+                piece.style.left = Math.random() * 100 + 'vw';
+                piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+                piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                piece.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                piece.style.animationDelay = (Math.random() * 2) + 's';
+                container.appendChild(piece);
+                setTimeout(() => piece.remove(), 5000);
+            }
+        }
+        spawnConfetti();
+        setTimeout(spawnConfetti, 2000);
+    </script>
+</body>
+</html>

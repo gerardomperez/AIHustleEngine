@@ -1,0 +1,75 @@
+{
+  "completedAt": "2026-02-26T02:31:22.545Z",
+  "videos": [
+    {
+      "module": 1,
+      "lesson": 1,
+      "title": "The AI Opportunity",
+      "video_id": "2671272966ff478bb9494d70b1c984d5",
+      "localPath": "/home/clawd/clawd/projects/ai-hustle-website/videos/M1L1_The_AI_Opportunity.mp4",
+      "driveFileId": "1ZD-lmDpDHkl2MWR6LLIE2-y1QlhfFSC4",
+      "driveLink": "https://drive.google.com/file/d/1ZD-lmDpDHkl2MWR6LLIE2-y1QlhfFSC4/view?usp=drivesdk"
+    },
+    {
+      "module": 1,
+      "lesson": 2,
+      "title": "The 5 AI Income Models",
+      "script": "There are five core ways to make money with AI. Not ten, not twenty — five.\n\nFirst: AI freelancing. Sell AI-powered services like content creation, image generation, or automation to businesses. Second: AI products. Build and sell digital products — ebooks, prompts, templates, courses — that solve specific problems.\n\nThird: AI agency. Package AI services into productized offerings for recurring clients. Fourth: AI content. Build an audience using AI-accelerated content creation, then monetize through ads, sponsorships, and products.\n\nFifth: AI automation. Build custom automations for businesses. This one has the highest value per hour — but also the steepest learning curve.\n\nIn this course, we're going to cover all five. By Module 3, you'll know which one is right for you. Let's go.",
+      "video_id": "c637d1851fe044edb594aef19ac3c32a",
+      "localPath": "/home/clawd/clawd/projects/ai-hustle-website/videos/M1L2_The_5_AI_Income_Models.mp4",
+      "driveFileId": "13lh0oV8W6ZhGeRZtUSZsM4l3CPaMBa62",
+      "driveLink": "https://drive.google.com/file/d/13lh0oV8W6ZhGeRZtUSZsM4l3CPaMBa62/view?usp=drivesdk"
+    },
+    {
+      "module": 2,
+      "lesson": 1,
+      "title": "Finding Your AI Niche",
+      "script": "The number one mistake new AI hustlers make is trying to do everything for everyone.\n\nHere's the reality: the riches are in the niches. A generic \"AI content writer\" earns $500 a month. A \"AI email specialist for real estate agents\" earns $5,000 a month.\n\nSo how do you find YOUR niche? Three questions. One: what industry do you already know? Your background is an asset, not a liability. Two: what problem are businesses in that industry paying to solve right now? Three: can AI solve that problem faster or better than the current solution?\n\nIf you can answer yes to all three, you have a niche.\n\nIn the next lesson, I'll show you the exact process to validate your niche before you spend a single hour building.",
+      "video_id": "f8402928af2f4194b3250d55750632ca",
+      "localPath": "/home/clawd/clawd/projects/ai-hustle-website/videos/M2L1_Finding_Your_AI_Niche.mp4",
+      "driveFileId": "1SfYXTabjDOZVsvAKqIPphQe7G5G-RNAy",
+      "driveLink": "https://drive.google.com/file/d/1SfYXTabjDOZVsvAKqIPphQe7G5G-RNAy/view?usp=drivesdk"
+    },
+    {
+      "module": 1,
+      "lesson": 3,
+      "title": "Your AI Tool Stack",
+      "script": "You don't need twenty AI tools. You need five. Here's the exact stack I use.\n\nFirst: ChatGPT or Claude for writing, research, and strategy. This is your thinking partner. Second: Midjourney or DALL-E for image generation. Every product, every brand, every visual asset.\n\nThird: ElevenLabs for voice cloning. Turn any text into professional audio in seconds. Fourth: Make or Zapier for automation. Connect your tools without writing a single line of code.\n\nFifth: Notion or Airtable as your AI-powered knowledge base and project manager.\n\nThat's it. With these five tools, you can generate content, create products, automate workflows, and serve clients — all within the next 48 hours.\n\nIn the next lesson, we get tactical. See you there.",
+      "video_id": "5d2bc2ffd2b040748b8fa37778f00f00",
+      "localPath": "/home/clawd/clawd/projects/ai-hustle-website/videos/M1L3_Your_AI_Tool_Stack.mp4",
+      "driveFileId": "1TmQoCw0wpf4f5YZj_r2nUzdS6OHYDjNz",
+      "driveLink": "https://drive.google.com/file/d/1TmQoCw0wpf4f5YZj_r2nUzdS6OHYDjNz/view?usp=drivesdk"
+    },
+    {
+      "module": 3,
+      "lesson": 1,
+      "title": "Your First AI Service Offer",
+      "script": "Today we're building your first offer. Not a business plan. Not a brand. An offer.\n\nAn offer is simple: I do this specific thing, for this specific person, and it costs this much. That's it.\n\nHere's the formula I use. Service plus niche plus outcome equals offer. For example: \"AI-powered social media content\" plus \"for fitness coaches\" plus \"that grows your following by 500 followers in 30 days\". \n\nThat's your offer.\n\nNotice how specific it is. Not \"social media help\". Not \"AI services\". A specific transformation for a specific person.\n\nYour homework for today: write your offer using this formula. Keep it to one sentence. Then say it out loud. If it sounds clear and valuable, you're ready for the next step. If it sounds vague, narrow it down.\n\nWe build your outreach system in the next lesson.",
+      "video_id": "57df149292d14d76a149676189aa08e2",
+      "localPath": "/home/clawd/clawd/projects/ai-hustle-website/videos/M3L1_Your_First_AI_Service_Offer.mp4",
+      "driveFileId": "1aNZLPWk0NJpL8k9oSImwCqpzYCbPKEo1",
+      "driveLink": "https://drive.google.com/file/d/1aNZLPWk0NJpL8k9oSImwCqpzYCbPKEo1/view?usp=drivesdk"
+    },
+    {
+      "module": 2,
+      "lesson": 2,
+      "title": "Validating Your Niche in 24 Hours",
+      "script": "Validation is the step most people skip. And it's why most people fail.\n\nHere's my 24-hour validation process. Step one: go to LinkedIn and search for your target client. If you want to serve real estate agents, search \"real estate agent\" and look at their profiles. What services are they buying? What problems are they posting about?\n\nStep two: search Reddit and Facebook groups in your niche. Look for posts that start with \"I'm struggling with...\" or \"Does anyone know how to...\". These are your product ideas.\n\nStep three: post a simple question in those groups. \"Hey, I'm building an AI tool to help with [problem]. Would that be useful to you?\" If you get ten positive responses in 24 hours, you have a validated niche.\n\nThis takes one day. Do it before you build anything else.",
+      "video_id": "fed84344db6244db979e569c9cfb28e1",
+      "localPath": "/home/clawd/clawd/projects/ai-hustle-website/videos/M2L2_Validating_Your_Niche_in_24_Hours.mp4",
+      "driveFileId": "1VFqjGbYK4_FNc4s22wdUJER4egKOoKrY",
+      "driveLink": "https://drive.google.com/file/d/1VFqjGbYK4_FNc4s22wdUJER4egKOoKrY/view?usp=drivesdk"
+    },
+    {
+      "module": 3,
+      "lesson": 2,
+      "title": "Landing Your First Client",
+      "script": "Let's get you a client today.\n\nI'm not joking. With the right script and the right platform, you can have a paying client within 24 hours of finishing this lesson.\n\nHere's the process. Step one: go to LinkedIn. Step two: search for your target client — use the niche you defined in Module 2. Step three: filter to second connections and send this message.\n\n\"Hey [name], I noticed you're a [niche]. I've been building AI systems that help [niche] achieve [outcome]. I just finished one for a client that resulted in [result]. Would you be open to a quick 15-minute call to see if it could work for you?\"\n\nThat's it. No selling. No pitching. Just curiosity.\n\nSend 10 of these per day. At a 20 percent response rate, that's two calls per day. At a 30 percent close rate, that's three clients per week.\n\nStart today.",
+      "video_id": "b2774d4d704a4f4480c0f59a4da6aa87",
+      "localPath": "/home/clawd/clawd/projects/ai-hustle-website/videos/M3L2_Landing_Your_First_Client.mp4",
+      "driveFileId": "11IK6f-t_RMpf-5DDqMBmc4nwieFnj6vA",
+      "driveLink": "https://drive.google.com/file/d/11IK6f-t_RMpf-5DDqMBmc4nwieFnj6vA/view?usp=drivesdk"
+    }
+  ],
+  "failed": []
+}

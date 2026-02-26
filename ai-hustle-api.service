@@ -1,0 +1,16 @@
+[Unit]
+Description=AI Hustle Engine API
+After=network.target
+
+[Service]
+Type=simple
+User=clawd
+WorkingDirectory=/home/clawd/clawd/projects/ai-hustle-website/api
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=10
+Environment=NODE_ENV=production
+Environment=PORT=3457
+
+[Install]
+WantedBy=multi-user.target
