@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 4: AI Content Empire | AI Hustle Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+        }
+        .app {
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 260px;
+            background: white;
+            border-right: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            z-index: 100;
+        }
+        .sidebar-header {
+            padding: 24px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 1.25rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tier-badge {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 4px 12px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .nav {
+            flex: 1;
+            padding: 16px 12px;
+            overflow-y: auto;
+        }
+        .nav-section {
+            margin-bottom: 24px;
+        }
+        .nav-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray);
+            padding: 0 12px;
+            margin-bottom: 8px;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        .nav-item:hover, .nav-item.active {
+            background: var(--light);
+            color: var(--primary);
+        }
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+        }
+        .sidebar-footer {
+            padding: 16px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+        }
+        .user-menu:hover {
+            background: var(--light);
+        }
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        .user-info { flex: 1; }
+        .user-name { font-weight: 600; font-size: 0.875rem; }
+        .user-email { font-size: 0.75rem; color: var(--gray); }
+        .main {
+            flex: 1;
+            margin-left: 260px;
+            padding: 32px;
+            max-width: 900px;
+        }
+        .module-header {
+            margin-bottom: 32px;
+        }
+        .module-number {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .module-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .module-description {
+            font-size: 1.125rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        .progress-section {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 24px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 32px;
+        }
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        .progress-label { font-size: 0.875rem; color: var(--gray); }
+        .progress-value { font-size: 0.875rem; font-weight: 600; }
+        .progress-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
+        .lesson-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+        .lesson-header {
+            padding: 24px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .lesson-number-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--light);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .lesson-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .lesson-meta {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        .duration-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: #fef3c7;
+            color: #92400e;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .lesson-body {
+            padding: 24px;
+        }
+        .lesson-description {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .full-description {
+            font-size: 0.9375rem;
+            line-height: 1.8;
+            color: var(--dark);
+            margin-bottom: 24px;
+            white-space: pre-line;
+        }
+        .transcript-preview {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid var(--warning);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            font-style: italic;
+            color: #78350f;
+            line-height: 1.6;
+        }
+        .transcript-preview::before {
+            content: '"';
+            font-size: 2rem;
+            color: var(--warning);
+            line-height: 1;
+        }
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .key-takeaways {
+            background: #ecfdf5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        .key-takeaways ul {
+            list-style: none;
+            padding: 0;
+        }
+        .key-takeaways li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 0.9375rem;
+        }
+        .key-takeaways li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 700;
+        }
+        .action-items {
+            background: #eff6ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        .action-items ul {
+            list-style: none;
+            padding: 0;
+        }
+        .action-items li {
+            padding: 10px 0;
+            padding-left: 32px;
+            position: relative;
+            font-size: 0.9375rem;
+            border-bottom: 1px dashed #dbeafe;
+        }
+        .action-items li:last-child { border-bottom: none; }
+        .action-items li::before {
+            content: '☐';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.125rem;
+        }
+        .resources {
+            margin-bottom: 24px;
+        }
+        .resource-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .resource-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .resource-btn:hover {
+            background: var(--light);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .lesson-footer {
+            padding: 20px 24px;
+            border-top: 1px solid #e2e8f0;
+            background: var(--light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover { background: var(--primary-dark); }
+        .btn-secondary {
+            background: white;
+            color: var(--dark);
+            border: 1px solid #e2e8f0;
+        }
+        .btn-secondary:hover { background: var(--light); }
+        .module-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 2px solid #e2e8f0;
+        }
+        .upgrade-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .upgrade-overlay.active { display: flex; }
+        .upgrade-modal {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 500px;
+            text-align: center;
+        }
+        .upgrade-modal h2 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+        .upgrade-modal p {
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+        @media (max-width: 1024px) {
+            .sidebar { transform: translateX(-100%); }
+            .main { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">AI Hustle Engine</div>
+                <span class="tier-badge" id="tierBadge">Loading...</span>
+            </div>
+            <nav class="nav">
+                <div class="nav-section">
+                    <div class="nav-title">Menu</div>
+                    <a href="dashboard.html" class="nav-item">
+                        <i data-lucide="layout-dashboard" class="nav-icon"></i>
+                        Dashboard
+                    </a>
+                    <a href="dashboard.html" class="nav-item active">
+                        <i data-lucide="book-open" class="nav-icon"></i>
+                        My Courses
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i data-lucide="zap" class="nav-icon"></i>
+                        Prompt Vault
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i data-lucide="file-text" class="nav-icon"></i>
+                        Templates
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i data-lucide="user" class="nav-icon"></i>
+                        Account
+                    </a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-menu">
+                    <div class="avatar" id="userAvatar">U</div>
+                    <div class="user-info">
+                        <div class="user-name" id="userName">User</div>
+                        <div class="user-email" id="userEmail">user@example.com</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main">
+            <div class="module-header">
+                <div class="module-number">Module 4</div>
+                <h1 class="module-title">AI Content Empire</h1>
+                <p class="module-description">Build scalable content businesses</p>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-header">
+                    <span class="progress-label">Module Progress</span>
+                    <span class="progress-value">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Lesson 1 -->
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <span class="lesson-number-badge">Lesson 1</span>
+                    <h2 class="lesson-title">Content at Scale</h2>
+                    <div class="lesson-meta">
+                        <span class="duration-badge">
+                            <i data-lucide="clock" style="width: 14px; height: 14px;"></i>
+                            25 min
+                        </span>
+                    </div>
+                </div>
+                <div class="lesson-body">
+                    <p class="lesson-description">Producing 10x content with AI</p>
+                    <div class="full-description">Content is the most scalable way to build an AI income business. Done right, content generates leads, builds authority, and sells while you sleep. But most creators produce content reactively, without strategy — and then burn out with nothing to show for it.
+
+We cover the content strategy framework: platform selection, content pillars, posting schedule, and designing content that connects to an offer. AI changes the economics: what took 3 hours now takes 30 minutes.
+
+You'll finish with a complete 30-day content calendar for your primary platform.</div>
+                    
+                    <div class="transcript-preview">
+                        Here's the brutal truth about content marketing: the creators who win aren't the ones with the most talent. They're the ones with the most consistent systems. AI didn't change that rule — it just made the system 5x easier to run.
+                    </div>
+
+                    <div class="key-takeaways">
+                        <h3 class="section-title"><i data-lucide="key" style="width: 18px; height: 18px;"></i> Key Takeaways</h3>
+                        <ul>
+                            <li>Platform selection: How to choose based on where your audience already is</li>
+                            <li>Content pillars: The 4 types every creator needs in their mix</li>
+                            <li>The content-to-cash path: How to connect every piece to a revenue action</li>
+                            <li>AI content production stack: Produce a week of content in 2 hours</li>
+                            <li>Distribution strategy: Get more eyes on content you've already created</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-items">
+                        <h3 class="section-title"><i data-lucide="check-square" style="width: 18px; height: 18px;"></i> Action Items</h3>
+                        <ul>
+                            <li>Choose your primary content platform based on your audience</li>
+                            <li>Define your 4 content pillars using the Content Calendar Builder prompt</li>
+                            <li>Create your first 30-day content calendar</li>
+                            <li>Batch-create your first week of content using AI tools</li>
+                        </ul>
+                    </div>
+
+                    <div class="resources">
+                        <h3 class="section-title"><i data-lucide="link" style="width: 18px; height: 18px;"></i> Resources</h3>
+                        <div class="resource-buttons">
+                            <a href="/prompts/sm-002" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                Content Calendar Builder Prompt
+                            </a>
+                            <a href="/prompts/cc-009" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                Content Repurposing Engine Prompt
+                            </a>
+                            <a href="https://buffer.com" target="_blank" class="resource-btn">
+                                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                                Buffer
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson-footer">
+                    <span style="color: var(--gray); font-size: 0.875rem;">Complete to continue</span>
+                    <button class="btn btn-primary">
+                        <i data-lucide="play" style="width: 18px; height: 18px;"></i>
+                        Start Lesson
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lesson 2 -->
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <span class="lesson-number-badge">Lesson 2</span>
+                    <h2 class="lesson-title">YouTube with AI</h2>
+                    <div class="lesson-meta">
+                        <span class="duration-badge">
+                            <i data-lucide="clock" style="width: 14px; height: 14px;"></i>
+                            30 min
+                        </span>
+                    </div>
+                </div>
+                <div class="lesson-body">
+                    <p class="lesson-description">Scripting, editing, and optimizing</p>
+                    <div class="full-description">Newsletter and email content is the highest-ROI content channel in existence. While social algorithms decide who sees your content, your email list is an asset you own — and a well-run newsletter converts readers into buyers at 3-5x the rate of social media.
+
+We cover newsletter strategy from scratch: choosing your format, writing issues people actually read, building your list through content and lead magnets, and monetizing through your own offers.
+
+You'll have a newsletter template built and a list-building strategy ready to launch by the end of this lesson.</div>
+                    
+                    <div class="transcript-preview">
+                        Every creator I know who's built a real business has one thing in common: they have an email list. Not just followers — a responsive email list. It's the difference between renting an audience on someone else's platform and owning one outright.
+                    </div>
+
+                    <div class="key-takeaways">
+                        <h3 class="section-title"><i data-lucide="key" style="width: 18px; height: 18px;"></i> Key Takeaways</h3>
+                        <ul>
+                            <li>Why email converts 40x better than social media</li>
+                            <li>The 3 newsletter formats and which one fits your content style</li>
+                            <li>Subject line psychology: 5 formulas that generate 40%+ open rates consistently</li>
+                            <li>How to use AI to write a complete newsletter issue in under 20 minutes</li>
+                            <li>Monetization: The 3 newsletter revenue streams and when to activate each</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-items">
+                        <h3 class="section-title"><i data-lucide="check-square" style="width: 18px; height: 18px;"></i> Action Items</h3>
+                        <ul>
+                            <li>Set up your newsletter on ConvertKit, Beehiiv, or Substack</li>
+                            <li>Write your first issue using the Newsletter Issue Writer prompt</li>
+                            <li>Create a lead magnet to accelerate list growth</li>
+                            <li>Send your first newsletter to your existing contacts this week</li>
+                        </ul>
+                    </div>
+
+                    <div class="resources">
+                        <h3 class="section-title"><i data-lucide="link" style="width: 18px; height: 18px;"></i> Resources</h3>
+                        <div class="resource-buttons">
+                            <a href="https://convertkit.com" target="_blank" class="resource-btn">
+                                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                                ConvertKit
+                            </a>
+                            <a href="https://beehiiv.com" target="_blank" class="resource-btn">
+                                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                                Beehiiv
+                            </a>
+                            <a href="/prompts/cc-002" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                Newsletter Issue Writer Prompt
+                            </a>
+                            <a href="/prompts/cc-008" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                Email Subject Line Generator Prompt
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson-footer">
+                    <span style="color: var(--gray); font-size: 0.875rem;">Complete to continue</span>
+                    <button class="btn btn-primary">
+                        <i data-lucide="play" style="width: 18px; height: 18px;"></i>
+                        Start Lesson
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lesson 3 -->
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <span class="lesson-number-badge">Lesson 3</span>
+                    <h2 class="lesson-title">Newsletter & Blog Automation</h2>
+                    <div class="lesson-meta">
+                        <span class="duration-badge">
+                            <i data-lucide="clock" style="width: 14px; height: 14px;"></i>
+                            25 min
+                        </span>
+                    </div>
+                </div>
+                <div class="lesson-body">
+                    <p class="lesson-description">Building an audience on autopilot</p>
+                    <div class="full-description">Short-form video is the fastest organic growth channel in 2025-2026. The combination of AI tools that speed up production, algorithms that push new creators, and the format's compatibility with all buying stages makes this the highest-leverage content investment for most AI entrepreneurs.
+
+This lesson covers the full short-form video system: scripting with AI, filming efficiently, using AI to edit, and posting with a strategy that builds consistently.
+
+You'll build your first batch of 5 short-form video scripts before this lesson ends.</div>
+                    
+                    <div class="transcript-preview">
+                        I posted my first AI-related short video and it got 47 views. My fourth video hit 12,000. I hadn't changed anything about production — I just got better at hooks. That's the lever. And once you understand it, AI can help you engineer it every time.
+                    </div>
+
+                    <div class="key-takeaways">
+                        <h3 class="section-title"><i data-lucide="key" style="width: 18px; height: 18px;"></i> Key Takeaways</h3>
+                        <ul>
+                            <li>The anatomy of a viral short-form video: hook, content, CTA in 60 seconds</li>
+                            <li>AI scriptwriting: How to produce 10 video scripts in under 1 hour</li>
+                            <li>Filming efficiency: How to batch-record a week of content in 90 minutes</li>
+                            <li>AI editing tools that cut production time by 80%</li>
+                            <li>The metrics that predict channel growth vs. vanity metrics</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-items">
+                        <h3 class="section-title"><i data-lucide="check-square" style="width: 18px; height: 18px;"></i> Action Items</h3>
+                        <ul>
+                            <li>Generate 10 video concepts using the Reel Concept Generator prompt</li>
+                            <li>Script your first 5 videos using the TikTok Script Writer prompt</li>
+                            <li>Film and post your first video within 48 hours of completing this lesson</li>
+                            <li>Set up a batch filming schedule — aim for 1 hour per week</li>
+                        </ul>
+                    </div>
+
+                    <div class="resources">
+                        <h3 class="section-title"><i data-lucide="link" style="width: 18px; height: 18px;"></i> Resources</h3>
+                        <div class="resource-buttons">
+                            <a href="/prompts/cc-006" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                TikTok Script Writer Prompt
+                            </a>
+                            <a href="/prompts/sm-005" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                Reel Concept Generator Prompt
+                            </a>
+                            <a href="https://capcut.com" target="_blank" class="resource-btn">
+                                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                                CapCut
+                            </a>
+                            <a href="https://descript.com" target="_blank" class="resource-btn">
+                                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                                Descript
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson-footer">
+                    <span style="color: var(--gray); font-size: 0.875rem;">Complete to continue</span>
+                    <button class="btn btn-primary">
+                        <i data-lucide="play" style="width: 18px; height: 18px;"></i>
+                        Start Lesson
+                    </button>
+                </div>
+            </div>
+
+            <!-- Module Navigation -->
+            <div class="module-navigation">
+                <a href="module-3.html" class="btn btn-secondary">← Previous Module</a>
+                <a href="module-5.html" class="btn btn-primary">
+                    Next Module →
+                    <span style="opacity: 0.7; margin-left: 8px; font-weight: 400;">Module 5</span>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Upgrade Overlay -->
+    <div class="upgrade-overlay" id="upgradeOverlay">
+        <div class="upgrade-modal">
+            <h2>🔒 Upgrade Required</h2>
+            <p>This module requires a higher tier subscription. Upgrade to access this content and more advanced AI strategies.</p>
+            <button class="btn btn-primary" onclick="window.location.href='/upgrade'">
+                Upgrade Now
+            </button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        const userTier = localStorage.getItem('userTier') || 'starter';
+        const tierBadge = document.getElementById('tierBadge');
+        const upgradeOverlay = document.getElementById('upgradeOverlay');
+        const tierNames = {
+            'starter': 'Starter',
+            'accelerator': 'Accelerator',
+            'inner_circle': 'Inner Circle'
+        };
+        tierBadge.textContent = tierNames[userTier] || 'Starter';
+        const moduleNum = 4;
+        const maxModules = userTier === 'inner_circle' ? 12 : userTier === 'accelerator' ? 10 : 6;
+        if (moduleNum > maxModules) {
+            upgradeOverlay.classList.add('active');
+        }
+        const userEmail = localStorage.getItem('userEmail') || 'user@example.com';
+        const userName = userEmail.split('@')[0];
+        document.getElementById('userName').textContent = userName;
+        document.getElementById('userEmail').textContent = userEmail;
+        document.getElementById('userAvatar').textContent = userName.charAt(0).toUpperCase();
+    </script>
+</body>
+</html>

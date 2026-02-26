@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 9: AI Arbitrage & Flipping | AI Hustle Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--dark); }
+        .app { display: flex; min-height: 100vh; }
+        .sidebar { width: 260px; background: white; border-right: 1px solid #e2e8f0; display: flex; flex-direction: column; position: fixed; height: 100vh; z-index: 100; }
+        .sidebar-header { padding: 24px; border-bottom: 1px solid #e2e8f0; }
+        .logo { font-weight: 800; font-size: 1.25rem; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .nav { flex: 1; padding: 16px 12px; overflow-y: auto; }
+        .nav-title { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray); padding: 0 12px; margin-bottom: 8px; }
+        .nav-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 8px; cursor: pointer; transition: all 0.2s; color: var(--dark); text-decoration: none; font-size: 0.9rem; }
+        .nav-item:hover, .nav-item.active { background: var(--light); color: var(--primary); }
+        .main-content { flex: 1; margin-left: 260px; min-height: 100vh; }
+        .module-header { background: linear-gradient(135deg, var(--dark) 0%, #1e293b 100%); color: white; padding: 48px 32px; }
+        .module-number { display: inline-block; background: var(--primary); color: white; padding: 6px 16px; border-radius: 50px; font-size: 0.875rem; font-weight: 600; margin-bottom: 16px; }
+        .module-title { font-size: 2.5rem; font-weight: 800; margin-bottom: 12px; }
+        .module-description { font-size: 1.1rem; color: #94a3b8; max-width: 600px; }
+        .progress-bar { background: rgba(255,255,255,0.1); height: 6px; border-radius: 3px; margin-top: 24px; max-width: 400px; }
+        .progress-fill { background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%); height: 100%; border-radius: 3px; width: 0%; }
+        .content-area { padding: 32px; max-width: 900px; }
+        .lesson-card { background: white; border-radius: 16px; border: 1px solid #e2e8f0; margin-bottom: 24px; overflow: hidden; }
+        .lesson-header { padding: 24px; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; gap: 16px; }
+        .lesson-number { width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.25rem; flex-shrink: 0; }
+        .lesson-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 4px; }
+        .lesson-duration { font-size: 0.875rem; color: var(--gray); display: flex; align-items: center; gap: 4px; }
+        .icon-small { width: 14px; height: 14px; }
+        .lesson-description { padding: 16px 24px; color: var(--gray); font-size: 0.95rem; border-bottom: 1px solid #e2e8f0; }
+        .lesson-content { padding: 24px; }
+        .lesson-content h3 { font-size: 1rem; font-weight: 600; margin: 24px 0 12px; color: var(--dark); }
+        .lesson-content h3:first-child { margin-top: 0; }
+        .lesson-content p { color: #475569; line-height: 1.7; margin-bottom: 16px; }
+        .takeaways-list, .action-list { list-style: none; }
+        .takeaways-list li, .action-list li { padding: 10px 0; padding-left: 28px; position: relative; color: #475569; line-height: 1.6; }
+        .takeaways-list li::before { content: '✓'; position: absolute; left: 0; color: var(--success); font-weight: bold; }
+        .action-list li::before { content: '□'; position: absolute; left: 0; color: var(--gray); }
+        .resources { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+        .resource-link { padding: 8px 16px; background: var(--light); border-radius: 8px; color: var(--primary); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: all 0.2s; }
+        .resource-link:hover { background: var(--primary); color: white; }
+        .btn-start { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 24px; transition: all 0.2s; }
+        .btn-start:hover { transform: translateY(-1px); box-shadow: 0 8px 25px rgba(99,102,241,0.3); }
+        .module-nav { display: flex; justify-content: space-between; margin-top: 48px; padding-top: 24px; border-top: 1px solid #e2e8f0; }
+        .nav-link { display: flex; align-items: center; gap: 8px; color: var(--primary); text-decoration: none; font-weight: 500; padding: 12px 20px; border-radius: 8px; transition: all 0.2s; }
+        .nav-link:hover { background: var(--light); }
+        .upgrade-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15, 23, 42, 0.9); z-index: 1000; justify-content: center; align-items: center; }
+        .upgrade-card { background: white; padding: 48px; border-radius: 20px; text-align: center; max-width: 500px; }
+        .upgrade-card h2 { font-size: 1.75rem; margin-bottom: 16px; }
+        .upgrade-card p { color: var(--gray); margin-bottom: 24px; }
+        .btn-upgrade { padding: 14px 28px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; border: none; border-radius: 10px; font-size: 1rem; font-weight: 600; cursor: pointer; text-decoration: none; display: inline-block; }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">AI Hustle Engine</div>
+            </div>
+            <nav class="nav">
+                <div class="nav-title">Menu</div>
+                <a href="/member/dashboard.html" class="nav-item"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+                <a href="/member/module-1.html" class="nav-item active"><i data-lucide="book-open"></i> My Courses</a>
+                <a href="/member/prompt-vault.html" class="nav-item"><i data-lucide="sparkles"></i> Prompt Vault</a>
+                <a href="/member/templates.html" class="nav-item"><i data-lucide="file-text"></i> Templates</a>
+                <div class="nav-title">Account</div>
+                <a href="/member/account.html" class="nav-item"><i data-lucide="user"></i> Settings</a>
+                <a href="/login.html" class="nav-item"><i data-lucide="log-out"></i> Logout</a>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="module-header">
+                <span class="module-number">Module 9</span>
+                <h1 class="module-title">AI Arbitrage & Flipping</h1>
+                <p class="module-description">Profiting from AI efficiency gaps</p>
+                <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+            </div>
+            
+            <div class="content-area">
+
+        <!-- Lesson 1 -->
+        <div class="lesson-card">
+            <div class="lesson-header">
+                <div class="lesson-number">1</div>
+                <div class="lesson-title-section">
+                    <h2 class="lesson-title">Service Arbitrage</h2>
+                    <span class="lesson-duration"><i data-lucide="clock" class="icon-small"></i> 25 min</span>
+                </div>
+            </div>
+            <p class="lesson-description">Buying low, selling high with AI</p>
+            <div class="lesson-content">
+                <h3>Overview</h3>
+                <p>AI arbitrage is a unique opportunity at the intersection of AI capability and market timing: buyers willing to pay premium prices for AI-produced outputs in categories where the market hasn't realized AI can produce them cheaply.<br><br><br><br>We cover the core arbitrage categories: AI-written content for niche publications, AI-generated images for stock sites, AI-assisted research for professional markets, and AI-powered data enrichment for B2B companies.<br><br><br><br>You'll identify the best arbitrage opportunity for your skills and have a basic operation plan ready to launch in 7 days.</p>
+                <h3>Key Takeaways</h3>
+                <ul class="takeaways-list">
+                    <li>The 5 active AI arbitrage categories with highest margins in 2025</li>
+                    <li>How to identify arbitrage opportunities before they become crowded</li>
+                    <li>Quality standards: What separates AI output that sells from AI output that doesn't</li>
+                    <li>Volume strategy: How to scale output without proportional time investment</li>
+                    <li>Risk management: Protecting income from market and platform changes</li>
+                </ul>
+                <h3>Action Items</h3>
+                <ul class="action-list">
+                    <li>Research 3 arbitrage categories using the Market Research Analysis prompt</li>
+                    <li>Run test batches on your top 2 categories to validate quality and speed</li>
+                    <li>Calculate the economic model: Input cost + time vs. expected output revenue</li>
+                    <li>Launch your first arbitrage income stream with a 30-day test</li>
+                </ul>
+                <h3>Resources</h3>
+                <div class="resources">
+                <a href="/prompts/bs-001" target="_blank" class="resource-link">Market Research Analysis Prompt</a>
+                <a href="https://stock.adobe.com/contributor" target="_blank" class="resource-link">Adobe Stock Contributor</a>
+                <a href="https://submit.shutterstock.com" target="_blank" class="resource-link">Shutterstock Submit</a>
+                </div>
+                <button class="btn-start" onclick="startLesson(1)">Start Lesson</button>
+            </div>
+        </div>
+
+        <!-- Lesson 2 -->
+        <div class="lesson-card">
+            <div class="lesson-header">
+                <div class="lesson-number">2</div>
+                <div class="lesson-title-section">
+                    <h2 class="lesson-title">Digital Asset Flipping</h2>
+                    <span class="lesson-duration"><i data-lucide="clock" class="icon-small"></i> 30 min</span>
+                </div>
+            </div>
+            <p class="lesson-description">Creating and selling AI-enhanced assets</p>
+            <div class="lesson-content">
+                <h3>Overview</h3>
+                <p>Digital asset flipping with AI is one of the least-known high-margin activities in the creator economy. The concept: identify underperforming digital assets, improve them dramatically using AI, and sell at a multiple of improved value. What takes humans months, AI accelerates to weeks.<br><br><br><br>This lesson covers the full digital asset flipping cycle: where to source undervalued assets, AI-assisted due diligence, improvement strategies, valuation, and where to list for maximum sale price.<br><br><br><br>You'll understand the economics and have a target asset type identified before this lesson ends.</p>
+                <h3>Key Takeaways</h3>
+                <ul class="takeaways-list">
+                    <li>Digital asset types with the best AI improvement potential and flip margins</li>
+                    <li>Due diligence framework for evaluating potential acquisitions</li>
+                    <li>AI improvement playbook: What to improve and in what order</li>
+                    <li>Valuation math: How digital assets are priced and how to maximize multiples</li>
+                    <li>Where to list and sell for maximum buyer exposure</li>
+                </ul>
+                <h3>Action Items</h3>
+                <ul class="action-list">
+                    <li>Browse Flippa and Empire Flippers for undervalued assets under $2,000</li>
+                    <li>Analyze 3 listings using the Competitor Deep Dive prompt for improvement opportunities</li>
+                    <li>Calculate potential post-improvement valuation for your top candidate</li>
+                    <li>Start with a free asset: An abandoned open-source tool or neglected niche site</li>
+                </ul>
+                <h3>Resources</h3>
+                <div class="resources">
+                <a href="https://flippa.com" target="_blank" class="resource-link">Flippa</a>
+                <a href="https://empirefippers.com" target="_blank" class="resource-link">Empire Flippers</a>
+                <a href="/prompts/bs-002" target="_blank" class="resource-link">Competitor Deep Dive Prompt</a>
+                </div>
+                <button class="btn-start" onclick="startLesson(2)">Start Lesson</button>
+            </div>
+        </div>
+
+        <!-- Lesson 3 -->
+        <div class="lesson-card">
+            <div class="lesson-header">
+                <div class="lesson-number">3</div>
+                <div class="lesson-title-section">
+                    <h2 class="lesson-title">Niche Domination</h2>
+                    <span class="lesson-duration"><i data-lucide="clock" class="icon-small"></i> 35 min</span>
+                </div>
+            </div>
+            <p class="lesson-description">Owning small profitable markets</p>
+            <div class="lesson-content">
+                <h3>Overview</h3>
+                <p>Building and selling AI tools and micro-SaaS represents the highest-ceiling category in this module. With modern no-code platforms and AI APIs, it's possible to build a functional, marketable tool in days — even without traditional coding skills. The market for specialized AI tools is exploding.<br><br><br><br>This lesson covers the complete micro-SaaS playbook: identifying opportunities, building with no-code platforms, pricing and marketing, and how to exit by selling to a strategic buyer.<br><br><br><br>You'll have a specific tool concept validated and a build plan ready by the end of this lesson.</p>
+                <h3>Key Takeaways</h3>
+                <ul class="takeaways-list">
+                    <li>Micro-SaaS opportunity identification: AI capability plus unsolved problems</li>
+                    <li>No-code platforms: Which tools to use for which type of product</li>
+                    <li>Pricing micro-SaaS: Monthly subscription vs. one-time vs. usage-based</li>
+                    <li>Customer acquisition for small SaaS products with zero ad budget</li>
+                    <li>When and how to exit: Selling micro-SaaS at 3-5x annual revenue multiples</li>
+                </ul>
+                <h3>Action Items</h3>
+                <ul class="action-list">
+                    <li>Identify 5 recurring tasks professionals in your niche do that AI could automate</li>
+                    <li>Validate your top idea by finding 10 people paying for a worse solution</li>
+                    <li>Build a no-code prototype using Bubble or Glide plus an AI API</li>
+                    <li>Pre-sell to 5 beta users before investing in full development</li>
+                </ul>
+                <h3>Resources</h3>
+                <div class="resources">
+                <a href="https://bubble.io" target="_blank" class="resource-link">Bubble</a>
+                <a href="https://glideapps.com" target="_blank" class="resource-link">Glide</a>
+                <a href="https://platform.openai.com" target="_blank" class="resource-link">OpenAI API</a>
+                <a href="https://producthunt.com" target="_blank" class="resource-link">ProductHunt</a>
+                </div>
+                <button class="btn-start" onclick="startLesson(3)">Start Lesson</button>
+            </div>
+        </div>
+
+                
+                <div class="module-nav">
+                    <a href="/member/module-8.html" class="nav-link"><i data-lucide="arrow-left"></i> Previous Module</a>
+                    <a href="/member/module-10.html" class="nav-link">Next Module <i data-lucide="arrow-right"></i></a>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <div class="upgrade-overlay" id="upgradeOverlay">
+        <div class="upgrade-card">
+            <h2>🔒 Accelerator Content</h2>
+            <p>This module is part of the Accelerator tier. Upgrade to access all 12 modules plus exclusive templates and community access.</p>
+            <a href="/checkout.html?tier=accelerator" class="btn-upgrade">Upgrade to Accelerator</a>
+        </div>
+    </div>
+    
+    <script>
+        lucide.createIcons();
+        
+        // Tier check
+        const user = JSON.parse(localStorage.getItem('ahe_user') || '{"tier": "starter"}');
+        if (user.tier === 'starter') {
+            document.getElementById('upgradeOverlay').style.display = 'flex';
+        }
+        
+        // Progress simulation
+        const completed = JSON.parse(localStorage.getItem('module9_completed') || '[]');
+        document.getElementById('progressFill').style.width = (completed.length / 3 * 100) + '%';
+        
+        function startLesson(n) {
+            alert('Lesson video would play here. Marking as complete.');
+            if (!completed.includes(n)) {
+                completed.push(n);
+                localStorage.setItem('module9_completed', JSON.stringify(completed));
+                document.getElementById('progressFill').style.width = (completed.length / 3 * 100) + '%';
+            }
+        }
+    </script>
+</body>
+</html>

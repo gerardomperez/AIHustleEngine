@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1: AI Fundamentals | AI Hustle Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+        }
+        .app {
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 260px;
+            background: white;
+            border-right: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            z-index: 100;
+        }
+        .sidebar-header {
+            padding: 24px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 1.25rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tier-badge {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 4px 12px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .nav {
+            flex: 1;
+            padding: 16px 12px;
+            overflow-y: auto;
+        }
+        .nav-section {
+            margin-bottom: 24px;
+        }
+        .nav-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray);
+            padding: 0 12px;
+            margin-bottom: 8px;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        .nav-item:hover, .nav-item.active {
+            background: var(--light);
+            color: var(--primary);
+        }
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+        }
+        .sidebar-footer {
+            padding: 16px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+        }
+        .user-menu:hover {
+            background: var(--light);
+        }
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        .user-info { flex: 1; }
+        .user-name { font-weight: 600; font-size: 0.875rem; }
+        .user-email { font-size: 0.75rem; color: var(--gray); }
+        .main {
+            flex: 1;
+            margin-left: 260px;
+            padding: 32px;
+            max-width: 900px;
+        }
+        .module-header {
+            margin-bottom: 32px;
+        }
+        .module-number {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .module-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .module-description {
+            font-size: 1.125rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        .progress-section {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 24px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 32px;
+        }
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        .progress-label { font-size: 0.875rem; color: var(--gray); }
+        .progress-value { font-size: 0.875rem; font-weight: 600; }
+        .progress-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
+        .lesson-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+        .lesson-header {
+            padding: 24px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .lesson-number-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--light);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .lesson-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .lesson-meta {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        .duration-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: #fef3c7;
+            color: #92400e;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .lesson-body {
+            padding: 24px;
+        }
+        .lesson-description {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .full-description {
+            font-size: 0.9375rem;
+            line-height: 1.8;
+            color: var(--dark);
+            margin-bottom: 24px;
+            white-space: pre-line;
+        }
+        .transcript-preview {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid var(--warning);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            font-style: italic;
+            color: #78350f;
+            line-height: 1.6;
+        }
+        .transcript-preview::before {
+            content: '"';
+            font-size: 2rem;
+            color: var(--warning);
+            line-height: 1;
+        }
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .key-takeaways {
+            background: #ecfdf5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        .key-takeaways ul {
+            list-style: none;
+            padding: 0;
+        }
+        .key-takeaways li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 0.9375rem;
+        }
+        .key-takeaways li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 700;
+        }
+        .action-items {
+            background: #eff6ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        .action-items ul {
+            list-style: none;
+            padding: 0;
+        }
+        .action-items li {
+            padding: 10px 0;
+            padding-left: 32px;
+            position: relative;
+            font-size: 0.9375rem;
+            border-bottom: 1px dashed #dbeafe;
+        }
+        .action-items li:last-child { border-bottom: none; }
+        .action-items li::before {
+            content: '☐';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.125rem;
+        }
+        .resources {
+            margin-bottom: 24px;
+        }
+        .resource-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .resource-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .resource-btn:hover {
+            background: var(--light);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .lesson-footer {
+            padding: 20px 24px;
+            border-top: 1px solid #e2e8f0;
+            background: var(--light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover { background: var(--primary-dark); }
+        .btn-secondary {
+            background: white;
+            color: var(--dark);
+            border: 1px solid #e2e8f0;
+        }
+        .btn-secondary:hover { background: var(--light); }
+        .module-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 2px solid #e2e8f0;
+        }
+        .upgrade-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .upgrade-overlay.active { display: flex; }
+        .upgrade-modal {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 500px;
+            text-align: center;
+        }
+        .upgrade-modal h2 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+        .upgrade-modal p {
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+        @media (max-width: 1024px) {
+            .sidebar { transform: translateX(-100%); }
+            .main { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">AI Hustle Engine</div>
+                <span class="tier-badge" id="tierBadge">Loading...</span>
+            </div>
+            <nav class="nav">
+                <div class="nav-section">
+                    <div class="nav-title">Menu</div>
+                    <a href="dashboard.html" class="nav-item">
+                        <i data-lucide="layout-dashboard" class="nav-icon"></i>
+                        Dashboard
+                    </a>
+                    <a href="dashboard.html" class="nav-item active">
+                        <i data-lucide="book-open" class="nav-icon"></i>
+                        My Courses
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i data-lucide="zap" class="nav-icon"></i>
+                        Prompt Vault
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i data-lucide="file-text" class="nav-icon"></i>
+                        Templates
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i data-lucide="user" class="nav-icon"></i>
+                        Account
+                    </a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-menu">
+                    <div class="avatar" id="userAvatar">U</div>
+                    <div class="user-info">
+                        <div class="user-name" id="userName">User</div>
+                        <div class="user-email" id="userEmail">user@example.com</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main">
+            <div class="module-header">
+                <div class="module-number">Module 1</div>
+                <h1 class="module-title">AI Fundamentals</h1>
+                <p class="module-description">Understanding the AI landscape and how to leverage it</p>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-header">
+                    <span class="progress-label">Module Progress</span>
+                    <span class="progress-value">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Lesson 1 -->
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <span class="lesson-number-badge">Lesson 1</span>
+                    <h2 class="lesson-title">The AI Opportunity</h2>
+                    <div class="lesson-meta">
+                        <span class="duration-badge">
+                            <i data-lucide="clock" style="width: 14px; height: 14px;"></i>
+                            15 min
+                        </span>
+                    </div>
+                </div>
+                <div class="lesson-body">
+                    <p class="lesson-description">Why now is the best time to build with AI</p>
+                    <div class="full-description">The AI revolution is here. In 2024-2026, AI has crossed from experimental to essential, and the gap between those using it and those not is widening every month. This lesson breaks down exactly why now is the most important moment in a generation to build with AI.
+
+We look at the economic forces driving AI adoption, the income opportunities that have emerged, and the unique positioning advantage early movers have. You don't need to be a tech expert — you need to understand the landscape and move fast.
+
+By the end, you'll have a clear mental model of where AI income comes from, and you'll be able to articulate the opportunity to anyone in under 60 seconds.</div>
+                    
+                    <div class="transcript-preview">
+                        If you've ever watched an industry shift happen in real-time, you know there's a brief window where early movers capture disproportionate value before the market normalizes. We're in that window right now with AI, and I'm going to show you exactly how to take advantage of it.
+                    </div>
+
+                    <div class="key-takeaways">
+                        <h3 class="section-title"><i data-lucide="key" style="width: 18px; height: 18px;"></i> Key Takeaways</h3>
+                        <ul>
+                            <li>AI is creating a new class of knowledge workers operating at 10x productivity</li>
+                            <li>The income opportunity window is 2024-2027 — first movers will dominate</li>
+                            <li>You don't need to code to make significant income with AI</li>
+                            <li>5 specific AI income categories generating real money right now</li>
+                            <li>Why businesses are desperate for AI help and willing to pay premium prices</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-items">
+                        <h3 class="section-title"><i data-lucide="check-square" style="width: 18px; height: 18px;"></i> Action Items</h3>
+                        <ul>
+                            <li>Write down 3 skills you already have that AI can amplify</li>
+                            <li>Find 5 job postings asking for AI skills and analyze what they need</li>
+                            <li>Calculate: If you did your current work 3x faster, what would that be worth?</li>
+                            <li>List 3 businesses you know that could benefit from AI automation today</li>
+                        </ul>
+                    </div>
+
+                    <div class="resources">
+                        <h3 class="section-title"><i data-lucide="link" style="width: 18px; height: 18px;"></i> Resources</h3>
+                        <div class="resource-buttons">
+                            <a href="https://chat.openai.com" target="_blank" class="resource-btn">
+                                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                                ChatGPT
+                            </a>
+                            <a href="https://claude.ai" target="_blank" class="resource-btn">
+                                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                                Claude AI
+                            </a>
+                            <a href="/api/playbook" class="resource-btn">
+                                <i data-lucide="book" style="width: 16px; height: 16px;"></i>
+                                AI Hustle Playbook
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson-footer">
+                    <span style="color: var(--gray); font-size: 0.875rem;">Complete to continue</span>
+                    <button class="btn btn-primary">
+                        <i data-lucide="play" style="width: 18px; height: 18px;"></i>
+                        Start Lesson
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lesson 2 -->
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <span class="lesson-number-badge">Lesson 2</span>
+                    <h2 class="lesson-title">AI Tools Overview</h2>
+                    <div class="lesson-meta">
+                        <span class="duration-badge">
+                            <i data-lucide="clock" style="width: 14px; height: 14px;"></i>
+                            20 min
+                        </span>
+                    </div>
+                </div>
+                <div class="lesson-body">
+                    <p class="lesson-description">The essential AI toolkit for hustlers</p>
+                    <div class="full-description">Not all AI tools are equal. Some are essential; others are expensive distractions. In this lesson, we build your core AI toolkit — the minimum set of tools that covers 90% of income-generating tasks, without wasting money on subscriptions you won't use.
+
+We categorize tools by function: writing, image generation, automation, research, and operations. For each category, I show you the best free option, the best paid option, and when upgrading makes financial sense.
+
+The goal is to have your toolkit fully configured and ready to generate income by the end of this module.</div>
+                    
+                    <div class="transcript-preview">
+                        I've spent over $3,000 testing AI tools over 18 months so you don't have to. What I found is that 80% of the value comes from 5-6 core tools — and most of the rest are redundant, overhyped, or not actually ready for production use.
+                    </div>
+
+                    <div class="key-takeaways">
+                        <h3 class="section-title"><i data-lucide="key" style="width: 18px; height: 18px;"></i> Key Takeaways</h3>
+                        <ul>
+                            <li>The 8 essential AI tools that cover all core income-generating tasks</li>
+                            <li>How to evaluate any new AI tool before paying for it</li>
+                            <li>Free vs. paid: When the upgrade actually pays off</li>
+                            <li>How to stack tools into workflows that multiply output</li>
+                            <li>The tools your future clients are most likely to ask you about</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-items">
+                        <h3 class="section-title"><i data-lucide="check-square" style="width: 18px; height: 18px;"></i> Action Items</h3>
+                        <ul>
+                            <li>Create accounts for ChatGPT, Claude, and Make.com</li>
+                            <li>Set up a free Notion workspace to organize your AI workflow notes</li>
+                            <li>Run your first 10 prompts across 3 different AI tools and compare outputs</li>
+                            <li>Calculate your current AI tool budget and allocate it strategically</li>
+                        </ul>
+                    </div>
+
+                    <div class="resources">
+                        <h3 class="section-title"><i data-lucide="link" style="width: 18px; height: 18px;"></i> Resources</h3>
+                        <div class="resource-buttons">
+                            <a href="https://chat.openai.com" target="_blank" class="resource-btn">
+                                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                                ChatGPT
+                            </a>
+                            <a href="https://claude.ai" target="_blank" class="resource-btn">
+                                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                                Claude AI
+                            </a>
+                            <a href="https://make.com" target="_blank" class="resource-btn">
+                                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                                Make.com
+                            </a>
+                            <a href="https://perplexity.ai" target="_blank" class="resource-btn">
+                                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                                Perplexity AI
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson-footer">
+                    <span style="color: var(--gray); font-size: 0.875rem;">Complete to continue</span>
+                    <button class="btn btn-primary">
+                        <i data-lucide="play" style="width: 18px; height: 18px;"></i>
+                        Start Lesson
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lesson 3 -->
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <span class="lesson-number-badge">Lesson 3</span>
+                    <h2 class="lesson-title">Prompt Engineering Basics</h2>
+                    <div class="lesson-meta">
+                        <span class="duration-badge">
+                            <i data-lucide="clock" style="width: 14px; height: 14px;"></i>
+                            25 min
+                        </span>
+                    </div>
+                </div>
+                <div class="lesson-body">
+                    <p class="lesson-description">How to talk to AI for maximum results</p>
+                    <div class="full-description">Prompt engineering is the skill that separates AI users who get mediocre output from those who get extraordinary, client-ready results. This lesson teaches you the fundamental techniques that unlock AI's full potential.
+
+We cover the anatomy of a high-quality prompt: role, context, task, format, and constraints. You'll learn why most people's prompts fail and how to fix that in 30 seconds with a simple rewrite framework.
+
+By the end, you'll have a personal prompt library started and can produce usable output on the first try.</div>
+                    
+                    <div class="transcript-preview">
+                        The single biggest mistake I see beginners make with AI is writing prompts like text messages. Short, vague, no context. And then they're surprised when the output is short, vague, and unhelpful. The good news is that fixing this is simple once you know the framework.
+                    </div>
+
+                    <div class="key-takeaways">
+                        <h3 class="section-title"><i data-lucide="key" style="width: 18px; height: 18px;"></i> Key Takeaways</h3>
+                        <ul>
+                            <li>The RCTF framework: Role, Context, Task, Format — foundation of every good prompt</li>
+                            <li>Why vague prompts produce vague results and how to be specific fast</li>
+                            <li>Chaining prompts: How to break complex tasks into reliable steps</li>
+                            <li>The 'Act as' technique and when to use different AI personas</li>
+                            <li>How to save and organize your best prompts for reuse</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-items">
+                        <h3 class="section-title"><i data-lucide="check-square" style="width: 18px; height: 18px;"></i> Action Items</h3>
+                        <ul>
+                            <li>Rewrite 5 prompts you've used before using the RCTF framework</li>
+                            <li>Build your first prompt library with 10 prompts for tasks you do weekly</li>
+                            <li>Practice prompt chaining: Take one task and split it into a 3-step chain</li>
+                            <li>Add at least 3 prompts from the Prompt Vault to your personal library</li>
+                        </ul>
+                    </div>
+
+                    <div class="resources">
+                        <h3 class="section-title"><i data-lucide="link" style="width: 18px; height: 18px;"></i> Resources</h3>
+                        <div class="resource-buttons">
+                            <a href="/prompts" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                Prompt Vault
+                            </a>
+                            <a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" class="resource-btn">
+                                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                                OpenAI Prompt Engineering Guide
+                            </a>
+                            <a href="https://learnprompting.org" target="_blank" class="resource-btn">
+                                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                                Learn Prompting
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson-footer">
+                    <span style="color: var(--gray); font-size: 0.875rem;">Complete to continue</span>
+                    <button class="btn btn-primary">
+                        <i data-lucide="play" style="width: 18px; height: 18px;"></i>
+                        Start Lesson
+                    </button>
+                </div>
+            </div>
+
+            <!-- Module Navigation -->
+            <div class="module-navigation">
+                <div></div>
+                <a href="module-2.html" class="btn btn-primary">
+                    Next Module →
+                    <span style="opacity: 0.7; margin-left: 8px; font-weight: 400;">Module 2</span>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Upgrade Overlay -->
+    <div class="upgrade-overlay" id="upgradeOverlay">
+        <div class="upgrade-modal">
+            <h2>🔒 Upgrade Required</h2>
+            <p>This module requires a higher tier subscription. Upgrade to access this content and more advanced AI strategies.</p>
+            <button class="btn btn-primary" onclick="window.location.href='/upgrade'">
+                Upgrade Now
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Get user tier from localStorage or default to starter
+        const userTier = localStorage.getItem('userTier') || 'starter';
+        const tierBadge = document.getElementById('tierBadge');
+        const upgradeOverlay = document.getElementById('upgradeOverlay');
+        
+        // Set tier badge
+        const tierNames = {
+            'starter': 'Starter',
+            'accelerator': 'Accelerator',
+            'inner_circle': 'Inner Circle'
+        };
+        tierBadge.textContent = tierNames[userTier] || 'Starter';
+
+        // Check access for Module 1 (Starter = 1-6)
+        const moduleNum = 1;
+        const maxModules = userTier === 'inner_circle' ? 12 : userTier === 'accelerator' ? 10 : 6;
+        
+        if (moduleNum > maxModules) {
+            upgradeOverlay.classList.add('active');
+        }
+
+        // Load user info
+        const userEmail = localStorage.getItem('userEmail') || 'user@example.com';
+        const userName = userEmail.split('@')[0];
+        document.getElementById('userName').textContent = userName;
+        document.getElementById('userEmail').textContent = userEmail;
+        document.getElementById('userAvatar').textContent = userName.charAt(0).toUpperCase();
+    </script>
+</body>
+</html>

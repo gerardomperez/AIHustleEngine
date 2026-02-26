@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 7: Advanced AI Tactics | AI Hustle Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+        }
+        .app {
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 260px;
+            background: white;
+            border-right: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            z-index: 100;
+        }
+        .sidebar-header {
+            padding: 24px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 1.25rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tier-badge {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 4px 12px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .nav {
+            flex: 1;
+            padding: 16px 12px;
+            overflow-y: auto;
+        }
+        .nav-section {
+            margin-bottom: 24px;
+        }
+        .nav-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray);
+            padding: 0 12px;
+            margin-bottom: 8px;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        .nav-item:hover, .nav-item.active {
+            background: var(--light);
+            color: var(--primary);
+        }
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+        }
+        .sidebar-footer {
+            padding: 16px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+        }
+        .user-menu:hover {
+            background: var(--light);
+        }
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        .user-info { flex: 1; }
+        .user-name { font-weight: 600; font-size: 0.875rem; }
+        .user-email { font-size: 0.75rem; color: var(--gray); }
+        .main {
+            flex: 1;
+            margin-left: 260px;
+            padding: 32px;
+            max-width: 900px;
+        }
+        .module-header {
+            margin-bottom: 32px;
+        }
+        .module-number {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .module-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .module-description {
+            font-size: 1.125rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        .progress-section {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 24px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 32px;
+        }
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        .progress-label { font-size: 0.875rem; color: var(--gray); }
+        .progress-value { font-size: 0.875rem; font-weight: 600; }
+        .progress-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
+        .lesson-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+        .lesson-header {
+            padding: 24px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .lesson-number-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--light);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .lesson-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .lesson-meta {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        .duration-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: #fef3c7;
+            color: #92400e;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .lesson-body {
+            padding: 24px;
+        }
+        .lesson-description {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .full-description {
+            font-size: 0.9375rem;
+            line-height: 1.8;
+            color: var(--dark);
+            margin-bottom: 24px;
+            white-space: pre-line;
+        }
+        .transcript-preview {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid var(--warning);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            font-style: italic;
+            color: #78350f;
+            line-height: 1.6;
+        }
+        .transcript-preview::before {
+            content: '"';
+            font-size: 2rem;
+            color: var(--warning);
+            line-height: 1;
+        }
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .key-takeaways {
+            background: #ecfdf5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        .key-takeaways ul {
+            list-style: none;
+            padding: 0;
+        }
+        .key-takeaways li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 0.9375rem;
+        }
+        .key-takeaways li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 700;
+        }
+        .action-items {
+            background: #eff6ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        .action-items ul {
+            list-style: none;
+            padding: 0;
+        }
+        .action-items li {
+            padding: 10px 0;
+            padding-left: 32px;
+            position: relative;
+            font-size: 0.9375rem;
+            border-bottom: 1px dashed #dbeafe;
+        }
+        .action-items li:last-child { border-bottom: none; }
+        .action-items li::before {
+            content: '☐';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.125rem;
+        }
+        .resources {
+            margin-bottom: 24px;
+        }
+        .resource-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .resource-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .resource-btn:hover {
+            background: var(--light);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .lesson-footer {
+            padding: 20px 24px;
+            border-top: 1px solid #e2e8f0;
+            background: var(--light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover { background: var(--primary-dark); }
+        .btn-secondary {
+            background: white;
+            color: var(--dark);
+            border: 1px solid #e2e8f0;
+        }
+        .btn-secondary:hover { background: var(--light); }
+        .module-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 2px solid #e2e8f0;
+        }
+        .upgrade-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .upgrade-overlay.active { display: flex; }
+        .upgrade-modal {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 500px;
+            text-align: center;
+        }
+        .upgrade-modal h2 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+        .upgrade-modal p {
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+        @media (max-width: 1024px) {
+            .sidebar { transform: translateX(-100%); }
+            .main { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">AI Hustle Engine</div>
+                <span class="tier-badge" id="tierBadge">Loading...</span>
+            </div>
+            <nav class="nav">
+                <div class="nav-section">
+                    <div class="nav-title">Menu</div>
+                    <a href="dashboard.html" class="nav-item">
+                        <i data-lucide="layout-dashboard" class="nav-icon"></i>
+                        Dashboard
+                    </a>
+                    <a href="dashboard.html" class="nav-item active">
+                        <i data-lucide="book-open" class="nav-icon"></i>
+                        My Courses
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i data-lucide="zap" class="nav-icon"></i>
+                        Prompt Vault
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i data-lucide="file-text" class="nav-icon"></i>
+                        Templates
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i data-lucide="user" class="nav-icon"></i>
+                        Account
+                    </a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-menu">
+                    <div class="avatar" id="userAvatar">U</div>
+                    <div class="user-info">
+                        <div class="user-name" id="userName">User</div>
+                        <div class="user-email" id="userEmail">user@example.com</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main">
+            <div class="module-header">
+                <div class="module-number">Module 7</div>
+                <h1 class="module-title">Advanced AI Tactics</h1>
+                <p class="module-description">Pro-level techniques for maximum output</p>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-header">
+                    <span class="progress-label">Module Progress</span>
+                    <span class="progress-value">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Lesson 1 -->
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <span class="lesson-number-badge">Lesson 1</span>
+                    <h2 class="lesson-title">Multi-AI Workflows</h2>
+                    <div class="lesson-meta">
+                        <span class="duration-badge">
+                            <i data-lucide="clock" style="width: 14px; height: 14px;"></i>
+                            30 min
+                        </span>
+                    </div>
+                </div>
+                <div class="lesson-body">
+                    <p class="lesson-description">Chaining tools for complex results</p>
+                    <div class="full-description">Most AI users are linear thinkers — they send one prompt and use whatever comes back. Advanced AI users think in systems: chains of prompts, feedback loops, and quality checks that produce reliable output at scale. This lesson is the upgrade from AI user to AI architect.
+
+We cover advanced prompting techniques: few-shot prompting, chain-of-thought, and system prompt architecture. We also cover how to chain multiple AI tools for tasks no single tool can handle.
+
+You'll leave with a custom AI workflow for your most important recurring task, fully documented and ready to run.</div>
+                    
+                    <div class="transcript-preview">
+                        There's a concept I call 'prompt debt' — every time you write a prompt from scratch for a task you've done before, you're wasting time you could have saved by building a reusable system the first time. Advanced AI users have zero prompt debt.
+                    </div>
+
+                    <div class="key-takeaways">
+                        <h3 class="section-title"><i data-lucide="key" style="width: 18px; height: 18px;"></i> Key Takeaways</h3>
+                        <ul>
+                            <li>Few-shot prompting: How to teach AI your specific style and standards</li>
+                            <li>Chain-of-thought: Making AI reason through complex problems reliably</li>
+                            <li>System prompt architecture: Building AI assistants with consistent behavior</li>
+                            <li>Prompt chaining: How to connect multiple prompts for complex deliverables</li>
+                            <li>Quality loops: How to use AI to review and improve its own output</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-items">
+                        <h3 class="section-title"><i data-lucide="check-square" style="width: 18px; height: 18px;"></i> Action Items</h3>
+                        <ul>
+                            <li>Identify your most time-consuming recurring task and build a prompt chain for it</li>
+                            <li>Create a custom GPT or AI assistant for one specific workflow</li>
+                            <li>Build 3 few-shot examples for your primary content type</li>
+                            <li>Test your prompt chain on 5 different inputs and refine based on results</li>
+                        </ul>
+                    </div>
+
+                    <div class="resources">
+                        <h3 class="section-title"><i data-lucide="link" style="width: 18px; height: 18px;"></i> Resources</h3>
+                        <div class="resource-buttons">
+                            <a href="/prompts/ai-001" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                Custom GPT Instructions Builder Prompt
+                            </a>
+                            <a href="/prompts/ai-003" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                AI Workflow Designer Prompt
+                            </a>
+                            <a href="/prompts/ai-005" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                AI Prompt Chaining Framework Prompt
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson-footer">
+                    <span style="color: var(--gray); font-size: 0.875rem;">Complete to continue</span>
+                    <button class="btn btn-primary">
+                        <i data-lucide="play" style="width: 18px; height: 18px;"></i>
+                        Start Lesson
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lesson 2 -->
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <span class="lesson-number-badge">Lesson 2</span>
+                    <h2 class="lesson-title">Custom GPTs & Assistants</h2>
+                    <div class="lesson-meta">
+                        <span class="duration-badge">
+                            <i data-lucide="clock" style="width: 14px; height: 14px;"></i>
+                            35 min
+                        </span>
+                    </div>
+                </div>
+                <div class="lesson-body">
+                    <p class="lesson-description">Building your own AI tools</p>
+                    <div class="full-description">AI automation is where significant income leverage comes from. Instead of getting paid once for work you do once, automation lets you build systems that deliver ongoing value — earning recurring income or dramatically reducing client delivery costs.
+
+This lesson covers the practical side of AI automation: no-code automation tools (Make.com, n8n, Zapier), how to identify automation opportunities in client businesses, and how to build and deliver automations as a productized service.
+
+You'll leave with a working automation built and a clear service model for selling automation to clients.</div>
+                    
+                    <div class="transcript-preview">
+                        I want to tell you about an automation I built for a client in 3 days that took their team 12 hours a week to do manually. I charged $2,500 for the build plus $500/month to maintain it. That's $14,500 from one weekend of work. That's automation leverage.
+                    </div>
+
+                    <div class="key-takeaways">
+                        <h3 class="section-title"><i data-lucide="key" style="width: 18px; height: 18px;"></i> Key Takeaways</h3>
+                        <ul>
+                            <li>The automation opportunity map: Where businesses most need automation</li>
+                            <li>Make.com vs. Zapier vs. n8n: Which platform for which use case</li>
+                            <li>How to price automation projects: Setup fee plus monthly retainer model</li>
+                            <li>Selling automation: How to identify and close automation clients</li>
+                            <li>The AI layer: How to integrate LLMs into automation workflows</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-items">
+                        <h3 class="section-title"><i data-lucide="check-square" style="width: 18px; height: 18px;"></i> Action Items</h3>
+                        <ul>
+                            <li>Sign up for Make.com (free tier) and complete their beginner tutorial</li>
+                            <li>Build one automation that saves you 2+ hours per week</li>
+                            <li>Document this automation as a case study for your portfolio</li>
+                            <li>Identify 5 client businesses that have the same problem your automation solves</li>
+                        </ul>
+                    </div>
+
+                    <div class="resources">
+                        <h3 class="section-title"><i data-lucide="link" style="width: 18px; height: 18px;"></i> Resources</h3>
+                        <div class="resource-buttons">
+                            <a href="https://make.com" target="_blank" class="resource-btn">
+                                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                                Make.com
+                            </a>
+                            <a href="https://n8n.io" target="_blank" class="resource-btn">
+                                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                                n8n
+                            </a>
+                            <a href="/prompts/ai-004" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                Automation Blueprint Creator Prompt
+                            </a>
+                            <a href="https://zapier.com" target="_blank" class="resource-btn">
+                                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                                Zapier
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson-footer">
+                    <span style="color: var(--gray); font-size: 0.875rem;">Complete to continue</span>
+                    <button class="btn btn-primary">
+                        <i data-lucide="play" style="width: 18px; height: 18px;"></i>
+                        Start Lesson
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lesson 3 -->
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <span class="lesson-number-badge">Lesson 3</span>
+                    <h2 class="lesson-title">API & Automation Mastery</h2>
+                    <div class="lesson-meta">
+                        <span class="duration-badge">
+                            <i data-lucide="clock" style="width: 14px; height: 14px;"></i>
+                            40 min
+                        </span>
+                    </div>
+                </div>
+                <div class="lesson-body">
+                    <p class="lesson-description">Connecting everything together</p>
+                    <div class="full-description">Selling AI services is different from selling traditional services. Prospects are often skeptical, uncertain about what they need, or afraid of implications for their team. Understanding these dynamics is what separates AI consultants who close deals from those who have endless educational conversations that go nowhere.
+
+This lesson covers the complete AI sales process: how to frame AI as a force multiplier, how to use demonstrations to overcome skepticism, how to identify budget and urgency quickly, and how to close high-ticket deals consultatively.
+
+You'll build and practice your full AI sales pitch before this lesson ends.</div>
+                    
+                    <div class="transcript-preview">
+                        The number one question I get: How do I handle it when prospects say AI just does it automatically for free? My answer is always the same: Show them what free AI actually produces versus what you produce. That conversation ends immediately.
+                    </div>
+
+                    <div class="key-takeaways">
+                        <h3 class="section-title"><i data-lucide="key" style="width: 18px; height: 18px;"></i> Key Takeaways</h3>
+                        <ul>
+                            <li>The skepticism loop: Why AI prospects need more proof than typical buyers</li>
+                            <li>Demonstration closes: How showing beats telling in AI sales</li>
+                            <li>Framing AI as a team multiplier, not job replacement</li>
+                            <li>ROI framing: How to anchor your price to their current cost</li>
+                            <li>The consultative close: Helping prospects decide without pressure</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-items">
+                        <h3 class="section-title"><i data-lucide="check-square" style="width: 18px; height: 18px;"></i> Action Items</h3>
+                        <ul>
+                            <li>Build a live demonstration of your AI service's output using real client problems</li>
+                            <li>Write 3 ROI case study statements about client results</li>
+                            <li>Practice your discovery-to-close conversation with a role-play partner</li>
+                            <li>Read and internalize the Objection Handling Playbook for your service</li>
+                        </ul>
+                    </div>
+
+                    <div class="resources">
+                        <h3 class="section-title"><i data-lucide="link" style="width: 18px; height: 18px;"></i> Resources</h3>
+                        <div class="resource-buttons">
+                            <a href="/prompts/ca-006" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                Objection Handling Playbook Prompt
+                            </a>
+                            <a href="/prompts/ca-013" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                High-Ticket Sales Script Prompt
+                            </a>
+                            <a href="/prompts/ca-004" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                Discovery Call Script Prompt
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson-footer">
+                    <span style="color: var(--gray); font-size: 0.875rem;">Complete to continue</span>
+                    <button class="btn btn-primary">
+                        <i data-lucide="play" style="width: 18px; height: 18px;"></i>
+                        Start Lesson
+                    </button>
+                </div>
+            </div>
+
+            <!-- Module Navigation -->
+            <div class="module-navigation">
+                <a href="module-6.html" class="btn btn-secondary">← Module 6</a>
+                <a href="module-8.html" class="btn btn-primary">
+                    Module 8 →
+                    <span style="opacity: 0.7; margin-left: 8px; font-weight: 400;">Scaling to 6 Figures</span>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Upgrade Overlay -->
+    <div class="upgrade-overlay" id="upgradeOverlay">
+        <div class="upgrade-modal">
+            <h2>🔒 Upgrade Required</h2>
+            <p>This module requires Accelerator tier or higher. Upgrade to access advanced AI tactics and scaling strategies.</p>
+            <button class="btn btn-primary" onclick="window.location.href='/upgrade'">
+                Upgrade Now
+            </button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        const userTier = localStorage.getItem('userTier') || 'starter';
+        const tierBadge = document.getElementById('tierBadge');
+        const upgradeOverlay = document.getElementById('upgradeOverlay');
+        const tierNames = {
+            'starter': 'Starter',
+            'accelerator': 'Accelerator',
+            'inner_circle': 'Inner Circle'
+        };
+        tierBadge.textContent = tierNames[userTier] || 'Starter';
+        const moduleNum = 7;
+        const maxModules = userTier === 'inner_circle' ? 12 : userTier === 'accelerator' ? 10 : 6;
+        if (moduleNum > maxModules) {
+            upgradeOverlay.classList.add('active');
+        }
+        const userEmail = localStorage.getItem('userEmail') || 'user@example.com';
+        const userName = userEmail.split('@')[0];
+        document.getElementById('userName').textContent = userName;
+        document.getElementById('userEmail').textContent = userEmail;
+        document.getElementById('userAvatar').textContent = userName.charAt(0).toUpperCase();
+    </script>
+</body>
+</html>

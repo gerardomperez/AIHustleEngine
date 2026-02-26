@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 5: AI Product Creation | AI Hustle Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+        }
+        .app {
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 260px;
+            background: white;
+            border-right: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            z-index: 100;
+        }
+        .sidebar-header {
+            padding: 24px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 1.25rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tier-badge {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 4px 12px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .nav {
+            flex: 1;
+            padding: 16px 12px;
+            overflow-y: auto;
+        }
+        .nav-section {
+            margin-bottom: 24px;
+        }
+        .nav-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray);
+            padding: 0 12px;
+            margin-bottom: 8px;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        .nav-item:hover, .nav-item.active {
+            background: var(--light);
+            color: var(--primary);
+        }
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+        }
+        .sidebar-footer {
+            padding: 16px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+        }
+        .user-menu:hover {
+            background: var(--light);
+        }
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        .user-info { flex: 1; }
+        .user-name { font-weight: 600; font-size: 0.875rem; }
+        .user-email { font-size: 0.75rem; color: var(--gray); }
+        .main {
+            flex: 1;
+            margin-left: 260px;
+            padding: 32px;
+            max-width: 900px;
+        }
+        .module-header {
+            margin-bottom: 32px;
+        }
+        .module-number {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .module-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .module-description {
+            font-size: 1.125rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        .progress-section {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 24px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 32px;
+        }
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        .progress-label { font-size: 0.875rem; color: var(--gray); }
+        .progress-value { font-size: 0.875rem; font-weight: 600; }
+        .progress-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
+        .lesson-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+        .lesson-header {
+            padding: 24px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .lesson-number-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--light);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .lesson-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .lesson-meta {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        .duration-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: #fef3c7;
+            color: #92400e;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .lesson-body {
+            padding: 24px;
+        }
+        .lesson-description {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .full-description {
+            font-size: 0.9375rem;
+            line-height: 1.8;
+            color: var(--dark);
+            margin-bottom: 24px;
+            white-space: pre-line;
+        }
+        .transcript-preview {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid var(--warning);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            font-style: italic;
+            color: #78350f;
+            line-height: 1.6;
+        }
+        .transcript-preview::before {
+            content: '"';
+            font-size: 2rem;
+            color: var(--warning);
+            line-height: 1;
+        }
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .key-takeaways {
+            background: #ecfdf5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        .key-takeaways ul {
+            list-style: none;
+            padding: 0;
+        }
+        .key-takeaways li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 0.9375rem;
+        }
+        .key-takeaways li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 700;
+        }
+        .action-items {
+            background: #eff6ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        .action-items ul {
+            list-style: none;
+            padding: 0;
+        }
+        .action-items li {
+            padding: 10px 0;
+            padding-left: 32px;
+            position: relative;
+            font-size: 0.9375rem;
+            border-bottom: 1px dashed #dbeafe;
+        }
+        .action-items li:last-child { border-bottom: none; }
+        .action-items li::before {
+            content: '☐';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.125rem;
+        }
+        .resources {
+            margin-bottom: 24px;
+        }
+        .resource-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .resource-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .resource-btn:hover {
+            background: var(--light);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .lesson-footer {
+            padding: 20px 24px;
+            border-top: 1px solid #e2e8f0;
+            background: var(--light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover { background: var(--primary-dark); }
+        .btn-secondary {
+            background: white;
+            color: var(--dark);
+            border: 1px solid #e2e8f0;
+        }
+        .btn-secondary:hover { background: var(--light); }
+        .module-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 2px solid #e2e8f0;
+        }
+        .upgrade-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .upgrade-overlay.active { display: flex; }
+        .upgrade-modal {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 500px;
+            text-align: center;
+        }
+        .upgrade-modal h2 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+        .upgrade-modal p {
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+        @media (max-width: 1024px) {
+            .sidebar { transform: translateX(-100%); }
+            .main { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">AI Hustle Engine</div>
+                <span class="tier-badge" id="tierBadge">Loading...</span>
+            </div>
+            <nav class="nav">
+                <div class="nav-section">
+                    <div class="nav-title">Menu</div>
+                    <a href="dashboard.html" class="nav-item">
+                        <i data-lucide="layout-dashboard" class="nav-icon"></i>
+                        Dashboard
+                    </a>
+                    <a href="dashboard.html" class="nav-item active">
+                        <i data-lucide="book-open" class="nav-icon"></i>
+                        My Courses
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i data-lucide="zap" class="nav-icon"></i>
+                        Prompt Vault
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i data-lucide="file-text" class="nav-icon"></i>
+                        Templates
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i data-lucide="user" class="nav-icon"></i>
+                        Account
+                    </a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-menu">
+                    <div class="avatar" id="userAvatar">U</div>
+                    <div class="user-info">
+                        <div class="user-name" id="userName">User</div>
+                        <div class="user-email" id="userEmail">user@example.com</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main">
+            <div class="module-header">
+                <div class="module-number">Module 5</div>
+                <h1 class="module-title">AI Product Creation</h1>
+                <p class="module-description">Build and sell digital products</p>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-header">
+                    <span class="progress-label">Module Progress</span>
+                    <span class="progress-value">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Lesson 1 -->
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <span class="lesson-number-badge">Lesson 1</span>
+                    <h2 class="lesson-title">Info Products with AI</h2>
+                    <div class="lesson-meta">
+                        <span class="duration-badge">
+                            <i data-lucide="clock" style="width: 14px; height: 14px;"></i>
+                            25 min
+                        </span>
+                    </div>
+                </div>
+                <div class="lesson-body">
+                    <p class="lesson-description">Courses, templates, and guides</p>
+                    <div class="full-description">Courses and educational content are the backbone of the AI creator economy. With AI, the economics have changed: what used to require months can now be built in days. But the #1 mistake course creators make isn't production speed — it's building before validating.
+
+This lesson walks you through the validation and design framework for AI-powered courses. We cover how to identify the transformation your course creates, structure content for high completion rates, and use AI to generate all course materials efficiently.
+
+You'll have a fully validated course idea and complete module outline before this lesson ends.</div>
+                    
+                    <div class="transcript-preview">
+                        The most expensive thing you can do when building a course is spend six months creating content before anyone has paid you for it. Validation isn't optional — it's the difference between a course that makes $40,000 and one that makes $400 before you abandon it.
+                    </div>
+
+                    <div class="key-takeaways">
+                        <h3 class="section-title"><i data-lucide="key" style="width: 18px; height: 18px;"></i> Key Takeaways</h3>
+                        <ul>
+                            <li>Validation-first approach: Why you should sell before you build</li>
+                            <li>The transformation framework: Design backwards from the result</li>
+                            <li>Module sequencing: Structure for maximum completion and satisfaction</li>
+                            <li>AI course production stack: Create all content assets in record time</li>
+                            <li>Pricing tiers: When to go low-ticket vs. high-ticket</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-items">
+                        <h3 class="section-title"><i data-lucide="check-square" style="width: 18px; height: 18px;"></i> Action Items</h3>
+                        <ul>
+                            <li>Identify your course topic and write a one-sentence transformation promise</li>
+                            <li>Validate with 10 potential buyers before building anything</li>
+                            <li>Use the Course Outline Builder prompt to create your full module structure</li>
+                            <li>Plan your quick-win lesson — Module 1 should create a result immediately</li>
+                        </ul>
+                    </div>
+
+                    <div class="resources">
+                        <h3 class="section-title"><i data-lucide="link" style="width: 18px; height: 18px;"></i> Resources</h3>
+                        <div class="resource-buttons">
+                            <a href="/prompts/pd-001" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                Course Outline Builder Prompt
+                            </a>
+                            <a href="https://teachable.com" target="_blank" class="resource-btn">
+                                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                                Teachable
+                            </a>
+                            <a href="https://skool.com" target="_blank" class="resource-btn">
+                                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                                Skool
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson-footer">
+                    <span style="color: var(--gray); font-size: 0.875rem;">Complete to continue</span>
+                    <button class="btn btn-primary">
+                        <i data-lucide="play" style="width: 18px; height: 18px;"></i>
+                        Start Lesson
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lesson 2 -->
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <span class="lesson-number-badge">Lesson 2</span>
+                    <h2 class="lesson-title">AI-Assisted Software</h2>
+                    <div class="lesson-meta">
+                        <span class="duration-badge">
+                            <i data-lucide="clock" style="width: 14px; height: 14px;"></i>
+                            35 min
+                        </span>
+                    </div>
+                </div>
+                <div class="lesson-body">
+                    <p class="lesson-description">Building apps without being a developer</p>
+                    <div class="full-description">Done-For-You templates and systems are the fastest-growing segment of the AI digital product market. Buyers want outcomes, not information — and a well-designed template delivers an outcome in minutes. This makes templates command premium pricing relative to their production cost.
+
+This lesson covers the full template product ecosystem: what types sell best, how to price them, how to use AI to produce them at scale, and where to distribute for maximum sales.
+
+You'll have a complete template product created, priced, and listed for sale by the end of this lesson.</div>
+                    
+                    <div class="transcript-preview">
+                        I sold $4,200 worth of templates in one month from a single Notion template I built in an afternoon. It solved one very specific problem for a very specific person, had a clear thumbnail, and was priced at $27. That's the formula: specific, visual, priced to impulse buy.
+                    </div>
+
+                    <div class="key-takeaways">
+                        <h3 class="section-title"><i data-lucide="key" style="width: 18px; height: 18px;"></i> Key Takeaways</h3>
+                        <ul>
+                            <li>The 6 template categories with highest demand in 2025</li>
+                            <li>How to price templates: When $47 vs. $197 vs. $497 makes sense</li>
+                            <li>Using AI to build an entire template library in a single weekend</li>
+                            <li>Distribution: The 4 best places to sell digital templates</li>
+                            <li>How to bundle templates into higher-value productized packs</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-items">
+                        <h3 class="section-title"><i data-lucide="check-square" style="width: 18px; height: 18px;"></i> Action Items</h3>
+                        <ul>
+                            <li>Choose one template type your ideal buyer desperately needs</li>
+                            <li>Use AI to build your first template in 2 hours</li>
+                            <li>List it on Gumroad for $17-47 and test the market</li>
+                            <li>Collect feedback from first 5 buyers and iterate</li>
+                        </ul>
+                    </div>
+
+                    <div class="resources">
+                        <h3 class="section-title"><i data-lucide="link" style="width: 18px; height: 18px;"></i> Resources</h3>
+                        <div class="resource-buttons">
+                            <a href="https://gumroad.com" target="_blank" class="resource-btn">
+                                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                                Gumroad
+                            </a>
+                            <a href="/templates" class="resource-btn">
+                                <i data-lucide="file-text" style="width: 16px; height: 16px;"></i>
+                                Done-For-You Templates
+                            </a>
+                            <a href="https://etsy.com" target="_blank" class="resource-btn">
+                                <i data-lucide="external-link" style="width: 16px; height: 16px;"></i>
+                                Etsy Digital Downloads
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson-footer">
+                    <span style="color: var(--gray); font-size: 0.875rem;">Complete to continue</span>
+                    <button class="btn btn-primary">
+                        <i data-lucide="play" style="width: 18px; height: 18px;"></i>
+                        Start Lesson
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lesson 3 -->
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <span class="lesson-number-badge">Lesson 3</span>
+                    <h2 class="lesson-title">Launch Strategies</h2>
+                    <div class="lesson-meta">
+                        <span class="duration-badge">
+                            <i data-lucide="clock" style="width: 14px; height: 14px;"></i>
+                            30 min
+                        </span>
+                    </div>
+                </div>
+                <div class="lesson-body">
+                    <p class="lesson-description">Going from zero to first sale</p>
+                    <div class="full-description">AI-powered consulting is one of the fastest ways to generate significant income — and most AI entrepreneurs overlook it entirely in favor of lower-ticket products. Consulting is where your expertise, combined with AI, can command $500-$5,000 per day rates.
+
+This lesson covers how to package your AI knowledge into a consulting offer: defining your expertise zone, creating an assessment or audit product, and structuring a consulting engagement for maximum value delivery.
+
+You'll have a high-ticket consulting offer defined, priced, and ready to present to your first prospect.</div>
+                    
+                    <div class="transcript-preview">
+                        There's a client I worked with who paid $4,500 for 6 hours of my time spread over 3 weeks. What did I do? I showed them how to use AI to automate 3 business processes they'd been doing manually for years. The ROI for them was 10x in the first 30 days. That's consulting.
+                    </div>
+
+                    <div class="key-takeaways">
+                        <h3 class="section-title"><i data-lucide="key" style="width: 18px; height: 18px;"></i> Key Takeaways</h3>
+                        <ul>
+                            <li>The expertise zone framework: Where AI meets your domain knowledge</li>
+                            <li>How to structure a high-ticket consulting engagement for premium pricing</li>
+                            <li>The AI audit offer: A $1,500-$3,000 entry point that converts to retainers</li>
+                            <li>How to productize consulting so it doesn't require 100% custom delivery</li>
+                            <li>Proposal writing for consulting that wins high-ticket clients</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-items">
+                        <h3 class="section-title"><i data-lucide="check-square" style="width: 18px; height: 18px;"></i> Action Items</h3>
+                        <ul>
+                            <li>Define your unique expertise zone (skills + AI + target industry)</li>
+                            <li>Design a 90-minute AI audit offer as your entry-point product</li>
+                            <li>Price your consulting package using the Pricing Strategy Builder prompt</li>
+                            <li>Identify 10 companies that would benefit from your specific AI expertise</li>
+                        </ul>
+                    </div>
+
+                    <div class="resources">
+                        <h3 class="section-title"><i data-lucide="link" style="width: 18px; height: 18px;"></i> Resources</h3>
+                        <div class="resource-buttons">
+                            <a href="/prompts/bs-003" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                Pricing Strategy Builder Prompt
+                            </a>
+                            <a href="/prompts/ca-003" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                Client Proposal Builder Prompt
+                            </a>
+                            <a href="/prompts/ca-013" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                High-Ticket Sales Script Prompt
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson-footer">
+                    <span style="color: var(--gray); font-size: 0.875rem;">Complete to continue</span>
+                    <button class="btn btn-primary">
+                        <i data-lucide="play" style="width: 18px; height: 18px;"></i>
+                        Start Lesson
+                    </button>
+                </div>
+            </div>
+
+            <!-- Module Navigation -->
+            <div class="module-navigation">
+                <a href="module-4.html" class="btn btn-secondary">← Previous Module</a>
+                <a href="module-6.html" class="btn btn-primary">
+                    Next Module →
+                    <span style="opacity: 0.7; margin-left: 8px; font-weight: 400;">Module 6</span>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Upgrade Overlay -->
+    <div class="upgrade-overlay" id="upgradeOverlay">
+        <div class="upgrade-modal">
+            <h2>🔒 Upgrade Required</h2>
+            <p>This module requires a higher tier subscription. Upgrade to access this content and more advanced AI strategies.</p>
+            <button class="btn btn-primary" onclick="window.location.href='/upgrade'">
+                Upgrade Now
+            </button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        const userTier = localStorage.getItem('userTier') || 'starter';
+        const tierBadge = document.getElementById('tierBadge');
+        const upgradeOverlay = document.getElementById('upgradeOverlay');
+        const tierNames = {
+            'starter': 'Starter',
+            'accelerator': 'Accelerator',
+            'inner_circle': 'Inner Circle'
+        };
+        tierBadge.textContent = tierNames[userTier] || 'Starter';
+        const moduleNum = 5;
+        const maxModules = userTier === 'inner_circle' ? 12 : userTier === 'accelerator' ? 10 : 6;
+        if (moduleNum > maxModules) {
+            upgradeOverlay.classList.add('active');
+        }
+        const userEmail = localStorage.getItem('userEmail') || 'user@example.com';
+        const userName = userEmail.split('@')[0];
+        document.getElementById('userName').textContent = userName;
+        document.getElementById('userEmail').textContent = userEmail;
+        document.getElementById('userAvatar').textContent = userName.charAt(0).toUpperCase();
+    </script>
+</body>
+</html>

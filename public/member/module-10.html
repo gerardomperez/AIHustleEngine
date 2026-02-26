@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 10: Building Your AI Empire | AI Hustle Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+        }
+        .app {
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 260px;
+            background: white;
+            border-right: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            z-index: 100;
+        }
+        .sidebar-header {
+            padding: 24px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .logo {
+            font-weight: 800;
+            font-size: 1.25rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tier-badge {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 4px 12px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .nav {
+            flex: 1;
+            padding: 16px 12px;
+            overflow-y: auto;
+        }
+        .nav-section {
+            margin-bottom: 24px;
+        }
+        .nav-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray);
+            padding: 0 12px;
+            margin-bottom: 8px;
+        }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        .nav-item:hover, .nav-item.active {
+            background: var(--light);
+            color: var(--primary);
+        }
+        .nav-icon {
+            width: 20px;
+            height: 20px;
+        }
+        .sidebar-footer {
+            padding: 16px;
+            border-top: 1px solid #e2e8f0;
+        }
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+        }
+        .user-menu:hover {
+            background: var(--light);
+        }
+        .avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        .user-info { flex: 1; }
+        .user-name { font-weight: 600; font-size: 0.875rem; }
+        .user-email { font-size: 0.75rem; color: var(--gray); }
+        .main {
+            flex: 1;
+            margin-left: 260px;
+            padding: 32px;
+            max-width: 900px;
+        }
+        .module-header {
+            margin-bottom: 32px;
+        }
+        .module-number {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+        .module-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .module-description {
+            font-size: 1.125rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+        .progress-section {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 24px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 32px;
+        }
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+        .progress-label { font-size: 0.875rem; color: var(--gray); }
+        .progress-value { font-size: 0.875rem; font-weight: 600; }
+        .progress-bar {
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
+        .lesson-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+        .lesson-header {
+            padding: 24px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .lesson-number-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: var(--light);
+            color: var(--primary);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .lesson-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .lesson-meta {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        .duration-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: #fef3c7;
+            color: #92400e;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .lesson-body {
+            padding: 24px;
+        }
+        .lesson-description {
+            font-size: 1rem;
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .full-description {
+            font-size: 0.9375rem;
+            line-height: 1.8;
+            color: var(--dark);
+            margin-bottom: 24px;
+            white-space: pre-line;
+        }
+        .transcript-preview {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 4px solid var(--warning);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            font-style: italic;
+            color: #78350f;
+            line-height: 1.6;
+        }
+        .transcript-preview::before {
+            content: '"';
+            font-size: 2rem;
+            color: var(--warning);
+            line-height: 1;
+        }
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .key-takeaways {
+            background: #ecfdf5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        .key-takeaways ul {
+            list-style: none;
+            padding: 0;
+        }
+        .key-takeaways li {
+            padding: 8px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 0.9375rem;
+        }
+        .key-takeaways li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success);
+            font-weight: 700;
+        }
+        .action-items {
+            background: #eff6ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        .action-items ul {
+            list-style: none;
+            padding: 0;
+        }
+        .action-items li {
+            padding: 10px 0;
+            padding-left: 32px;
+            position: relative;
+            font-size: 0.9375rem;
+            border-bottom: 1px dashed #dbeafe;
+        }
+        .action-items li:last-child { border-bottom: none; }
+        .action-items li::before {
+            content: '☐';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-size: 1.125rem;
+        }
+        .resources {
+            margin-bottom: 24px;
+        }
+        .resource-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .resource-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            color: var(--dark);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .resource-btn:hover {
+            background: var(--light);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .lesson-footer {
+            padding: 20px 24px;
+            border-top: 1px solid #e2e8f0;
+            background: var(--light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover { background: var(--primary-dark); }
+        .btn-secondary {
+            background: white;
+            color: var(--dark);
+            border: 1px solid #e2e8f0;
+        }
+        .btn-secondary:hover { background: var(--light); }
+        .module-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 2px solid #e2e8f0;
+        }
+        .upgrade-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .upgrade-overlay.active { display: flex; }
+        .upgrade-modal {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 500px;
+            text-align: center;
+        }
+        .upgrade-modal h2 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+        .upgrade-modal p {
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+        @media (max-width: 1024px) {
+            .sidebar { transform: translateX(-100%); }
+            .main { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">AI Hustle Engine</div>
+                <span class="tier-badge" id="tierBadge">Loading...</span>
+            </div>
+            <nav class="nav">
+                <div class="nav-section">
+                    <div class="nav-title">Menu</div>
+                    <a href="dashboard.html" class="nav-item">
+                        <i data-lucide="layout-dashboard" class="nav-icon"></i>
+                        Dashboard
+                    </a>
+                    <a href="dashboard.html" class="nav-item active">
+                        <i data-lucide="book-open" class="nav-icon"></i>
+                        My Courses
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i data-lucide="zap" class="nav-icon"></i>
+                        Prompt Vault
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i data-lucide="file-text" class="nav-icon"></i>
+                        Templates
+                    </a>
+                    <a href="#" class="nav-item">
+                        <i data-lucide="user" class="nav-icon"></i>
+                        Account
+                    </a>
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-menu">
+                    <div class="avatar" id="userAvatar">U</div>
+                    <div class="user-info">
+                        <div class="user-name" id="userName">User</div>
+                        <div class="user-email" id="userEmail">user@example.com</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main">
+            <div class="module-header">
+                <div class="module-number">Module 10</div>
+                <h1 class="module-title">Building Your AI Empire</h1>
+                <p class="module-description">Long-term wealth with AI</p>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-header">
+                    <span class="progress-label">Module Progress</span>
+                    <span class="progress-value">0%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <!-- Lesson 1 -->
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <span class="lesson-number-badge">Lesson 1</span>
+                    <h2 class="lesson-title">Equity & Ownership</h2>
+                    <div class="lesson-meta">
+                        <span class="duration-badge">
+                            <i data-lucide="clock" style="width: 14px; height: 14px;"></i>
+                            30 min
+                        </span>
+                    </div>
+                </div>
+                <div class="lesson-body">
+                    <p class="lesson-description">Moving from freelancer to owner</p>
+                    <div class="full-description">Your personal brand is the unfair advantage in the AI economy. With so many people claiming to be AI experts, the differentiator isn't credentials — it's trust. A strong personal brand means prospects come to you, you can charge premiums competitors can't, and your content works as a sales team that never sleeps.
+
+This lesson covers the complete personal brand architecture for AI entrepreneurs: your unique POV, your story, your content platform, and your monetization path.
+
+You'll articulate your unique positioning statement and have a content strategy aligned to it before this lesson ends.</div>
+                    
+                    <div class="transcript-preview">
+                        I've met a hundred AI experts who know more than me. Some are earning less than $2,000/month. The difference isn't knowledge. It's visibility. The expert nobody knows about can't help anyone — and can't earn from what they know. Brand is the distribution channel for expertise.
+                    </div>
+
+                    <div class="key-takeaways">
+                        <h3 class="section-title"><i data-lucide="key" style="width: 18px; height: 18px;"></i> Key Takeaways</h3>
+                        <ul>
+                            <li>The 3-part brand architecture: POV + Story + Platform</li>
+                            <li>Point of View: How to articulate a belief that makes you distinctly valuable</li>
+                            <li>Story packaging: How to use your experience as a credibility asset</li>
+                            <li>Platform selection: Which platform builds the most valuable brand for your business</li>
+                            <li>Brand monetization: How to convert brand equity into direct revenue</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-items">
+                        <h3 class="section-title"><i data-lucide="check-square" style="width: 18px; height: 18px;"></i> Action Items</h3>
+                        <ul>
+                            <li>Write your unique POV statement: 'I believe ___. That's why I ___.'</li>
+                            <li>Draft your origin story in 150 words: The experience that led you here</li>
+                            <li>Choose your primary brand platform and post your first piece of introductory content</li>
+                            <li>Map your brand to revenue: How does your content lead to your offer?</li>
+                        </ul>
+                    </div>
+
+                    <div class="resources">
+                        <h3 class="section-title"><i data-lucide="link" style="width: 18px; height: 18px;"></i> Resources</h3>
+                        <div class="resource-buttons">
+                            <a href="/prompts/cc-005" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                LinkedIn Post Writer Prompt
+                            </a>
+                            <a href="/prompts/cc-015" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                Thought Leadership Article Builder Prompt
+                            </a>
+                            <a href="/prompts/cc-013" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                Brand Voice Style Guide Creator Prompt
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson-footer">
+                    <span style="color: var(--gray); font-size: 0.875rem;">Complete to continue</span>
+                    <button class="btn btn-primary">
+                        <i data-lucide="play" style="width: 18px; height: 18px;"></i>
+                        Start Lesson
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lesson 2 -->
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <span class="lesson-number-badge">Lesson 2</span>
+                    <h2 class="lesson-title">AI & Investment</h2>
+                    <div class="lesson-meta">
+                        <span class="duration-badge">
+                            <i data-lucide="clock" style="width: 14px; height: 14px;"></i>
+                            35 min
+                        </span>
+                    </div>
+                </div>
+                <div class="lesson-body">
+                    <p class="lesson-description">Using AI for financial decisions</p>
+                    <div class="full-description">Strategic partnerships are the fastest growth lever for AI entrepreneurs who have proven their model but lack distribution. A single strategic partner with an existing audience of your ideal clients can do more in 90 days than a year of solo content creation.
+
+This lesson covers how to identify ideal partnership candidates, structure win-win agreements, activate partners effectively, and build a partnership program that generates consistent referrals without constant maintenance.
+
+You'll leave with 10 specific partnership prospects identified and outreach messages drafted.</div>
+                    
+                    <div class="transcript-preview">
+                        One strategic partnership I formed three years ago has sent me 23 clients. I've sent my partner 11 clients. That's combined $180,000+ in referred revenue from one relationship that takes 10 minutes a month to maintain. That's the power of the right partnership.
+                    </div>
+
+                    <div class="key-takeaways">
+                        <h3 class="section-title"><i data-lucide="key" style="width: 18px; height: 18px;"></i> Key Takeaways</h3>
+                        <ul>
+                            <li>Partnership identification: Finding partners whose audience is your audience</li>
+                            <li>Win-win structure: How to design partnerships both parties want to maintain</li>
+                            <li>Partnership activation: Getting partners to actually refer you</li>
+                            <li>Passive partnerships: Affiliate and referral structures that run without constant attention</li>
+                            <li>Partnership pitfalls: The 3 mistakes that kill partnerships before they start</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-items">
+                        <h3 class="section-title"><i data-lucide="check-square" style="width: 18px; height: 18px;"></i> Action Items</h3>
+                        <ul>
+                            <li>Identify 10 non-competing businesses whose clients overlap with yours</li>
+                            <li>Write partnership outreach emails using the Strategic Partnership Blueprint prompt</li>
+                            <li>Design your partnership compensation structure</li>
+                            <li>Schedule one partnership conversation in the next 7 days</li>
+                        </ul>
+                    </div>
+
+                    <div class="resources">
+                        <h3 class="section-title"><i data-lucide="link" style="width: 18px; height: 18px;"></i> Resources</h3>
+                        <div class="resource-buttons">
+                            <a href="/prompts/bs-012" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                Strategic Partnership Blueprint Prompt
+                            </a>
+                            <a href="/prompts/ca-012" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                Partnership Referral Outreach Prompt
+                            </a>
+                            <a href="/prompts/ca-010" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                Referral Program Builder Prompt
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson-footer">
+                    <span style="color: var(--gray); font-size: 0.875rem;">Complete to continue</span>
+                    <button class="btn btn-primary">
+                        <i data-lucide="play" style="width: 18px; height: 18px;"></i>
+                        Start Lesson
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lesson 3 -->
+            <div class="lesson-card">
+                <div class="lesson-header">
+                    <span class="lesson-number-badge">Lesson 3</span>
+                    <h2 class="lesson-title">Future-Proofing</h2>
+                    <div class="lesson-meta">
+                        <span class="duration-badge">
+                            <i data-lucide="clock" style="width: 14px; height: 14px;"></i>
+                            30 min
+                        </span>
+                    </div>
+                </div>
+                <div class="lesson-body">
+                    <p class="lesson-description">Staying ahead of AI changes</p>
+                    <div class="full-description">Building an AI empire means designing your business to grow beyond your direct involvement. This lesson covers the advanced strategies that create compound growth: building an affiliate program, licensing your systems, creating a certified community, and designing the business for eventual exit.
+
+These are Inner Circle strategies — they require a proven foundation to implement effectively. But understanding them from day one shapes how you build.
+
+You'll create a 3-year vision for your AI business and identify the leverage points that unlock each phase.</div>
+                    
+                    <div class="transcript-preview">
+                        I want to give you a glimpse of what a fully built AI empire looks like. It's not you working 60-hour weeks to keep up. It's systems, partners, and products all generating income simultaneously — and a team running operations while you focus on strategy, creation, and growth.
+                    </div>
+
+                    <div class="key-takeaways">
+                        <h3 class="section-title"><i data-lucide="key" style="width: 18px; height: 18px;"></i> Key Takeaways</h3>
+                        <ul>
+                            <li>Affiliate program architecture: How to build a sales army that earns you money</li>
+                            <li>Licensing and certification: Turning your methodology into a scalable asset</li>
+                            <li>White label partnerships: How to have other businesses sell your services</li>
+                            <li>Exit strategy planning: What makes an AI business sellable at a premium multiple</li>
+                            <li>The compound growth model: How each layer multiplies the others</li>
+                        </ul>
+                    </div>
+
+                    <div class="action-items">
+                        <h3 class="section-title"><i data-lucide="check-square" style="width: 18px; height: 18px;"></i> Action Items</h3>
+                        <ul>
+                            <li>Map your 3-year empire vision: What does the business look like at $1M/year?</li>
+                            <li>Identify which leverage strategy fits your current business best</li>
+                            <li>Design the first phase of your affiliate or partner program</li>
+                            <li>Calculate what your business is worth today and what would double that valuation</li>
+                        </ul>
+                    </div>
+
+                    <div class="resources">
+                        <h3 class="section-title"><i data-lucide="link" style="width: 18px; height: 18px;"></i> Resources</h3>
+                        <div class="resource-buttons">
+                            <a href="/prompts/bs-014" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                Exit Strategy Planner Prompt
+                            </a>
+                            <a href="/prompts/fa-012" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                White Label Service Designer Prompt
+                            </a>
+                            <a href="/prompts/bs-013" class="resource-btn">
+                                <i data-lucide="zap" style="width: 16px; height: 16px;"></i>
+                                Annual Planning Workshop Guide Prompt
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="lesson-footer">
+                    <span style="color: var(--gray); font-size: 0.875rem;">Complete to continue</span>
+                    <button class="btn btn-primary">
+                        <i data-lucide="play" style="width: 18px; height: 18px;"></i>
+                        Start Lesson
+                    </button>
+                </div>
+            </div>
+
+            <!-- Module Navigation -->
+            <div class="module-navigation">
+                <a href="module-9.html" class="btn btn-secondary">← Module 9</a>
+                <a href="module-11.html" class="btn btn-primary">
+                    Module 11 →
+                    <span style="opacity: 0.7; margin-left: 8px; font-weight: 400;">Inner Circle Strategies</span>
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Upgrade Overlay -->
+    <div class="upgrade-overlay" id="upgradeOverlay">
+        <div class="upgrade-modal">
+            <h2>🔒 Upgrade Required</h2>
+            <p>This module requires Accelerator tier or higher. Upgrade to access empire-building strategies and wealth frameworks.</p>
+            <button class="btn btn-primary" onclick="window.location.href='/upgrade'">
+                Upgrade Now
+            </button>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        const userTier = localStorage.getItem('userTier') || 'starter';
+        const tierBadge = document.getElementById('tierBadge');
+        const upgradeOverlay = document.getElementById('upgradeOverlay');
+        const tierNames = {
+            'starter': 'Starter',
+            'accelerator': 'Accelerator',
+            'inner_circle': 'Inner Circle'
+        };
+        tierBadge.textContent = tierNames[userTier] || 'Starter';
+        const moduleNum = 10;
+        const maxModules = userTier === 'inner_circle' ? 12 : userTier === 'accelerator' ? 10 : 6;
+        if (moduleNum > maxModules) {
+            upgradeOverlay.classList.add('active');
+        }
+        const userEmail = localStorage.getItem('userEmail') || 'user@example.com';
+        const userName = userEmail.split('@')[0];
+        document.getElementById('userName').textContent = userName;
+        document.getElementById('userEmail').textContent = userEmail;
+        document.getElementById('userAvatar').textContent = userName.charAt(0).toUpperCase();
+    </script>
+</body>
+</html>
