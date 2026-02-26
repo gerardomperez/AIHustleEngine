@@ -48,6 +48,8 @@
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-decoration: none;
+            display: block;
         }
         .tier-badge {
             display: inline-block;
@@ -271,6 +273,8 @@
             cursor: pointer;
             transition: all 0.2s;
             border: 1px solid transparent;
+            text-decoration: none;
+            color: var(--dark);
         }
         .module-item:hover {
             background: var(--light);
@@ -389,67 +393,47 @@
         
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <div class="logo">AI Hustle Engine</div>
+                <a href="/" class="logo">AI Hustle Engine</a>
                 <span class="tier-badge">Accelerator</span>
             </div>
             
             <nav class="nav">
                 <div class="nav-section">
                     <div class="nav-title">Learn</div>
-                    <a href="#" class="nav-item active">
+                    <a href="dashboard.html" class="nav-item active">
                         <span class="nav-icon">📚</span>
                         Course Modules
                         <span class="progress-indicator">25%</span>
                     </a>
-                    <a href="#" class="nav-item">
+                    <a href="prompt-vault.html" class="nav-item">
                         <span class="nav-icon">⚡</span>
                         Prompt Vault
                     </a>
-                    <a href="#" class="nav-item">
+                    <a href="templates.html" class="nav-item">
                         <span class="nav-icon">📝</span>
-                        Worksheets
-                    </a>
-                </div>
-                
-                <div class="nav-section">
-                    <div class="nav-title">Community</div>
-                    <a href="#" class="nav-item">
-                        <span class="nav-icon">💬</span>
-                        Discussion
-                    </a>
-                    <a href="#" class="nav-item">
-                        <span class="nav-icon">🎥</span>
-                        Live Q&A
-                    </a>
-                    <a href="#" class="nav-item">
-                        <span class="nav-icon">🏆</span>
-                        Wins Board
-                    </a>
-                </div>
-                
-                <div class="nav-section">
-                    <div class="nav-title">Resources</div>
-                    <a href="#" class="nav-item">
-                        <span class="nav-icon">📄</span>
                         Templates
                     </a>
-                    <a href="#" class="nav-item">
-                        <span class="nav-icon">🛠️</span>
-                        Tool Stack
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-title">Account</div>
+                    <a href="account.html" class="nav-item">
+                        <span class="nav-icon">👤</span>
+                        Settings
                     </a>
-                    <a href="#" class="nav-item">
-                        <span class="nav-icon">🎁</span>
-                        Bonuses
+                    <a href="/login.html" class="nav-item">
+                        <span class="nav-icon">🚪</span>
+                        Logout
                     </a>
                 </div>
             </nav>
             
             <div class="sidebar-footer">
-                <div class="user-menu">
-                    <div class="avatar">JD</div>
+                <div class="user-menu" onclick="window.location.href='account.html'">
+                    <div class="avatar" id="userAvatar">JD</div>
                     <div class="user-info">
-                        <div class="user-name">John Doe</div>
-                        <div class="user-email">john@example.com</div>
+                        <div class="user-name" id="userName">John Doe</div>
+                        <div class="user-email" id="userEmail">john@example.com</div>
                     </div>
                 </div>
             </div>
@@ -459,18 +443,18 @@
             <div class="header">
                 <h1>Dashboard</h1>
                 <div class="header-actions">
-                    <button class="btn btn-secondary">📚 Resume Learning</button>
-                    <button class="btn btn-primary">⚡ Browse Prompts</button>
+                    <a href="module-1.html" class="btn btn-secondary">📚 Resume Learning</a>
+                    <a href="prompt-vault.html" class="btn btn-primary">⚡ Browse Prompts</a>
                 </div>
             </div>
             
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-label">Course Progress</div>
-                    <div class="stat-value">3/12</div>
-                    <div class="stat-change">↑ 25% complete</div>
+                    <div class="stat-value" id="courseProgress">3/12</div>
+                    <div class="stat-change">↑ <span id="progressPercent">25%</span> complete</div>
                     <div class="progress-bar">
-                        <div class="progress-fill" style="width: 25%"></div>
+                        <div class="progress-fill" id="overallProgress" style="width: 25%"></div>
                     </div>
                 </div>
                 <div class="stat-card">
@@ -494,54 +478,117 @@
                 <div class="card">
                     <div class="card-header">
                         <h2 class="card-title">Continue Learning</h2>
-                        <button class="btn btn-secondary">View All</button>
+                        <a href="module-1.html" class="btn btn-secondary">View All</a>
                     </div>
                     <div class="card-body">
                         <div class="module-list">
-                            <div class="module-item completed">
+                            <a href="module-1.html" class="module-item completed">
                                 <div class="module-number">✓</div>
                                 <div class="module-info">
                                     <div class="module-title">1. AI Fundamentals</div>
                                     <div class="module-meta">3 lessons • 60 min</div>
                                 </div>
                                 <span class="module-status completed">Completed</span>
-                            </div>
+                            </a>
                             
-                            <div class="module-item completed">
+                            <a href="module-2.html" class="module-item completed">
                                 <div class="module-number">✓</div>
                                 <div class="module-info">
                                     <div class="module-title">2. Income Stream Identification</div>
                                     <div class="module-meta">3 lessons • 75 min</div>
                                 </div>
                                 <span class="module-status completed">Completed</span>
-                            </div>
+                            </a>
                             
-                            <div class="module-item">
+                            <a href="module-3.html" class="module-item">
                                 <div class="module-number">3</div>
                                 <div class="module-info">
                                     <div class="module-title">3. AI Services Business</div>
                                     <div class="module-meta">3 lessons • 75 min • 1 remaining</div>
                                 </div>
                                 <span class="module-status">In Progress</span>
-                            </div>
+                            </a>
                             
-                            <div class="module-item">
+                            <a href="module-4.html" class="module-item">
                                 <div class="module-number">4</div>
                                 <div class="module-info">
                                     <div class="module-title">4. AI Content Empire</div>
                                     <div class="module-meta">3 lessons • 80 min</div>
                                 </div>
-                                <span class="module-status">Locked</span>
-                            </div>
+                                <span class="module-status">Start</span>
+                            </a>
                             
-                            <div class="module-item locked">
-                                <div class="module-number">🔒</div>
+                            <a href="module-5.html" class="module-item">
+                                <div class="module-number">5</div>
                                 <div class="module-info">
                                     <div class="module-title">5. AI Product Creation</div>
                                     <div class="module-meta">3 lessons • 90 min</div>
                                 </div>
+                                <span class="module-status">Start</span>
+                            </a>
+                            
+                            <a href="module-6.html" class="module-item">
+                                <div class="module-number">6</div>
+                                <div class="module-info">
+                                    <div class="module-title">6. AI Agency Model</div>
+                                    <div class="module-meta">3 lessons • 90 min</div>
+                                </div>
+                                <span class="module-status">Start</span>
+                            </a>
+                            
+                            <a href="module-7.html" class="module-item locked" onclick="return checkTier('accelerator')">
+                                <div class="module-number">🔒</div>
+                                <div class="module-info">
+                                    <div class="module-title">7. Advanced AI Tactics</div>
+                                    <div class="module-meta">3 lessons • 105 min • Accelerator</div>
+                                </div>
                                 <span class="module-status">Locked</span>
-                            </div>
+                            </a>
+                            
+                            <a href="module-8.html" class="module-item locked" onclick="return checkTier('accelerator')">
+                                <div class="module-number">🔒</div>
+                                <div class="module-info">
+                                    <div class="module-title">8. Scaling to 6 Figures</div>
+                                    <div class="module-meta">3 lessons • 95 min • Accelerator</div>
+                                </div>
+                                <span class="module-status">Locked</span>
+                            </a>
+                            
+                            <a href="module-9.html" class="module-item locked" onclick="return checkTier('accelerator')">
+                                <div class="module-number">🔒</div>
+                                <div class="module-info">
+                                    <div class="module-title">9. AI Arbitrage & Flipping</div>
+                                    <div class="module-meta">3 lessons • 90 min • Accelerator</div>
+                                </div>
+                                <span class="module-status">Locked</span>
+                            </a>
+                            
+                            <a href="module-10.html" class="module-item locked" onclick="return checkTier('accelerator')">
+                                <div class="module-number">🔒</div>
+                                <div class="module-info">
+                                    <div class="module-title">10. Building Your AI Empire</div>
+                                    <div class="module-meta">3 lessons • 95 min • Accelerator</div>
+                                </div>
+                                <span class="module-status">Locked</span>
+                            </a>
+                            
+                            <a href="module-11.html" class="module-item locked" onclick="return checkTier('inner-circle')">
+                                <div class="module-number">🔒</div>
+                                <div class="module-info">
+                                    <div class="module-title">11. Inner Circle Strategies</div>
+                                    <div class="module-meta">3 lessons • 120 min • Inner Circle</div>
+                                </div>
+                                <span class="module-status">Locked</span>
+                            </a>
+                            
+                            <a href="module-12.html" class="module-item locked" onclick="return checkTier('inner-circle')">
+                                <div class="module-number">🔒</div>
+                                <div class="module-info">
+                                    <div class="module-title">12. Your First 30 Days</div>
+                                    <div class="module-meta">3 lessons • 105 min • Inner Circle</div>
+                                </div>
+                                <span class="module-status">Locked</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -549,32 +596,24 @@
                 <div>
                     <div class="card" style="margin-bottom: 24px;">
                         <div class="card-header">
-                            <h2 class="card-title">Prompt of the Day</h2>
+                            <h2 class="card-title">Quick Access</h2>
                         </div>
                         <div class="card-body">
-                            <h3 style="font-size: 1rem; margin-bottom: 8px;">Market Research Analysis</h3>
-                            <p style="font-size: 0.875rem; color: var(--gray); margin-bottom: 16px;">Quickly analyze any market niche for opportunities</p>
-                            <div class="prompt-preview">
-                                Analyze the [NICHE] market. Provide market size, key players, customer pain points, and entry opportunities...
+                            <div style="display: flex; flex-direction: column; gap: 12px;">
+                                <a href="prompt-vault.html" class="btn btn-secondary" style="justify-content: flex-start;">⚡ Browse Prompt Vault</a>
+                                <a href="templates.html" class="btn btn-secondary" style="justify-content: flex-start;">📄 View Templates</a>
+                                <a href="account.html" class="btn btn-secondary" style="justify-content: flex-start;">⚙️ Account Settings</a>
                             </div>
-                            <button class="btn btn-primary" style="width: 100%; margin-top: 16px;">Copy Prompt</button>
                         </div>
                     </div>
                     
                     <div class="card">
                         <div class="card-header">
-                            <h2 class="card-title">Next Live Q&A</h2>
+                            <h2 class="card-title">Upgrade Your Access</h2>
                         </div>
                         <div class="card-body">
-                            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                                <div style="width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">📅</div>
-                                <div>
-                                    <div style="font-weight: 600;">Thursday, Feb 27</div>
-                                    <div style="font-size: 0.875rem; color: var(--gray);">7:00 PM EST</div>
-                                </div>
-                            </div>
-                            <p style="font-size: 0.875rem; color: var(--gray); margin-bottom: 16px;">Topic: Getting Your First AI Service Clients</p>
-                            <button class="btn btn-secondary" style="width: 100%;">Add to Calendar</button>
+                            <p style="font-size: 0.875rem; color: var(--gray); margin-bottom: 16px;">Unlock all 12 modules plus exclusive resources</p>
+                            <a href="/checkout.html?tier=accelerator" class="btn btn-primary" style="width: 100%;">Upgrade to Accelerator</a>
                         </div>
                     </div>
                 </div>
@@ -585,6 +624,39 @@
     <script>
         function toggleSidebar() {
             document.getElementById('sidebar').classList.toggle('open');
+        }
+        
+        // Load user data
+        const user = JSON.parse(localStorage.getItem('ahe_user') || '{"name": "John Doe", "email": "john@example.com", "tier": "starter"}');
+        document.getElementById('userName').textContent = user.name;
+        document.getElementById('userEmail').textContent = user.email;
+        document.getElementById('userAvatar').textContent = user.name.split(' ').map(n => n[0]).join('').toUpperCase();
+        
+        // Update tier badge
+        document.querySelector('.tier-badge').textContent = user.tier.charAt(0).toUpperCase() + user.tier.slice(1);
+        
+        // Calculate progress from localStorage
+        let completedLessons = 0;
+        for (let i = 1; i <= 12; i++) {
+            const moduleCompleted = JSON.parse(localStorage.getItem(`module${i}_completed`) || '[]');
+            completedLessons += moduleCompleted.length;
+        }
+        const totalLessons = 36; // 12 modules × 3 lessons
+        const progressPercent = Math.round((completedLessons / totalLessons) * 100);
+        document.getElementById('courseProgress').textContent = `${completedLessons}/${totalLessons}`;
+        document.getElementById('progressPercent').textContent = `${progressPercent}%`;
+        document.getElementById('overallProgress').style.width = `${progressPercent}%`;
+        
+        // Check tier access
+        function checkTier(requiredTier) {
+            const tiers = { 'starter': 1, 'accelerator': 2, 'inner-circle': 3 };
+            if (tiers[user.tier] < tiers[requiredTier]) {
+                if (confirm(`This module requires ${requiredTier} tier. Upgrade now?`)) {
+                    window.location.href = `/checkout.html?tier=${requiredTier}`;
+                }
+                return false;
+            }
+            return true;
         }
     </script>
 </body>
