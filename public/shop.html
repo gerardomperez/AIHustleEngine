@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Theme Page Mentorship | AdvancedMedias</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        :root {
+            --rich-black: #0A0A0A;
+            --charcoal: #1A1A1A;
+            --royal-gold: #D4A843;
+            --deep-gold: #A07C2A;
+            --champagne: #F2E2C4;
+            --soft-grey: #2E2E2E;
+            --text: #ffffff;
+            --text-muted: #9E9E9E;
+            --success: #4CAF6A;
+            --gradient-gold: linear-gradient(135deg, #A07C2A, #D4A843);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--rich-black); 
+            color: var(--text); 
+            line-height: 1.6; 
+        }
+        
+        nav { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            padding: 1rem 2rem; 
+            background: rgba(10, 10, 10, 0.95); 
+            backdrop-filter: blur(20px); 
+            border-bottom: 1px solid var(--soft-grey); 
+            z-index: 1000; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        
+        .logo { 
+            height: 40px; 
+        }
+        
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+        
+        .hero { 
+            min-height: auto; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            padding: 8rem 2rem 2rem; 
+            text-align: center; 
+            background: var(--rich-black);
+        }
+        
+        .hero-badge { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 0.5rem; 
+            background: rgba(212, 168, 67, 0.1); 
+            border: 1px solid var(--royal-gold); 
+            padding: 0.5rem 1rem; 
+            border-radius: 50px; 
+            font-size: 0.85rem; 
+            color: var(--royal-gold); 
+            margin-bottom: 2rem; 
+        }
+        
+        .hero h1 { 
+            font-size: clamp(2.5rem, 6vw, 4.5rem); 
+            font-weight: 900; 
+            line-height: 1.1; 
+            margin-bottom: 1.5rem; 
+            color: var(--text);
+        }
+        
+        .hero h1 span {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle { 
+            font-size: clamp(1.1rem, 2vw, 1.35rem); 
+            color: var(--text-muted); 
+            max-width: 700px; 
+            margin: 0 auto 2rem; 
+        }
+        
+        .hero-price { 
+            font-size: 3rem; 
+            font-weight: 800; 
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem; 
+        }
+        
+        .hero-price-note { 
+            color: var(--text-muted); 
+            font-size: 0.9rem; 
+            margin-bottom: 2rem; 
+        }
+        
+        /* Payment Section */
+        .payment-section { 
+            padding: 2rem; 
+            max-width: 600px; 
+            margin: 0 auto 4rem; 
+        }
+        
+        .payment-card { 
+            background: var(--charcoal); 
+            border: 1px solid var(--soft-grey); 
+            border-radius: 24px; 
+            padding: 2rem; 
+        }
+        
+        .payment-title { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            text-align: center; 
+            margin-bottom: 1.5rem; 
+        }
+        
+        .payment-title span {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .payment-amount { 
+            font-size: 3rem; 
+            font-weight: 900; 
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center; 
+            margin-bottom: 2rem; 
+        }
+        
+        /* Stripe Elements */
+        #payment-form { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 1rem; 
+        }
+        
+        #card-element { 
+            background: var(--rich-black); 
+            border: 1px solid var(--soft-grey); 
+            border-radius: 12px; 
+            padding: 1rem; 
+        }
+        
+        .form-row { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 0.5rem; 
+        }
+        
+        .form-row label { 
+            font-size: 0.9rem; 
+            color: var(--text-muted); 
+        }
+        
+        .form-row input { 
+            background: var(--rich-black); 
+            border: 1px solid var(--soft-grey); 
+            border-radius: 8px; 
+            padding: 0.75rem 1rem; 
+            color: white; 
+            font-size: 1rem; 
+        }
+        
+        .form-row input:focus { 
+            outline: none; 
+            border-color: var(--royal-gold); 
+        }
+        
+        #submit-button { 
+            background: var(--gradient-gold); 
+            color: var(--rich-black); 
+            padding: 1rem; 
+            border: none; 
+            border-radius: 50px; 
+            font-weight: 700; 
+            font-size: 1.1rem; 
+            cursor: pointer; 
+            margin-top: 1rem; 
+            box-shadow: 0 10px 40px rgba(212, 168, 67, 0.18);
+        }
+        
+        #submit-button:hover { 
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 30px rgba(212, 168, 67, 0.3); 
+        }
+        
+        #submit-button:disabled { 
+            opacity: 0.6; 
+            cursor: not-allowed; 
+            transform: none; 
+        }
+        
+        #payment-message { 
+            text-align: center; 
+            margin-top: 1rem; 
+            font-size: 0.9rem; 
+        }
+        
+        .payment-success { 
+            color: var(--success); 
+        }
+        
+        .payment-error { 
+            color: #ef4444; 
+        }
+        
+        .secure-badge { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 0.5rem; 
+            margin-top: 1rem; 
+            color: var(--text-muted); 
+            font-size: 0.85rem; 
+        }
+        
+        footer { 
+            text-align: center; 
+            padding: 2rem; 
+            border-top: 1px solid var(--soft-grey); 
+            color: var(--text-muted); 
+            font-size: 0.9rem; 
+            background: var(--rich-black);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .payment-amount { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="https://www.advancedmedias.com/assets/images/logo.png" alt="Advanced Medias">
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div>
+            <div class="hero-badge">🔥 Limited Spots Available</div>
+            <h1>Social Media <span>Theme Page</span> Mentorship</h1>
+            <p class="hero-subtitle">The exact 6-month system I used to grow 5M+ followers and generate $10k+/month from theme pages. Get 1-on-1 mentorship from someone who's actually done it.</p>
+            <div class="hero-price">$2,000</div>
+            <p class="hero-price-note">One-time payment • Lifetime access to community</p>
+        </div>
+    </section>
+
+    <section id="pricing" class="payment-section">
+        <div class="payment-card">
+            <div class="payment-title">Complete Your <span>Enrollment</span></div>
+            <div class="payment-amount">$2,000</div>
+            
+            <form id="payment-form">
+                <div class="form-row">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="you@example.com" required>
+                </div>
+                
+                <div class="form-row">
+                    <label for="card-element">Credit or debit card</label>
+                    <div id="card-element"></div>
+                    <div id="card-errors" role="alert" style="color: #ef4444; font-size: 0.85rem; margin-top: 0.5rem;"></div>
+                </div>
+                
+                <button id="submit-button" type="submit">
+                    <span id="button-text">Pay $2,000</span>
+                    <span id="spinner" style="display: none;">Processing...</span>
+                </button>
+            </form>
+            
+            <div id="payment-message"></div>
+            
+            <div class="secure-badge">
+                <span>🔒</span>
+                <span>Secure payment powered by Stripe</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 AdvancedMedias. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">Questions? Email support@advancedmedias.com</p>
+    </footer>
+
+    <script>
+        // Initialize Stripe with your publishable key
+        const stripe = Stripe('pk_test_YOUR_PUBLISHABLE_KEY_HERE');
+        const elements = stripe.elements();
+        
+        // Create card element with custom styling
+        const cardElement = elements.create('card', {
+            style: {
+                base: {
+                    fontSize: '16px',
+                    color: '#ffffff',
+                    '::placeholder': { color: '#9E9E9E' },
+                    backgroundColor: 'transparent',
+                },
+                invalid: { color: '#ef4444' }
+            }
+        });
+        
+        cardElement.mount('#card-element');
+        
+        // Handle validation errors
+        cardElement.on('change', (event) => {
+            const displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
+        
+        // Handle form submission
+        const form = document.getElementById('payment-form');
+        const submitButton = document.getElementById('submit-button');
+        const buttonText = document.getElementById('button-text');
+        const spinner = document.getElementById('spinner');
+        const paymentMessage = document.getElementById('payment-message');
+        
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            
+            submitButton.disabled = true;
+            buttonText.style.display = 'none';
+            spinner.style.display = 'inline';
+            paymentMessage.textContent = '';
+            
+            const email = document.getElementById('email').value;
+            
+            try {
+                const response = await fetch('/api/create-payment-intent', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        amount: 200000,
+                        email: email 
+                    })
+                });
+                
+                const { clientSecret } = await response.json();
+                
+                const { error, paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
+                    payment_method: {
+                        card: cardElement,
+                        billing_details: { email: email }
+                    }
+                });
+                
+                if (error) {
+                    paymentMessage.textContent = error.message;
+                    paymentMessage.className = 'payment-error';
+                    submitButton.disabled = false;
+                    buttonText.style.display = 'inline';
+                    spinner.style.display = 'none';
+                } else {
+                    paymentMessage.textContent = 'Payment successful! Check your email for next steps.';
+                    paymentMessage.className = 'payment-success';
+                    
+                    setTimeout(() => {
+                        window.location.href = '/thank-you';
+                    }, 2000);
+                }
+            } catch (err) {
+                paymentMessage.textContent = 'An error occurred. Please try again.';
+                paymentMessage.className = 'payment-error';
+                submitButton.disabled = false;
+                buttonText.style.display = 'inline';
+                spinner.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -70,6 +70,7 @@
             --gray: #64748b;
             --light: #f8fafc;
             --success: #10b981;
+            --warning: #f59e0b;
         }
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -129,9 +130,9 @@
             color: var(--accent);
         }
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 800;
-            line-height: 1.1;
+            line-height: 1.15;
             margin-bottom: 24px;
             max-width: 900px;
             margin-left: auto;
@@ -148,6 +149,24 @@
             color: #94a3b8;
             max-width: 700px;
             margin: 0 auto 40px;
+        }
+        .urgency-bar {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0.1) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 12px;
+            padding: 16px 24px;
+            margin: 0 auto 32px;
+            max-width: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .urgency-bar span {
+            color: var(--warning);
+            font-weight: 600;
+            font-size: 0.95rem;
         }
         .btn-primary {
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
@@ -200,9 +219,93 @@
             color: var(--gray);
             font-size: 0.95rem;
         }
-        .pricing {
+        .authority {
+            padding: 100px 0;
+            background: white;
+        }
+        .authority-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .authority-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+        .authority-content .subtitle {
+            font-size: 1.25rem;
+            color: var(--gray);
+            margin-bottom: 48px;
+        }
+        .authority-story {
+            text-align: left;
+            background: var(--light);
+            padding: 48px;
+            border-radius: 20px;
+            line-height: 1.8;
+            color: var(--dark);
+        }
+        .authority-story p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+        .authority-story p:last-child {
+            margin-bottom: 0;
+        }
+        .how-it-works {
             padding: 100px 0;
             background: var(--light);
+        }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        @media (max-width: 1024px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+        }
+        .step-card {
+            background: white;
+            padding: 40px 32px;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            position: relative;
+        }
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin: 0 auto 24px;
+        }
+        .step-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+        .step-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        .pricing {
+            padding: 100px 0;
+            background: white;
         }
         .pricing-grid {
             display: grid;
@@ -225,6 +328,7 @@
             position: relative;
             display: flex;
             flex-direction: column;
+            border: 2px solid #e2e8f0;
         }
         .pricing-card.featured {
             transform: scale(1.05);
@@ -312,22 +416,143 @@
             color: white;
             box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
         }
+        .founding-member-notice {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            border: 2px solid var(--primary);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 48px;
+            text-align: center;
+        }
+        .founding-member-notice h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+        .founding-member-notice p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+        .fast-action-bonus {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+            border: 2px solid var(--warning);
+            border-radius: 16px;
+            padding: 32px;
+            margin: 48px auto 0;
+            max-width: 800px;
+            text-align: center;
+        }
+        .fast-action-bonus h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 16px;
+        }
+        .fast-action-bonus .bonus-value {
+            color: var(--warning);
+            font-weight: 700;
+        }
+        .fast-action-bonus ul {
+            list-style: none;
+            text-align: left;
+            max-width: 500px;
+            margin: 0 auto 24px;
+        }
+        .fast-action-bonus li {
+            padding: 8px 0;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+        .fast-action-bonus li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+            margin-right: 12px;
+        }
+        .bonus-deadline {
+            background: var(--dark);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        .faq {
+            padding: 100px 0;
+            background: var(--light);
+        }
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+        .faq-question {
+            padding: 24px 32px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        .faq-answer {
+            padding: 0 32px 24px;
+            color: var(--gray);
+            line-height: 1.7;
+        }
         .guarantee {
-            padding: 80px 0;
+            padding: 100px 0;
             background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
             text-align: center;
         }
+        .guarantee-box {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 24px;
+            padding: 60px 48px;
+            box-shadow: 0 20px 60px rgba(6, 95, 70, 0.15);
+            border: 3px solid var(--success);
+        }
+        .guarantee-icon {
+            font-size: 4rem;
+            margin-bottom: 24px;
+        }
         .guarantee h2 {
-            font-size: 2rem;
+            font-size: 2.25rem;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 24px;
             color: #065f46;
         }
-        .guarantee p {
-            font-size: 1.125rem;
+        .guarantee-intro {
+            font-size: 1.25rem;
             color: #047857;
-            max-width: 600px;
-            margin: 0 auto;
+            font-weight: 600;
+            margin-bottom: 32px;
+        }
+        .guarantee-content {
+            text-align: left;
+            margin-bottom: 32px;
+        }
+        .guarantee-content p {
+            font-size: 1.05rem;
+            color: #374151;
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+        .guarantee-content strong {
+            color: #065f46;
+        }
+        .guarantee-closing {
+            background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+            color: white;
+            padding: 24px 32px;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
         }
         .final-cta {
             padding: 100px 0;
@@ -344,6 +569,26 @@
             font-size: 1.25rem;
             color: #94a3b8;
             margin-bottom: 40px;
+        }
+        .why-now {
+            max-width: 700px;
+            margin: 48px auto 0;
+            padding: 32px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .why-now h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--warning);
+        }
+        .why-now p {
+            font-size: 1rem;
+            color: #94a3b8;
+            margin-bottom: 12px;
+            text-align: left;
         }
         footer {
             padding: 40px 0;
@@ -369,12 +614,17 @@
 
     <section class="hero">
         <div class="container">
-            <div class="hero-badge">⚡ New Course — 2024 Edition</div>
-            <h1>Build <span>AI-Powered Income Streams</span> in 30 Days</h1>
+            <div class="hero-badge">⚡ New Course — 2025 Edition</div>
+            <h1>If You Can Copy and Paste, You Can Build a <span>$500/Week AI Side Business</span> — Here's the Exact System</h1>
             <p class="hero-subtitle">
                 The complete blueprint for turning AI tools into profitable businesses. 
                 No coding required. No prior experience needed.
             </p>
+            <div class="urgency-bar">
+                <span>🚨 Founding Member Pricing — 30% Off</span>
+                <span>|</span>
+                <span>Limited to First 100 Students</span>
+            </div>
             <a href="#pricing" class="btn-primary">Start Building Your AI Hustle →</a>
         </div>
     </section>
@@ -406,12 +656,61 @@
         </div>
     </section>
 
+    <section class="authority">
+        <div class="container">
+            <div class="authority-content">
+                <h2>About the Creator</h2>
+                <p class="subtitle">I'm not a guru. I'm just someone who figured out the shortcut and drew a map.</p>
+                <div class="authority-story">
+                    <p>Two years ago, I was drowning.</p>
+                    <p>Not in water — in meetings. In commutes. In the soul-crushing realization that my 9-to-5 was trading my best hours for a paycheck that barely kept up with inflation.</p>
+                    <p>Then I discovered something that changed everything: AI wasn't just for tech bros in hoodies. It was a leverage multiplier for anyone smart enough to use it.</p>
+                    <p>I started small. A chatbot here. An automated workflow there. Within 90 days, I had built three income streams generating $2,400/month — all while still working my day job. No coding. No engineering degree. Just a willingness to learn and a system I refined through trial and error.</p>
+                    <p>Today, I've helped 200+ people build their first AI-powered income streams. Some wanted extra cash for vacations. Others needed to escape jobs they hated. A few now run six-figure AI businesses they built from their kitchen tables.</p>
+                    <p>I'm not a guru. I'm just someone who figured out the shortcut and drew a map so you don't have to wander in the dark like I did.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your AI Income Journey — Simplified</h2>
+                <p>Three steps from zero to your first AI-powered income stream</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">🔍</div>
+                    <h3>Step 1: Discover Your AI Advantage</h3>
+                    <p>We start by identifying which AI income stream matches YOUR skills, schedule, and goals. Through a simple 10-minute assessment, you'll discover whether content creation, automation services, digital products, or AI consulting is your fastest path to profit. No guessing. No overwhelm. Just clarity on exactly where to focus your energy.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">⚙️</div>
+                    <h3>Step 2: Build Your First Income Engine</h3>
+                    <p>Follow our step-by-step implementation guides to launch your first AI-powered income stream. We give you the exact prompts, templates, and workflows — you just copy, customize, and deploy. Most students have their first income engine running within 7-14 days, even if they've never used AI tools before.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">📈</div>
+                    <h3>Step 3: Scale & Stack Your Earnings</h3>
+                    <p>Once your first stream is generating income, we show you how to automate 80% of the work and replicate your success across multiple income sources. This is where $500/week becomes $2,000/month becomes a full-time income — all running on autopilot while you focus on living your life.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="pricing" id="pricing">
         <div class="container">
             <div class="section-header">
                 <h2>Choose Your Path</h2>
                 <p>Three ways to access the AI Hustle Engine</p>
             </div>
+            
+            <div class="founding-member-notice">
+                <h3>🚨 Founding Member Pricing Ends Soon</h3>
+                <p>We're launching AI-Hustle to a small group of founding members at 30% off. Once we hit 100 students, the price increases to the regular rate — and it won't come back down.</p>
+            </div>
+            
             <div class="pricing-grid">
                 <div class="pricing-card">
                     <div class="pricing-tier">Starter Kit</div>
@@ -463,13 +762,77 @@
                     <a href="/checkout.html?tier=inner-circle" class="btn-pricing btn-pricing-outline">Apply for Inner Circle →</a>
                 </div>
             </div>
+            
+            <div class="fast-action-bonus">
+                <h3>⚡ Fast-Action Bonuses <span class="bonus-value">($497 Value)</span></h3>
+                <p style="margin-bottom: 24px; color: var(--gray);">Enroll before Friday at midnight and get these bonuses FREE:</p>
+                <ul>
+                    <li><strong>AI Client Acquisition Scripts</strong> — exact messages to land your first paying client ($197 value)</li>
+                    <li><strong>Automation Library</strong> — 50+ pre-built AI workflows you can deploy immediately ($197 value)</li>
+                    <li><strong>Private Community Access</strong> — direct support from me and fellow AI hustlers ($97 value)</li>
+                </ul>
+                <div class="bonus-deadline">⏰ Bonuses Expire Friday at Midnight</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2>Your Questions, Answered</h2>
+                <p>Everything you need to know before getting started</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <div class="faq-question">Is this just another scam course?</div>
+                    <div class="faq-answer">I get it — the internet is full of "get rich quick" garbage promising Lamborghinis overnight. This isn't that. AI-Hustle teaches real skills using real tools that real businesses pay for right now. You won't get rich in a week. But if you follow the system, you'll build genuine income streams that compound over time. Plus, our 30-day guarantee means you can verify everything risk-free.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Will this work if I have no tech skills?</div>
+                    <div class="faq-answer">Absolutely. The entire program is designed for non-technical people. If you can use Google, send emails, and copy-paste text, you have all the technical skills you need. We walk you through every tool step-by-step, and most of our successful students started exactly where you are — intimidated by technology but willing to learn.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How much time do I need?</div>
+                    <div class="faq-answer">Most students invest 5-10 hours per week during the setup phase (first 2-3 weeks). Once your income streams are running, many require just 2-3 hours per week to maintain. The beauty of AI-powered income is that the systems do the heavy lifting — you're managing machines, not grinding away manually.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What if I don't see results?</div>
+                    <div class="faq-answer">We offer a 30-day "First $500" guarantee. If you complete the coursework, implement what you learn, and don't make your first $500 within 30 days, we'll refund every penny AND work with you one-on-one until you do. We've never had to make that second promise because the system works when you work it.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How is this different from free YouTube content?</div>
+                    <div class="faq-answer">YouTube is great for inspiration, terrible for implementation. Free content gives you fragments of information without the connective tissue. AI-Hustle provides a complete system: structured learning path, proven workflows, done-for-you templates, and direct support when you get stuck. You could spend 200 hours piecing together free videos — or follow our roadmap and be earning in 30 days.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do I need to pay for expensive AI tools?</div>
+                    <div class="faq-answer">Nope. We focus on free and low-cost AI tools (many under $20/month) that deliver professional results. Your total tool investment to get started is typically under $50/month — and often $0 if you use free tiers strategically. We teach you how to maximize free credits and scale tool costs only when your income justifies it.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can I do this from anywhere?</div>
+                    <div class="faq-answer">Yes. All you need is a laptop and internet connection. We've had students build AI income streams from coffee shops in Bali, their parents' basements, and everything in between. The work is 100% location-independent, which is exactly why so many people are rushing to learn these skills right now.</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <section class="guarantee">
         <div class="container">
-            <h2>✓ 30-Day Money-Back Guarantee</h2>
-            <p>Try the AI Hustle Engine risk-free. If you don't see the value within 30 days, email us for a full refund. No questions asked.</p>
+            <div class="guarantee-box">
+                <div class="guarantee-icon">🛡️</div>
+                <h2>Our "First $500" Promise</h2>
+                <div class="guarantee-intro">Here's the deal:</div>
+                <div class="guarantee-content">
+                    <p>Join AI-Hustle today. Go through the training. Implement the system exactly as we teach it.</p>
+                    <p>If you don't make your first $500 within 30 days, we'll refund <strong>100% of your investment</strong> — no questions, no hoops, no hassle.</p>
+                    <p><strong>But we don't stop there.</strong></p>
+                    <p>If you complete the coursework and don't hit $500, we'll also give you a complimentary 1-on-1 strategy session to diagnose exactly what's blocking your progress. We'll work with you personally until you break through.</p>
+                    <p><strong>Why are we so confident?</strong></p>
+                    <p>Because this system has worked for over 200 students from every background imaginable — teachers, nurses, truck drivers, stay-at-home parents, retirees. The only variable is whether you show up and do the work.</p>
+                </div>
+                <div class="guarantee-closing">
+                    Your risk? Zero. Your potential upside? A new income stream that pays you for years.
+                </div>
+            </div>
         </div>
     </section>
 
@@ -478,12 +841,20 @@
             <h2>Ready to Build Your AI Hustle?</h2>
             <p>The AI revolution is happening now. Don't watch from the sidelines.</p>
             <a href="#pricing" class="btn-primary">Get Started Today →</a>
+            <div class="why-now">
+                <h3>⏰ The Window Is Closing</h3>
+                <p>Here's what most people don't realize: AI income opportunities are a land grab right now.</p>
+                <p>The people who learn these skills in 2025 will establish themselves before the market gets saturated. The people who wait will be competing against established players with proven systems.</p>
+                <p>Every month you delay is a month your competitors are building their advantage.</p>
+                <p>The tools are cheap. The demand is high. The competition is still low.</p>
+                <p>But that won't last forever.</p>
+            </div>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 AdvancedMedias. All rights reserved.</p>
+            <p>&copy; 2025 AdvancedMedias. All rights reserved.</p>
         </div>
     </footer>
 </body>
