@@ -1,12 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Service Validation Worksheet | AI Hustle Engine</title>
-<meta http-equiv="refresh" content="0; url=/member/dashboard.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Validation Worksheet | AI Hustle Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #6366f1; --primary-dark: #4f46e5; --secondary: #8b5cf6; --accent: #06b6d4; --dark: #0f172a; --gray: #64748b; --light: #f8fafc; --success: #10b981; --warning: #f59e0b; --danger: #ef4444; }
+        body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--dark); min-height: 100vh; }
+        .topbar { background: white; border-bottom: 1px solid #e2e8f0; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
+        .back-link { display: flex; align-items: center; gap: 8px; color: var(--gray); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary); }
+        .logo { font-weight: 800; font-size: 1.1rem; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .btn-print { padding: 8px 18px; background: white; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.8rem; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; color: var(--dark); transition: all 0.2s; }
+        .btn-print:hover { border-color: var(--primary); color: var(--primary); }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 24px 80px; }
+        .hero { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border-radius: 16px; padding: 36px; color: white; margin-bottom: 32px; }
+        .hero h1 { font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; }
+        .hero p { font-size: 0.95rem; opacity: 0.9; line-height: 1.6; max-width: 560px; }
+        .card { background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px; margin-bottom: 24px; }
+        .card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+        .card .subtitle { font-size: 0.8rem; color: var(--gray); margin-bottom: 20px; }
+        .field-row { margin-bottom: 18px; }
+        .field-row label { display: block; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; color: var(--gray); margin-bottom: 6px; }
+        .field-input { border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 14px; font-family: 'Inter', sans-serif; font-size: 0.9rem; outline: none; width: 100%; transition: border-color 0.2s; background: white; }
+        .field-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(99,102,241,0.1); }
+        .check-grid { display: flex; flex-direction: column; gap: 12px; }
+        .check-item { display: flex; align-items: flex-start; gap: 12px; padding: 14px; border: 1px solid #e2e8f0; border-radius: 8px; cursor: pointer; transition: all 0.15s; }
+        .check-item:hover { border-color: var(--primary); background: rgba(99,102,241,0.02); }
+        .check-item.checked { border-color: var(--success); background: rgba(16,185,129,0.04); }
+        .check-box { width: 20px; height: 20px; border: 2px solid #e2e8f0; border-radius: 4px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; transition: all 0.15s; margin-top: 1px; }
+        .check-item.checked .check-box { background: var(--success); border-color: var(--success); color: white; }
+        .check-label { font-size: 0.875rem; line-height: 1.5; }
+        .check-label strong { display: block; font-weight: 600; margin-bottom: 2px; }
+        .check-label span { color: var(--gray); font-size: 0.8rem; }
+        .score-display { text-align: center; padding: 24px; background: var(--light); border-radius: 10px; margin-top: 16px; }
+        .score-num { font-size: 3rem; font-weight: 800; color: var(--primary); }
+        .score-label { font-size: 0.875rem; color: var(--gray); margin-top: 4px; }
+        .verdict { font-size: 1rem; font-weight: 700; margin-top: 8px; }
+        .verdict.go { color: var(--success); }
+        .verdict.maybe { color: var(--warning); }
+        .verdict.no { color: var(--danger); }
+        .btn-save { width: 100%; padding: 12px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); color: white; border: none; border-radius: 8px; font-size: 0.9rem; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; transition: opacity 0.2s; }
+        .btn-save:hover { opacity: 0.9; }
+        .toast { position: fixed; bottom: 24px; right: 24px; background: var(--dark); color: white; padding: 12px 20px; border-radius: 10px; font-size: 0.875rem; font-weight: 500; transform: translateY(80px); opacity: 0; transition: all 0.3s; z-index: 2000; }
+        .toast.show { transform: translateY(0); opacity: 1; }
+        @media print { .topbar, .btn-print, .btn-save, .toast { display: none !important; } }
+    </style>
 </head>
 <body>
-<script>window.location.href='/member/dashboard.html';</script>
+    <div class="topbar">
+        <a href="/member/module-2.html" class="back-link">← Back to Module 2</a>
+        <span class="logo">AI Hustle Engine</span>
+        <button class="btn-print" onclick="window.print()">🖨️ Print / Save PDF</button>
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <h1>✅ Service Validation Worksheet</h1>
+            <p>Before building, validate. Use this worksheet to confirm your AI service idea has real demand, paying customers, and a viable business model.</p>
+        </div>
+
+        <!-- Section 1: The Idea -->
+        <div class="card">
+            <h3>1. Define Your Service</h3>
+            <div class="subtitle">Be as specific as possible. Vague services don't sell.</div>
+            <div class="field-row">
+                <label>What is your service? (one sentence)</label>
+                <input type="text" class="field-input" id="serviceDesc" placeholder="e.g. AI-powered cold email sequences for SaaS companies">
+            </div>
+            <div class="field-row">
+                <label>Who is your target customer?</label>
+                <input type="text" class="field-input" id="targetCustomer" placeholder="e.g. B2B SaaS founders with 5-50 employees">
+            </div>
+            <div class="field-row">
+                <label>What specific result do you deliver?</label>
+                <input type="text" class="field-input" id="result" placeholder="e.g. 3x reply rates on cold outreach within 2 weeks">
+            </div>
+            <div class="field-row">
+                <label>What is your pricing? ($)</label>
+                <input type="text" class="field-input" id="pricing" placeholder="e.g. $500/month retainer or $1,200 one-time project">
+            </div>
+        </div>
+
+        <!-- Section 2: Validation Checklist -->
+        <div class="card">
+            <h3>2. Validation Checklist</h3>
+            <div class="subtitle">Check each criterion honestly. Click to mark as passed.</div>
+            <div class="check-grid" id="checkGrid">
+                <div class="check-item" onclick="toggleCheck(this, 0)">
+                    <div class="check-box" id="cb-0"></div>
+                    <div class="check-label"><strong>Real Problem</strong><span>People are actively complaining about or searching for a solution to this problem</span></div>
+                </div>
+                <div class="check-item" onclick="toggleCheck(this, 1)">
+                    <div class="check-box" id="cb-1"></div>
+                    <div class="check-label"><strong>Paying Customers Exist</strong><span>You can find at least 5 people who currently pay for something similar</span></div>
+                </div>
+                <div class="check-item" onclick="toggleCheck(this, 2)">
+                    <div class="check-box" id="cb-2"></div>
+                    <div class="check-label"><strong>AI Advantage</strong><span>AI genuinely improves this service (speed, quality, cost) vs doing it manually</span></div>
+                </div>
+                <div class="check-item" onclick="toggleCheck(this, 3)">
+                    <div class="check-box" id="cb-3"></div>
+                    <div class="check-label"><strong>You Can Deliver It</strong><span>You have (or can quickly develop) the skills to execute this service at quality</span></div>
+                </div>
+                <div class="check-item" onclick="toggleCheck(this, 4)">
+                    <div class="check-box" id="cb-4"></div>
+                    <div class="check-label"><strong>Reachable Market</strong><span>You know how to find and contact potential customers (LinkedIn, Upwork, cold email, etc.)</span></div>
+                </div>
+                <div class="check-item" onclick="toggleCheck(this, 5)">
+                    <div class="check-box" id="cb-5"></div>
+                    <div class="check-label"><strong>Profitable at Your Price</strong><span>At your price point, you'd earn at least $50/hour for your time after costs</span></div>
+                </div>
+                <div class="check-item" onclick="toggleCheck(this, 6)">
+                    <div class="check-box" id="cb-6"></div>
+                    <div class="check-label"><strong>Someone Would Pay Now</strong><span>You could name 1-2 specific people you'd approach today and believe might hire you</span></div>
+                </div>
+            </div>
+            <div class="score-display">
+                <div class="score-num" id="scoreNum">0/7</div>
+                <div class="score-label">Validation criteria passed</div>
+                <div class="verdict" id="verdict">Complete the checklist above</div>
+            </div>
+        </div>
+
+        <!-- Section 3: Quick Test -->
+        <div class="card">
+            <h3>3. The 48-Hour Test</h3>
+            <div class="subtitle">Real validation requires real feedback. Complete these tasks before investing more time.</div>
+            <div class="field-row">
+                <label>3 people I'll reach out to in the next 48 hours</label>
+                <textarea class="field-input" id="outreach" rows="3" placeholder="1. John at CompanyX (LinkedIn)&#10;2. Jane from my network (email)&#10;3. Cold prospect via Upwork"></textarea>
+            </div>
+            <div class="field-row">
+                <label>What question will I ask them to validate demand?</label>
+                <input type="text" class="field-input" id="validationQ" placeholder="e.g. 'Would you pay $500/mo for someone to write and test 5 cold email sequences for you?'">
+            </div>
+            <div class="field-row">
+                <label>My results / what I heard back</label>
+                <textarea class="field-input" id="results" rows="3" placeholder="Fill this in after your 48-hour outreach..."></textarea>
+            </div>
+        </div>
+
+        <!-- Section 4: Decision -->
+        <div class="card" style="border-color: var(--primary); border-width: 2px;">
+            <h3 style="color:var(--primary);">4. My Decision</h3>
+            <div class="field-row" style="margin-top:12px;">
+                <label>Based on my validation, I will:</label>
+                <select class="field-input" id="decision">
+                    <option value="">-- Select --</option>
+                    <option value="proceed">✅ Proceed — I'm launching this service</option>
+                    <option value="pivot">⚠️ Pivot — I'll adjust the target customer or offer</option>
+                    <option value="kill">❌ Kill It — Moving on to a better idea</option>
+                </select>
+            </div>
+            <div class="field-row">
+                <label>Next action (be specific + set a date)</label>
+                <input type="text" class="field-input" id="nextAction" placeholder="e.g. Post my first Upwork proposal by Friday March 21">
+            </div>
+            <button class="btn-save" onclick="saveWorksheet()">💾 Save Worksheet</button>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">✅ Worksheet saved!</div>
+
+    <script>
+        const checks = [false,false,false,false,false,false,false];
+
+        function toggleCheck(el, idx) {
+            checks[idx] = !checks[idx];
+            el.classList.toggle('checked', checks[idx]);
+            document.getElementById(`cb-${idx}`).textContent = checks[idx] ? '✓' : '';
+            updateScore();
+            saveAuto();
+        }
+
+        function updateScore() {
+            const count = checks.filter(Boolean).length;
+            document.getElementById('scoreNum').textContent = `${count}/7`;
+            const v = document.getElementById('verdict');
+            if (count >= 6) { v.textContent = '🟢 GO — Strong validation. Move forward.'; v.className = 'verdict go'; }
+            else if (count >= 4) { v.textContent = '🟡 MAYBE — Address gaps before launching.'; v.className = 'verdict maybe'; }
+            else { v.textContent = '🔴 NOT YET — More validation needed.'; v.className = 'verdict no'; }
+        }
+
+        function saveAuto() {
+            const data = {
+                serviceDesc: document.getElementById('serviceDesc').value,
+                targetCustomer: document.getElementById('targetCustomer').value,
+                result: document.getElementById('result').value,
+                pricing: document.getElementById('pricing').value,
+                checks: [...checks],
+                outreach: document.getElementById('outreach').value,
+                validationQ: document.getElementById('validationQ').value,
+                results: document.getElementById('results').value,
+                decision: document.getElementById('decision').value,
+                nextAction: document.getElementById('nextAction').value,
+            };
+            localStorage.setItem('ahe_service_validation', JSON.stringify(data));
+        }
+
+        function saveWorksheet() {
+            saveAuto();
+            const t = document.getElementById('toast');
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 2500);
+        }
+
+        function loadSaved() {
+            try {
+                const raw = localStorage.getItem('ahe_service_validation');
+                if (!raw) return;
+                const d = JSON.parse(raw);
+                if (d.serviceDesc) document.getElementById('serviceDesc').value = d.serviceDesc;
+                if (d.targetCustomer) document.getElementById('targetCustomer').value = d.targetCustomer;
+                if (d.result) document.getElementById('result').value = d.result;
+                if (d.pricing) document.getElementById('pricing').value = d.pricing;
+                if (d.outreach) document.getElementById('outreach').value = d.outreach;
+                if (d.validationQ) document.getElementById('validationQ').value = d.validationQ;
+                if (d.results) document.getElementById('results').value = d.results;
+                if (d.decision) document.getElementById('decision').value = d.decision;
+                if (d.nextAction) document.getElementById('nextAction').value = d.nextAction;
+                if (d.checks) {
+                    d.checks.forEach((val, i) => {
+                        if (val) {
+                            checks[i] = true;
+                            const item = document.querySelectorAll('.check-item')[i];
+                            if (item) { item.classList.add('checked'); document.getElementById(`cb-${i}`).textContent = '✓'; }
+                        }
+                    });
+                    updateScore();
+                }
+            } catch(e) {}
+        }
+
+        // Auto-save on input
+        document.addEventListener('input', saveAuto);
+        document.addEventListener('change', saveAuto);
+        loadSaved();
+    </script>
 </body>
 </html>

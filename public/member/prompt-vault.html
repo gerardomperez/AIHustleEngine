@@ -258,118 +258,103 @@
     <div class="toast" id="toast">✅ Copied to clipboard!</div>
 
     <script>
-        const PROMPTS = [
-            {
-                id: 1, tier: 'starter', category: 'Business Strategy',
-                title: 'AI Business Model Blueprint',
-                desc: 'Generate a complete AI-powered business model for your niche with revenue streams and action steps.',
-                prompt: `You are a business strategist specializing in AI-powered businesses. Create a detailed business model for a {{niche}} business using AI tools.\n\nInclude:\n1. Core value proposition\n2. Primary revenue streams (3-5)\n3. AI tools needed and how to use them\n4. 90-day launch roadmap\n5. Realistic income projections at 30/60/90 days\n\nBe specific, actionable, and practical. Target audience: {{target_audience}}`,
-                variables: ['{{niche}}', '{{target_audience}}']
-            },
-            {
-                id: 2, tier: 'starter', category: 'Content Creation',
-                title: 'Viral Social Media Post Generator',
-                desc: 'Create platform-specific social media posts that drive engagement for any topic.',
-                prompt: `Create 5 viral social media posts about {{topic}} for {{platform}}.\n\nEach post should:\n- Hook the reader in the first line\n- Provide genuine value or insight\n- Include a clear call-to-action\n- Use appropriate tone for the platform\n- Include relevant hashtags\n\nTone: {{tone}} (e.g., professional, casual, motivational)\nTarget audience: {{audience}}`,
-                variables: ['{{topic}}', '{{platform}}', '{{tone}}', '{{audience}}']
-            },
-            {
-                id: 3, tier: 'starter', category: 'Client Acquisition',
-                title: 'Cold Outreach Email Sequence',
-                desc: 'Write a 3-email cold outreach sequence that gets responses from potential clients.',
-                prompt: `Write a 3-email cold outreach sequence for a {{service_type}} freelancer targeting {{target_client}}.\n\nEmail 1 (Day 1): Value-first introduction — don't pitch, just offer insight\nEmail 2 (Day 4): Follow-up with a specific, relevant case study or result\nEmail 3 (Day 9): Final gentle follow-up with a simple yes/no question\n\nService: {{service_description}}\nUnique angle: {{unique_value_prop}}\nKeep each email under 150 words. Sound human, not corporate.`,
-                variables: ['{{service_type}}', '{{target_client}}', '{{service_description}}', '{{unique_value_prop}}']
-            },
-            {
-                id: 4, tier: 'starter', category: 'Productivity',
-                title: 'Weekly AI Work Plan',
-                desc: 'Generate a structured weekly plan optimized for AI-powered income building.',
-                prompt: `Create a detailed weekly schedule for someone building an AI income stream while working {{hours_available}} hours per week.\n\nGoals this week:\n- {{goal_1}}\n- {{goal_2}}\n\nCurrent income: {{current_income}}\nTarget income: {{target_income}}\n\nBreak down each day into:\n- Morning deep work block (most important task)\n- Client work / income-generating activities\n- Learning and skill development\n- Admin and outreach\n\nPrioritize ruthlessly. No fluff.`,
-                variables: ['{{hours_available}}', '{{goal_1}}', '{{goal_2}}', '{{current_income}}', '{{target_income}}']
-            },
-            {
-                id: 5, tier: 'starter', category: 'Monetization',
-                title: 'Digital Product Launch Copy',
-                desc: 'Write complete launch copy for a digital product — sales page, email, and social posts.',
-                prompt: `Write complete launch copy for a digital product:\n\nProduct: {{product_name}}\nPrice: {{price}}\nTarget buyer: {{buyer_persona}}\nMain benefit: {{primary_benefit}}\nProof/results: {{social_proof}}\n\nDeliver:\n1. Sales page headline + subheadline (3 options each)\n2. Problem-agitate-solution opening paragraph\n3. 5 bullet-point benefits (outcome-focused)\n4. Price anchor and value justification\n5. FAQ section (5 questions)\n6. Launch email subject lines (5 options)\n\nTone: direct, benefit-driven, no hype.`,
-                variables: ['{{product_name}}', '{{price}}', '{{buyer_persona}}', '{{primary_benefit}}', '{{social_proof}}']
-            },
-            {
-                id: 6, tier: 'starter', category: 'Business Strategy',
-                title: 'Niche Research & Validation',
-                desc: 'Evaluate a niche for AI service potential and identify the most profitable sub-niches.',
-                prompt: `Analyze the {{niche}} market for AI service opportunities.\n\nProvide:\n1. Market size and growth trend assessment\n2. Top 5 pain points businesses in this niche have that AI can solve\n3. Biggest competitors and their weaknesses\n4. 3 underserved micro-niches with the least competition\n5. Recommended AI service to offer with pricing strategy\n6. First 3 potential clients and where to find them\n\nBe blunt about viability. Rate the opportunity 1-10 with reasoning.`,
-                variables: ['{{niche}}']
-            },
-            {
-                id: 7, tier: 'accelerator', category: 'Automation',
-                title: 'AI Workflow Automation Map',
-                desc: 'Design a complete automation workflow for any business process using AI tools.',
-                prompt: `Design a complete AI automation workflow for {{business_process}} in a {{business_type}} business.\n\nMap out:\n1. Current manual process (step by step)\n2. Automation opportunity analysis — what can be 100% automated vs. AI-assisted\n3. Recommended tool stack (be specific: tool names, tiers, costs)\n4. Implementation roadmap (Week 1-4)\n5. Expected time savings per week\n6. Potential new revenue or cost reduction\n\nOutput as a clean, actionable framework someone non-technical can follow.\nBudget constraint: {{monthly_budget}} per month for tools.`,
-                variables: ['{{business_process}}', '{{business_type}}', '{{monthly_budget}}']
-            },
-            {
-                id: 8, tier: 'accelerator', category: 'Client Acquisition',
-                title: 'LinkedIn Outreach System',
-                desc: 'Build a complete LinkedIn prospecting and connection request system with follow-up sequences.',
-                prompt: `Build a LinkedIn outreach system for a {{service}} freelancer targeting {{ideal_client}}.\n\nDeliver:\n1. Profile optimization checklist (10 items specific to this service)\n2. Search strategy to find ideal clients (filters, keywords, groups)\n3. Connection request message (3 variations, under 300 chars each)\n4. Post-connection message sequence (Days 1, 3, 7)\n5. Content calendar for 4 posts that attract inbound leads\n6. Weekly activity targets (connections/day, messages/day)\n\nGoal: Book {{monthly_calls}} discovery calls per month.\nTone: Consultative, not salesy.`,
-                variables: ['{{service}}', '{{ideal_client}}', '{{monthly_calls}}']
-            },
-            {
-                id: 9, tier: 'accelerator', category: 'Content Creation',
-                title: 'AI-Powered Blog Post System',
-                desc: 'Generate a full SEO-optimized blog post outline with hooks, headings, and CTAs.',
-                prompt: `Create a complete, publish-ready blog post outline for:\n\nKeyword: {{target_keyword}}\nAudience: {{target_audience}}\nGoal: {{content_goal}} (e.g., rank on Google, generate leads, build authority)\n\nDeliver:\n1. 5 headline options (power word + number + benefit formula)\n2. SEO meta description (under 160 chars)\n3. Intro hook paragraph (pattern interrupt approach)\n4. Full H2/H3 outline with sub-point descriptions\n5. 3 places to insert natural CTAs\n6. Conclusion with key takeaway summary\n7. Internal linking opportunities\n\nWord count target: {{word_count}}`,
-                variables: ['{{target_keyword}}', '{{target_audience}}', '{{content_goal}}', '{{word_count}}']
-            },
-            {
-                id: 10, tier: 'accelerator', category: 'Monetization',
-                title: 'Consulting Offer Builder',
-                desc: 'Design a high-ticket consulting offer with packaging, pricing, and sales script.',
-                prompt: `Design a premium consulting offer for a {{expertise}} consultant targeting {{client_type}}.\n\nBuild:\n1. Offer name and one-liner (3 options)\n2. Transformation statement: "Help {{client}} achieve {{outcome}} in {{timeframe}} without {{objection}}"\n3. What's included (deliverables, sessions, resources)\n4. Pricing strategy with 3 tiers and justification\n5. Discovery call script outline (questions to ask, not pitch)\n6. Common objections and responses\n7. Proposal template structure\n\nTarget price point: {{price_range}}\nDifferentiator: {{unique_angle}}`,
-                variables: ['{{expertise}}', '{{client_type}}', '{{price_range}}', '{{unique_angle}}']
-            },
-            {
-                id: 11, tier: 'accelerator', category: 'Automation',
-                title: 'Email Marketing Automation Sequence',
-                desc: 'Build a complete welcome + nurture email sequence for a digital product business.',
-                prompt: `Write a 7-email welcome and nurture sequence for a {{business_type}} business selling {{product}}.\n\nEmail sequence:\n- Email 1 (Immediate): Welcome + quick win delivery\n- Email 2 (Day 2): Your story / why this matters\n- Email 3 (Day 4): Value bomb (actionable tip, no pitch)\n- Email 4 (Day 6): Social proof + case study\n- Email 5 (Day 8): Overcome top objection\n- Email 6 (Day 10): Soft offer with urgency\n- Email 7 (Day 14): Last chance + clear CTA\n\nTone: {{brand_voice}}\nProduct price: {{price}}\nSubscriber acquired via: {{lead_source}}`,
-                variables: ['{{business_type}}', '{{product}}', '{{brand_voice}}', '{{price}}', '{{lead_source}}']
-            },
-            {
-                id: 12, tier: 'starter', category: 'Productivity',
-                title: 'AI Tool Stack Builder',
-                desc: 'Get a customized AI tool recommendation stack for your specific business and budget.',
-                prompt: `Recommend the optimal AI tool stack for a {{business_type}} making {{current_revenue}} monthly with a {{monthly_budget}} tool budget.\n\nCurrent bottlenecks: {{bottlenecks}}\nTop priorities: {{priorities}}\n\nFor each recommended tool:\n1. Tool name and tier (free/paid)\n2. Specific use case for this business\n3. Time saved per week estimate\n4. ROI calculation\n5. Implementation difficulty (1-5)\n\nOrganize by priority. Flag any tools that are overkill for this stage. Be ruthlessly practical.`,
-                variables: ['{{business_type}}', '{{current_revenue}}', '{{monthly_budget}}', '{{bottlenecks}}', '{{priorities}}']
-            }
-        ];
-
-        let filteredPrompts = [...PROMPTS];
-        let userTier = 'starter'; // Default; override from localStorage
+        const API_BASE = '/api';
+        let userTier = 'starter';
+        let allPrompts = [];
+        let filteredPrompts = [];
         let expandedCards = new Set();
 
-        // Load user info
-        function loadUser() {
-            const raw = localStorage.getItem('ahe_user');
-            if (raw) {
-                try {
-                    const user = JSON.parse(raw);
+        const tierLevels = { starter: 1, accelerator: 2, inner_circle: 3 };
+
+        async function loadUser() {
+            const token = localStorage.getItem('ahe_token');
+            if (!token) { window.location.href = '/login.html'; return; }
+
+            // Refresh tier from server
+            try {
+                const res = await fetch(`${API_BASE}/auth/me`, { headers: { 'Authorization': `Bearer ${token}` } });
+                if (res.status === 401 || res.status === 403) { window.location.href = '/login.html'; return; }
+                if (res.ok) {
+                    const user = await res.json();
+                    userTier = (user.tier || 'starter').toLowerCase();
+                    localStorage.setItem('ahe_user', JSON.stringify(user));
                     document.getElementById('userName').textContent = user.name || user.email;
                     document.getElementById('userEmail').textContent = user.email || '';
                     document.getElementById('userAvatar').textContent = (user.name || user.email || 'U')[0].toUpperCase();
-                    userTier = (user.tier || 'starter').toLowerCase();
-                    document.getElementById('tierBadge').textContent = user.tier || 'Starter';
-                } catch(e) {}
+                    const tierDisplay = { starter: 'Starter', accelerator: 'Accelerator', inner_circle: 'Inner Circle' };
+                    document.getElementById('tierBadge').textContent = tierDisplay[userTier] || user.tier || 'Starter';
+                }
+            } catch(e) {
+                const raw = localStorage.getItem('ahe_user');
+                if (raw) { try { const u = JSON.parse(raw); userTier = (u.tier||'starter').toLowerCase(); document.getElementById('userName').textContent = u.name||u.email; document.getElementById('userEmail').textContent = u.email||''; document.getElementById('userAvatar').textContent = (u.name||u.email||'U')[0].toUpperCase(); document.getElementById('tierBadge').textContent = u.tier||'Starter'; } catch(e2){} }
             }
-            renderPrompts(PROMPTS);
+
+            await loadPrompts(token);
+        }
+
+        async function loadPrompts(token) {
+            const grid = document.getElementById('promptsGrid');
+            grid.innerHTML = '<p style="color:var(--gray);grid-column:1/-1;padding:40px;text-align:center;">Loading prompts...</p>';
+
+            try {
+                const res = await fetch(`${API_BASE}/prompts`, { headers: { 'Authorization': `Bearer ${token}` } });
+                if (!res.ok) { grid.innerHTML = '<p style="color:#ef4444;grid-column:1/-1;padding:40px;text-align:center;">Could not load prompts. Please refresh.</p>'; return; }
+                const data = await res.json();
+
+                // Flatten categories into a single array with string IDs
+                const categories = data.categories || [];
+                allPrompts = [];
+                categories.forEach(cat => {
+                    (cat.prompts || []).forEach(p => {
+                        allPrompts.push({
+                            id: p.id,
+                            title: p.title,
+                            desc: p.description || '',
+                            category: p.category || cat.name || '',
+                            tier: p.tier || 'starter',
+                            prompt: p.prompt || '',
+                            variables: p.variables || [],
+                            tags: p.tags || [],
+                        });
+                    });
+                });
+
+                // Update count badge
+                const countBadge = document.querySelector('.count-badge');
+                if (countBadge) countBadge.textContent = `${allPrompts.length} Prompts`;
+
+                filteredPrompts = [...allPrompts];
+                renderPrompts(filteredPrompts);
+
+                // Deep link: auto-expand prompt from ?prompt=ID
+                const params = new URLSearchParams(window.location.search);
+                const targetId = params.get('prompt');
+                if (targetId) {
+                    setTimeout(() => {
+                        const card = document.getElementById(`card-${targetId}`);
+                        if (card) {
+                            expandedCards.add(targetId);
+                            renderPrompts(filteredPrompts);
+                            setTimeout(() => {
+                                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                                card.style.outline = '2px solid var(--primary)';
+                                card.style.outlineOffset = '4px';
+                                setTimeout(() => { card.style.outline = ''; card.style.outlineOffset = ''; }, 3000);
+                            }, 100);
+                        }
+                    }, 100);
+                }
+
+            } catch(e) {
+                grid.innerHTML = '<p style="color:#ef4444;grid-column:1/-1;padding:40px;text-align:center;">Error loading prompts. Please refresh.</p>';
+            }
         }
 
         function filterPrompts() {
             const search = document.getElementById('searchInput').value.toLowerCase();
             const category = document.getElementById('categoryFilter').value;
             const tierF = document.getElementById('tierFilter').value;
-            filteredPrompts = PROMPTS.filter(p => {
+            filteredPrompts = allPrompts.filter(p => {
                 const matchSearch = !search || p.title.toLowerCase().includes(search) || p.desc.toLowerCase().includes(search);
                 const matchCat = !category || p.category === category;
                 const matchTier = !tierF || p.tier === tierF;
@@ -386,36 +371,40 @@
         }
 
         function isLocked(prompt) {
-            return prompt.tier === 'accelerator' && userTier === 'starter';
+            const required = tierLevels[prompt.tier] || 1;
+            const current = tierLevels[userTier] || 1;
+            return current < required;
         }
 
         function renderPrompts(prompts) {
             const grid = document.getElementById('promptsGrid');
-            if (prompts.length === 0) {
+            if (!prompts.length) {
                 grid.innerHTML = '<p style="color:var(--gray);grid-column:1/-1;padding:40px;text-align:center;">No prompts match your filters.</p>';
                 return;
             }
             grid.innerHTML = prompts.map(p => {
                 const locked = isLocked(p);
                 const expanded = expandedCards.has(p.id);
+                const tierLabel = { starter: '🟢 Starter', accelerator: '🔵 Accelerator', inner_circle: '⭐ Inner Circle' }[p.tier] || p.tier;
+                const safeId = JSON.stringify(p.id);
                 return `
                 <div class="prompt-card${locked ? ' locked' : ''}" id="card-${p.id}">
                     <div class="prompt-card-header">
                         <div class="prompt-badges">
                             <span class="badge badge-category">${p.category}</span>
-                            <span class="badge badge-${p.tier}">${p.tier === 'starter' ? '🟢 Starter' : '🔵 Accelerator'}</span>
+                            <span class="badge badge-${p.tier}">${tierLabel}</span>
                         </div>
                         <div class="prompt-title">${p.title}</div>
                     </div>
                     <div class="prompt-desc">${p.desc}</div>
                     <div class="prompt-actions">
-                        <button class="btn-copy" onclick="copyPrompt(${p.id})">📋 Copy Prompt</button>
-                        <button class="btn-expand" onclick="toggleExpand(${p.id})">${expanded ? '▲' : '▼'}</button>
+                        <button class="btn-copy" onclick="copyPrompt(${safeId})">📋 Copy Prompt</button>
+                        <button class="btn-expand" onclick="toggleExpand(${safeId})">${expanded ? '▲' : '▼'}</button>
                     </div>
                     <div class="prompt-full ${expanded ? 'show' : ''}" id="full-${p.id}">
                         <div class="prompt-text">${escapeHtml(p.prompt)}</div>
                         ${p.variables.length > 0 ? `
-                        <div style="font-size:0.75rem;font-weight:600;color:var(--gray);margin-bottom:6px;">VARIABLES TO REPLACE:</div>
+                        <div style="font-size:0.75rem;font-weight:600;color:var(--gray);margin-bottom:6px;margin-top:12px;">VARIABLES TO REPLACE:</div>
                         <div class="prompt-variables">
                             ${p.variables.map(v => `<span class="var-tag">${v}</span>`).join('')}
                         </div>` : ''}
@@ -423,36 +412,25 @@
                     ${locked ? `
                     <div class="lock-overlay">
                         <div class="lock-icon">🔒</div>
-                        <h4>Accelerator Prompt</h4>
-                        <p>Upgrade to Accelerator to unlock this prompt and 50+ more advanced prompts.</p>
-                        <a href="/#pricing" class="btn-upgrade">Upgrade to Accelerator →</a>
+                        <h4>Upgrade Required</h4>
+                        <p>This prompt requires ${p.tier === 'accelerator' ? 'Accelerator' : 'Inner Circle'} tier.</p>
+                        <a href="/#pricing" class="btn-upgrade">Upgrade →</a>
                     </div>` : ''}
                 </div>`;
             }).join('');
         }
 
         function toggleExpand(id) {
-            if (expandedCards.has(id)) {
-                expandedCards.delete(id);
-            } else {
-                expandedCards.add(id);
-            }
-            filterPrompts();
+            if (expandedCards.has(id)) { expandedCards.delete(id); } else { expandedCards.add(id); }
+            renderPrompts(filteredPrompts);
         }
 
         function copyPrompt(id) {
-            const prompt = PROMPTS.find(p => p.id === id);
+            const prompt = allPrompts.find(p => p.id === id);
             if (!prompt || isLocked(prompt)) return;
             navigator.clipboard.writeText(prompt.prompt).then(() => {
                 const btn = document.querySelector(`#card-${id} .btn-copy`);
-                if (btn) {
-                    btn.textContent = '✅ Copied!';
-                    btn.style.background = 'var(--success)';
-                    setTimeout(() => {
-                        btn.textContent = '📋 Copy Prompt';
-                        btn.style.background = '';
-                    }, 2000);
-                }
+                if (btn) { btn.textContent = '✅ Copied!'; btn.style.background = 'var(--success)'; setTimeout(() => { btn.textContent = '📋 Copy Prompt'; btn.style.background = ''; }, 2000); }
                 showToast();
             });
         }
@@ -464,7 +442,7 @@
         }
 
         function escapeHtml(str) {
-            return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+            return (str||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
         }
 
         loadUser();

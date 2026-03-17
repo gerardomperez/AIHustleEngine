@@ -1,12 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>30-Day Launch Calendar | AI Hustle Engine</title>
-<meta http-equiv="refresh" content="0; url=/member/dashboard.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30-Day Launch Calendar | AI Hustle Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #6366f1; --primary-dark: #4f46e5; --secondary: #8b5cf6; --accent: #06b6d4; --dark: #0f172a; --gray: #64748b; --light: #f8fafc; --success: #10b981; --warning: #f59e0b; }
+        body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--dark); }
+        .topbar { background: white; border-bottom: 1px solid #e2e8f0; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
+        .back-link { display: flex; align-items: center; gap: 8px; color: var(--gray); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
+        .back-link:hover { color: var(--primary); }
+        .logo { font-weight: 800; font-size: 1.1rem; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .btn-print { padding: 8px 18px; background: white; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.8rem; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; color: var(--dark); }
+        .btn-print:hover { border-color: var(--primary); color: var(--primary); }
+        .container { max-width: 960px; margin: 0 auto; padding: 40px 24px 80px; }
+        .hero { background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 100%); border-radius: 16px; padding: 36px; color: white; margin-bottom: 32px; }
+        .hero h1 { font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; }
+        .hero p { font-size: 0.95rem; opacity: 0.9; line-height: 1.6; }
+        .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+        .legend-item { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 500; }
+        .legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+        .week-block { margin-bottom: 28px; }
+        .week-header { font-size: 1rem; font-weight: 700; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 2px solid #e2e8f0; display: flex; align-items: center; gap: 10px; }
+        .week-goal { font-size: 0.78rem; font-weight: 500; color: white; padding: 3px 10px; border-radius: 50px; }
+        .days-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+        .day-card { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 16px; border-left: 4px solid; transition: box-shadow 0.15s; cursor: pointer; }
+        .day-card:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.07); }
+        .day-card.done { opacity: 0.7; }
+        .day-card.done .day-title { text-decoration: line-through; color: var(--gray); }
+        .day-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+        .day-num { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray); }
+        .day-check { width: 20px; height: 20px; border-radius: 50%; border: 2px solid #e2e8f0; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; transition: all 0.15s; }
+        .day-card.done .day-check { background: var(--success); border-color: var(--success); color: white; }
+        .day-title { font-size: 0.875rem; font-weight: 600; margin-bottom: 4px; }
+        .day-desc { font-size: 0.78rem; color: var(--gray); line-height: 1.5; }
+        .day-tag { display: inline-block; margin-top: 8px; padding: 2px 8px; border-radius: 50px; font-size: 0.7rem; font-weight: 600; }
+        /* Type colors */
+        .type-setup { border-left-color: #10b981; }
+        .type-setup .day-tag { background: #d1fae5; color: #065f46; }
+        .type-outreach { border-left-color: #3b82f6; }
+        .type-outreach .day-tag { background: #dbeafe; color: #1e40af; }
+        .type-content { border-left-color: #8b5cf6; }
+        .type-content .day-tag { background: #ede9fe; color: #5b21b6; }
+        .type-deliver { border-left-color: #f59e0b; }
+        .type-deliver .day-tag { background: #fef3c7; color: #78350f; }
+        .type-review { border-left-color: #6366f1; }
+        .type-review .day-tag { background: #e0e7ff; color: #3730a3; }
+        .progress-bar-wrap { background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px 24px; margin-bottom: 28px; }
+        .progress-bar-wrap h3 { font-size: 0.875rem; font-weight: 600; margin-bottom: 10px; display: flex; justify-content: space-between; }
+        .progress-bar { height: 10px; background: #f1f5f9; border-radius: 50px; overflow: hidden; }
+        .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 50px; transition: width 0.4s; }
+        .toast { position: fixed; bottom: 24px; right: 24px; background: var(--dark); color: white; padding: 12px 20px; border-radius: 10px; font-size: 0.875rem; font-weight: 500; transform: translateY(80px); opacity: 0; transition: all 0.3s; z-index: 2000; }
+        .toast.show { transform: translateY(0); opacity: 1; }
+        @media print { .topbar, .btn-print, .toast { display: none !important; } body { background: white; } }
+    </style>
 </head>
 <body>
-<script>window.location.href='/member/dashboard.html';</script>
+    <div class="topbar">
+        <a href="/member/module-12.html" class="back-link">← Back to Module 12</a>
+        <span class="logo">AI Hustle Engine</span>
+        <button class="btn-print" onclick="window.print()">🖨️ Print / Save PDF</button>
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <h1>🚀 30-Day Launch Calendar</h1>
+            <p>Your day-by-day action plan to go from idea to first client in 30 days. Click each task to mark it complete.</p>
+        </div>
+
+        <!-- Progress -->
+        <div class="progress-bar-wrap">
+            <h3>Your Progress <span id="progressText">0 / 30 tasks</span></h3>
+            <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+        </div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-item"><div class="legend-dot" style="background:#10b981"></div>Setup</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#3b82f6"></div>Outreach</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#8b5cf6"></div>Content</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>Deliver</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#6366f1"></div>Review</div>
+        </div>
+
+        <div id="calendarContainer"></div>
+    </div>
+
+    <div class="toast" id="toast">✅ Task marked complete!</div>
+
+    <script>
+        const DAYS = [
+            // Week 1: Foundation
+            { day:1, week:1, type:'setup', title:'Set up your AI tool stack', desc:'Sign up for Claude/ChatGPT, Perplexity, and one automation tool. Set up accounts.' },
+            { day:2, week:1, type:'setup', title:'Define your one offer', desc:'Complete the Income Stream Scoring Matrix. Write your one-sentence offer description.' },
+            { day:3, week:1, type:'setup', title:'Update your LinkedIn profile', desc:'New headline, about section, and featured section focused on your AI service.' },
+            { day:4, week:1, type:'setup', title:'Create your first portfolio sample', desc:'Use AI to create one spec piece that demonstrates your service quality.' },
+            { day:5, week:1, type:'outreach', title:'Complete service validation', desc:'Reach out to 3 potential customers. Ask if they\'d pay for your service.' },
+            { day:6, week:1, type:'content', title:'Write your first LinkedIn post', desc:'Share one insight or tip related to your service area. Aim for 200-300 words.' },
+            { day:7, week:1, type:'review', title:'Week 1 review', desc:'Count outreach responses. Refine offer based on feedback. Set Week 2 targets.' },
+            // Week 2: First Client Hunt
+            { day:8, week:2, type:'outreach', title:'Send 10 cold messages (Day 1)', desc:'Personalized outreach on LinkedIn or Upwork. Use the Cold Email Sequence prompt.' },
+            { day:9, week:2, type:'outreach', title:'Send 10 cold messages (Day 2)', desc:'Keep the streak going. Track replies in a simple spreadsheet.' },
+            { day:10, week:2, type:'setup', title:'Set up your Upwork or Fiverr profile', desc:'Complete profile with portfolio sample. Set pricing at 50% discount for first client.' },
+            { day:11, week:2, type:'outreach', title:'Send 10 cold messages (Day 3)', desc:'Tweak your message if reply rate is below 10%. A/B test subject lines.' },
+            { day:12, week:2, type:'content', title:'Publish your second piece of content', desc:'Case study format: "Here\'s how I did X for Y." Even if hypothetical, keep it specific.' },
+            { day:13, week:2, type:'outreach', title:'Follow up on Week 1 outreach', desc:'Send one follow-up to anyone who didn\'t respond. One short line, no pressure.' },
+            { day:14, week:2, type:'review', title:'Week 2 review + discovery calls', desc:'Should have 1-3 interested prospects. Book discovery calls for next week.' },
+            // Week 3: Close & Deliver
+            { day:15, week:3, type:'outreach', title:'Run your discovery calls', desc:'Ask 5 questions, take notes, understand their problem deeply. Don\'t pitch yet.' },
+            { day:16, week:3, type:'setup', title:'Send proposals to discovery call leads', desc:'Use the AI Services Freelance Proposal template. Send within 24 hours of the call.' },
+            { day:17, week:3, type:'outreach', title:'Send 10 cold messages (Day 4)', desc:'Keep pipeline full even while closing. You want options, not desperation.' },
+            { day:18, week:3, type:'deliver', title:'Close your first client 🎯', desc:'Follow up on proposals. Be ready to negotiate. Accept the pilot rate — get started.' },
+            { day:19, week:3, type:'deliver', title:'Begin client delivery', desc:'Start your first project. Over-communicate. Set clear milestones and deadlines.' },
+            { day:20, week:3, type:'content', title:'Publish third piece of content', desc:'Behind the scenes post: "What I\'m working on this week." Build in public.' },
+            { day:21, week:3, type:'review', title:'Week 3 review', desc:'Track: proposals sent, close rate, delivery progress. Adjust outreach volume as needed.' },
+            // Week 4: Revenue & Repeat
+            { day:22, week:4, type:'deliver', title:'Deliver first project milestone', desc:'Hit your first deliverable on time. Send update to client proactively.' },
+            { day:23, week:4, type:'outreach', title:'Send 10 cold messages (Day 5)', desc:'At this point you should have data. Double down on what\'s working.' },
+            { day:24, week:4, type:'deliver', title:'Complete first client project', desc:'Final delivery. Make it exceptional. Document your process for next time.' },
+            { day:25, week:4, type:'outreach', title:'Request testimonial + referral', desc:'Use the Testimonial Request prompt and Referral Request Email template.' },
+            { day:26, week:4, type:'setup', title:'Raise your price for new clients', desc:'Update your profiles and outreach with full pricing. Pilot discount is now retired.' },
+            { day:27, week:4, type:'content', title:'Publish case study', desc:'Write up your first client result (even if early). This becomes your #1 sales asset.' },
+            { day:28, week:4, type:'outreach', title:'Pitch returning client or upsell', desc:'Propose next project or retainer to your first client. Existing clients are easiest to close.' },
+            { day:29, week:4, type:'review', title:'Final week review', desc:'Tally revenue, review pipeline, count case studies and testimonials. Identify top lead source.' },
+            { day:30, week:4, type:'review', title:'30-Day Debrief + Month 2 Plan', desc:'What worked? What didn\'t? Set Month 2 revenue target. Write your 30-day lessons.' },
+        ];
+
+        const WEEK_GOALS = {
+            1: { label: 'Foundation', goal: 'Tool stack + offer + profile ready', color: '#10b981' },
+            2: { label: 'First Client Hunt', goal: 'Discovery calls booked', color: '#3b82f6' },
+            3: { label: 'Close & Deliver', goal: 'First paying client', color: '#f59e0b' },
+            4: { label: 'Revenue & Repeat', goal: 'First testimonial + Month 2 plan', color: '#6366f1' },
+        };
+
+        let completed = new Set();
+
+        function loadCompleted() {
+            try {
+                const raw = localStorage.getItem('ahe_30day_launch');
+                if (raw) completed = new Set(JSON.parse(raw));
+            } catch(e) {}
+        }
+
+        function saveCompleted() {
+            localStorage.setItem('ahe_30day_launch', JSON.stringify([...completed]));
+        }
+
+        function toggleDay(dayNum) {
+            if (completed.has(dayNum)) { completed.delete(dayNum); } else { completed.add(dayNum); showToast(); }
+            saveCompleted();
+            renderCalendar();
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const count = completed.size;
+            document.getElementById('progressText').textContent = `${count} / 30 tasks`;
+            document.getElementById('progressFill').style.width = `${(count/30)*100}%`;
+        }
+
+        function renderCalendar() {
+            const container = document.getElementById('calendarContainer');
+            const weeks = [1,2,3,4];
+            container.innerHTML = weeks.map(w => {
+                const wDays = DAYS.filter(d => d.week === w);
+                const wInfo = WEEK_GOALS[w];
+                return `
+                <div class="week-block">
+                    <div class="week-header">
+                        <span>Week ${w}: ${wInfo.label}</span>
+                        <span class="week-goal" style="background:${wInfo.color}">${wInfo.goal}</span>
+                    </div>
+                    <div class="days-grid">
+                        ${wDays.map(d => `
+                        <div class="day-card type-${d.type} ${completed.has(d.day) ? 'done' : ''}" onclick="toggleDay(${d.day})">
+                            <div class="day-header">
+                                <span class="day-num">Day ${d.day}</span>
+                                <div class="day-check">${completed.has(d.day) ? '✓' : ''}</div>
+                            </div>
+                            <div class="day-title">${d.title}</div>
+                            <div class="day-desc">${d.desc}</div>
+                            <span class="day-tag">${d.type.charAt(0).toUpperCase()+d.type.slice(1)}</span>
+                        </div>`).join('')}
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        function showToast() {
+            const t = document.getElementById('toast');
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 2000);
+        }
+
+        loadCompleted();
+        renderCalendar();
+        updateProgress();
+    </script>
 </body>
 </html>
