@@ -1,12 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Income Stream Scoring Matrix | AI Hustle Engine</title>
-<meta http-equiv="refresh" content="0; url=/member/dashboard.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Stream Scoring Matrix | AI Hustle Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--dark); min-height: 100vh; }
+
+        .topbar {
+            background: white; border-bottom: 1px solid #e2e8f0;
+            padding: 14px 32px; display: flex; align-items: center; justify-content: space-between;
+            position: sticky; top: 0; z-index: 10;
+        }
+        .back-link { display: flex; align-items: center; gap: 8px; color: var(--gray); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+        .back-link:hover { color: var(--primary); }
+        .logo { font-weight: 800; font-size: 1.1rem; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .btn-print { padding: 8px 18px; background: white; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.8rem; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; color: var(--dark); transition: all 0.2s; }
+        .btn-print:hover { border-color: var(--primary); color: var(--primary); }
+
+        .container { max-width: 860px; margin: 0 auto; padding: 40px 24px 80px; }
+
+        .hero { background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); border-radius: 16px; padding: 36px; color: white; margin-bottom: 32px; }
+        .hero h1 { font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; }
+        .hero p { font-size: 0.95rem; opacity: 0.9; line-height: 1.6; max-width: 560px; }
+
+        .instructions { background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; margin-bottom: 28px; }
+        .instructions h3 { font-size: 1rem; font-weight: 700; margin-bottom: 12px; }
+        .instructions ol { padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }
+        .instructions li { font-size: 0.875rem; color: var(--gray); line-height: 1.6; }
+
+        .scoring-key { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+        .score-pill { padding: 6px 14px; border-radius: 50px; font-size: 0.78rem; font-weight: 600; }
+        .score-1 { background: #fee2e2; color: #991b1b; }
+        .score-2 { background: #ffedd5; color: #92400e; }
+        .score-3 { background: #fef3c7; color: #78350f; }
+        .score-4 { background: #dcfce7; color: #065f46; }
+        .score-5 { background: #d1fae5; color: #064e3b; }
+
+        /* Matrix table */
+        .matrix-wrap { background: white; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; margin-bottom: 28px; }
+        .matrix-wrap h3 { padding: 20px 24px 0; font-size: 1rem; font-weight: 700; }
+        table { width: 100%; border-collapse: collapse; }
+        thead th { background: var(--light); padding: 12px 14px; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; color: var(--gray); text-align: left; border-bottom: 1px solid #e2e8f0; }
+        thead th:not(:first-child) { text-align: center; width: 80px; }
+        tbody tr { border-bottom: 1px solid #f1f5f9; transition: background 0.15s; }
+        tbody tr:last-child { border-bottom: none; }
+        tbody tr:hover { background: var(--light); }
+        tbody td { padding: 14px 14px; font-size: 0.875rem; vertical-align: top; }
+        tbody td:not(:first-child) { text-align: center; }
+        .model-name { font-weight: 600; display: block; margin-bottom: 2px; }
+        .model-desc { font-size: 0.78rem; color: var(--gray); line-height: 1.4; }
+        .score-input {
+            width: 48px; height: 36px; border: 1px solid #e2e8f0; border-radius: 8px;
+            text-align: center; font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+            color: var(--dark); background: white; outline: none; transition: border-color 0.2s;
+        }
+        .score-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(99,102,241,0.1); }
+        .total-cell { font-weight: 700; font-size: 1rem; color: var(--primary); }
+
+        /* Totals row */
+        .totals-row td { background: var(--light); font-weight: 600; border-top: 2px solid #e2e8f0 !important; }
+
+        /* My top pick */
+        .decision-box { background: white; border: 2px solid var(--primary); border-radius: 12px; padding: 24px; margin-bottom: 28px; }
+        .decision-box h3 { font-size: 1rem; font-weight: 700; margin-bottom: 16px; color: var(--primary); }
+        .field-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+        .field-row label { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; color: var(--gray); }
+        .field-input {
+            border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 14px;
+            font-family: 'Inter', sans-serif; font-size: 0.9rem; outline: none;
+            width: 100%; transition: border-color 0.2s;
+        }
+        .field-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(99,102,241,0.1); }
+
+        .btn-save-decision {
+            width: 100%; padding: 12px; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white; border: none; border-radius: 8px; font-size: 0.9rem; font-weight: 700;
+            cursor: pointer; font-family: 'Inter', sans-serif; transition: opacity 0.2s; margin-top: 4px;
+        }
+        .btn-save-decision:hover { opacity: 0.9; }
+
+        .toast { position: fixed; bottom: 24px; right: 24px; background: var(--dark); color: white; padding: 12px 20px; border-radius: 10px; font-size: 0.875rem; font-weight: 500; transform: translateY(80px); opacity: 0; transition: all 0.3s; z-index: 2000; }
+        .toast.show { transform: translateY(0); opacity: 1; }
+
+        @media print {
+            .topbar, .btn-print, .btn-save-decision, .toast { display: none !important; }
+            body { background: white; }
+            .hero { background: #6366f1 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
 </head>
 <body>
-<script>window.location.href='/member/dashboard.html';</script>
+    <div class="topbar">
+        <a href="/member/module-2.html" class="back-link">← Back to Module 2</a>
+        <span class="logo">AI Hustle Engine</span>
+        <button class="btn-print" onclick="window.print()">🖨️ Print / Save PDF</button>
+    </div>
+
+    <div class="container">
+        <div class="hero">
+            <h1>📊 Income Stream Scoring Matrix</h1>
+            <p>Score each AI income model based on your unique situation. The highest total score = your best starting point.</p>
+        </div>
+
+        <div class="instructions">
+            <h3>How to Use This Matrix</h3>
+            <ol>
+                <li>Score each income model <strong>1–5</strong> across the 5 criteria below (1 = poor fit, 5 = perfect fit)</li>
+                <li>Add up each row to get your <strong>Total Score</strong></li>
+                <li>The model with the <strong>highest total</strong> is your best starting point</li>
+                <li>Use the <strong>Decision section</strong> below to commit to your 90-day focus</li>
+            </ol>
+        </div>
+
+        <!-- Scoring Key -->
+        <div style="margin-bottom:12px; font-size:0.8rem; font-weight:600; color:var(--gray);">SCORING KEY</div>
+        <div class="scoring-key">
+            <span class="score-pill score-1">1 — Poor fit</span>
+            <span class="score-pill score-2">2 — Low fit</span>
+            <span class="score-pill score-3">3 — Moderate fit</span>
+            <span class="score-pill score-4">4 — Good fit</span>
+            <span class="score-pill score-5">5 — Perfect fit</span>
+        </div>
+
+        <!-- Matrix Table -->
+        <div class="matrix-wrap">
+            <h3 style="margin-bottom:4px;">Score Each Income Model</h3>
+            <p style="padding: 0 24px 16px; font-size:0.8rem; color:var(--gray);">Enter a score from 1–5 in each cell</p>
+            <table id="matrixTable">
+                <thead>
+                    <tr>
+                        <th style="min-width:200px;">Income Model</th>
+                        <th>Current<br>Skills Fit</th>
+                        <th>Time to<br>First $</th>
+                        <th>Income<br>Ceiling</th>
+                        <th>Suits Your<br>Lifestyle</th>
+                        <th>Excitement<br>Level</th>
+                        <th>TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody id="matrixBody">
+                    <!-- Rows injected by JS -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Decision Section -->
+        <div class="decision-box">
+            <h3>🎯 My 90-Day Decision</h3>
+            <div class="field-row">
+                <label>My #1 Income Model (90-day focus)</label>
+                <input type="text" class="field-input" id="chosenModel" placeholder="e.g. AI Freelancing">
+            </div>
+            <div class="field-row">
+                <label>Why this model fits me best</label>
+                <textarea class="field-input" id="whyModel" rows="3" placeholder="e.g. I have strong copywriting skills and want fast income within 30 days..."></textarea>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:16px;">
+                <div class="field-row">
+                    <label>30-day revenue target ($)</label>
+                    <input type="text" class="field-input" id="target30" placeholder="e.g. $500">
+                </div>
+                <div class="field-row">
+                    <label>60-day revenue target ($)</label>
+                    <input type="text" class="field-input" id="target60" placeholder="e.g. $1,500">
+                </div>
+                <div class="field-row">
+                    <label>90-day revenue target ($)</label>
+                    <input type="text" class="field-input" id="target90" placeholder="e.g. $3,000">
+                </div>
+            </div>
+            <button class="btn-save-decision" onclick="saveDecision()">💾 Save My Decision</button>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">✅ Decision saved!</div>
+
+    <script>
+        const MODELS = [
+            { name: 'AI Freelancing', desc: 'Offer AI-powered services on Upwork, Fiverr, or direct outreach' },
+            { name: 'Digital Products', desc: 'Sell AI-generated ebooks, templates, prompts, or courses' },
+            { name: 'AI Agency', desc: 'Build a small team to deliver AI services at scale' },
+            { name: 'Content & Audience', desc: 'Grow an audience on YouTube, LinkedIn, or newsletters with AI' },
+            { name: 'Automation Consulting', desc: 'Build custom AI/automation workflows for businesses' },
+        ];
+
+        const CRITERIA = ['skillsFit', 'timeToIncome', 'incomeCeiling', 'lifestyleFit', 'excitementLevel'];
+        let scores = {};
+
+        function loadScores() {
+            try {
+                const saved = localStorage.getItem('ahe_income_matrix');
+                if (saved) scores = JSON.parse(saved);
+            } catch(e) {}
+        }
+
+        function saveScores() {
+            localStorage.setItem('ahe_income_matrix', JSON.stringify(scores));
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('matrixBody');
+            tbody.innerHTML = MODELS.map((model, mi) => {
+                const rowKey = `model_${mi}`;
+                if (!scores[rowKey]) scores[rowKey] = {};
+                const cells = CRITERIA.map((crit, ci) => {
+                    const val = scores[rowKey][crit] || '';
+                    return `<td><input class="score-input" type="number" min="1" max="5"
+                        value="${val}"
+                        oninput="updateScore(${mi}, '${crit}', this.value)"
+                        onchange="updateScore(${mi}, '${crit}', this.value)"></td>`;
+                }).join('');
+                const total = calcTotal(rowKey);
+                return `<tr>
+                    <td>
+                        <span class="model-name">${model.name}</span>
+                        <span class="model-desc">${model.desc}</span>
+                    </td>
+                    ${cells}
+                    <td class="total-cell" id="total_${mi}">${total > 0 ? total : '—'}</td>
+                </tr>`;
+            }).join('');
+        }
+
+        function calcTotal(rowKey) {
+            return CRITERIA.reduce((sum, crit) => {
+                const v = parseInt(scores[rowKey]?.[crit] || 0);
+                return sum + (isNaN(v) ? 0 : Math.min(5, Math.max(1, v)));
+            }, 0);
+        }
+
+        function updateScore(mi, crit, val) {
+            const rowKey = `model_${mi}`;
+            if (!scores[rowKey]) scores[rowKey] = {};
+            const num = parseInt(val);
+            if (!isNaN(num) && num >= 1 && num <= 5) {
+                scores[rowKey][crit] = num;
+            } else if (val === '') {
+                delete scores[rowKey][crit];
+            }
+            saveScores();
+            const total = calcTotal(rowKey);
+            document.getElementById(`total_${mi}`).textContent = total > 0 ? total : '—';
+        }
+
+        function saveDecision() {
+            const decision = {
+                chosenModel: document.getElementById('chosenModel').value,
+                why: document.getElementById('whyModel').value,
+                target30: document.getElementById('target30').value,
+                target60: document.getElementById('target60').value,
+                target90: document.getElementById('target90').value,
+            };
+            localStorage.setItem('ahe_income_decision', JSON.stringify(decision));
+            showToast();
+        }
+
+        function loadDecision() {
+            try {
+                const saved = localStorage.getItem('ahe_income_decision');
+                if (!saved) return;
+                const d = JSON.parse(saved);
+                if (d.chosenModel) document.getElementById('chosenModel').value = d.chosenModel;
+                if (d.why) document.getElementById('whyModel').value = d.why;
+                if (d.target30) document.getElementById('target30').value = d.target30;
+                if (d.target60) document.getElementById('target60').value = d.target60;
+                if (d.target90) document.getElementById('target90').value = d.target90;
+            } catch(e) {}
+        }
+
+        function showToast() {
+            const t = document.getElementById('toast');
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 2500);
+        }
+
+        loadScores();
+        renderTable();
+        loadDecision();
+    </script>
 </body>
 </html>
