@@ -70,6 +70,12 @@
         }
         .btn-save:hover { background: var(--primary-dark); }
         .btn-save:disabled { opacity: 0.6; cursor: not-allowed; }
+        .btn-signout {
+            padding: 10px 24px; background: white; color: var(--gray);
+            border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.875rem; font-weight: 600;
+            cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s;
+        }
+        .btn-signout:hover { border-color: var(--danger); color: var(--danger); background: rgba(239,68,68,0.04); }
         .btn-danger {
             padding: 10px 24px; background: white; color: var(--danger);
             border: 1px solid var(--danger); border-radius: 8px; font-size: 0.875rem; font-weight: 600;
@@ -186,7 +192,10 @@
                                 <input type="email" id="email" readonly>
                                 <div class="input-note">Email cannot be changed. Contact support if needed.</div>
                             </div>
-                            <button type="submit" class="btn-save" id="profileBtn">Save Profile</button>
+                            <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+                                <button type="submit" class="btn-save" id="profileBtn">Save Profile</button>
+                                <button type="button" class="btn-signout" onclick="signOut()">Sign Out</button>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -354,6 +363,12 @@
             }
             btn.disabled = false;
             btn.textContent = 'Update Password';
+        }
+
+        function signOut() {
+            localStorage.removeItem('ahe_token');
+            localStorage.removeItem('ahe_user');
+            window.location.href = '/login.html';
         }
 
         function openCancelModal() {

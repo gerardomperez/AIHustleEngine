@@ -757,31 +757,108 @@ Thanks for being such a great client, {{client_name}}. This kind of project is w
             }
         ];
 
+        const API_BASE = '/api';
         let userTier = 'starter';
+        let allTemplates = [];
 
-        function loadUser() {
-            const raw = localStorage.getItem('ahe_user');
-            if (raw) {
-                try {
-                    const user = JSON.parse(raw);
+        const tierLevels = { starter: 1, accelerator: 2, inner_circle: 3 };
+        function hasAccess(requiredTier) {
+            return (tierLevels[userTier] || 0) >= (tierLevels[requiredTier] || 1);
+        }
+
+        function formatLabel(fmt) {
+            if (!fmt) return 'Doc';
+            const f = fmt.toLowerCase();
+            if (f === 'email') return 'Email';
+            if (f === 'spreadsheet') return 'Spreadsheet';
+            return 'Doc';
+        }
+
+        async function loadUser() {
+            const token = localStorage.getItem('ahe_token');
+            if (!token) { window.location.href = '/login.html'; return; }
+
+            // Always refresh tier from server to avoid stale localStorage
+            try {
+                const res = await fetch(`${API_BASE}/auth/me`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                if (res.status === 401 || res.status === 403) {
+                    window.location.href = '/login.html'; return;
+                }
+                if (res.ok) {
+                    const user = await res.json();
+                    userTier = (user.tier || 'starter').toLowerCase();
+                    // Update localStorage so other pages are also fresh
+                    localStorage.setItem('ahe_user', JSON.stringify(user));
                     document.getElementById('userName').textContent = user.name || user.email;
                     document.getElementById('userEmail').textContent = user.email || '';
                     document.getElementById('userAvatar').textContent = (user.name || user.email || 'U')[0].toUpperCase();
-                    userTier = (user.tier || 'starter').toLowerCase();
-                    document.getElementById('tierBadge').textContent = user.tier || 'Starter';
-                } catch(e) {}
+                    const tierDisplay = { starter: 'Starter', accelerator: 'Accelerator', inner_circle: 'Inner Circle' };
+                    document.getElementById('tierBadge').textContent = tierDisplay[userTier] || user.tier || 'Starter';
+                }
+            } catch(e) {
+                // Fallback to localStorage if API unreachable
+                const raw = localStorage.getItem('ahe_user');
+                if (raw) {
+                    try {
+                        const user = JSON.parse(raw);
+                        userTier = (user.tier || 'starter').toLowerCase();
+                        document.getElementById('userName').textContent = user.name || user.email;
+                        document.getElementById('userEmail').textContent = user.email || '';
+                        document.getElementById('userAvatar').textContent = (user.name || user.email || 'U')[0].toUpperCase();
+                        document.getElementById('tierBadge').textContent = user.tier || 'Starter';
+                    } catch(e2) {}
+                }
             }
-            if (userTier === 'starter') {
+
+            if (!hasAccess('accelerator')) {
                 document.getElementById('upgradeBanner').classList.remove('hidden');
             }
-            renderTemplates(TEMPLATES);
+
+            await loadTemplates(token);
+        }
+
+        async function loadTemplates(token) {
+            const grid = document.getElementById('templatesGrid');
+            grid.innerHTML = '<p style="color:var(--gray);grid-column:1/-1;padding:40px;text-align:center;">Loading templates...</p>';
+
+            if (!hasAccess('accelerator')) {
+                // Show locked placeholders
+                allTemplates = [];
+                renderTemplates([]);
+                return;
+            }
+
+            try {
+                const res = await fetch(`${API_BASE}/templates`, {
+                    headers: { 'Authorization': `Bearer ${localStorage.getItem('ahe_token')}` }
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    allTemplates = data.templates || data || [];
+                    // Normalise field names from templates.json format
+                    allTemplates = allTemplates.map(t => ({
+                        ...t,
+                        desc: t.desc || t.description || '',
+                        format: formatLabel(t.format),
+                        category: t.category || 'General'
+                    }));
+                    document.querySelector('.count-badge').textContent = `${allTemplates.length} Templates`;
+                    renderTemplates(allTemplates);
+                } else {
+                    grid.innerHTML = '<p style="color:var(--gray);grid-column:1/-1;padding:40px;text-align:center;">Could not load templates. Please refresh.</p>';
+                }
+            } catch(e) {
+                grid.innerHTML = '<p style="color:var(--gray);grid-column:1/-1;padding:40px;text-align:center;">Error loading templates. Please refresh.</p>';
+            }
         }
 
         function filterTemplates() {
             const search = document.getElementById('searchInput').value.toLowerCase();
             const category = document.getElementById('categoryFilter').value;
-            const filtered = TEMPLATES.filter(t => {
-                const matchSearch = !search || t.title.toLowerCase().includes(search) || t.desc.toLowerCase().includes(search);
+            const filtered = allTemplates.filter(t => {
+                const matchSearch = !search || t.title.toLowerCase().includes(search) || (t.desc||'').toLowerCase().includes(search);
                 const matchCat = !category || t.category === category;
                 return matchSearch && matchCat;
             });
@@ -790,45 +867,53 @@ Thanks for being such a great client, {{client_name}}. This kind of project is w
 
         function renderTemplates(templates) {
             const grid = document.getElementById('templatesGrid');
-            const locked = userTier === 'starter';
+            const locked = !hasAccess('accelerator');
+
+            if (locked) {
+                // Show upgrade prompt instead of locked cards
+                grid.innerHTML = `
+                    <div style="grid-column:1/-1;text-align:center;padding:60px 24px;">
+                        <div style="font-size:3rem;margin-bottom:16px;">🔒</div>
+                        <h3 style="font-size:1.25rem;font-weight:700;margin-bottom:8px;">Templates require Accelerator or above</h3>
+                        <p style="color:var(--gray);margin-bottom:24px;">Get 47 done-for-you templates for cold email, proposals, social media, and more.</p>
+                        <a href="/#pricing" style="padding:12px 32px;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:white;border-radius:8px;text-decoration:none;font-weight:600;">Upgrade to Accelerator →</a>
+                    </div>`;
+                return;
+            }
+
             if (!templates.length) {
                 grid.innerHTML = '<p style="color:var(--gray);grid-column:1/-1;padding:40px;text-align:center;">No templates found.</p>';
                 return;
             }
             grid.innerHTML = templates.map(t => {
-                const formatClass = { 'Email': 'badge-email', 'Doc': 'badge-doc', 'Spreadsheet': 'badge-spreadsheet' }[t.format] || 'badge-doc';
+                const fmt = formatLabel(t.format);
+                const formatClass = { 'Email': 'badge-email', 'Doc': 'badge-doc', 'Spreadsheet': 'badge-spreadsheet' }[fmt] || 'badge-doc';
+                const safeId = JSON.stringify(t.id);
                 return `
                 <div class="template-card">
                     <div class="card-header">
                         <div class="card-badges">
                             <span class="badge badge-cat">${t.category}</span>
-                            <span class="badge ${formatClass}">${t.format}</span>
+                            <span class="badge ${formatClass}">${fmt}</span>
                         </div>
                         <div class="template-title">${t.title}</div>
                     </div>
-                    <div class="template-desc">${t.desc}</div>
+                    <div class="template-desc">${t.desc || t.description || ''}</div>
                     <div class="card-actions">
-                        <button class="btn-view" onclick="openTemplate(${t.id})">👁️ View Template</button>
-                        <button class="btn-copy-tpl" onclick="copyTemplate(${t.id})">📋</button>
+                        <button class="btn-view" onclick="openTemplate(${safeId})">👁️ View Template</button>
+                        <button class="btn-copy-tpl" onclick="copyTemplate(${safeId})">📋</button>
                     </div>
-                    ${locked ? `
-                    <div class="lock-overlay">
-                        <div class="lock-icon">🔒</div>
-                        <h4>Accelerator Feature</h4>
-                        <p>Templates are available on the Accelerator plan and above.</p>
-                        <a href="/#pricing" class="btn-upgrade-overlay">Upgrade to Accelerator →</a>
-                    </div>` : ''}
                 </div>`;
             }).join('');
         }
 
         function openTemplate(id) {
-            if (userTier === 'starter') { window.location.href = '/#pricing'; return; }
-            const t = TEMPLATES.find(t => t.id === id);
+            const t = allTemplates.find(t => t.id === id);
             if (!t) return;
-            const formatClass = { 'Email': 'badge-email', 'Doc': 'badge-doc', 'Spreadsheet': 'badge-spreadsheet' }[t.format] || 'badge-doc';
+            const fmt = formatLabel(t.format);
+            const formatClass = { 'Email': 'badge-email', 'Doc': 'badge-doc', 'Spreadsheet': 'badge-spreadsheet' }[fmt] || 'badge-doc';
             document.getElementById('modalTitle').textContent = t.title;
-            document.getElementById('modalBadges').innerHTML = `<span class="badge badge-cat">${t.category}</span><span class="badge ${formatClass}">${t.format}</span>`;
+            document.getElementById('modalBadges').innerHTML = `<span class="badge badge-cat">${t.category}</span><span class="badge ${formatClass}">${fmt}</span>`;
             document.getElementById('modalContent').textContent = t.content;
             document.getElementById('modalBackdrop').classList.add('show');
         }
@@ -841,8 +926,7 @@ Thanks for being such a great client, {{client_name}}. This kind of project is w
         }
 
         function copyTemplate(id) {
-            if (userTier === 'starter') return;
-            const t = TEMPLATES.find(t => t.id === id);
+            const t = allTemplates.find(t => t.id === id);
             if (!t) return;
             navigator.clipboard.writeText(t.content).then(() => showToast());
         }

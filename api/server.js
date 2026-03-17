@@ -152,6 +152,19 @@ app.get('/playbook', authenticateToken, (req, res) => {
   }
 });
 
+// Auth — get current user (refreshes tier from DB)
+app.get('/auth/me', authenticateToken, (req, res) => {
+  try {
+    const tierResult = db.getUserTier.get(req.user.id);
+    const tier = tierResult?.tier || 'starter';
+    const user = db.getUserByEmail.get(req.user.email);
+    if (!user) return res.status(404).json({ error: 'User not found' });
+    res.json({ id: user.id, email: user.email, name: user.name, tier });
+  } catch (e) {
+    res.status(500).json({ error: 'Failed to get user' });
+  }
+});
+
 // Templates — accelerator and above
 app.get('/templates', authenticateToken, requireTier('accelerator'), (req, res) => {
   try {
