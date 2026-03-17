@@ -198,3 +198,11 @@ app.get('/health', (req, res) => {
 app.listen(PORT, () => {
   console.log(`AI Hustle Engine API running on port ${PORT}`);
 });
+
+// Prevent crashes from killing the process
+process.on('uncaughtException', (err) => {
+  console.error('[uncaughtException]', new Date().toISOString(), err.message, err.stack);
+});
+process.on('unhandledRejection', (reason) => {
+  console.error('[unhandledRejection]', new Date().toISOString(), reason);
+});

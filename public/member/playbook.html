@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Hustle Playbook | AI Hustle Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --success: #10b981;
+        }
+        body { font-family: 'Inter', sans-serif; background: var(--light); color: var(--dark); }
+        .app { display: flex; min-height: 100vh; }
+        .sidebar {
+            width: 260px; background: white; border-right: 1px solid #e2e8f0;
+            display: flex; flex-direction: column; position: fixed; height: 100vh; z-index: 100;
+        }
+        .sidebar-header { padding: 24px; border-bottom: 1px solid #e2e8f0; }
+        .logo {
+            font-weight: 800; font-size: 1.25rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-decoration: none; display: block;
+        }
+        .tier-badge {
+            display: inline-block; margin-top: 8px; padding: 4px 12px;
+            background: var(--primary); color: white; border-radius: 50px;
+            font-size: 0.75rem; font-weight: 600;
+        }
+        .nav { flex: 1; padding: 16px 12px; overflow-y: auto; }
+        .nav-title { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--gray); padding: 0 12px; margin-bottom: 8px; }
+        .nav-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 8px; cursor: pointer; transition: all 0.2s; color: var(--dark); text-decoration: none; margin-bottom: 2px; }
+        .nav-item:hover, .nav-item.active { background: var(--light); color: var(--primary); }
+        .nav-item.active { font-weight: 600; }
+        .sidebar-footer { padding: 16px; border-top: 1px solid #e2e8f0; }
+        .user-menu { display: flex; align-items: center; gap: 12px; padding: 8px; border-radius: 8px; }
+        .avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 0.875rem; flex-shrink: 0; }
+        .user-name { font-weight: 600; font-size: 0.875rem; }
+        .user-email { font-size: 0.75rem; color: var(--gray); }
+        .main { flex: 1; margin-left: 260px; padding: 32px; max-width: 900px; }
+
+        /* Hero */
+        .playbook-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 16px; padding: 40px; color: white; margin-bottom: 32px;
+        }
+        .playbook-hero h1 { font-size: 1.75rem; font-weight: 800; margin-bottom: 8px; }
+        .playbook-hero p { font-size: 1rem; opacity: 0.9; margin-bottom: 16px; }
+        .meta-pills { display: flex; gap: 12px; flex-wrap: wrap; }
+        .meta-pill { background: rgba(255,255,255,0.2); padding: 4px 14px; border-radius: 50px; font-size: 0.8rem; font-weight: 500; }
+
+        /* Intro */
+        .intro-card { background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px; margin-bottom: 28px; }
+        .intro-card p { line-height: 1.8; color: var(--gray); font-size: 0.95rem; }
+
+        /* Quick start */
+        .section-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+        .quick-start { background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px; margin-bottom: 28px; }
+        .qs-steps { display: flex; flex-direction: column; gap: 16px; }
+        .qs-step { display: flex; gap: 16px; align-items: flex-start; }
+        .qs-num { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; font-weight: 700; font-size: 0.875rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .qs-content h4 { font-weight: 600; font-size: 0.95rem; margin-bottom: 4px; }
+        .qs-content p { font-size: 0.875rem; color: var(--gray); line-height: 1.6; }
+
+        /* Chapters */
+        .chapters { display: flex; flex-direction: column; gap: 20px; margin-bottom: 32px; }
+        .chapter-card { background: white; border: 1px solid #e2e8f0; border-radius: 12px; overflow: hidden; transition: box-shadow 0.2s; }
+        .chapter-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+        .chapter-header { padding: 20px 24px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+        .chapter-header:hover { background: var(--light); }
+        .chapter-num { width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; font-weight: 700; font-size: 1rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .chapter-info { flex: 1; }
+        .chapter-title { font-weight: 700; font-size: 1rem; margin-bottom: 2px; }
+        .chapter-subtitle { font-size: 0.8rem; color: var(--gray); }
+        .chapter-toggle { font-size: 1.2rem; color: var(--gray); transition: transform 0.2s; }
+        .chapter-toggle.open { transform: rotate(180deg); }
+        .chapter-body { display: none; padding: 0 24px 24px; border-top: 1px solid #f1f5f9; }
+        .chapter-body.open { display: block; }
+        .chapter-content { font-size: 0.9rem; line-height: 1.8; color: var(--gray); margin-bottom: 20px; padding-top: 20px; }
+        .sub-section { margin-bottom: 20px; }
+        .sub-section h4 { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary); margin-bottom: 10px; }
+        .key-points { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .key-points li { display: flex; gap: 10px; font-size: 0.875rem; line-height: 1.6; }
+        .key-points li::before { content: '✦'; color: var(--primary); flex-shrink: 0; font-size: 0.7rem; margin-top: 4px; }
+        .action-items { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+        .action-items li { display: flex; gap: 10px; font-size: 0.875rem; line-height: 1.6; }
+        .action-num { width: 20px; height: 20px; border-radius: 50%; background: var(--success); color: white; font-size: 0.65rem; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+
+        /* Resource directory */
+        .resources-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+        .resource-cat { background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; }
+        .resource-cat h4 { font-weight: 700; font-size: 0.9rem; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid #f1f5f9; }
+        .resource-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+        .resource-list li { font-size: 0.8rem; color: var(--gray); display: flex; gap: 6px; line-height: 1.5; }
+        .resource-list li::before { content: '→'; color: var(--accent); flex-shrink: 0; }
+
+        /* Loading / Error */
+        .loading { text-align: center; padding: 80px 24px; color: var(--gray); }
+        .spinner { display: inline-block; width: 32px; height: 32px; border: 3px solid #e2e8f0; border-top-color: var(--primary); border-radius: 50%; animation: spin 0.8s linear infinite; margin-bottom: 12px; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .mobile-toggle { display: none; position: fixed; top: 16px; left: 16px; z-index: 200; background: white; border: 1px solid #e2e8f0; padding: 12px; border-radius: 8px; cursor: pointer; }
+        @media (max-width: 768px) {
+            .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+            .sidebar.open { transform: translateX(0); }
+            .main { margin-left: 0; padding: 16px; }
+            .mobile-toggle { display: block; }
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <button class="mobile-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="dashboard.html" class="logo">AI Hustle Engine</a>
+                <span class="tier-badge" id="tierBadge">Starter</span>
+            </div>
+            <nav class="nav">
+                <div class="nav-title">Member Area</div>
+                <a href="dashboard.html" class="nav-item">📊 Dashboard</a>
+                <a href="module-1.html" class="nav-item">📚 My Courses</a>
+                <a href="prompt-vault.html" class="nav-item">⚡ Prompt Vault</a>
+                <a href="templates.html" class="nav-item">📝 Templates</a>
+                <a href="playbook.html" class="nav-item active">📖 Playbook</a>
+                <a href="account.html" class="nav-item">⚙️ Account</a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-menu">
+                    <div class="avatar" id="userAvatar">?</div>
+                    <div>
+                        <div class="user-name" id="userName">Loading...</div>
+                        <div class="user-email" id="userEmail"></div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main" id="mainContent">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Loading your playbook...</p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const API_BASE = '/api';
+
+        async function init() {
+            const token = localStorage.getItem('ahe_token');
+            if (!token) { window.location.href = '/login.html'; return; }
+
+            // Load user
+            try {
+                const res = await fetch(`${API_BASE}/auth/me`, { headers: { 'Authorization': `Bearer ${token}` } });
+                if (res.status === 401 || res.status === 403) { window.location.href = '/login.html'; return; }
+                if (res.ok) {
+                    const user = await res.json();
+                    localStorage.setItem('ahe_user', JSON.stringify(user));
+                    document.getElementById('userName').textContent = user.name || user.email;
+                    document.getElementById('userEmail').textContent = user.email || '';
+                    document.getElementById('userAvatar').textContent = (user.name || user.email || 'U')[0].toUpperCase();
+                    const tierDisplay = { starter: 'Starter', accelerator: 'Accelerator', inner_circle: 'Inner Circle' };
+                    document.getElementById('tierBadge').textContent = tierDisplay[(user.tier||'').toLowerCase()] || user.tier || 'Starter';
+                }
+            } catch(e) {
+                const raw = localStorage.getItem('ahe_user');
+                if (raw) {
+                    try {
+                        const u = JSON.parse(raw);
+                        document.getElementById('userName').textContent = u.name || u.email;
+                        document.getElementById('userEmail').textContent = u.email || '';
+                        document.getElementById('userAvatar').textContent = (u.name || u.email || 'U')[0].toUpperCase();
+                        document.getElementById('tierBadge').textContent = u.tier || 'Starter';
+                    } catch(e2) {}
+                }
+            }
+
+            // Load playbook
+            try {
+                const res = await fetch(`${API_BASE}/playbook`, { headers: { 'Authorization': `Bearer ${token}` } });
+                if (!res.ok) { showError('Could not load the playbook. Please refresh.'); return; }
+                const data = await res.json();
+                renderPlaybook(data);
+            } catch(e) {
+                showError('Error loading playbook. Please refresh the page.');
+            }
+        }
+
+        function showError(msg) {
+            document.getElementById('mainContent').innerHTML = `<div class="loading"><p style="color:#ef4444;">${msg}</p></div>`;
+        }
+
+        function renderPlaybook(d) {
+            const chapters = d.chapters || [];
+            const quickStart = d.quick_start_checklist || [];
+            const resourceDir = d.resource_directory || {};
+            const categories = resourceDir.categories || [];
+
+            const chaptersHTML = chapters.map((ch, i) => `
+                <div class="chapter-card">
+                    <div class="chapter-header" onclick="toggleChapter(${i})">
+                        <div class="chapter-num">${ch.number}</div>
+                        <div class="chapter-info">
+                            <div class="chapter-title">${ch.title}</div>
+                            ${ch.subtitle ? `<div class="chapter-subtitle">${ch.subtitle}</div>` : ''}
+                        </div>
+                        <div class="chapter-toggle" id="toggle-${i}">▼</div>
+                    </div>
+                    <div class="chapter-body" id="body-${i}">
+                        ${ch.content ? `<div class="chapter-content">${ch.content}</div>` : ''}
+                        ${ch.key_points && ch.key_points.length ? `
+                        <div class="sub-section">
+                            <h4>Key Points</h4>
+                            <ul class="key-points">
+                                ${ch.key_points.map(p => `<li>${p}</li>`).join('')}
+                            </ul>
+                        </div>` : ''}
+                        ${ch.action_items && ch.action_items.length ? `
+                        <div class="sub-section">
+                            <h4>Action Items</h4>
+                            <ul class="action-items">
+                                ${ch.action_items.map((a, idx) => `<li><span class="action-num">${idx+1}</span>${a}</li>`).join('')}
+                            </ul>
+                        </div>` : ''}
+                    </div>
+                </div>`).join('');
+
+            const quickStartHTML = quickStart.length ? `
+                <div class="quick-start">
+                    <div class="section-title">⚡ Quick Start Checklist</div>
+                    <div class="qs-steps">
+                        ${quickStart.map((s, i) => `
+                        <div class="qs-step">
+                            <div class="qs-num">${i+1}</div>
+                            <div class="qs-content">
+                                <h4>${s.step || s.title || ''}</h4>
+                                <p>${s.description || s.action || ''}</p>
+                            </div>
+                        </div>`).join('')}
+                    </div>
+                </div>` : '';
+
+            const resourcesHTML = categories.length ? `
+                <div style="margin-bottom:32px;">
+                    <div class="section-title">📚 Resource Directory</div>
+                    <div class="resources-grid">
+                        ${categories.map(cat => `
+                        <div class="resource-cat">
+                            <h4>${cat.name || ''}</h4>
+                            <ul class="resource-list">
+                                ${(cat.resources || []).map(r => `<li>${typeof r === 'string' ? r : (r.name || r.title || JSON.stringify(r))}</li>`).join('')}
+                            </ul>
+                        </div>`).join('')}
+                    </div>
+                </div>` : '';
+
+            document.getElementById('mainContent').innerHTML = `
+                <div class="playbook-hero">
+                    <h1>📖 ${d.title || 'AI Hustle Playbook'}</h1>
+                    <p>${d.subtitle || ''}</p>
+                    <div class="meta-pills">
+                        <span class="meta-pill">v${d.version || '1.0'}</span>
+                        <span class="meta-pill">Updated ${d.updated || ''}</span>
+                        <span class="meta-pill">${chapters.length} Chapters</span>
+                    </div>
+                </div>
+
+                ${d.introduction ? `<div class="intro-card"><p>${d.introduction}</p></div>` : ''}
+
+                ${quickStartHTML}
+
+                <div class="section-title" style="margin-bottom:16px;">📘 Chapters</div>
+                <div class="chapters">${chaptersHTML}</div>
+
+                ${resourcesHTML}
+            `;
+        }
+
+        function toggleChapter(i) {
+            const body = document.getElementById(`body-${i}`);
+            const toggle = document.getElementById(`toggle-${i}`);
+            body.classList.toggle('open');
+            toggle.classList.toggle('open');
+        }
+
+        init();
+    </script>
+</body>
+</html>
