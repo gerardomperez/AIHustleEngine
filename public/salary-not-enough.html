@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Paycheck Is Shrinking — Even If You Got a Raise | AI Hustle</title>
+    <meta name="description" content="Wages rose 21.8% since 2021. Prices rose 22.7%. Your raise didn't make you richer — it slowed how fast you're getting poorer. Here's what to do.">
+    <link rel="canonical" href="https://ai-hustle.advancedmedias.com/salary-not-enough">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #6366f1; --primary-dark: #4f46e5; --accent: #06b6d4;
+            --dark: #0f172a; --gray: #64748b; --light: #f8fafc; --success: #10b981; --warning: #f59e0b;
+        }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--dark); background: #fff; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        header { background: var(--dark); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #1e293b; }
+        .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+        .logo { color: #fff; font-weight: 800; font-size: 1.2rem; text-decoration: none; }
+        .logo span { color: var(--accent); }
+        nav { display: flex; align-items: center; gap: 28px; }
+        nav a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        nav a:hover { color: #fff; }
+        .nav-cta { background: var(--primary); color: #fff !important; padding: 10px 20px; border-radius: 8px; font-weight: 600 !important; white-space: nowrap; }
+        .nav-cta:hover { background: var(--primary-dark) !important; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+        .hamburger span { display: block; width: 24px; height: 2px; background: #94a3b8; border-radius: 2px; }
+        .mobile-nav { display: none; background: #1e293b; padding: 16px 24px; flex-direction: column; gap: 12px; }
+        .mobile-nav a { color: #94a3b8; text-decoration: none; font-size: 0.95rem; padding: 8px 0; border-bottom: 1px solid #334155; }
+        .mobile-nav.open { display: flex; }
+        .mobile-cta-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: var(--primary); z-index: 99; padding: 14px 24px; }
+        .mobile-cta-bar a { display: block; color: #fff; text-align: center; text-decoration: none; font-weight: 700; }
+        .hero { background: var(--dark); padding: 96px 0 80px; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 60%, rgba(245,158,11,0.12) 0%, transparent 60%); }
+        .hero-content { position: relative; max-width: 780px; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.3); color: #fcd34d; padding: 6px 14px; border-radius: 100px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 24px; }
+        .hero h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 900; color: #fff; line-height: 1.15; letter-spacing: -1px; margin-bottom: 24px; }
+        .hero h1 em { color: var(--warning); font-style: normal; }
+        .hero p { font-size: 1.15rem; color: #94a3b8; line-height: 1.75; max-width: 680px; margin-bottom: 36px; }
+        .hero-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--primary); color: #fff; padding: 16px 32px; border-radius: 10px; font-size: 1.05rem; font-weight: 700; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 20px rgba(99,102,241,0.4); }
+        .hero-cta:hover { background: var(--primary-dark); transform: translateY(-1px); }
+        .hero-attribution { margin-top: 20px; font-size: 0.75rem; color: #475569; }
+        section { padding: 80px 0; }
+        section.alt { background: var(--light); }
+        .section-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+        .section-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 16px; }
+        .section-subtitle { font-size: 1.05rem; color: var(--gray); max-width: 620px; }
+        .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+        .stat-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px 24px; }
+        .stat-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+        .stat-number { font-size: 2.4rem; font-weight: 900; color: var(--warning); letter-spacing: -1px; line-height: 1; margin-bottom: 10px; }
+        .stat-label { font-size: 0.95rem; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+        .stat-desc { font-size: 0.875rem; color: var(--gray); line-height: 1.5; }
+        .stat-source { font-size: 0.75rem; color: #94a3b8; margin-top: 10px; font-style: italic; }
+        .stat-closing { margin-top: 40px; padding: 24px 28px; background: #fff; border-left: 4px solid var(--warning); border-radius: 8px; font-size: 1rem; color: var(--dark); font-weight: 500; line-height: 1.7; }
+        .arg-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; }
+        .arg-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px 24px; }
+        .arg-card h3 { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 12px; padding-bottom: 12px; border-bottom: 2px solid var(--warning); display: inline-block; }
+        .arg-card p { font-size: 0.925rem; color: var(--gray); line-height: 1.7; }
+        .solution-text { max-width: 760px; }
+        .solution-text p { font-size: 1rem; color: #334155; line-height: 1.8; margin-bottom: 18px; }
+        .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 40px; }
+        .feature-card { background: var(--dark); border-radius: 12px; padding: 28px 24px; }
+        .feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; color: var(--accent); }
+        .feature-card p { font-size: 0.9rem; color: #94a3b8; line-height: 1.6; }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+        .testimonial-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px 24px; }
+        .testimonial-card blockquote { font-size: 0.95rem; color: #334155; line-height: 1.7; font-style: italic; margin-bottom: 20px; }
+        .testimonial-card blockquote::before { content: '\201C'; font-size: 2rem; color: var(--primary); line-height: 0; vertical-align: -0.4em; margin-right: 4px; }
+        .testimonial-meta strong { display: block; font-size: 0.9rem; color: var(--dark); font-weight: 700; }
+        .testimonial-meta span { font-size: 0.8rem; color: var(--gray); }
+        .cta-section { background: var(--dark); }
+        .cta-section .section-title { color: #fff; }
+        .cta-section .section-subtitle { color: #94a3b8; }
+        .cta-form { display: flex; gap: 12px; margin-top: 32px; max-width: 480px; }
+        .cta-form input[type=email] { flex: 1; padding: 14px 18px; border: 2px solid #334155; border-radius: 8px; background: #1e293b; color: #fff; font-size: 1rem; outline: none; }
+        .cta-form input[type=email]::placeholder { color: #64748b; }
+        .cta-form input[type=email]:focus { border-color: var(--primary); }
+        .cta-form button { background: var(--primary); color: #fff; border: none; padding: 14px 24px; border-radius: 8px; font-size: 0.95rem; font-weight: 700; cursor: pointer; white-space: nowrap; transition: background 0.2s; }
+        .cta-form button:hover { background: var(--primary-dark); }
+        .crosslink-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 48px; }
+        .crosslink-box { background: rgba(99,102,241,0.06); border: 1px solid rgba(99,102,241,0.2); border-radius: 10px; padding: 20px 24px; }
+        .crosslink-box a { text-decoration: none; color: var(--primary); font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; }
+        .crosslink-box a:hover { color: var(--primary-dark); }
+        .crosslink-box p { font-size: 0.82rem; color: var(--gray); margin-top: 4px; }
+        footer { background: var(--dark); color: #64748b; padding: 64px 0 32px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-bottom: 48px; }
+        .footer-logo { color: #fff; font-weight: 800; font-size: 1.1rem; margin-bottom: 10px; }
+        .footer-tagline { font-size: 0.875rem; color: #64748b; line-height: 1.6; margin-bottom: 20px; }
+        .social-links { display: flex; gap: 12px; }
+        .social-links a { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #1e293b; border-radius: 8px; color: #64748b; text-decoration: none; font-size: 0.8rem; transition: 0.2s; }
+        .social-links a:hover { background: #334155; color: #fff; }
+        .footer-col h4 { color: #94a3b8; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: #64748b; text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+        .footer-col ul li a:hover { color: #94a3b8; }
+        .footer-newsletter { display: flex; gap: 8px; margin-top: 12px; }
+        .footer-newsletter input { flex: 1; padding: 10px 14px; background: #1e293b; border: 1px solid #334155; border-radius: 8px; color: #fff; font-size: 0.875rem; outline: none; }
+        .footer-newsletter input::placeholder { color: #475569; }
+        .footer-newsletter button { background: var(--primary); color: #fff; border: none; padding: 10px 16px; border-radius: 8px; font-size: 0.875rem; font-weight: 600; cursor: pointer; }
+        .footer-bottom { border-top: 1px solid #1e293b; padding-top: 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+        .footer-bottom p { font-size: 0.8rem; }
+        .footer-bottom-links { display: flex; gap: 20px; }
+        .footer-bottom-links a { color: #475569; text-decoration: none; font-size: 0.8rem; }
+        @media (max-width: 768px) {
+            nav { display: none; } .hamburger { display: flex; } .mobile-cta-bar { display: block; } body { padding-bottom: 60px; }
+            .stat-grid, .arg-grid, .feature-grid, .testimonial-grid, .crosslink-grid, .footer-grid { grid-template-columns: 1fr; }
+            .cta-form { flex-direction: column; } .footer-bottom { flex-direction: column; text-align: center; }
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .stat-grid { grid-template-columns: repeat(2, 1fr); } .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="nav-inner">
+            <a href="/" class="logo">AI<span>Hustle</span></a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/index.html#pricing">Programs</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/index.html">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#email-capture" class="nav-cta">Calculate My Income Gap</a>
+            </nav>
+            <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.toggle('open')" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+    <div class="mobile-nav">
+        <a href="/">Home</a><a href="/index.html#pricing">Programs</a><a href="/blog.html">Blog</a><a href="/index.html">About</a><a href="#contact">Contact</a>
+    </div>
+</header>
+<div class="mobile-cta-bar"><a href="#email-capture">Calculate Your Real Income Gap</a></div>
+
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">Real Wage Decline — 2021–2026</div>
+            <h1>Your Paycheck Is Shrinking —<br><em>Even If You Got a Raise</em></h1>
+            <p>Wages have risen 21.8% since 2021. Prices have risen 22.7%. That means the average American worker has less buying power today than they did five years ago — and the gap is getting wider. Your raise didn't make you richer. It just slowed down how fast you're getting poorer.</p>
+            <a href="#email-capture" class="hero-cta">Calculate Your Real Income Gap →</a>
+            <p class="hero-attribution">Sources: Bureau of Labor Statistics wage data &nbsp;|&nbsp; Consumer Price Index through 2025</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-label">The Hard Math</div>
+        <h2 class="section-title">The Math Doesn't Lie. Your Money Buys Less Every Year.</h2>
+        <p class="section-subtitle">This isn't a feeling. It's documented across every major economic dataset.</p>
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="stat-number">-0.9%</div>
+                <div class="stat-label">Real Wage Growth</div>
+                <div class="stat-desc">Average hourly earnings rose 21.8% from January 2021 to mid-2025. The Consumer Price Index rose 22.7% over the same period. Net result: your money buys less today than it did five years ago.</div>
+                <div class="stat-source">Bureau of Labor Statistics</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">~100%</div>
+                <div class="stat-label">Of Employees Feeling It</div>
+                <div class="stat-desc">Near-universal employee sentiment: wages are not keeping up with cost of living. This is not a perception problem — it is a math problem confirmed by independent workplace research.</div>
+                <div class="stat-source">SHRM research, 2025</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2.3%<br><span style="font-size:1.2rem; color: var(--gray);">vs 4%</span></div>
+                <div class="stat-label">Middle vs. Top Earner Raises</div>
+                <div class="stat-desc">Middle-income household paycheck gains were just 2.3% year-over-year as of late 2025, while top earners saw 4% gains. The people who need raises the most are getting the smallest ones.</div>
+                <div class="stat-source">Workforce compensation analysis, 2025</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">~50%</div>
+                <div class="stat-label">Renters Are Rent-Burdened</div>
+                <div class="stat-desc">Nearly half of all US renters spend more than 30% of income on housing alone. Add food, transportation, healthcare, and childcare — and there is almost nothing left for savings or building wealth.</div>
+                <div class="stat-source">US Census Bureau data</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2×</div>
+                <div class="stat-label">The Double Cost of Inflation</div>
+                <div class="stat-desc">Not only are prices higher — employees must spend extra time and emotional energy negotiating raises just to break even. The negotiation process itself has become a source of stress and burnout. You pay twice.</div>
+                <div class="stat-source">Workplace economics research</div>
+            </div>
+            <div class="stat-card" style="background: linear-gradient(135deg, #0f172a, #1e293b); border-color: #334155;">
+                <div class="stat-number" style="color: var(--accent);">$1,500+</div>
+                <div class="stat-label" style="color: #e2e8f0;">Monthly Income Gap</div>
+                <div class="stat-desc" style="color: #94a3b8;">The average American household needs an additional $1,500–$2,000/month just to restore the purchasing power they had in 2019. That's not a raise. That's a second income.</div>
+            </div>
+        </div>
+        <div class="stat-closing">The corporate salary model is not designed to restore your purchasing power. It is designed to retain you while minimizing labor cost. No amount of negotiation will fix a structural problem. The only real solution is an income stream that grows on your terms.</div>
+    </div>
+</section>
+
+<section class="alt">
+    <div class="container">
+        <div class="section-label">Why It Keeps Getting Worse</div>
+        <h2 class="section-title">Your Employer Can't Fix This. And They Won't Try.</h2>
+        <p class="section-subtitle">Four structural forces are working against your paycheck — and they are all getting stronger.</p>
+        <div class="arg-grid">
+            <div class="arg-card">
+                <h3>"Inflation cooled. Prices didn't."</h3>
+                <p>The most misunderstood aspect of inflation is that "cooling" means prices are rising more slowly — not that they are coming back down. The price hikes from 2021–2023 are permanent. They have stuck. Your salary would need to jump 20%+ to restore the purchasing power you had in 2020. That raise is not coming.</p>
+            </div>
+            <div class="arg-card">
+                <h3>"The job market gives employers the leverage."</h3>
+                <p>Workers are staying in their jobs at the highest rate in five years because there is nowhere better to go. When employees are not quitting, employers have no incentive to offer competitive raises. The rate of voluntary job changes fell to a five-year low, which means the leverage has shifted entirely to the employer side.</p>
+            </div>
+            <div class="arg-card">
+                <h3>"AI is compressing wages further."</h3>
+                <p>As AI tools make individual workers more productive, companies need fewer workers for the same output. This creates downward pressure on wages even in industries where jobs are not being eliminated outright. If one person with AI can do the work of three, the other two compete for fewer remaining positions — and accept lower pay to get them.</p>
+            </div>
+            <div class="arg-card">
+                <h3>"Cost-of-living adjustments are a fiction."</h3>
+                <p>The 2026 Social Security COLA was 2.8%. Average corporate COLA adjustments: 2.5–3%. Meanwhile, housing costs in most metro areas are rising 5–8% annually, healthcare 6–7%, and childcare continues to outpace every other category. A 3% raise against 6% cost increases means you are losing ground every single year.</p>
+            </div>
+        </div>
+        <div class="crosslink-grid">
+            <div class="crosslink-box">
+                <a href="/ai-side-hustle.html">See the fastest AI income streams available right now →</a>
+                <p>The same AI compressing wages can generate real income for you in 10-15 hours per week.</p>
+            </div>
+            <div class="crosslink-box">
+                <a href="/ai-replacing-jobs.html">Your salary isn't the only thing at risk. See how exposed your job is →</a>
+                <p>The income gap is just part of the picture. Find out your full risk profile.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container">
+        <div class="section-label">The Solution</div>
+        <h2 class="section-title">You Don't Need a Bigger Paycheck.<br>You Need a Second Income Stream That Grows.</h2>
+        <div class="solution-text" style="margin-top: 32px;">
+            <p>The corporate salary model is broken. It was designed for an economy where wages kept pace with costs, where loyalty was rewarded with advancement, and where a single income could support a household. That economy no longer exists.</p>
+            <p>The AI Hustle program is designed for people in exactly this position: you have a job, you have skills, and you have limited time — but you need additional income that is not capped by an employer's budget or a company's raise cycle. AI tools have made it possible to build real income streams in 10–15 hours per week because they compress the time, cost, and skill barriers that used to make side businesses impractical for employed people.</p>
+            <p>The program does not ask you to quit your job. It teaches you to build alongside it — using AI to do in 2 hours what used to take 20, so the math finally works in your favor.</p>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>The $1,500/Month Blueprint</h3>
+                <p>A focused track designed to generate an additional $1,500/month in AI-powered income — enough to close the inflation gap for most households — within your first 90 days.</p>
+            </div>
+            <div class="feature-card">
+                <h3>No-Code AI Business Models</h3>
+                <p>Business models that work on a part-time schedule with no coding or tech skills required. Start earning without quitting your current job or taking on risk.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Step-by-Step Setup Guides</h3>
+                <p>You are not left to figure it out alone. Every income system is documented, explained, and supported. Follow the guide — get the result.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Your Competitive Advantage</h3>
+                <p>The same AI tools compressing your corporate wages become your income engine as an entrepreneur. Your corporate experience is the unfair advantage most competitors don't have.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="alt">
+    <div class="container">
+        <div class="section-label">Real Results</div>
+        <h2 class="section-title">From Paycheck Squeeze to Real Extra Income</h2>
+        <!-- PLACEHOLDER: Replace with real testimonials before launch -->
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <blockquote>I make $110K and still felt broke at the end of every month. Two months into AI Hustle I had a $1,200/month AI content side business. Now I'm at $2,800/month and the inflation math actually works in my favor.</blockquote>
+                <div class="testimonial-meta"><strong>Marcus T.</strong><span>Software Engineer</span></div>
+            </div>
+            <div class="testimonial-card">
+                <blockquote>Got a 2.5% raise and my rent went up 9%. AI Hustle taught me to build an AI automation consulting practice. I cleared $1,800 extra last month working evenings.</blockquote>
+                <div class="testimonial-meta"><strong>Priya S.</strong><span>Operations Manager</span></div>
+            </div>
+            <div class="testimonial-card">
+                <blockquote>Commission-based income with unpredictable swings scared me. I built an AI digital products business on the side as a financial hedge. It's steadier than my sales income now.</blockquote>
+                <div class="testimonial-meta"><strong>Tom W.</strong><span>Account Executive</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section" id="contact">
+    <div class="container">
+        <div class="section-label" style="color: var(--accent);">Free Tool</div>
+        <h2 class="section-title">How Much Buying Power Have You Actually Lost?</h2>
+        <p class="section-subtitle">The Income Gap Calculator shows you the real number — how much additional monthly income you need to get back to where you were. Plus, a personalized recommendation for the fastest AI income stream to close that gap.</p>
+        <form id="email-capture" action="#" method="post">
+            <div class="cta-form">
+                <input type="email" name="email" placeholder="Enter your email address" required>
+                <button type="submit">Calculate My Income Gap</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo">AI Hustle</div>
+                <p class="footer-tagline">Stop trading time for money. Start building AI-powered income.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter/X">𝕏</a><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="YouTube">YT</a><a href="#" aria-label="LinkedIn">in</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Landing Pages</h4>
+                <ul>
+                    <li><a href="/ai-replacing-jobs.html">AI Replacing Jobs</a></li>
+                    <li><a href="/salary-not-enough.html">Salary Not Enough</a></li>
+                    <li><a href="/corporate-burnout.html">Corporate Burnout</a></li>
+                    <li><a href="/ai-side-hustle.html">AI Side Hustle</a></li>
+                    <li><a href="/learn-ai-or-lose.html">Learn AI or Lose</a></li>
+                    <li><a href="/index.html#pricing">Programs</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Stay in the Loop</h4>
+                <p style="font-size:0.85rem; margin-bottom: 12px;">Weekly AI income strategies. No spam.</p>
+                <div class="footer-newsletter">
+                    <input type="email" placeholder="your@email.com">
+                    <button type="button">Subscribe</button>
+                </div>
+                <ul style="margin-top: 20px;">
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 AI Hustle | AdvancedMedias. All rights reserved.</p>
+            <div class="footer-bottom-links"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="#contact">Contact</a></div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

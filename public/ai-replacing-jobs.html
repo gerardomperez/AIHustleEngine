@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Job Is Already Being Replaced — AI Hustle</title>
+    <meta name="description" content="In the first half of 2025, nearly 78,000 tech jobs were eliminated due to AI. Find out how exposed your role is and what to do about it.">
+    <link rel="canonical" href="https://ai-hustle.advancedmedias.com/ai-replacing-jobs">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f8fafc;
+            --success: #10b981;
+            --danger: #ef4444;
+        }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--dark); background: #fff; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        /* NAV */
+        header { background: var(--dark); position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #1e293b; }
+        .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+        .logo { color: #fff; font-weight: 800; font-size: 1.2rem; text-decoration: none; letter-spacing: -0.5px; }
+        .logo span { color: var(--accent); }
+        nav { display: flex; align-items: center; gap: 28px; }
+        nav a { color: #94a3b8; text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        nav a:hover { color: #fff; }
+        .nav-cta { background: var(--primary); color: #fff !important; padding: 10px 20px; border-radius: 8px; font-weight: 600 !important; white-space: nowrap; }
+        .nav-cta:hover { background: var(--primary-dark) !important; }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+        .hamburger span { display: block; width: 24px; height: 2px; background: #94a3b8; border-radius: 2px; transition: 0.3s; }
+        .mobile-nav { display: none; background: #1e293b; padding: 16px 24px; flex-direction: column; gap: 12px; }
+        .mobile-nav a { color: #94a3b8; text-decoration: none; font-size: 0.95rem; padding: 8px 0; border-bottom: 1px solid #334155; }
+        .mobile-nav.open { display: flex; }
+        .mobile-cta-bar { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: var(--primary); z-index: 99; padding: 14px 24px; }
+        .mobile-cta-bar a { display: block; color: #fff; text-align: center; text-decoration: none; font-weight: 700; font-size: 1rem; }
+
+        /* HERO */
+        .hero { background: var(--dark); padding: 96px 0 80px; position: relative; overflow: hidden; }
+        .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 70% 50%, rgba(99,102,241,0.15) 0%, transparent 60%); }
+        .hero-content { position: relative; max-width: 780px; }
+        .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(239,68,68,0.15); border: 1px solid rgba(239,68,68,0.3); color: #fca5a5; padding: 6px 14px; border-radius: 100px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 24px; }
+        .hero-badge::before { content: ''; width: 8px; height: 8px; background: #ef4444; border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+        .hero h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 900; color: #fff; line-height: 1.15; letter-spacing: -1px; margin-bottom: 24px; }
+        .hero h1 em { color: var(--accent); font-style: normal; }
+        .hero p { font-size: 1.15rem; color: #94a3b8; line-height: 1.75; max-width: 680px; margin-bottom: 36px; }
+        .hero-cta { display: inline-flex; align-items: center; gap: 10px; background: var(--primary); color: #fff; padding: 16px 32px; border-radius: 10px; font-size: 1.05rem; font-weight: 700; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 20px rgba(99,102,241,0.4); }
+        .hero-cta:hover { background: var(--primary-dark); transform: translateY(-1px); box-shadow: 0 8px 28px rgba(99,102,241,0.5); }
+        .hero-attribution { margin-top: 20px; font-size: 0.75rem; color: #475569; }
+
+        /* SECTIONS */
+        section { padding: 80px 0; }
+        section.alt { background: var(--light); }
+        .section-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+        .section-title { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 800; letter-spacing: -0.5px; margin-bottom: 16px; }
+        .section-subtitle { font-size: 1.05rem; color: var(--gray); max-width: 620px; }
+
+        /* STAT CARDS */
+        .stat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+        .stat-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px 24px; transition: box-shadow 0.2s; }
+        .stat-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+        .stat-card .stat-number { font-size: 2.4rem; font-weight: 900; color: var(--danger); letter-spacing: -1px; line-height: 1; margin-bottom: 10px; }
+        .stat-card .stat-label { font-size: 0.95rem; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+        .stat-card .stat-desc { font-size: 0.875rem; color: var(--gray); line-height: 1.5; }
+        .stat-card .stat-source { font-size: 0.75rem; color: #94a3b8; margin-top: 10px; font-style: italic; }
+        .stat-closing { margin-top: 40px; padding: 24px 28px; background: #fff; border-left: 4px solid var(--primary); border-radius: 8px; font-size: 1rem; color: var(--dark); font-weight: 500; line-height: 1.7; }
+
+        /* ARGUMENT BLOCKS */
+        .arg-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 48px; }
+        .arg-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px 24px; }
+        .arg-card h3 { font-size: 1rem; font-weight: 700; color: var(--dark); margin-bottom: 12px; padding-bottom: 12px; border-bottom: 2px solid var(--accent); display: inline-block; }
+        .arg-card p { font-size: 0.925rem; color: var(--gray); line-height: 1.7; }
+
+        /* SOLUTION */
+        .solution-text { max-width: 760px; }
+        .solution-text p { font-size: 1rem; color: #334155; line-height: 1.8; margin-bottom: 18px; }
+        .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 40px; }
+        .feature-card { background: var(--dark); border-radius: 12px; padding: 28px 24px; color: #fff; }
+        .feature-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 10px; color: var(--accent); }
+        .feature-card p { font-size: 0.9rem; color: #94a3b8; line-height: 1.6; }
+
+        /* TESTIMONIALS */
+        .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 48px; }
+        .testimonial-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 28px 24px; }
+        .testimonial-card blockquote { font-size: 0.95rem; color: #334155; line-height: 1.7; font-style: italic; margin-bottom: 20px; }
+        .testimonial-card blockquote::before { content: '\201C'; font-size: 2rem; color: var(--primary); line-height: 0; vertical-align: -0.4em; margin-right: 4px; }
+        .testimonial-meta strong { display: block; font-size: 0.9rem; color: var(--dark); font-weight: 700; }
+        .testimonial-meta span { font-size: 0.8rem; color: var(--gray); }
+
+        /* CTA SECTION */
+        .cta-section { background: var(--dark); }
+        .cta-section .section-title { color: #fff; }
+        .cta-section .section-subtitle { color: #94a3b8; }
+        .cta-form { display: flex; gap: 12px; margin-top: 32px; max-width: 480px; }
+        .cta-form input[type=email] { flex: 1; padding: 14px 18px; border: 2px solid #334155; border-radius: 8px; background: #1e293b; color: #fff; font-size: 1rem; outline: none; }
+        .cta-form input[type=email]::placeholder { color: #64748b; }
+        .cta-form input[type=email]:focus { border-color: var(--primary); }
+        .cta-form button { background: var(--primary); color: #fff; border: none; padding: 14px 24px; border-radius: 8px; font-size: 0.95rem; font-weight: 700; cursor: pointer; white-space: nowrap; transition: background 0.2s; }
+        .cta-form button:hover { background: var(--primary-dark); }
+        .cta-link { display: block; margin-top: 16px; font-size: 0.9rem; color: #64748b; }
+        .cta-link a { color: var(--accent); text-decoration: none; }
+        .cta-link a:hover { text-decoration: underline; }
+
+        /* CROSS-LINKS */
+        .crosslink-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 48px; }
+        .crosslink-box { background: rgba(99,102,241,0.06); border: 1px solid rgba(99,102,241,0.2); border-radius: 10px; padding: 20px 24px; }
+        .crosslink-box a { text-decoration: none; color: var(--primary); font-weight: 600; font-size: 0.95rem; display: flex; align-items: center; gap: 8px; }
+        .crosslink-box a:hover { color: var(--primary-dark); }
+        .crosslink-box p { font-size: 0.82rem; color: var(--gray); margin-top: 4px; }
+
+        /* FOOTER */
+        footer { background: var(--dark); color: #64748b; padding: 64px 0 32px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-bottom: 48px; }
+        .footer-logo { color: #fff; font-weight: 800; font-size: 1.1rem; margin-bottom: 10px; }
+        .footer-tagline { font-size: 0.875rem; color: #64748b; line-height: 1.6; margin-bottom: 20px; }
+        .social-links { display: flex; gap: 12px; }
+        .social-links a { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #1e293b; border-radius: 8px; color: #64748b; text-decoration: none; font-size: 0.8rem; transition: 0.2s; }
+        .social-links a:hover { background: #334155; color: #fff; }
+        .footer-col h4 { color: #94a3b8; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: #64748b; text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+        .footer-col ul li a:hover { color: #94a3b8; }
+        .footer-newsletter { display: flex; gap: 8px; margin-top: 12px; }
+        .footer-newsletter input { flex: 1; padding: 10px 14px; background: #1e293b; border: 1px solid #334155; border-radius: 8px; color: #fff; font-size: 0.875rem; outline: none; }
+        .footer-newsletter input::placeholder { color: #475569; }
+        .footer-newsletter button { background: var(--primary); color: #fff; border: none; padding: 10px 16px; border-radius: 8px; font-size: 0.875rem; font-weight: 600; cursor: pointer; white-space: nowrap; }
+        .footer-bottom { border-top: 1px solid #1e293b; padding-top: 28px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+        .footer-bottom p { font-size: 0.8rem; }
+        .footer-bottom-links { display: flex; gap: 20px; }
+        .footer-bottom-links a { color: #475569; text-decoration: none; font-size: 0.8rem; }
+        .footer-bottom-links a:hover { color: #94a3b8; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .hamburger { display: flex; }
+            .mobile-cta-bar { display: block; }
+            body { padding-bottom: 60px; }
+            .stat-grid { grid-template-columns: 1fr; }
+            .arg-grid { grid-template-columns: 1fr; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .testimonial-grid { grid-template-columns: 1fr; }
+            .crosslink-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .cta-form { flex-direction: column; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .stat-grid { grid-template-columns: repeat(2, 1fr); }
+            .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="container">
+        <div class="nav-inner">
+            <a href="/" class="logo">AI<span>Hustle</span></a>
+            <nav>
+                <a href="/">Home</a>
+                <a href="/index.html#pricing">Programs</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/index.html">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#email-capture" class="nav-cta">Take the Free Risk Assessment</a>
+            </nav>
+            <button class="hamburger" onclick="document.querySelector('.mobile-nav').classList.toggle('open')" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+    <div class="mobile-nav">
+        <a href="/">Home</a>
+        <a href="/index.html#pricing">Programs</a>
+        <a href="/blog.html">Blog</a>
+        <a href="/index.html">About</a>
+        <a href="#contact">Contact</a>
+    </div>
+</header>
+<div class="mobile-cta-bar">
+    <a href="#email-capture">Take the Free AI Job Risk Assessment</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">AI Job Displacement Alert</div>
+            <h1>Your Job Is Already Being Replaced —<br><em>You Just Haven't Been Told Yet</em></h1>
+            <p>In the first half of 2025 alone, nearly 78,000 tech jobs were eliminated due to AI adoption. Wall Street banks are planning to cut 200,000 roles. And companies across every industry are quietly shifting budgets from labor to automation. The question isn't whether AI will affect your career. It's whether you'll be the one displaced — or the one who builds what comes next.</p>
+            <a href="#email-capture" class="hero-cta">Take the Free AI Job Risk Assessment →</a>
+            <p class="hero-attribution">Sources: Industry layoff tracking data &nbsp;|&nbsp; Banking sector workforce projections &nbsp;|&nbsp; VC survey data on AI budget shifts</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 2: EVIDENCE -->
+<section>
+    <div class="container">
+        <div class="section-label">The Data</div>
+        <h2 class="section-title">This Isn't a Prediction. It's Already Happening.</h2>
+        <p class="section-subtitle">The numbers from independent research are alarming — and they're only moving in one direction.</p>
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="stat-number">-13%</div>
+                <div class="stat-label">Repetitive-Role Job Postings</div>
+                <div class="stat-desc">Job postings for structured, repetitive-task roles dropped 13% after ChatGPT launched. Meanwhile, demand for analytical and technical roles grew 20%. The jobs disappearing are the ones most people currently hold.</div>
+                <div class="stat-source">Harvard Business School — US job vacancies through March 2025</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1 in 6</div>
+                <div class="stat-label">Employers Planning Headcount Cuts</div>
+                <div class="stat-desc">About 1 in 6 employers expect AI to reduce their headcount in 2026. Among large private-sector firms, that number rises to 1 in 4. These are not projections — they are active plans with budget allocations behind them.</div>
+                <div class="stat-source">Workforce planning surveys, 2025</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">Now</div>
+                <div class="stat-label">Jobs Lost Before AI Even Performs</div>
+                <div class="stat-desc">Companies are laying off workers based on AI's potential, not its proven performance. Job losses are real even where AI hasn't yet delivered. You can lose your job to AI before AI can actually do your job.</div>
+                <div class="stat-source">Harvard Business Review analysis</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2026</div>
+                <div class="stat-label">The Budget Shift Year</div>
+                <div class="stat-desc">Multiple enterprise VCs predict 2026 is the year companies meaningfully shift budget from labor to AI. One investor stated AI will become "the scapegoat for executives looking to cover for past mistakes" — meaning you can lose your job even where AI isn't working yet.</div>
+                <div class="stat-source">TechCrunch VC survey, 2025</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">11.7%</div>
+                <div class="stat-label">US Workforce Replaceable Today</div>
+                <div class="stat-desc">An MIT study estimated 11.7% of the total US workforce — more than 1 in 10 workers — could already be replaced by AI at current capability levels. That number increases with every model update.</div>
+                <div class="stat-source">MIT economic research, 2025</div>
+            </div>
+            <div class="stat-card" style="background: linear-gradient(135deg, #0f172a, #1e293b); border-color: #334155;">
+                <div class="stat-number" style="color: var(--accent);">Every<br>Industry</div>
+                <div class="stat-label" style="color: #e2e8f0;">No Sector Is Safe</div>
+                <div class="stat-desc" style="color: #94a3b8;">Finance, marketing, legal, HR, admin, customer service, content, data analysis — the disruption is not limited to one field. It is a structural shift across the entire economy.</div>
+            </div>
+        </div>
+        <div class="stat-closing">
+            This is not about one industry or one type of job. It is a structural shift affecting the entire labor market, and it is accelerating. The people who will be fine are the ones who stop waiting and start building.
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 3: WHY WAITING IS EXPENSIVE -->
+<section class="alt">
+    <div class="container">
+        <div class="section-label">The Hard Truth</div>
+        <h2 class="section-title">Why Waiting Is the Most Expensive Decision You Can Make</h2>
+        <p class="section-subtitle">There is no "ideal time" to act on this. Every month you wait, the math gets worse.</p>
+        <div class="arg-grid">
+            <div class="arg-card">
+                <h3>"AI doesn't plateau — it compounds."</h3>
+                <p>Every major AI model released in the past 18 months has been significantly more capable than the one before it. The tasks AI couldn't do last year, it can do this year. The tasks it struggles with today, it will handle by next year. Your job security erodes with every model update — and the updates are coming faster than ever.</p>
+            </div>
+            <div class="arg-card">
+                <h3>"Companies have financial incentive to replace you."</h3>
+                <p>Corporate leadership is under constant pressure to reduce costs and increase margins. AI offers a way to do both simultaneously. An AI tool that costs $200/month and works 24/7 will always be chosen over a $75,000/year employee — the moment the AI can perform at 80% of the employee's capability. That threshold is being crossed in industry after industry.</p>
+            </div>
+            <div class="arg-card">
+                <h3>"The job market is already frozen."</h3>
+                <p>Even for people who still have jobs, the fallback plan of "I'll just find another one" is breaking down. Job postings are declining, applicant counts per posting are exploding, and many companies have implemented quiet hiring freezes while they figure out their AI strategy. The safety net of "I can always get another corporate job" is fraying.</p>
+            </div>
+            <div class="arg-card">
+                <h3>"Entry-level is disappearing first — and mid-level is next."</h3>
+                <p>Companies are eliminating entry-level positions because AI can now handle the tasks those roles were designed for. This creates a pipeline problem: fewer entry-level workers being trained means companies will increasingly use AI for mid-level tasks too — not because AI is better, but because there is no one being groomed to fill those seats.</p>
+            </div>
+        </div>
+
+        <!-- Cross-link callout -->
+        <div class="crosslink-grid" style="margin-top: 48px;">
+            <div class="crosslink-box">
+                <a href="/ai-side-hustle.html">Ready to start building? See the 5 most accessible AI income streams →</a>
+                <p>The same AI displacing jobs is creating new income opportunities for those who move first.</p>
+            </div>
+            <div class="crosslink-box">
+                <a href="/learn-ai-or-lose.html">AI skills are the new job security. See which ones matter most →</a>
+                <p>The professionals learning these tools now are the ones who will have options later.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 4: SOLUTION -->
+<section>
+    <div class="container">
+        <div class="section-label">The Opportunity</div>
+        <h2 class="section-title">The Same AI Replacing Jobs Is Creating Fortunes.<br>Here's How to Be on the Right Side.</h2>
+        <div class="solution-text" style="margin-top: 32px;">
+            <p>AI is not just eliminating jobs. It is also eliminating the barriers that used to make entrepreneurship hard. The skills, capital, and time that used to be required to start a business have been dramatically compressed by AI tools. What used to take a team of 10 people and $50,000 can now be done by one person with the right AI stack and a few hundred dollars.</p>
+            <p>The AI Hustle program teaches you exactly how to use AI tools to build real income streams — not theoretical "someday" businesses, but concrete, revenue-generating projects you can start while you still have a paycheck. Whether that's AI-powered content creation, AI-assisted eCommerce, building micro-SaaS tools, or launching digital products, the program gives you the frameworks, tools, and step-by-step guidance to go from "I'm worried about AI" to "I'm making money with AI."</p>
+            <p>The irony is that the people most at risk of being displaced by AI are also the people best positioned to use it — because they already understand the workflows and problems that AI is being applied to. Your corporate experience is not a liability. It is the competitive advantage that most aspiring entrepreneurs do not have.</p>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>AI Tool Mastery</h3>
+                <p>Learn to use the specific tools — not just ChatGPT, but the full ecosystem — that generate real revenue, with step-by-step implementation guides for each one.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Income Stream Blueprints</h3>
+                <p>Proven business models that work with AI, including which ones match your skills, budget, and time availability. No guessing. No wasted starts.</p>
+            </div>
+            <div class="feature-card">
+                <h3>The Launch Sprint</h3>
+                <p>A structured program to get your first AI-powered income stream from zero to revenue in weeks, not months. Built for people who still have a day job.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Community and Support</h3>
+                <p>Access to a community of people making the same transition, plus mentorship from people who have already done it. You are not figuring this out alone.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 5: TESTIMONIALS -->
+<section class="alt">
+    <div class="container">
+        <div class="section-label">Real Results</div>
+        <h2 class="section-title">From Corporate Risk to AI Income</h2>
+        <!-- PLACEHOLDER: Replace with real testimonials before launch -->
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <blockquote>I was a marketing manager watching my team get cut in half. Six months after joining AI Hustle, I'm earning more from my AI content business than I ever did in corporate — and I work 25 hours a week.</blockquote>
+                <div class="testimonial-meta">
+                    <strong>Sarah M.</strong>
+                    <span>Former Marketing Manager</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <blockquote>My manager demoed an AI tool that does my weekly report in 10 minutes. I took that as a sign. Three months later I have an AI automation consulting side business doing $3K/month.</blockquote>
+                <div class="testimonial-meta">
+                    <strong>David K.</strong>
+                    <span>Former Financial Analyst</span>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <blockquote>I knew my department was being automated. Instead of waiting to be laid off, I joined AI Hustle and built an AI-powered recruiting consulting practice. Best decision I ever made.</blockquote>
+                <div class="testimonial-meta">
+                    <strong>Jennifer L.</strong>
+                    <span>Former HR Director</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 6: CTA / LEAD CAPTURE -->
+<section class="cta-section" id="contact">
+    <div class="container">
+        <div class="section-label" style="color: var(--accent);">Free Assessment</div>
+        <h2 class="section-title">Find Out How Exposed Your Job Really Is</h2>
+        <p class="section-subtitle">Take the free 2-minute AI Job Risk Assessment. You'll get a personalized risk score for your specific role and industry — plus a recommended action plan based on where you stand.</p>
+        <form id="email-capture" action="#" method="post">
+            <div class="cta-form">
+                <input type="email" name="email" placeholder="Enter your email address" required>
+                <button type="submit">Get My Risk Score</button>
+            </div>
+        </form>
+        <p class="cta-link">Or <a href="/index.html#pricing">explore the full AI Hustle program →</a></p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo">AI Hustle</div>
+                <p class="footer-tagline">Stop trading time for money. Start building AI-powered income.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter/X">𝕏</a>
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="YouTube">YT</a>
+                    <a href="#" aria-label="LinkedIn">in</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Landing Pages</h4>
+                <ul>
+                    <li><a href="/ai-replacing-jobs.html">AI Replacing Jobs</a></li>
+                    <li><a href="/salary-not-enough.html">Salary Not Enough</a></li>
+                    <li><a href="/corporate-burnout.html">Corporate Burnout</a></li>
+                    <li><a href="/ai-side-hustle.html">AI Side Hustle</a></li>
+                    <li><a href="/learn-ai-or-lose.html">Learn AI or Lose</a></li>
+                    <li><a href="/index.html#pricing">Programs</a></li>
+                    <li><a href="/blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Stay in the Loop</h4>
+                <p style="font-size:0.85rem; margin-bottom: 12px;">Weekly AI income strategies. No spam.</p>
+                <div class="footer-newsletter">
+                    <input type="email" placeholder="your@email.com">
+                    <button type="button">Subscribe</button>
+                </div>
+                <ul style="margin-top: 20px;">
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 AI Hustle | AdvancedMedias. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="/privacy.html">Privacy</a>
+                <a href="/terms.html">Terms</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
