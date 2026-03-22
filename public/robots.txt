@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://ai-hustle.advancedmedias.com/sitemap.xml
+Sitemap: https://ai-hustle.secondworldenterprises.com/sitemap.xml
 
 # Disallow member and admin areas only
 Disallow: /member/
